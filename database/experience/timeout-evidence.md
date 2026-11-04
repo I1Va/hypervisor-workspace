@@ -18,5 +18,5 @@ fresh bytes. With no counter or a silent console, COM1 power gating or another
 observation failure can hide guest progress. The correct verdict is `unknown`;
 a timeout and silent serial alone do not justify resetting the machine.
 
-The `dbg_run` and `dbg_suite` timeout paths use this same distinction. Inspect
+The `dbg_run` timeout path uses this same distinction. Inspect
 status and other available evidence before choosing a recovery action.

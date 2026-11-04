@@ -20,7 +20,7 @@ Agent restrictions are in `agent_restrictions.md`; they are loaded by OpenCode c
 ## The loop
 
 ```
-edit hypervisor -> build -> dbg_boot -> dbg_run -> dbg_technique / dbg_suite
+edit hypervisor -> build -> dbg_boot -> dbg_run -> dbg_technique
 ```
 
 Build: `cd hypervisor/efi-superrepo && NO_DOCKER=1 ./PulverizedPkg/build.sh`.

@@ -20,7 +20,6 @@ now wrong (see "Why the old scripts are not used" below).
 | `dbg_run` | One shell command on the guest. ~0.3 s, not 8-35 s. |
 | `dbg_log` | Debug serial capture, with `grep` and an incremental `cursor`. |
 | `dbg_technique` | One VMAware technique in isolation, with its score. |
-| `dbg_suite` | The whole VMAware suite. |
 | `dbg_firmware` | Ask the Arduino for its version. |
 
 ## The rule that matters most
@@ -47,7 +46,7 @@ idle. The heartbeat plus the network is the evidence.
 1. `dbg_status`. Act on the verdict; do not run anything else first.
 2. If `booting`, wait. If `off`, `dbg_power on`. If `wedged`, `dbg_power reset`.
 3. Build before testing. `dbg_boot` refuses a stale image on purpose.
-4. After a change: `dbg_boot`, then `dbg_run`, then `dbg_technique` or `dbg_suite`.
+4. After a change: `dbg_boot`, then `dbg_run`, then `dbg_technique`.
 
 ## Why the old scripts are not used
 

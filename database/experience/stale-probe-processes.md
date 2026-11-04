@@ -38,9 +38,9 @@ overhead.
 
 ## Fix
 
-Kill leftovers before every measurement. `dbg_technique` and `dbg_suite` do this
-as their first step, and report the count in the `killed` field, so a contaminated
-environment is visible in the result rather than silently inherited.
+Kill leftovers before every measurement. `dbg_technique` does this as its first
+step and reports the count in the `killed` field, so a contaminated environment
+is visible in the result rather than silently inherited.
 
 ## Residual risk
 

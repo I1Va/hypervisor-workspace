@@ -45,7 +45,7 @@ A `vmaware.exe` left spinning from an earlier run keeps the guest at roughly
 100x normal command latency. Observed: 35 s per SSH command with two leftovers,
 122 ms after killing them.
 
-`dbg_technique` and `dbg_suite` kill leftovers first, because otherwise the next
+`dbg_technique` kills leftovers first, because otherwise the next
 measurement is contaminated by the previous one.
 
 ## The general lesson

@@ -39,7 +39,7 @@ the timing line says.
 
 ## Fix
 
-`suite` now returns `verdict: inconclusive` with an explicit explanation when the
+`suite` was changed to return `verdict: inconclusive` with an explicit explanation when the
 result file has no technique lines, instead of `clean`. The verdict values are
 deliberately distinct so a caller cannot mistake one for the other.
 
@@ -48,6 +48,7 @@ therefore reports the score itself rather than a thresholded boolean.
 
 ## Residual risk
 
-The suite remains useful for "did anything change" only when it produces lines.
-Until the TUI capture limitation is worked around, `dbg_technique` is the
-authoritative source for a score, and `dbg_suite` is a smoke test.
+**The suite tool has since been removed.** It could not produce a trustworthy
+verdict and cost 20+ minutes per run, so `dbg_technique` is the only measurement
+path. The reasoning above still explains why a full-suite run must never be read
+as a pass.

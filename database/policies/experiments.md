@@ -19,11 +19,11 @@ Record when **any** of these is true:
 - a hang, panic or wedge was reproduced,
 - a change was reverted because it made things worse.
 
-Do not record routine greens: "suite ran, nothing detected, nothing changed"
+Do not record routine greens: "technique ran, nothing changed"
 belongs in the conversation, not the archive.
 
 Records are written **only when asked** - the harness returns results, it does
-not write history by itself. `dbg_technique` and `dbg_suite` hand back
+not write history by itself. `dbg_technique` hands back
 everything needed; turning that into a record is a deliberate act.
 
 ## Required frontmatter
@@ -36,7 +36,7 @@ date: 2026-11-04
 commit: db8b0ab            # PulverizedPkg HEAD that was actually served
 vmaware: v2.8.2-56-gc8092c6 # from the tool's vmaware_rev field
 boot_id: 7                  # which boot produced this, from the tool
-technique: HYPERVISOR_HOOK  # or "suite"
+technique: HYPERVISOR_HOOK
 result: fires:100           # clean | fires:N | timeout | wedged | panic | inconclusive
 phase_at_failure: desktop
 verdict_source: dbg_technique
