@@ -11,7 +11,3 @@ hypervisor/efi-superrepo/Serve/
 
 # Editor / OS noise.
 .DS_Store
-
-# Large vendor PDFs. Kept locally for reference; the registry names them but the
-# bytes are not versioned (20 MB binary in history costs every clone, forever).
-database/reference/*.pdf

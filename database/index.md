@@ -47,4 +47,3 @@ use the live documents above.
 | Item | Purpose | Path |
 |---|---|---|
 | VMAware | The detection tool under test, vendored and pinned | `materials/VMAware/` |
-| Z97-WS manual | Motherboard reference for stand wiring | `reference/E12543b_Z97-WS_UM_V2_WEB.pdf` |
