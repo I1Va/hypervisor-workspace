@@ -76,6 +76,11 @@ database/experiments/2026-11-04-ept-hook-mtf/
 └── result.txt
 ```
 
+**Screenshots never go into the record.** Capture the screen with
+`dbg_screenshot`, which sends the image to a vision model and returns text;
+store that text. Opening an image in the main session can interrupt it, so the
+image itself is discarded after description (see `agent_restrictions.md`).
+
 Extract the relevant window from the serial log rather than committing a
 megabyte of heartbeats. The tool's `cursor` makes this easy: note the cursor
 before and after, and keep only that slice.
