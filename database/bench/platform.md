@@ -45,8 +45,9 @@ The Arduino drives:
 - a **sense input** on the motherboard power LED (pin 4).
 
 The firmware speaks a line protocol at 9600 baud; see
-`dtb-firmware/arduino.c` for the command set. `power_off` requires firmware v2
-(the button must be held ~6 s for ATX to latch off).
+The firmware source lives in `control/dtb/firmware/arduino.c` (the stand's
+hardware layer, next to the daemon that drives it). `power_off` requires firmware
+v2: ATX needs the button held ~6 s to latch off.
 
 ## Rules that come from the hardware
 

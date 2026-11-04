@@ -23,6 +23,7 @@ Read this file first, pick the smallest match, then read only that.
 
 | topic | description | path |
 |---|---|---|
+| repository-layout | The two halves of the repo, the closed boundary, submodule rules | `policies/repository.md` |
 | documentation | Four documentation levels, where a fact goes, superseding rules | `policies/documentation.md` |
 | experiment-recording | What makes a measurement a record, required frontmatter | `policies/experiments.md` |
 | experience-accumulation | When a misleading symptom becomes a written lesson | `policies/experience.md` |

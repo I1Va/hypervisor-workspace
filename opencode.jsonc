@@ -4,6 +4,7 @@
     "database/policies/documentation.md",
     "database/policies/experiments.md",
     "database/policies/experience.md",
+    "database/policies/repository.md",
   ],
   "mcp": {
     "servers": {

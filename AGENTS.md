@@ -6,6 +6,20 @@ pass criterion is that VMAware does not detect it.
 This file is a router. It holds only what must never be missed; everything else
 lives in `database/` and is read on demand.
 
+## Repository layout
+
+The repository has two halves, and the boundary is enforced rather than agreed:
+
+| Directory | Access | Contains |
+|---|---|---|
+| `workspace/` (this tree) | open - read and edit | instructions, knowledge base, hypervisor source, legacy scripts |
+| `control/` | **closed** - use its tools, do not read it | stand daemon, Arduino firmware, session supervisor |
+
+`control/` is denied to `read` in `opencode.jsonc`. Do not work around that: it
+exists so the hardware daemon stays the single owner of the serial ports and the
+SSH master. When you need something from it, ask its interface:
+`control/dtb/dtbctl <command>` or the `dbg_*` tools.
+
 ## Non-negotiables
 
 1. **Never launch the simulator.** Testing happens on the DTB.
@@ -50,6 +64,7 @@ three documents that match, not the whole tree.
   superseded.
 - `database/policies/experiments.md` - what makes a result a result.
 - `database/policies/experience.md` - when to write a lesson down.
+- `database/policies/repository.md` - the open/closed split and submodule rules.
 
 ## Retrieval discipline
 
