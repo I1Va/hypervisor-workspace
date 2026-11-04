@@ -52,7 +52,12 @@ Rules:
 
 ## Legacy `tools/`
 
-`workspace/tools/` is what the harness replaced. It is kept because the guest-side
-PowerShell scripts are still used by the daemon, but the Python entry points are
-gone: they were slow, and two of them were broken. Do not add new scripts there;
-add a `control/dtb` command and expose it as a `dbg_*` tool.
+`workspace/tools/` is what the harness replaced. The Python entry points are gone:
+they were slow, and two of them were broken. The scripts still there are manual
+diagnostics a human may run by hand.
+
+The daemon does **not** read from this directory. The scripts it uploads live in
+`control/dtb/guest_scripts/`, because they execute with the daemon's authority and
+an agent-editable copy would let the workspace change what is measured. If a
+helper is needed for regular operation, put it in `control/` and expose it as a
+`dbg_*` tool - never in `workspace/tools/`.
