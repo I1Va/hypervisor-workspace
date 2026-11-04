@@ -17,6 +17,9 @@ These rules apply to the main agent throughout its work. The dedicated
    must use an image-analysis tool. For a DTB screenshot, call `dbg_screenshot`
    with the question; use its returned text. If an appropriate tool is unavailable
    or fails, report the limitation instead of opening the image directly.
+   **Exemption:** the `dtb-vision` agent exists solely to describe an image
+   supplied to it by `dbg_screenshot`. That is the image-analysis tool, not the
+   main session, so this rule does not forbid it from reading the image.
 8. Before reading documentation, identify the smallest relevant document using
    `database/index.md`. If four documents are needed for one question, fix the
    documentation as part of the task. Never re-read a document already cited in
