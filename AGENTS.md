@@ -8,12 +8,17 @@ lives in `database/` and is read on demand.
 
 ## Repository layout
 
-The repository has two halves, and the boundary is enforced rather than agreed:
+The repository has two halves. Both are readable and editable by the agent; the
+boundary that remains is hardware ownership.
 
 | Directory | Access | Contains |
 |---|---|---|
 | `workspace/` (this tree) | open - read and edit | instructions, knowledge base, hypervisor source, legacy scripts |
-| `control/` | **closed** - use its tools, do not read it | stand daemon, Arduino firmware, session supervisor |
+| `control/` | open - read and edit | stand daemon, Arduino firmware, session supervisor |
+
+Only `dtbd` may open the serial ports or hold the SSH master. Read and edit
+`control/` freely - a broken tool is yours to fix - but operate the stand through
+the `dbg_*` tools rather than becoming a second hardware owner.
 
 Agent restrictions are in `agent_restrictions.md`; they are loaded by OpenCode configuration and must be followed.
 
@@ -47,5 +52,5 @@ three documents that match, not the whole tree.
   superseded.
 - `database/policies/experiments.md` - what makes a result a result.
 - `database/policies/experience.md` - when to write a lesson down.
-- `database/policies/repository.md` - the open/closed split and submodule rules.
+- `database/policies/repository.md` - the `workspace`/`control` split and submodule rules.
 

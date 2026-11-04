@@ -37,16 +37,6 @@
   },
   "permissions": [
     {
-      "action": "read",
-      "resource": "/home/iabrutin/Work/agent-projects/control/**",
-      "effect": "deny",
-    },
-    {
-      "action": "read",
-      "resource": "**/control/**",
-      "effect": "deny",
-    },
-    {
       "action": "shell",
       "resource": "* /dev/ttyUSB*",
       "effect": "deny",

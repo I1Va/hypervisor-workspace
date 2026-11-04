@@ -6,7 +6,8 @@ These rules apply to the main agent throughout its work. The dedicated
 1. Never launch the simulator. Testing happens on the physical DTB.
 2. Control the stand only through `dbg_*` tools. Do not open serial ports,
    call SSH directly, or use the old `tools/*.py` scripts. The daemon owns the
-   hardware and SSH master. Do not work around the `control/` read restriction.
+   hardware and SSH master. Reading and editing `control/` is allowed; competing
+   with the daemon for the serial port or the SSH master is not.
 3. Never infer state that can be read. Call `dbg_status` first.
 4. A timeout is not a failure until the verdict says so: `slow` means wait,
    `wedged` means reset. Do not reset a machine that is still `booting`.

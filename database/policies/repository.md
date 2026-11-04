@@ -13,9 +13,9 @@ between code that must stay deterministic and code the agent may rewrite.
 | Directory | Access | Holds |
 |---|---|---|
 | `workspace/` | open: read and edit | instructions, knowledge base, hypervisor source, legacy scripts |
-| `control/` | **closed**: use its interface, never read it | stand daemon, Arduino firmware, session supervisor |
+| `control/` | open: read and edit | stand daemon, Arduino firmware, session supervisor |
 
-## Why the boundary is enforced
+## Why the split exists
 
 `control/` owns state that cannot be reconstructed from outside:
 
@@ -24,16 +24,21 @@ between code that must stay deterministic and code the agent may rewrite.
 - an SSH master socket - one handshake instead of one per command,
 - which boot a serial log line belongs to.
 
-To avoid conflicting hardware owners, the agent must not read `control/**` or
-open the ports and SSH connection directly. Use the DTB MCP interface:
+The rule is about *hardware ownership*, not about reading. The agent may read and
+edit `control/` - it may need to fix a tool that is not ready. What it must not do
+is become a second hardware owner: no opening the serial ports, no direct SSH
+connection, no second daemon. Those are the daemon's, and a competing opener
+reboots the board or breaks the master.
+
+Operate the stand through the DTB MCP interface:
 
 - `dbg_describe` returns the daemon's current command contract.
 - `dbg_status` returns the current stand state; call it before stand work.
 - Use the other `dbg_*` tools to operate the stand.
 
-If these tools are unavailable, report the unavailable MCP interface rather than
-trying to execute the control-side CLI from the agent workspace. The human-facing
-`dtbctl` CLI is in the sibling `control/` directory; it is not an agent tool.
+If a tool is missing or wrong, fixing `control/` is in scope. After changing
+daemon code, restart the daemon (`control/dtb/dtbctl restart`) - but never while a
+long command is running, because that command's outcome is then unknown.
 
 ## Submodules
 
