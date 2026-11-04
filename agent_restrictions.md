@@ -21,3 +21,6 @@ These rules apply to the main agent throughout its work. The dedicated
    `database/index.md`. If four documents are needed for one question, fix the
    documentation as part of the task. Never re-read a document already cited in
    the same session.
+9. Debug printing, especially serial output in the hypervisor's hot path, can
+   slow the DTB significantly and distort timing-sensitive tests. Keep logging
+   minimal and account for its overhead when interpreting slow runs.

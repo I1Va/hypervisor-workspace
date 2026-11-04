@@ -16,7 +16,8 @@ Read this file first, pick the smallest match, then read only that.
 | stale-boot-server | experience | A stale HTTP server held the boot port, served 404, and the machine sat in firmware | `experience/stale-boot-server.md` |
 | empty-suite-is-not-clean | experience | A suite that ran 669 s and recorded nothing was reported as clean | `experience/empty-suite-is-not-clean.md` |
 | com1-power-gating | experience | Serial stops after Windows starts; COM1 goes to D3 | `experience/com1-power-gating.md` |
-| detecting-a-wedge | experience | Telling a slow guest from a wedged one, and why the old probe could not | `experience/detecting-a-wedge.md` |
+| detecting-a-wedge | experience | Historical diagnosis; its frozen-heartbeat conclusion is superseded by false-wedge-from-silent-console and timeout-evidence | `experience/detecting-a-wedge.md` |
+| timeout-evidence | experience | Timeout verdicts require observable heartbeat evidence; supersedes unsafe reset advice in earlier records | `experience/timeout-evidence.md` |
 | vmaware-measurement-traps | experience | `-d` vs `--percent`, unknown technique names, TUI output vanishing | `experience/vmaware-measurement-traps.md` |
 | stale-probe-processes | experience | A leftover `vmaware.exe` makes the whole stand look hung | `experience/stale-probe-processes.md` |
 | nmi-window-storm | experience | Fabricated NMIs caused an exit storm that looked like a hang | `experience/nmi-window-storm.md` |

@@ -47,7 +47,11 @@ thread ever runs.
 
 The old `probe.py` (a bare TCP connect to :22) was replaced with the `dtbd`
 state machine, which combines the heartbeat with the network state and reports
-`ready` / `booting` / `wedged` / `hung`.
+`ready` / `booting` / `wedged` / `unknown`.
+
+**Superseded in part.** A frozen heartbeat is only evidence when the console is
+still fresh; a silent console makes it unobservable. See
+`false-wedge-from-silent-console.md` and `timeout-evidence.md`.
 
 ## Residual risk
 

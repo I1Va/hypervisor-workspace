@@ -24,18 +24,16 @@ between code that must stay deterministic and code the agent may rewrite.
 - an SSH master socket - one handshake instead of one per command,
 - which boot a serial log line belongs to.
 
-If the agent could read that code it would be tempted to "just" open the port or
-call ssh directly, and two owners of the hardware reboot the Arduino against each
-other. So `read` on `control/**` is denied in `opencode.jsonc`, and the interface
-is the only way in:
+To avoid conflicting hardware owners, the agent must not read `control/**` or
+open the ports and SSH connection directly. Use the DTB MCP interface:
 
-```sh
-control/dtb/dtbctl describe    # the contract, served at runtime
-control/dtb/dtbctl status      # current state
-```
+- `dbg_describe` returns the daemon's current command contract.
+- `dbg_status` returns the current stand state; call it before stand work.
+- Use the other `dbg_*` tools to operate the stand.
 
-The contract is served rather than documented precisely so it cannot drift from
-behaviour.
+If these tools are unavailable, report the unavailable MCP interface rather than
+trying to execute the control-side CLI from the agent workspace. The human-facing
+`dtbctl` CLI is in the sibling `control/` directory; it is not an agent tool.
 
 ## Submodules
 

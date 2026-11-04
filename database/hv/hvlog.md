@@ -31,11 +31,12 @@ Printed from the preemption-timer exit, once per 64 ticks. The timer only
 **counts guest execution**, so:
 
 - heartbeat advancing → the guest is running,
-- heartbeat frozen → the guest has stopped executing, even if the network still
-  answers.
+- heartbeat frozen with a fresh console → the guest may have stopped executing;
+  a silent console makes the heartbeat unobservable.
 
-This single property is what `dtbd` uses to tell `slow` from `wedged`. It is the
-most useful line in the log.
+`dtbd` combines this signal with console freshness when assessing a timeout.
+If the console is silent or a counter is missing, it reports `unknown` rather
+than inferring a wedge.
 
 ## Other markers
 
@@ -71,8 +72,8 @@ produced 5 MB, which at that baud rate is about seven minutes of busy-waiting.
 
 So: serial is on during boot, off after `ExitBootServices`, on for `PANIC`, and
 on for one heartbeat line per 64 ticks. Bytes are rationed against guest
-progress (`HvLogNoteGuestProgress`), which means the tracer can never starve the
-machine it is tracing.
+progress (`HvLogNoteGuestProgress`) to limit tracing overhead. Debug output can
+still slow the guest significantly and affect timing-sensitive tests.
 
 ## Reading it through the harness
 

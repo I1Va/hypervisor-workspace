@@ -34,7 +34,7 @@ only advances while the guest executes:
 |---|---|---|
 | `slow` | timed out, heartbeat advanced | retry with a longer timeout, or reduce logging/load |
 | `wedged` | timed out, heartbeat frozen, kernel alive | nothing will improve by waiting; `dbg_power reset` |
-| `hung` | no network and no console progress | check the LED, then `dbg_power cycle` |
+| `unknown` | nothing can be observed (no network, silent console) | inspect LED, boot server, keepalive; do **not** power cycle on this alone |
 | `ready` | ssh shell available | proceed |
 | `booting` | coming up | **wait. Do not reset a booting machine.** |
 | `panic` | hypervisor said why on the console | `dbg_log --grep PANIC` |
