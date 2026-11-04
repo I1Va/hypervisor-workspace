@@ -20,10 +20,13 @@ PASS="user"
 SSH_OPTS=(-p 22 -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null)
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# The guest scripts are owned by the harness, not by this directory: they run
+# with the daemon's authority, so a copy here would drift from what it ships.
+SCRIPTS="$HERE/../../control/dtb/guest_scripts"
 
 # Push the latest copies: the guest keeps its own, and they must match.
 sshpass -p "$PASS" scp "${SSH_OPTS[@]}" \
-    "$HERE/com1_keepalive.ps1" "$HERE/com1_launch.ps1" \
+    "$SCRIPTS/com1_keepalive.ps1" "$SCRIPTS/com1_launch.ps1" \
     "$USER_NAME@$HOST:C:/Users/$USER_NAME/" >/dev/null 2>&1
 
 # Start it, then report whether the port is actually held.
