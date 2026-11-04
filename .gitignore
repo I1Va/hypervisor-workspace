@@ -1,0 +1,17 @@
+# Runtime artifacts, never source.
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Build output of the hypervisor packages. The submodule owns its own ignore
+# rules for this, but a stray build here must not be committed by accident.
+hypervisor/efi-superrepo/Build/
+hypervisor/efi-superrepo/Conf/
+hypervisor/efi-superrepo/Serve/
+
+# Editor / OS noise.
+.DS_Store
+
+# Large vendor PDFs. Kept locally for reference; the registry names them but the
+# bytes are not versioned (20 MB binary in history costs every clone, forever).
+database/reference/*.pdf

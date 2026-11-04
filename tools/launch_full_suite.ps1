@@ -1,0 +1,8 @@
+param()
+# Launch run_full_suite.ps1 outside the SSH job object so it survives the
+# session dying while a slow technique runs.
+$script = Join-Path $env:USERPROFILE 'Desktop\run_full_suite.ps1'
+if (-not (Test-Path $script)) { Write-Output "missing=$script"; exit 1 }
+$cmd = 'powershell.exe -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File "' + $script + '"'
+$r = Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{ CommandLine = $cmd }
+Write-Output ("returnValue=" + $r.ReturnValue + " pid=" + $r.ProcessId)

@@ -1,0 +1,6 @@
+[submodule "hypervisor/efi-superrepo"]
+	path = hypervisor/efi-superrepo
+	url = ssh://user@10.0.1.33:2121/haze/efi-superrepo.git
+[submodule "database/materials/VMAware"]
+	path = database/materials/VMAware
+	url = https://github.com/NotRequiem/VMAware/

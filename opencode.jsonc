@@ -1,0 +1,47 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "database/policies/documentation.md",
+    "database/policies/experiments.md",
+    "database/policies/experience.md",
+  ],
+  "mcp": {
+    "servers": {
+      "dtb": {
+        "type": "local",
+        "command": [
+          "python3",
+          "/home/iabrutin/Work/agent-projects/control/mcp_dtb.py",
+        ],
+        "cwd": "/home/iabrutin/Work/agent-projects/control",
+        "timeout": {
+          "startup": 60000,
+          "catalog": 60000,
+          "execution": 3600000,
+        },
+      },
+    },
+  },
+  "permissions": [
+    {
+      "action": "read",
+      "resource": "/home/iabrutin/Work/agent-projects/control/**",
+      "effect": "deny",
+    },
+    {
+      "action": "read",
+      "resource": "**/control/**",
+      "effect": "deny",
+    },
+    {
+      "action": "shell",
+      "resource": "* /dev/ttyUSB*",
+      "effect": "deny",
+    },
+    {
+      "action": "shell",
+      "resource": "*ssh* 192.168.3.67*",
+      "effect": "deny",
+    },
+  ],
+}
