@@ -12,6 +12,9 @@ Read this file first, pick the smallest match, then read only that.
 | hvlog | reference | Debug log design: heartbeat, serial capture, hvlog reader, why silence is ambiguous | `hv/hvlog.md` |
 | detection-status | status | Current VMAware verdicts and which vectors still fire (dated) | `hv/status.md` |
 | 2026-11-04-harness-refactor | experiment | Tooling baseline; why per-command latency was 8-35 s and how timeouts are now resolved | `experiments/2026-11-04-harness-refactor/record.md` |
+| false-wedge-from-silent-console | experience | A silent console froze the heartbeat and produced a false `wedged` verdict on a healthy guest | `experience/false-wedge-from-silent-console.md` |
+| stale-boot-server | experience | A stale HTTP server held the boot port, served 404, and the machine sat in firmware | `experience/stale-boot-server.md` |
+| empty-suite-is-not-clean | experience | A suite that ran 669 s and recorded nothing was reported as clean | `experience/empty-suite-is-not-clean.md` |
 | com1-power-gating | experience | Serial stops after Windows starts; COM1 goes to D3 | `experience/com1-power-gating.md` |
 | detecting-a-wedge | experience | Telling a slow guest from a wedged one, and why the old probe could not | `experience/detecting-a-wedge.md` |
 | vmaware-measurement-traps | experience | `-d` vs `--percent`, unknown technique names, TUI output vanishing | `experience/vmaware-measurement-traps.md` |

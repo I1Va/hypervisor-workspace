@@ -15,24 +15,7 @@ The repository has two halves, and the boundary is enforced rather than agreed:
 | `workspace/` (this tree) | open - read and edit | instructions, knowledge base, hypervisor source, legacy scripts |
 | `control/` | **closed** - use its tools, do not read it | stand daemon, Arduino firmware, session supervisor |
 
-`control/` is denied to `read` in `opencode.jsonc`. Do not work around that: it
-exists so the hardware daemon stays the single owner of the serial ports and the
-SSH master. When you need something from it, ask its interface:
-`control/dtb/dtbctl <command>` or the `dbg_*` tools.
-
-## Non-negotiables
-
-1. **Never launch the simulator.** Testing happens on the DTB.
-2. **The stand is controlled only through the `dbg_*` tools.** Do not open
-   serial ports, do not call `ssh` directly, do not use `tools/*.py`. The daemon
-   owns the hardware; a second owner reboots the Arduino or fights the SSH
-   master.
-3. **Never infer state you can read.** Call `dbg_status` first.
-4. **A timeout is not a failure until the verdict says so.** `slow` means wait,
-   `wedged` means reset. Resetting a `booting` machine destroys the run.
-5. **Do not test a stale build.** `dbg_boot` refuses one; rebuilding is cheap
-   (~10 s incremental).
-6. **No secrets, credentials or absolute host paths in committed files.**
+Agent restrictions are in `agent_restrictions.md`; they are loaded by OpenCode configuration and must be followed.
 
 ## The loop
 
@@ -66,11 +49,3 @@ three documents that match, not the whole tree.
 - `database/policies/experience.md` - when to write a lesson down.
 - `database/policies/repository.md` - the open/closed split and submodule rules.
 
-## Retrieval discipline
-
-Before reading anything, ask: *which single document answers this?* Read the
-registry, filter by the frontmatter fields, open the smallest match. If you find
-yourself reading four documents to answer one question, the documentation is
-wrong - fix it as part of the task.
-
-Never re-read a document already cited in this session.
