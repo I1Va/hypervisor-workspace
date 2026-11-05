@@ -31,6 +31,7 @@ Read this file first, pick the smallest match, then read only that.
 | intel-sdm | reference | Intel SDM combined volumes 1-4 (PDF, 26 MB, not versioned; referenced for VMX/NMI/topology rules) | `specifications/intel-sdm-vol-1-2abcd-3abcd-4.pdf` |
 | debug-exception-delivery | reference | What is measured about #DB delivery: TF is accepted, hardware raises the trap, DR6 is the VMM's job, re-injection fails VM entry; why TRAP/SINGLE_STEP/DBVM/INTERRUPT_SHADOW fire | `hv/debug-exception-delivery.md` |
 | fast-startup-hides-boot-config | experience | `bcdedit` succeeds but is gone after a power cycle: the relay hibernates and the next power-on resumes the old kernel. Restart from inside Windows instead | `experience/fast-startup-hides-boot-config.md` |
+| breaking-the-stall | experience | Why many sessions produced no progress, and the four practices that restored the feedback loop: read state instead of inferring it, make tools explain failure, decompose composite tests, take physical observations literally | `experience/breaking-the-stall.md` |
 
 ## Policies
 
