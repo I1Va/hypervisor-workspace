@@ -29,6 +29,7 @@ Read this file first, pick the smallest match, then read only that.
 | thread-mismatch | reference | How THREAD_MISMATCH is computed (hardware_concurrency vs the CPU-model thread count) and what has to agree to pass it | `hv/thread-mismatch.md` |
 | suite-hang-status | status | Why the VMAware full summary hangs: the second pass ignores `--disable`; per-technique sweep results; TIMER/HYPERVISOR_HOOK are the only hangs | `hv/suite-hang-status.md` |
 | intel-sdm | reference | Intel SDM combined volumes 1-4 (PDF, 26 MB, not versioned; referenced for VMX/NMI/topology rules) | `specifications/intel-sdm-vol-1-2abcd-3abcd-4.pdf` |
+| debug-exception-delivery | reference | What is measured about #DB delivery: TF is accepted, hardware raises the trap, DR6 is the VMM's job, re-injection fails VM entry; why TRAP/SINGLE_STEP/DBVM/INTERRUPT_SHADOW fire | `hv/debug-exception-delivery.md` |
 
 ## Policies
 
