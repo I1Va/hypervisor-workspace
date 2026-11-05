@@ -11,3 +11,5 @@ hypervisor/efi-superrepo/Serve/
 
 # Editor / OS noise.
 .DS_Store
+# Intel SDM PDF: 26 MB, referenced by the registry, not versioned
+database/specifications/*.pdf

@@ -20,8 +20,15 @@ Read this file first, pick the smallest match, then read only that.
 | timeout-evidence | experience | Timeout verdicts require observable heartbeat evidence; supersedes unsafe reset advice in earlier records | `experience/timeout-evidence.md` |
 | vmaware-measurement-traps | experience | `-d` vs `--percent`, unknown technique names, TUI output vanishing | `experience/vmaware-measurement-traps.md` |
 | stale-probe-processes | experience | A leftover `vmaware.exe` makes the whole stand look hung | `experience/stale-probe-processes.md` |
+| stale-panic-from-cumulative-log | experience | A panic from an earlier boot is reported as current; `dbg_boot` then refuses to boot a healthy machine | `experience/stale-panic-from-cumulative-log.md` |
 | nmi-window-storm | experience | Fabricated NMIs caused an exit storm that looked like a hang | `experience/nmi-window-storm.md` |
 | silent-root-mode-livelock | experience | MTF stuck set / EPT redo loop wedged every CPU with no output | `experience/silent-root-mode-livelock.md` |
+| ap-init-sipi-uart-stall | experience | A stalled INIT handler discarded the SIPI; Windows came up on one processor while every signal said four | `experience/ap-init-sipi-uart-stall.md` |
+| pending-debug-exceptions-livelock | experience | Pending-debug field OR-ed and never cleared; endless #DB starved a core into CLOCK_WATCHDOG_TIMEOUT | `experience/pending-debug-exceptions-livelock.md` |
+| vmaware-shortcut-false-signal | experience | `--percent`/`--detect` early-exit at the score threshold, so they are not a silent full run; and `--all` bypasses the platform filter | `experience/vmaware-shortcut-false-signal.md` |
+| thread-mismatch | reference | How THREAD_MISMATCH is computed (hardware_concurrency vs the CPU-model thread count) and what has to agree to pass it | `hv/thread-mismatch.md` |
+| suite-hang-status | status | Why the VMAware full summary hangs: the second pass ignores `--disable`; per-technique sweep results; TIMER/HYPERVISOR_HOOK are the only hangs | `hv/suite-hang-status.md` |
+| intel-sdm | reference | Intel SDM combined volumes 1-4 (PDF, 26 MB, not versioned; referenced for VMX/NMI/topology rules) | `specifications/intel-sdm-vol-1-2abcd-3abcd-4.pdf` |
 
 ## Policies
 
