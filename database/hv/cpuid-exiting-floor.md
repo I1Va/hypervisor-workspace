@@ -90,6 +90,33 @@ the instruction the breakpoint is on never runs before the trap is delivered.
 - **Clearing CPUID exiting.** Impossible; see the capability MSR above.
 - **Making the handler cheaper.** Measured, no effect on the ratio.
 
+## The DR6 split, which is where TRAP actually lives
+
+Measured on boot 10 with all five `trapdb` cases and `tfprobe`:
+
+| Case | Delivery | DR6 observed by the guest |
+|---|---|---|
+| `tfcount` (TF, no CPUID) | TF | `0x0` |
+| `cpuid_tf` (TF across a CPUID exit) | pending field | `0x0` |
+| `icebp` | BS | `0x0` |
+| `trap` (TF + DR0) | pending field | `0x0` |
+| `dr0count` (DR0, no TF) | breakpoint | **`0xFFFF0FF1`** |
+
+Every **TF-driven** `#DB` reports `DR6 = 0x0`; a **DR0-driven** `#DB` reports the
+real value with B0 set. That is not consistent with "the pending field loses BS",
+because `tfcount` sets no pending field at all and still reads 0.
+
+A related defect found on the way: `BreakpointBitsForRip` read
+`VMCS_GUEST_DR7`, but `SaveDebugControls`/`LoadDebugControls` are both 0, so the
+field is stale (still `0x400` from setup) and the function always returned 0.
+Fixed to read the physical `DR7`. That is a correctness fix and did not change
+TRAP, which is further evidence the problem is delivery, not status synthesis.
+
+So the next step is not another hypervisor bit: it is to establish whether
+Windows' `CONTEXT` for a TF `#DB` on this guest reports `DR6` at all. The probe
+for that is `drtest.exe`, which currently crashes with exit code 4 before
+printing, so it needs fixing first.
+
 ## The one remaining lever
 
 `hyper_x()` in VMAware decides whether the machine is a Hyper-V *host*. If it

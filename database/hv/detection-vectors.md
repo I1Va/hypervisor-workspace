@@ -21,6 +21,20 @@ Status is against VMAware v2.8.2-56-gc8092c6 on the DTB, boot-verified.
 | `TRAP` | 100 | needs `DR6.BS` and `DR6.B0` in one `#DB`; the CPUID exit delivers the trap before the DR0 instruction runs | **Yes** — same cause |
 | `GPU_CAPABILITIES` | 20 | virtual display adapter properties | No — cosmetic, needs a guest driver |
 
+**Correction on `GPU_CAPABILITIES`**: it was initially assumed to be an artifact
+of running VMAware in session 0 over SSH (a headless window station has no gamma
+ramp). Measured in both sessions: session 0 reports `COLORMGMTCAPS=0x400`,
+session 1 reports `0x780`, and **neither has `CM_GAMMA_RAMP`** — so it fires in
+both and is a property of this display driver, not of where the tool runs. The
+hypothesis was wrong.
+
+**Correction on the hypervisor-present bit**: `cpuid.1 ECX bit 31` reads **0** on
+this guest, so VMAware's `is_hyperv_present()` is false, `eax()` never reaches
+the Hyper-V branch, and `hyper_x()` returns `HYPERV_UNKNOWN`. Note also that
+`cpuid.0x40000000` reports max leaf 7 and a garbage vendor string rather than
+passing the leaf through, so the Hyper-V leaves are not merely unbranded, they are
+absent.
+
 ## Clean, and why they matter
 
 | Vector | Mechanism | What would break it |
