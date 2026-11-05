@@ -71,36 +71,57 @@ DR6 did the guest's handler see, and how many times**.
 ## What is still unknown
 
 Why the natively-delivered `#DB` (bitmap 0) never reaches a user-mode handler,
-given the hardware raises it and the registers are owned. The remaining
-candidates, in order:
+given the hardware raises it and the registers are owned.
 
-1. **The kernel debugger.** The guest has `debug Yes` in `{current}`, and
-   `KUSER_SHARED_DATA + 0x2D0` reads `0x310` (784), which matches the documented
-   `ActiveProcessorCount` field, so the offsets are valid - and `0x2D4` reads 1.
-   That is consistent with `KdDebuggerEnabled = 1`. An initialised KD is
-   documented to consume `#DB` and to own the debug registers, which fits every
-   observation. **Not proven**, because `0x2D5` reads 10 (not a boolean), so the
-   struct layout is not confirmed for this build.
-   `bcdedit /debug {current} off` and `/set {current} debug No` both report
-   success and both revert to `Yes` after the next boot, so this could not be
-   tested from inside the guest.
+## What intercepting #DB actually does (second attempt, boots 6-16)
 
-2. **The injection path.** Fact 6 is a real defect: forwarding an intercepted
-   `#DB` produces an invalid VM-entry. Fixing that is a prerequisite for any
-   interception-based approach.
+Enabling bit 1 after ExitBootServices and forwarding the trap was tried again
+with three fixes: per-core arming, TF cleared on forward (as hardware does), and
+the pending-debug field left clear. Results:
+
+- The VM-entry failure at `0x80000021` **no longer occurs** - clearing TF on
+  forward fixed that. The previous panic was a re-injection loop, not invalid
+  state.
+- But the guest still receives no exception, and `ICEBP` now **hangs** the guest.
+- The `#DB` exits observed have `RFLAGS = 0x202` (TF **clear**) and no DR match,
+  i.e. they are not the single-step trap being sought. They are later or
+  unrelated debug exits.
+- Stamping `BS` onto such an exit is wrong: it presents a single-step status for
+  a trap that never happened, and Windows discards it as spurious. ICEBP must be
+  recognised by its opcode (`0xF1` at guest RIP) instead of by assumption.
+
+Conclusion: interception-based forwarding is **not** the fix. It converts a
+detection into a hang, which is strictly worse. The experiment is reverted and
+preserved at `/tmp/opencode/db_work_v2.patch`.
+
+## Remaining candidates
+
+1. **The kernel debugger.** `debug Yes` in `{current}`, and
+   `KUSER_SHARED_DATA + 0x2D0` reads `0x310` (784), matching the documented
+   `ActiveProcessorCount`, so the offsets are valid and `0x2D4` reads 1 -
+   consistent with `KdDebuggerEnabled = 1`. An initialised KD is documented to
+   consume `#DB` and own the debug registers, which fits every observation.
+   **Not proven**: `0x2D5` reads 10 (not a boolean), so the layout is unconfirmed
+   for this build, and both `bcdedit /debug {current} off` and
+   `/set {current} debug No` report success but revert to `Yes` on the next boot,
+   so it cannot be tested from inside the guest.
+
+2. **The injection path** - fixed enough to stop panicking, but still does not
+   deliver the trap.
 
 ## Next
 
-1. Fix the `#DB` re-injection so it does not fail VM entry (fact 6). The likely
-   cause is injecting with `DeliverErrorCode = FALSE` while the exit carried a
-   stale interruption-information value, or injecting while the pending-debug
-   field is also non-zero. Both must be mutually exclusive.
-2. Settle the KD question outside the guest - it cannot be answered reliably
-   from inside, because the BCD entry is restored on every boot.
-3. Only then re-measure TRAP/SINGLE_STEP/DBVM/INTERRUPT_SHADOW.
+1. Settle the KD question outside the guest. Nothing inside can answer it while
+   the BCD entry is restored every boot.
+2. If KD is not the cause, the trap is being discarded in the kernel's debug
+   handler. That needs a different lever entirely: the `#DB` must arrive with a
+   DR6 the handler accepts, and with bitmap 0 the hypervisor cannot influence it.
+3. Do not re-attempt interception forwarding without a delivery mechanism that
+   is proven not to hang on ICEBP.
 
 ## Residual risk
 
-The `#DB` work is **not committed**. The patch is at `/tmp/opencode/db_work.patch`
-and it panics the guest (fact 6). The committed baseline (`037de0b`) is the
-stable one and leaves all four vectors at 100.
+The `#DB` work is **not committed**. Patches are at
+`/tmp/opencode/db_work.patch` (first attempt) and `/tmp/opencode/db_work_v2.patch`
+(second attempt, panics fixed but ICEBP hangs). The committed baseline
+(`037de0b`) is the stable one and leaves all four vectors at 100.
