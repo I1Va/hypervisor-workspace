@@ -117,6 +117,54 @@ Windows' `CONTEXT` for a TF `#DB` on this guest reports `DR6` at all. The probe
 for that is `drtest.exe`, which currently crashes with exit code 4 before
 printing, so it needs fixing first.
 
+## The delivery experiment: #DB interception after boot
+
+`drtest.exe` was replaced by `dr2.cpp`, which takes three readings inside the same
+handler — the exception `CONTEXT`, a fresh `GetThreadContext`, and a second fresh
+read — so "hardware has no bits" and "Windows dropped them" can be told apart.
+
+Boot 13, no interception:
+
+| Case | `CONTEXT.Dr6` | fresh `GetThreadContext` | Conclusion |
+|---|---|---|---|
+| TF single-step | `0x0` | `0x0` | genuinely empty in hardware |
+| DR0 breakpoint | `0xFFFF0FF1` | `0xFFFF0FF0` | hardware set B0 correctly |
+
+So the TF path loses the bits in hardware, not in the `CONTEXT`, and the
+`CONTEXT` is a faithful copy. The mechanism is that a `#DB` raised from
+`GUEST_PENDING_DEBUG_EXCEPTIONS` at VM entry does not update DR6 — the processor
+only sets status bits for exceptions it raises itself. TF is almost always
+carried across an exit here, because the preemption timer and CPUID exit
+constantly.
+
+The obvious fix — intercept `#DB` after boot so the handler publishes DR6 just
+before injecting — was implemented and measured. Boot 12, interception armed on
+all four cores after `ExitBootServices`:
+
+| Case | Without interception | With interception |
+|---|---|---|
+| DR0 breakpoint | `0xFFFF0FF1` | **`0x0`** |
+| TF single-step | `0x0` | `0x0` |
+
+Interception makes it worse. Injecting a debug exception makes the processor set
+DR6 for the exception *it* delivers, discarding whatever the VMM wrote first.
+That destroys the only path that worked, so `g_HvDebugExitingWanted` stays
+`FALSE` and the arming path is kept dormant.
+
+The remaining possibility is to publish DR6 *after* the injection has taken
+effect, which is not reachable from the exit handler because the exception is
+delivered during the VM entry that returns to the guest. That is why this is
+recorded as a boundary rather than an open bug.
+
+### What this leaves for TRAP and SINGLE_STEP
+
+`SINGLE_STEP` is clean anyway: it needs BS, and the guest's handler tolerates the
+empty DR6 well enough to pass. `TRAP` needs BS **and** B0 together, and the only
+delivery that produces B0 is a real breakpoint — which cannot coincide with a
+trap boundary that is reached through a VM exit. Both detections therefore trace
+back to the CPUID exit, and both are out of reach of hypervisor code that stays
+inside the current design.
+
 ## The one remaining lever
 
 `hyper_x()` in VMAware decides whether the machine is a Hyper-V *host*. If it
