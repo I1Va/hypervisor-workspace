@@ -199,3 +199,25 @@ than local:
   counter-based check like TIMER, and it introduces its own fingerprints.
 - **Do not add intercepts without a measured detection to justify them.** Each
   one is visible to a timing check.
+
+## The measured exit distribution
+
+`HYPERCALL_GET_STATS` now answers this directly. Boot 17:
+
+```
+total_exits=26166   CPUID=26049 (99.6%)   PREEMPT_TIMER=82
+CR_ACCESS=6   RDMSR=15   XSETBV=8   VMCALL=1
+per core: apic0 6500  apic2 6729  apic4 6583  apic6 6354
+```
+
+Essentially every exit the guest causes is CPUID. That is the same fact as the
+TIMER detection seen from the other side: CPUID is CPU-mandatory, it is the
+hypercall transport, and it is also what `HvCurrentApicId()` executes on every
+preemption-timer tick.
+
+Removing that last one is tempting and wrong. Replacing the APIC-ID CPUID with a
+read of `IA32_X2APIC_APICID` costs no exit, but it stopped the machine dead on
+boot 15 — all four cores started and then produced no heartbeats at all, because
+x2APIC is not enabled here and an unreadable MSR faults in root mode. The wasted
+exit is cheaper than the whole machine. If it is revisited, it must be gated on an
+x2APIC-mode check first.
