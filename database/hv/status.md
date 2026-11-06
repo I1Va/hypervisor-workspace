@@ -1,8 +1,8 @@
 ---
 topic: detection-status
 kind: status
-updated: 2026-11-04
-commit: db8b0ab
+updated: 2026-11-06
+commit: 177d354
 vmaware: v2.8.2-56-gc8092c6
 ---
 
@@ -10,6 +10,34 @@ vmaware: v2.8.2-56-gc8092c6
 
 **Snapshot, not truth.** Each section is dated and superseded by a newer one
 above it. Compare only against records with the same `commit` and `vmaware`.
+
+## 2026-11-06 - commit 177d354, VMAware v2.8.2-56-gc8092c6
+
+Full sweep of all 79 techniques in one boot (boot 40), with the logon task and
+`HKLM\...\Run` entry both deleted so nothing guest-side contributes.
+
+**78 of 79 score 0.** One remains:
+
+| Technique | Score | Cause |
+|---|---|---|
+| `GPU_CAPABILITIES` | 20 | Intel HD Graphics 4600 reports no `CM_GAMMA_RAMP`; `SetDeviceGammaRamp` fails with `ERROR_INVALID_PARAMETER`. Not the hypervisor - it fires on this hardware as configured. |
+
+The two that were firing at the start of this session are clean:
+
+| Technique | Was | Now | How |
+|---|---|---|---|
+| `TRAP` | 100 | clean | Hyper-V root-partition branding: `trap()` returns false when `hyper_x() == HYPERV_HOST` |
+| `TIMER` | 45 | clean | same |
+
+Also cleaned earlier in the session:
+
+| Technique | Was | Now | How |
+|---|---|---|---|
+| `INTERRUPT_SHADOW` | 100 | clean | retire `VMCS_GUEST_INTERRUPTIBILITY_STATE` when an emulated instruction completes (`ip_off` 19 -> 18) |
+
+Boot is ~50 s and the guest runs four logical processors. Details:
+`hv/hyperv-branding.md`, `hv/cpuid-exiting-floor.md`,
+`hv/debug-exception-delivery.md`.
 
 ## 2026-11-04 - commit db8b0ab, VMAware v2.8.2-56-gc8092c6
 
