@@ -1583,3 +1583,28 @@ between the panorama style-property machinery (`0x1829C60` is
 `src\panorama\layout\stylepropertyfactory.cpp`) and the particle-property code
 (`0x1894780` is `src\particleslib\particle_property.cpp`), but adjacency is not
 attribution, so I make no claim about what it does.
+
+---
+
+## 10. Unknowns
+
+Recorded here for parity with the other module documents. Each names what would
+resolve it.
+
+1. **`CGameEntitySystem` chunk layout** — the entity chunk array is walked but the
+   per-chunk stride and the free-list encoding are not established. Resolving it
+   needs a debugger session on a live process, which the DTB cannot currently
+   provide.
+2. **`SchemaSystem_001` slots beyond `+0xA8` / `+0xB0`** — only those two were
+   resolved with confidence.
+3. **Per-ConVar `FCVAR_CHEAT` flags** — the registrar scan recovers 1,695 names but
+   not each one's flag word; the flag is passed as an immediate at the call site and
+   was not decoded.
+4. **`CSource2Client` virtual names** — 211 slots are resolved to RVAs, but the
+   names are inferred from context, not from symbols.
+5. **`CPrediction` replay determinism** — the reconciliation loop is described from
+   `PostNetworkDataReceived` (`0xBEA3C5`), but why the slot-repair path
+   (`0xBEAC7A`) is taken in preference to full re-predict in some cases is not
+   established.
+6. **The 54,364-byte function at `0x18AB7C0`** — largest in the module, no resolved
+   string references, therefore unattributed. See §9.
