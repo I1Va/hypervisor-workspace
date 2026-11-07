@@ -1,0 +1,2577 @@
+{
+ "corpus": "Counter-Strike 2 (CS:GO appid 730 install, Source 2 build)",
+ "location_on_dtb": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive",
+ "module_count": 102,
+ "total_bytes": 544154360,
+ "total_functions": 1126183,
+ "modules": [
+  {
+   "module": "resourcecompiler",
+   "file": "resourcecompiler.dll",
+   "relpath": "bin/win64/resourcecompiler.dll",
+   "role": "Resource compiler tool",
+   "size": 56351896,
+   "sha256": "14bea9c54b59e7638cf15f846dda8fdba145e3a242eacc5a9f7eba0518afeb7c",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\utils\\resourcecompiler\\_vpc_resourcecompiler\\default\\win64\\_msvc_\\Retail\\resourcecompiler.pdb",
+   "timestamp": 1793662721,
+   "functions": 147822,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "phonon",
+   "file": "phonon.dll",
+   "relpath": "bin/win64/phonon.dll",
+   "role": "",
+   "size": 53322904,
+   "sha256": "a97c891d49619e6d6dc3cbad8d64db1648db8dc6efcfe1d01378e90c954161ea",
+   "pdb": "C:\\buildworker\\phonon_main_win64\\build\\core\\build\\windows-vs2022-x64\\src\\core\\Release\\phonon.pdb",
+   "timestamp": 1785792651,
+   "functions": 82,
+   "exports": 418,
+   "sections": [
+    ".text",
+    "IPPCODE",
+    ".rdata",
+    ".data",
+    ".pdata",
+    "IPPDATA",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "v8",
+   "file": "v8.dll",
+   "relpath": "bin/win64/v8.dll",
+   "role": "",
+   "size": 50473832,
+   "sha256": "f85c79b1fe07c75befe22acd91c5d34a39ff83d9284fd9243a72c364a406822d",
+   "pdb": "E:\\p4_temp\\thirdpartycode\\nonredist\\v8\\v8-11.9.169.6\\v8\\out.gn\\x64.release\\v8.dll.pdb",
+   "timestamp": 1709312286,
+   "functions": 95039,
+   "exports": 16384,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".idata",
+    ".gfids",
+    ".tls",
+    ".00cfg",
+    "_RDATA",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "assetpreview",
+   "file": "assetpreview.dll",
+   "relpath": "bin/win64/assetpreview.dll",
+   "role": "Asset preview tool",
+   "size": 48612504,
+   "sha256": "189558c1a54610407b652143b20bea2954f6265b3d30b233789908638d99a326",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\assetpreview\\_vpc_assetpreview\\default\\win64\\_msvc_\\Retail\\assetpreview.pdb",
+   "timestamp": 1793662668,
+   "functions": 42636,
+   "exports": 7,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "client",
+   "file": "client.dll",
+   "relpath": "csgo/bin/win64/client.dll",
+   "role": "Client game module: entities, prediction, HUD, weapons, input",
+   "size": 39227544,
+   "sha256": "9279421852772522121be2f13409dd37436e8c809ff48898c8c3d41b09e77844",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\game\\client\\_vpc_client_csgo\\unity\\win64\\_msvc_\\Retail\\client.pdb",
+   "timestamp": 1793836250,
+   "functions": 128392,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 300,
+    "document": "documents/client.md",
+    "status": "documented"
+   }
+  },
+  {
+   "module": "server",
+   "file": "server.dll",
+   "relpath": "csgo/bin/win64/server.dll",
+   "role": "Authoritative game module: tick, snapshot, game rules, hit reg",
+   "size": 34672792,
+   "sha256": "70c66e850b2ce72c8c7ca026de6989ef4de7f12dad64ec503645fbd2a7f06d9f",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\game\\server\\_vpc_server_csgo\\unity\\win64\\_msvc_\\Retail\\server.pdb",
+   "timestamp": 1793836289,
+   "functions": 108977,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "embree3",
+   "file": "embree3.dll",
+   "relpath": "bin/win64/embree3.dll",
+   "role": "",
+   "size": 21996904,
+   "sha256": "903b3c680ffbf2965d7988f0a42d902c5e198cab15c435ddea79852573be3620",
+   "pdb": null,
+   "timestamp": 1661280597,
+   "functions": 14592,
+   "exports": 117,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "physicsbuilder",
+   "file": "physicsbuilder.dll",
+   "relpath": "bin/win64/physicsbuilder.dll",
+   "role": "Physics shape building (tool)",
+   "size": 13950616,
+   "sha256": "da29aa7490a53c0b9645e5ef91d501cc202aac9cb413eb3176d5e4b6e4f05201",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\utils\\physicsbuilder\\_vpc_physicsbuilder\\default\\win64\\_msvc_\\Retail\\physicsbuilder.pdb",
+   "timestamp": 1793662352,
+   "functions": 33042,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "toolframework2",
+   "file": "toolframework2.dll",
+   "relpath": "bin/win64/toolframework2.dll",
+   "role": "Editor/tool framework",
+   "size": 13708952,
+   "sha256": "a68bb2509fba7dbcf03ecb586c017c33bcfe074c91d0c343991fee5f2685b1cf",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\toolframework2\\_vpc_toolframework2\\default\\win64\\_msvc_\\Retail\\toolframework2.pdb",
+   "timestamp": 1793662551,
+   "functions": 28070,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "valve_webm",
+   "file": "valve_webm.dll",
+   "relpath": "bin/win64/valve_webm.dll",
+   "role": "",
+   "size": 11384472,
+   "sha256": "b68f7ad40d5ff371aea0dfb39408bcacb04baeed4caeae6d277d1f81e3d79e12",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\valve_webm\\_vpc_valve_webm\\default\\win64\\_msvc_\\Retail\\valve_webm.pdb",
+   "timestamp": 1793662321,
+   "functions": 13284,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rodata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libfbxsdk_2020_3_1",
+   "file": "libfbxsdk_2020_3_1.dll",
+   "relpath": "bin/win64/libfbxsdk_2020_3_1.dll",
+   "role": "",
+   "size": 9950568,
+   "sha256": "474abba2d946573bbd32f39baf39a295c6fd6cd6a4a58825651a7bd2cd8fed3f",
+   "pdb": "D:\\Stage\\pipeline\\master\\build\\vc142_x64_dll\\RelWithDebInfo\\libfbxsdk.pdb",
+   "timestamp": 1643747090,
+   "functions": 27394,
+   "exports": 11378,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "animationsystem",
+   "file": "animationsystem.dll",
+   "relpath": "bin/win64/animationsystem.dll",
+   "role": "Skeletal animation and anim graph",
+   "size": 9329816,
+   "sha256": "cbe069aeaefdd5f93d969985562af8d04991a478dbda58e8a2914cbeac2bea47",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\animationsystem\\_vpc_animationsystem\\unity\\win64\\_msvc_\\Retail\\animationsystem.pdb",
+   "timestamp": 1793662530,
+   "functions": 31640,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "engine2",
+   "file": "engine2.dll",
+   "relpath": "bin/win64/engine2.dll",
+   "role": "Engine core: Source2Main, module bootstrap, frame loop",
+   "size": 7498392,
+   "sha256": "a1b682acb5cedf11bed4784b0191a5452e93ee8f3023f95fa11ab3c3676b0fbc",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\engine2\\_vpc_engine2\\default\\win64\\_msvc_\\Retail\\engine2.pdb",
+   "timestamp": 1793662660,
+   "functions": 22269,
+   "exports": 43,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    "_RDATA",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "scenesystem",
+   "file": "scenesystem.dll",
+   "relpath": "bin/win64/scenesystem.dll",
+   "role": "Render scene graph and draw lists",
+   "size": 7094936,
+   "sha256": "393116764e8fd5e79e932941ca82b48678d4abaf26a397c7b25be91538309701",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\scenesystem\\_vpc_scenesystem\\default\\win64\\_msvc_\\Retail\\scenesystem.pdb",
+   "timestamp": 1793662621,
+   "functions": 20232,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "Qt5Gui",
+   "file": "Qt5Gui.dll",
+   "relpath": "bin/win64/Qt5Gui.dll",
+   "role": "",
+   "size": 7007080,
+   "sha256": "2ea37f7655223c5cdf1f28616c601ca58bf8b215e371d6f612cfa1aa34517fbf",
+   "pdb": "D:\\dev\\thirdparty\\lgpl\\qt_source2\\valve\\qtbase\\lib\\Qt5Gui.pdb",
+   "timestamp": 1615842283,
+   "functions": 20383,
+   "exports": 16492,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libavcodec-58",
+   "file": "libavcodec-58.dll",
+   "relpath": "bin/win64/libavcodec-58.dll",
+   "role": "",
+   "size": 6627176,
+   "sha256": "0984e89dce98008fcdfe82ba398ecbda8356ca9374fe40a784c5d25056558870",
+   "pdb": "C:\\buildslave\\libav_win32\\build\\dev\\libavcodec\\libavcodec-58.pdb",
+   "timestamp": 1686126154,
+   "functions": 11398,
+   "exports": 217,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rodata",
+    "_RDATA",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "particles",
+   "file": "particles.dll",
+   "relpath": "bin/win64/particles.dll",
+   "role": "Particle systems",
+   "size": 6460568,
+   "sha256": "1a81a66f33c860a8e537b58d7b222960513bb99919e0f24b48d8adbec60bc699",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\particles\\_vpc_particles\\default\\win64\\_msvc_\\Retail\\particles.pdb",
+   "timestamp": 1793662627,
+   "functions": 14331,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "Qt5Core",
+   "file": "Qt5Core.dll",
+   "relpath": "bin/win64/Qt5Core.dll",
+   "role": "",
+   "size": 6288744,
+   "sha256": "b72018655360463896edbd86b120be6dfa7235ae8a0aaa728165cb496573acb9",
+   "pdb": "D:\\dev\\thirdparty\\lgpl\\qt_source2\\valve\\qtbase\\lib\\Qt5Core.pdb",
+   "timestamp": 1615841026,
+   "functions": 12323,
+   "exports": 8368,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".qtmimed",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "rendersystemvulkan",
+   "file": "rendersystemvulkan.dll",
+   "relpath": "bin/win64/rendersystemvulkan.dll",
+   "role": "Vulkan render backend",
+   "size": 6249624,
+   "sha256": "2693b2557af64363a192e667a069f705bd6a90893d12ac36622a840cd77095ad",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\rendersystem\\_vpc_rendersystemvulkan\\default\\win64\\_msvc_\\Retail\\rendersystemvulkan.pdb",
+   "timestamp": 1793662348,
+   "functions": 10455,
+   "exports": 58,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "panorama",
+   "file": "panorama.dll",
+   "relpath": "bin/win64/panorama.dll",
+   "role": "Panorama UI engine (HTML/CSS-like)",
+   "size": 6108312,
+   "sha256": "c9d86e0e59ec0c0976306e3eea9ea9f9a9c89130475e1acc771cd96a206fb2f7",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\panorama\\_vpc_panorama\\default\\win64\\_msvc_\\Retail\\panorama.pdb",
+   "timestamp": 1793662340,
+   "functions": 17349,
+   "exports": 7,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "soundsystem",
+   "file": "soundsystem.dll",
+   "relpath": "bin/win64/soundsystem.dll",
+   "role": "Audio mixing and spatialisation",
+   "size": 5838488,
+   "sha256": "2260047a6db739b6805e4f6fb72d1b34ac5add22df796fce55f6c9bd0229f698",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\soundsystem\\_vpc_soundsystem\\default\\win64\\_msvc_\\Retail\\soundsystem.pdb",
+   "timestamp": 1793662593,
+   "functions": 15573,
+   "exports": 42,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    "_RDATA",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "gfsdk_aftermath_lib.x64",
+   "file": "gfsdk_aftermath_lib.x64.dll",
+   "relpath": "bin/win64/gfsdk_aftermath_lib.x64.dll",
+   "role": "",
+   "size": 5736000,
+   "sha256": "d3fa76f1928d3914a8a2a0f9e55a8077c1253e8f9d64cba9e1d3760cfd5fa25e",
+   "pdb": "E:\\temp\\Built\\Int\\rel-pub\\windows-desktop-win7-x64\\Shared\\GCD\\Modules\\NsightAftermath\\GFSDK_Aftermath_Lib.x64.pdb",
+   "timestamp": 1753762403,
+   "functions": 9787,
+   "exports": 43,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "Qt5Widgets",
+   "file": "Qt5Widgets.dll",
+   "relpath": "bin/win64/Qt5Widgets.dll",
+   "role": "",
+   "size": 5624168,
+   "sha256": "e619823dad8db291f9da78eb81938da3f74a08d2318d660a8f2f9757b862dd0b",
+   "pdb": "D:\\dev\\thirdparty\\lgpl\\qt_source2\\valve\\qtbase\\lib\\Qt5Widgets.pdb",
+   "timestamp": 1615842770,
+   "functions": 17944,
+   "exports": 9053,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "vconsole2",
+   "file": "vconsole2.exe",
+   "relpath": "bin/win64/vconsole2.exe",
+   "role": "External console application",
+   "size": 5105816,
+   "sha256": "c97e9868deddc3cb5891569e5b38e6cb111c15d469ce994cb5b2103fe356a88f",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\utils\\vconsole2\\_vpc_vconsole2\\default\\win64\\_msvc_\\Retail\\vconsole2.pdb",
+   "timestamp": 1793662518,
+   "functions": 13928,
+   "exports": 5,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "vphysics2",
+   "file": "vphysics2.dll",
+   "relpath": "bin/win64/vphysics2.dll",
+   "role": "Rigid body physics (VPhysics2)",
+   "size": 4829848,
+   "sha256": "a294b2ed167173e0e78fdb3e35498128bfeac923e14c4177fc3b3d2c6fd33aa8",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\vphysics2\\_vpc_vphysics2\\default\\win64\\_msvc_\\Retail\\vphysics2.pdb",
+   "timestamp": 1793662603,
+   "functions": 14814,
+   "exports": 25,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "video64",
+   "file": "video64.dll",
+   "relpath": "bin/win64/video64.dll",
+   "role": "Video playback",
+   "size": 4610448,
+   "sha256": "bd0b26c5ce10647ab04bdedc8d33d7850e678f1a285748b46290c669e2f187fb",
+   "pdb": "c:\\buildslave\\steam_main_win64\\build\\src\\common\\video\\win64\\videoRelease\\video64.pdb",
+   "timestamp": 1655473075,
+   "functions": 11966,
+   "exports": 57,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    "_RDATA",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "rendersystemdx11",
+   "file": "rendersystemdx11.dll",
+   "relpath": "bin/win64/rendersystemdx11.dll",
+   "role": "D3D11 render backend",
+   "size": 4545688,
+   "sha256": "6a41ee0329b5e54c87a9d64f7b884479720408412bf018ebdd9947ff12dffe34",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\rendersystem\\_vpc_rendersystemdx11\\default\\win64\\_msvc_\\Retail\\rendersystemdx11.pdb",
+   "timestamp": 1793662329,
+   "functions": 7327,
+   "exports": 49,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "d3dcompiler_47",
+   "file": "d3dcompiler_47.dll",
+   "relpath": "bin/win64/d3dcompiler_47.dll",
+   "role": "",
+   "size": 4346120,
+   "sha256": "4432bbd1a390874f3f0a503d45cc48d346abc3a8c0213c289f4b615bf0ee84f3",
+   "pdb": "D3DCompiler_47.pdb",
+   "timestamp": 1373660975,
+   "functions": 10663,
+   "exports": 29,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "steamnetworkingsockets",
+   "file": "steamnetworkingsockets.dll",
+   "relpath": "bin/win64/steamnetworkingsockets.dll",
+   "role": "",
+   "size": 4290200,
+   "sha256": "ce0651d00c311606c7936fa730149d2b7e25557430ef5c3291eed47dfdcf0736",
+   "pdb": "C:\\buildworker\\sdr_public_win64\\build\\obj\\steamnetworkingsockets_Release_x642022\\steamnetworkingsockets.pdb",
+   "timestamp": 1777523303,
+   "functions": 11405,
+   "exports": 32,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "tier0",
+   "file": "tier0.dll",
+   "relpath": "bin/win64/tier0.dll",
+   "role": "Platform layer: allocators, threads, logging, crash handler",
+   "size": 3979928,
+   "sha256": "030d4fa04a62208d4f28d4bd6a35f8234f3da4fdbb74062020e6ebe5b4abbbe8",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\tier0\\_vpc_tier0\\default\\win64\\_msvc_\\Retail\\tier0.pdb",
+   "timestamp": 1793662171,
+   "functions": 10809,
+   "exports": 2625,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "v8_icui18n",
+   "file": "v8_icui18n.dll",
+   "relpath": "bin/win64/v8_icui18n.dll",
+   "role": "",
+   "size": 3937128,
+   "sha256": "098cbdaa7a7c7266beedd747d7a455d5917b665887934e8bc8e04ac6d5bff488",
+   "pdb": "E:\\p4_temp\\thirdpartycode\\nonredist\\v8\\v8-11.9.169.6\\v8\\out.gn\\x64.release\\v8_icui18n.dll.pdb",
+   "timestamp": 1709304902,
+   "functions": 7570,
+   "exports": 6474,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".idata",
+    ".gfids",
+    ".tls",
+    ".00cfg",
+    "_RDATA",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "steamaudio",
+   "file": "steamaudio.dll",
+   "relpath": "bin/win64/steamaudio.dll",
+   "role": "",
+   "size": 3547288,
+   "sha256": "adecab23ef847de22f60d226f4c53589eefef0f800539df15b17f908891d5326",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\soundsystem\\steamaudio\\_vpc_steamaudio\\default\\win64\\_msvc_\\Retail\\steamaudio.pdb",
+   "timestamp": 1793662572,
+   "functions": 8925,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "panorama_text_pango",
+   "file": "panorama_text_pango.dll",
+   "relpath": "bin/win64/panorama_text_pango.dll",
+   "role": "",
+   "size": 2997912,
+   "sha256": "dc79507fc7347782508ecd22757e8880a852b7697b55bba74504baad8e6a736b",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\panorama\\_vpc_panorama_text_pango\\default\\win64\\_msvc_\\Retail\\panorama_text_pango.pdb",
+   "timestamp": 1793662270,
+   "functions": 7755,
+   "exports": 7,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "cs2",
+   "file": "cs2.exe",
+   "relpath": "bin/win64/cs2.exe",
+   "role": "Source 2 launcher: verifies the install, then calls engine2!Source2Main",
+   "size": 2967704,
+   "sha256": "8614097aaa2761b0a7157c0045861713e769fb1e8235f50fc68f411294dd60cf",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\source2launcher\\_vpc_source2launcher_csgo\\default\\win64\\_msvc_\\Retail\\cs2.pdb",
+   "timestamp": 1792003052,
+   "functions": 713,
+   "exports": 7,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": "documents/cs2.md",
+    "status": "documented"
+   }
+  },
+  {
+   "module": "SDL3",
+   "file": "SDL3.dll",
+   "relpath": "bin/win64/SDL3.dll",
+   "role": "",
+   "size": 2891928,
+   "sha256": "e7c0c22aaadc2836242ba001aa488773eceb4609005a7f02464206ca59a86481",
+   "pdb": "C:\\buildworker\\sdl3_win32\\build\\dev\\VisualC\\x64\\Release\\SDL3.pdb",
+   "timestamp": 1784560675,
+   "functions": 9429,
+   "exports": 1303,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".fptable",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "v8_icuuc",
+   "file": "v8_icuuc.dll",
+   "relpath": "bin/win64/v8_icuuc.dll",
+   "role": "",
+   "size": 2849640,
+   "sha256": "44ce115a5cf9d141ce11c92c6114bc0bcef92eedfb7737b0792d83213bee456f",
+   "pdb": "E:\\p4_temp\\thirdpartycode\\nonredist\\v8\\v8-11.9.169.6\\v8\\out.gn\\x64.release\\v8_icuuc.dll.pdb",
+   "timestamp": 1709304901,
+   "functions": 4696,
+   "exports": 3160,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".idata",
+    ".gfids",
+    ".00cfg",
+    "_RDATA",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "networksystem",
+   "file": "networksystem.dll",
+   "relpath": "bin/win64/networksystem.dll",
+   "role": "Network channel, delta compression, Steam networking",
+   "size": 2841752,
+   "sha256": "94adbbf6bdbfeb047ea1bbbc0d8b155cc3e990e365c3beaedf5b09cb6c01d0d1",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\networksystem\\_vpc_networksystem\\default\\win64\\_msvc_\\Retail\\networksystem.pdb",
+   "timestamp": 1793662329,
+   "functions": 8478,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "panoramauiclient",
+   "file": "panoramauiclient.dll",
+   "relpath": "bin/win64/panoramauiclient.dll",
+   "role": "Client-side Panorama bindings",
+   "size": 2748056,
+   "sha256": "d8fa2fc75f886c142876b15b5177d6995d676d947897603e740acc819ccbd3f5",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\panoramauiclient\\_vpc_panoramauiclient\\default\\win64\\_msvc_\\Retail\\panoramauiclient.pdb",
+   "timestamp": 1793662280,
+   "functions": 10241,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "filesystem_stdio",
+   "file": "filesystem_stdio.dll",
+   "relpath": "bin/win64/filesystem_stdio.dll",
+   "role": "Filesystem layer over stdio and VPK",
+   "size": 2260120,
+   "sha256": "8e4c94030146e4182efb1dbecb7ac5f0fd27c0a78d31a0de00b9e7d8461215f5",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\filesystem\\_vpc_filesystem_stdio\\default\\win64\\_msvc_\\Retail\\filesystem_stdio.pdb",
+   "timestamp": 1793662288,
+   "functions": 5660,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "pulse_system",
+   "file": "pulse_system.dll",
+   "relpath": "bin/win64/pulse_system.dll",
+   "role": "Pulse graph (Source 2 scripting)",
+   "size": 2032792,
+   "sha256": "707a4f3fdbec6f8b08025ca71ee9674cba2fa7dc6571024d0dadd4e2b834f8ee",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\pulse_system\\_vpc_pulse_system\\default\\win64\\_msvc_\\Retail\\pulse_system.pdb",
+   "timestamp": 1793829954,
+   "functions": 6354,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "worldrenderer",
+   "file": "worldrenderer.dll",
+   "relpath": "bin/win64/worldrenderer.dll",
+   "role": "World geometry renderer",
+   "size": 2029720,
+   "sha256": "92659ab5b4f9656d3d69599acf96b128c6e576e3f858fc1b380276785e3b6478",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\worldrenderer\\_vpc_worldrenderer\\default\\win64\\_msvc_\\Retail\\worldrenderer.pdb",
+   "timestamp": 1793662489,
+   "functions": 6037,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "matchmaking",
+   "file": "matchmaking.dll",
+   "relpath": "csgo/bin/win64/matchmaking.dll",
+   "role": "Steam matchmaking and lobby glue",
+   "size": 1890968,
+   "sha256": "ef3796f725ba9a299c742d6c1650590331454f245e2bee9b55656e710cbb1551",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\matchmaking\\_vpc_matchmaking_csgo\\default\\win64\\_msvc_\\Retail\\matchmaking.pdb",
+   "timestamp": 1793662285,
+   "functions": 6305,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "visbuilder",
+   "file": "visbuilder.dll",
+   "relpath": "bin/win64/visbuilder.dll",
+   "role": "",
+   "size": 1855640,
+   "sha256": "eeaef8dacdcd902b6d53f08649374a03acd17f777c464771d9342d2fbea599bb",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\utils\\visbuilder\\_vpc_visbuilder\\default\\win64\\_msvc_\\Retail\\visbuilder.pdb",
+   "timestamp": 1793662582,
+   "functions": 5676,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libavformat-58",
+   "file": "libavformat-58.dll",
+   "relpath": "bin/win64/libavformat-58.dll",
+   "role": "",
+   "size": 1847656,
+   "sha256": "9a7e0abf5a09e983d7f46999b6b413a31f0b70dfb8cca1072ec6b88f790c0d0d",
+   "pdb": "C:\\buildslave\\libav_win32\\build\\dev\\libavformat\\libavformat-58.pdb",
+   "timestamp": 1686126155,
+   "functions": 4319,
+   "exports": 171,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".idata",
+    ".00cfg",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "rendersystemempty",
+   "file": "rendersystemempty.dll",
+   "relpath": "bin/win64/rendersystemempty.dll",
+   "role": "Null render backend (dedicated server / headless)",
+   "size": 1774744,
+   "sha256": "b633c112e9d287a48c7acb1e841a48ffa160fdade4e7734073449201ae9d1f0f",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\rendersystem\\_vpc_rendersystemempty\\default\\win64\\_msvc_\\Retail\\rendersystemempty.pdb",
+   "timestamp": 1793662327,
+   "functions": 4465,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "csgo_legacy_app",
+   "file": "csgo_legacy_app.exe",
+   "relpath": "csgo/bin/legacy/csgo_legacy_app.exe",
+   "role": "",
+   "size": 1728360,
+   "sha256": "de96c3b37e3aaedcf4d6a24c5f6c30acd60f3593e8d452dd9857d682ea3fb114",
+   "pdb": "c:\\buildslave\\csgo_pcbeta_win32\\build\\src\\launcher_main\\Release\\csgo.pdb",
+   "timestamp": 1696451571,
+   "functions": 0,
+   "exports": 7,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".gfids",
+    ".tls",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "meshsystem",
+   "file": "meshsystem.dll",
+   "relpath": "bin/win64/meshsystem.dll",
+   "role": "Mesh and LOD management",
+   "size": 1664664,
+   "sha256": "142b5749c114652bdb4de63731f4eed2fb59bff7089f6002bc11d33a35360805",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\meshsystem\\_vpc_meshsystem\\default\\win64\\_msvc_\\Retail\\meshsystem.pdb",
+   "timestamp": 1793662450,
+   "functions": 5583,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "v8_libbase",
+   "file": "v8_libbase.dll",
+   "relpath": "bin/win64/v8_libbase.dll",
+   "role": "",
+   "size": 1637736,
+   "sha256": "3dc9686891b1f563102a1865499984d18e72432b43efd9137579534273054829",
+   "pdb": "E:\\p4_temp\\thirdpartycode\\nonredist\\v8\\v8-11.9.169.6\\v8\\out.gn\\x64.release\\v8_libbase.dll.pdb",
+   "timestamp": 1709311781,
+   "functions": 3663,
+   "exports": 720,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".idata",
+    ".gfids",
+    ".tls",
+    ".00cfg",
+    "_RDATA",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "qwindows",
+   "file": "qwindows.dll",
+   "relpath": "bin/win64/qt5_plugins/platforms/qwindows.dll",
+   "role": "",
+   "size": 1616384,
+   "sha256": "e9b4e3c270d7b64eb06871e8d5022d4ea768d93bdd205faab070c6fae695e550",
+   "pdb": "D:\\dev\\thirdparty\\lgpl\\qt_source2\\valve\\qtbase\\plugins\\platforms\\qwindows.pdb",
+   "timestamp": 1615843230,
+   "functions": 5072,
+   "exports": 2,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".qtmetad",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libavutil-56",
+   "file": "libavutil-56.dll",
+   "relpath": "bin/win64/libavutil-56.dll",
+   "role": "",
+   "size": 1572712,
+   "sha256": "114622d5f56bc8c27d2dc01059e4ea975069643f5d0f24da585f62854191bb1b",
+   "pdb": "C:\\buildslave\\libav_win32\\build\\dev\\libavutil\\libavutil-56.pdb",
+   "timestamp": 1686126126,
+   "functions": 3439,
+   "exports": 547,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".idata",
+    "_RDATA",
+    ".00cfg",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "dbghelp",
+   "file": "dbghelp.dll",
+   "relpath": "bin/win64/dbghelp.dll",
+   "role": "",
+   "size": 1558912,
+   "sha256": "13f0c74845318b52b76e6000564b1a99c37de48422b44ac74d034fa222c65a23",
+   "pdb": "dbghelp.pdb",
+   "timestamp": 1265055344,
+   "functions": 5823,
+   "exports": 203,
+   "sections": [
+    ".text",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libglib-2.0-0",
+   "file": "libglib-2.0-0.dll",
+   "relpath": "bin/win64/libglib-2.0-0.dll",
+   "role": "",
+   "size": 1549160,
+   "sha256": "a23990999e3f5ae299e104b01d70fcf0a035064058dbcc18e6f3ba2ce0431013",
+   "pdb": "c:\\buildslave\\pango_win32\\build\\glib-2.42.0\\build\\win32\\vs12\\Release\\x64\\bin\\libglib-2.0-0.pdb",
+   "timestamp": 1446755158,
+   "functions": 4638,
+   "exports": 1609,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "propertyeditor",
+   "file": "propertyeditor.dll",
+   "relpath": "bin/win64/propertyeditor.dll",
+   "role": "",
+   "size": 1522840,
+   "sha256": "c2f05d15f895a84f01bd11c2ceac9bcd9918e9d51fb4839c2365f72c1f962da2",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\propertyeditor\\_vpc_propertyeditor\\default\\win64\\_msvc_\\Retail\\propertyeditor.pdb",
+   "timestamp": 1793662536,
+   "functions": 4453,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "v8_libplatform",
+   "file": "v8_libplatform.dll",
+   "relpath": "bin/win64/v8_libplatform.dll",
+   "role": "",
+   "size": 1455464,
+   "sha256": "210ac10fb2ad747b2d59aec2289bf10c3b47644816240842f00761eb2320f9ce",
+   "pdb": "E:\\p4_temp\\thirdpartycode\\nonredist\\v8\\v8-11.9.169.6\\v8\\out.gn\\x64.release\\v8_libplatform.dll.pdb",
+   "timestamp": 1709311782,
+   "functions": 3274,
+   "exports": 201,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".idata",
+    ".gfids",
+    ".00cfg",
+    "_RDATA",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "materialsystem2",
+   "file": "materialsystem2.dll",
+   "relpath": "bin/win64/materialsystem2.dll",
+   "role": "Material and shader binding",
+   "size": 1428632,
+   "sha256": "7aa863a1a17ca42092f0282d7e0607d3cff4a85a659ccaeda01958f8d4b971d1",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\materialsystem2\\_vpc_materialsystem2\\default\\win64\\_msvc_\\Retail\\materialsystem2.pdb",
+   "timestamp": 1793662330,
+   "functions": 4121,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "host",
+   "file": "host.dll",
+   "relpath": "csgo/bin/win64/host.dll",
+   "role": "Host state: cvar/command registry, game UI state",
+   "size": 1389208,
+   "sha256": "38d7e26029ce5ab6efd473b16aa55833751895c164727b2b779825f1c0a27061",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\game\\host\\_vpc_host_csgo\\default\\win64\\_msvc_\\Retail\\host.pdb",
+   "timestamp": 1793662605,
+   "functions": 4085,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "vscript",
+   "file": "vscript.dll",
+   "relpath": "bin/win64/vscript.dll",
+   "role": "",
+   "size": 1352856,
+   "sha256": "14c72b76fea545252b4100ae267a3c51cea0f0d6058b0afcdadb93e3d7a1fd2c",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\vscript\\_vpc_vscript\\default\\win64\\_msvc_\\Retail\\vscript.pdb",
+   "timestamp": 1793662323,
+   "functions": 3283,
+   "exports": 183,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "vfx_dx11",
+   "file": "vfx_dx11.dll",
+   "relpath": "bin/win64/vfx_dx11.dll",
+   "role": "",
+   "size": 1327256,
+   "sha256": "d6e56883a62c37b4f0145b14d34c646081dad9c76576df34e1e761c8451be1f9",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\vfx\\vfx_dx\\_vpc_vfx_dx11\\default\\win64\\_msvc_\\Retail\\vfx_dx11.pdb",
+   "timestamp": 1793662342,
+   "functions": 1917,
+   "exports": 3,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "navsystem",
+   "file": "navsystem.dll",
+   "relpath": "bin/win64/navsystem.dll",
+   "role": "Navigation mesh and AI pathing",
+   "size": 1314968,
+   "sha256": "025596bd94254749826242f4300946f0d5a878edc5db79b2f93e4fc95c70fd32",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\navsystem\\_vpc_navsystem\\default\\win64\\_msvc_\\Retail\\navsystem.pdb",
+   "timestamp": 1793662339,
+   "functions": 3594,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "scenefilecache",
+   "file": "scenefilecache.dll",
+   "relpath": "bin/win64/scenefilecache.dll",
+   "role": "Compiled scene file cache",
+   "size": 1297048,
+   "sha256": "7e09058ecd0e1eacf0ed237409c406d038809b76c662ae34f5bfe3d3a4ba9194",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\scenefilecache\\_vpc_scenefilecache\\default\\win64\\_msvc_\\Retail\\scenefilecache.pdb",
+   "timestamp": 1793662454,
+   "functions": 3692,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "libswscale-5",
+   "file": "libswscale-5.dll",
+   "relpath": "bin/win64/libswscale-5.dll",
+   "role": "",
+   "size": 1283432,
+   "sha256": "0ef8ffe68f41957b36a3f0390e8fb13e400b41cc7e0f63c2bb43d18ab8c5419c",
+   "pdb": "C:\\buildslave\\libav_win32\\build\\dev\\libswscale\\libswscale-5.pdb",
+   "timestamp": 1686126127,
+   "functions": 3195,
+   "exports": 34,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".idata",
+    "_RDATA",
+    ".00cfg",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "cairo",
+   "file": "cairo.dll",
+   "relpath": "bin/win64/cairo.dll",
+   "role": "",
+   "size": 1271960,
+   "sha256": "1985146d8aac64be864827815c08b61029eae85f07af8f7c6b842f5f215d41d7",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\thirdparty\\cairo\\_vpc_cairo\\default\\win64\\_msvc_\\Retail\\cairo.pdb",
+   "timestamp": 1792003049,
+   "functions": 4273,
+   "exports": 325,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libfreetype-6",
+   "file": "libfreetype-6.dll",
+   "relpath": "bin/win64/libfreetype-6.dll",
+   "role": "",
+   "size": 1069928,
+   "sha256": "bdfb01f8ecf2f5af6014bd4eb4ea733a24f1de6ec6167bc504b8eb088d6b5822",
+   "pdb": "c:\\buildslave\\pango_win32\\build\\freetype-2.5.3\\builds\\windows\\vc2010\\x64\\Release\\libfreetype-6.pdb",
+   "timestamp": 1446754901,
+   "functions": 2880,
+   "exports": 278,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".idata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "convarhelper_subtool",
+   "file": "convarhelper_subtool.dll",
+   "relpath": "bin/win64/subtools/convarhelper_subtool.dll",
+   "role": "",
+   "size": 887448,
+   "sha256": "373374af8df4d46787d87c4fabf337cf30457e7186093b0d9854d279aa83c199",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\utils\\vconsole2\\subtools\\convarhelper\\_vpc_convarhelper_subtool\\default\\win64\\_msvc_\\Retail\\convarhelper_subtool.pdb",
+   "timestamp": 1793662371,
+   "functions": 1754,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "v8_zlib",
+   "file": "v8_zlib.dll",
+   "relpath": "bin/win64/v8_zlib.dll",
+   "role": "",
+   "size": 844136,
+   "sha256": "74b51ce1445ea70c52e342d678717d0103f377fe60adc9271cb7232deed15e5a",
+   "pdb": "E:\\p4_temp\\thirdpartycode\\nonredist\\v8\\v8-11.9.169.6\\v8\\out.gn\\x64.release\\v8_zlib.dll.pdb",
+   "timestamp": 1709304901,
+   "functions": 1779,
+   "exports": 86,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".idata",
+    ".gfids",
+    ".00cfg",
+    "_RDATA",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "qtadvanceddocking-qt5",
+   "file": "qtadvanceddocking-qt5.dll",
+   "relpath": "bin/win64/qtadvanceddocking-qt5.dll",
+   "role": "",
+   "size": 828928,
+   "sha256": "2cf5fd2ad49534111f18ff23732375f59017199f73c82d21d2bd022d797af9d1",
+   "pdb": "D:\\dev\\thirdpartycode\\lgpl\\qt_ads\\valve\\x64\\bin\\RelWithDebInfo\\qtadvanceddocking-qt5.pdb",
+   "timestamp": 1741385477,
+   "functions": 1646,
+   "exports": 739,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".idata",
+    ".tls",
+    ".00cfg",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libavresample-4",
+   "file": "libavresample-4.dll",
+   "relpath": "bin/win64/libavresample-4.dll",
+   "role": "",
+   "size": 756584,
+   "sha256": "b2a72526916f00748fc8957d8186d1756c8eb2d0628102135d0244bed2773c45",
+   "pdb": "C:\\buildslave\\libav_win32\\build\\dev\\libavresample\\libavresample-4.pdb",
+   "timestamp": 1686126127,
+   "functions": 1886,
+   "exports": 21,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".idata",
+    ".00cfg",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "helpsystem",
+   "file": "helpsystem.dll",
+   "relpath": "bin/win64/helpsystem.dll",
+   "role": "Help system",
+   "size": 755864,
+   "sha256": "c5a19fc37b02d28e74f67bb3b11547e052437790da78c37232dc7b3e8c38ce5b",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\tools\\helpsystem\\_vpc_helpsystem\\default\\win64\\_msvc_\\Retail\\helpsystem.pdb",
+   "timestamp": 1793662364,
+   "functions": 2031,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "ati_compress_wrapper",
+   "file": "ati_compress_wrapper.dll",
+   "relpath": "bin/win64/ati_compress_wrapper.dll",
+   "role": "",
+   "size": 754024,
+   "sha256": "59b8e6afa8bd163213b63bbc8b7af18e495ddebee801ebda39ef62fd559901c3",
+   "pdb": "d:\\clients\\source2_main\\src\\tools\\ati_compress_wrapper\\x64\\Release\\ati_compress_wrapper.pdb",
+   "timestamp": 1384280845,
+   "functions": 1969,
+   "exports": 2,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "phonon4",
+   "file": "phonon4.dll",
+   "relpath": "bin/win64/phonon4.dll",
+   "role": "",
+   "size": 567656,
+   "sha256": "a844ddfea7141d42f7cfeb37d9595b19575de4e3c2d880985cea926840b6b3a9",
+   "pdb": "C:\\Valve\\ThirdPartyCode\\lgpl\\qt\\qt_valve_win64\\lib\\phonon4.pdb",
+   "timestamp": 1361921321,
+   "functions": 1877,
+   "exports": 616,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    "text",
+    "data",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "qjpeg",
+   "file": "qjpeg.dll",
+   "relpath": "bin/win64/qt5_plugins/imageformats/qjpeg.dll",
+   "role": "",
+   "size": 550400,
+   "sha256": "4d0201f4dd243bd1fd29417b57901eb03b50bb3bc2603f3a6641d12b4eb3fd81",
+   "pdb": "D:\\dev\\thirdparty\\lgpl\\qt_source2\\valve\\qtbase\\plugins\\imageformats\\qjpeg.pdb",
+   "timestamp": 1615843471,
+   "functions": 1015,
+   "exports": 2,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".qtmetad",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "resourcesystem",
+   "file": "resourcesystem.dll",
+   "relpath": "bin/win64/resourcesystem.dll",
+   "role": "Resource compiler runtime",
+   "size": 532632,
+   "sha256": "4b86d2c2607178c1a8320e3a3b2bcce3d5dcedfbf0b43cf39a929a2e001d504f",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\resourcesystem\\_vpc_resourcesystem\\default\\win64\\_msvc_\\Retail\\resourcesystem.pdb",
+   "timestamp": 1793662327,
+   "functions": 1864,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "qtiff",
+   "file": "qtiff.dll",
+   "relpath": "bin/win64/qt5_plugins/imageformats/qtiff.dll",
+   "role": "",
+   "size": 523264,
+   "sha256": "a13b60ffad79e982148e757e622afe7176b0790a74a5982083c542bb6176bac6",
+   "pdb": "D:\\dev\\thirdparty\\lgpl\\qt_source2\\valve\\qtimageformats\\plugins\\imageformats\\qtiff.pdb",
+   "timestamp": 1615843558,
+   "functions": 1135,
+   "exports": 2,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".qtmetad",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libfontconfig-1",
+   "file": "libfontconfig-1.dll",
+   "relpath": "bin/win64/libfontconfig-1.dll",
+   "role": "",
+   "size": 492904,
+   "sha256": "209507f621bf5cd09422a4d9cf2a027af0f7aa7cf7c9dc82fd98ef4b86b4bc46",
+   "pdb": "c:\\buildslave\\pango_win32\\build\\fontconfig-2.11.1\\x64\\Release\\libfontconfig-1.pdb",
+   "timestamp": 1446754926,
+   "functions": 1759,
+   "exports": 196,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "schemasystem",
+   "file": "schemasystem.dll",
+   "relpath": "bin/win64/schemasystem.dll",
+   "role": "Schema type system",
+   "size": 445592,
+   "sha256": "d94cc30d01521e0a7cfdfda6d5ba305029ff7093e6ce53452c8cf3a9b97895b3",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\schemasystem\\_vpc_schemasystem\\default\\win64\\_msvc_\\Retail\\schemasystem.pdb",
+   "timestamp": 1793662325,
+   "functions": 1397,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "soundviewer_subtool",
+   "file": "soundviewer_subtool.dll",
+   "relpath": "bin/win64/subtools/soundviewer_subtool.dll",
+   "role": "",
+   "size": 418968,
+   "sha256": "1a51875f5b07c2c6a7dce8e0e04be2420367029f3364bd697f02298c26c2b150",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\utils\\vconsole2\\subtools\\soundviewer\\_vpc_soundviewer_subtool\\default\\win64\\_msvc_\\Retail\\soundviewer_subtool.pdb",
+   "timestamp": 1793662435,
+   "functions": 1093,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libpango-1.0-0",
+   "file": "libpango-1.0-0.dll",
+   "relpath": "bin/win64/libpango-1.0-0.dll",
+   "role": "",
+   "size": 400744,
+   "sha256": "0c2971d0cf26cb70021d03c7a1fca8555f3c4b68a8b9e5d5e28508c7d53a7448",
+   "pdb": "c:\\buildslave\\pango_win32\\build\\pango-1.36.8\\build\\win32\\vs12\\Release\\x64\\bin\\libpango-1.0-0.pdb",
+   "timestamp": 1446755209,
+   "functions": 1208,
+   "exports": 405,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libpangoft2-1.0-0",
+   "file": "libpangoft2-1.0-0.dll",
+   "relpath": "bin/win64/libpangoft2-1.0-0.dll",
+   "role": "",
+   "size": 389992,
+   "sha256": "4d7f3151cbcdffccad1b68c14a463dfeb19f78893bc74b1e104a04eb987082ff",
+   "pdb": "c:\\buildslave\\pango_win32\\build\\pango-1.36.8\\build\\win32\\vs12\\Release_FC\\x64\\bin\\libpangoft2-1.0-0.pdb",
+   "timestamp": 1446755213,
+   "functions": 1339,
+   "exports": 85,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "localize",
+   "file": "localize.dll",
+   "relpath": "bin/win64/localize.dll",
+   "role": "Localisation token tables",
+   "size": 382104,
+   "sha256": "9dad33a58beeaf985a28a53c5012c19fe1d4ffe4a67a4da5f4a8f0bf74b8780a",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\localize\\_vpc_localize\\default\\win64\\_msvc_\\Retail\\localize.pdb",
+   "timestamp": 1793662271,
+   "functions": 1167,
+   "exports": 8,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "netgraph_subtool",
+   "file": "netgraph_subtool.dll",
+   "relpath": "bin/win64/subtools/netgraph_subtool.dll",
+   "role": "",
+   "size": 366232,
+   "sha256": "245537de1016dc2dd3adad8b274f1769686151d8dd0a450db27f39d9245be2fb",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\utils\\vconsole2\\subtools\\netgraph\\_vpc_netgraph_subtool\\default\\win64\\_msvc_\\Retail\\netgraph_subtool.pdb",
+   "timestamp": 1793662280,
+   "functions": 987,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libmpg123-0",
+   "file": "libmpg123-0.dll",
+   "relpath": "bin/win64/libmpg123-0.dll",
+   "role": "",
+   "size": 352192,
+   "sha256": "24e71004d29377b42a5145acdac4195da073a3a0b8e96d9a37b286fb09b2cba7",
+   "pdb": null,
+   "timestamp": 0,
+   "functions": 436,
+   "exports": 136,
+   "sections": [
+    ".text",
+    ".data",
+    ".rodata",
+    ".rdata",
+    ".pdata",
+    ".xdata",
+    ".bss",
+    ".edata",
+    ".idata",
+    ".CRT",
+    ".tls",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "vprof_subtool",
+   "file": "vprof_subtool.dll",
+   "relpath": "bin/win64/subtools/vprof_subtool.dll",
+   "role": "",
+   "size": 338584,
+   "sha256": "ebae8d5b06960a197b3fa45aa32900377b65b59cddf6497728647b53d6b20363",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\utils\\vconsole2\\subtools\\vprof\\_vpc_vprof_subtool\\default\\win64\\_msvc_\\Retail\\vprof_subtool.pdb",
+   "timestamp": 1793662483,
+   "functions": 953,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libgobject-2.0-0",
+   "file": "libgobject-2.0-0.dll",
+   "relpath": "bin/win64/libgobject-2.0-0.dll",
+   "role": "",
+   "size": 334696,
+   "sha256": "166ce8496289ebe41cd624e24ba99a5856402141d1f095359314d853581ab22a",
+   "pdb": "c:\\buildslave\\pango_win32\\build\\glib-2.42.0\\build\\win32\\vs12\\Release\\x64\\bin\\libgobject-2.0-0.pdb",
+   "timestamp": 1446755164,
+   "functions": 1274,
+   "exports": 428,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "steam_api64",
+   "file": "steam_api64.dll",
+   "relpath": "bin/win64/steam_api64.dll",
+   "role": "",
+   "size": 317080,
+   "sha256": "2a785780af426dfc5c809087d100db8d4ff41a1e1a2956ad5473689e77e3c863",
+   "pdb": "C:\\buildworker\\steam_rel_client_win64\\build\\src\\steam_api\\win64\\Release\\steam_api64.pdb",
+   "timestamp": 1762802904,
+   "functions": 808,
+   "exports": 1046,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "inputsystem",
+   "file": "inputsystem.dll",
+   "relpath": "bin/win64/inputsystem.dll",
+   "role": "Input device handling",
+   "size": 302232,
+   "sha256": "7bb1dc2a787de5b6e2992b235f863924c3b512ba70fc39323ef5a861436b023a",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\inputsystem\\_vpc_inputsystem\\default\\win64\\_msvc_\\Retail\\inputsystem.pdb",
+   "timestamp": 1793662277,
+   "functions": 849,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 250,
+    "document": null,
+    "status": "extracted, not documented"
+   }
+  },
+  {
+   "module": "vconcomm",
+   "file": "vconcomm.dll",
+   "relpath": "bin/win64/vconcomm.dll",
+   "role": "",
+   "size": 259736,
+   "sha256": "2f551bdec2a0332ae750c0cad953f932f16493645d08963eb5761d23addafe45",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\vconcomm\\_vpc_vconcomm\\default\\win64\\_msvc_\\Retail\\vconcomm.pdb",
+   "timestamp": 1793662290,
+   "functions": 896,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "imemanager",
+   "file": "imemanager.dll",
+   "relpath": "bin/win64/imemanager.dll",
+   "role": "",
+   "size": 248472,
+   "sha256": "f5d7a271ced3cb69582dd6c18ef8c8607d3fff5188e651b6a03f2d9734717538",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\imemanager\\_vpc_imemanager\\default\\win64\\_msvc_\\Retail\\imemanager.pdb",
+   "timestamp": 1793662279,
+   "functions": 783,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "v8system",
+   "file": "v8system.dll",
+   "relpath": "bin/win64/v8system.dll",
+   "role": "",
+   "size": 233624,
+   "sha256": "52f4150606da52c0eb11cbdbd951afef8e5eafd77b29f0dac46c7db460d6d372",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\v8system\\_vpc_v8system\\default\\win64\\_msvc_\\Retail\\v8system.pdb",
+   "timestamp": 1793662277,
+   "functions": 737,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "qwindowsvistastyle",
+   "file": "qwindowsvistastyle.dll",
+   "relpath": "bin/win64/qt5_plugins/styles/qwindowsvistastyle.dll",
+   "role": "",
+   "size": 231424,
+   "sha256": "be29d91c9eac2bb826a011357d13593f216a68b55d8914effc480b61ea4348a5",
+   "pdb": "D:\\dev\\thirdparty\\lgpl\\qt_source2\\valve\\qtbase\\plugins\\styles\\qwindowsvistastyle.pdb",
+   "timestamp": 1615843511,
+   "functions": 515,
+   "exports": 2,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".qtmetad",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "dashboard_subtool",
+   "file": "dashboard_subtool.dll",
+   "relpath": "bin/win64/subtools/dashboard_subtool.dll",
+   "role": "",
+   "size": 227992,
+   "sha256": "ad672c0fbd1af1a8c0cb5817fa2700fe5d1d0f2614a6aa07242ff98ec1e7b8c8",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\utils\\vconsole2\\subtools\\dashboard\\_vpc_dashboard_subtool\\default\\win64\\_msvc_\\Retail\\dashboard_subtool.pdb",
+   "timestamp": 1793662535,
+   "functions": 689,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "valve_avi",
+   "file": "valve_avi.dll",
+   "relpath": "bin/win64/valve_avi.dll",
+   "role": "",
+   "size": 194200,
+   "sha256": "2587d836b328375c27037ba817ee54d05810768d5d04251a4835cf69cb6509a2",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\avi\\_vpc_valve_avi\\default\\win64\\_msvc_\\Retail\\valve_avi.pdb",
+   "timestamp": 1793662299,
+   "functions": 641,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "amd_ags_x64",
+   "file": "amd_ags_x64.dll",
+   "relpath": "bin/win64/amd_ags_x64.dll",
+   "role": "",
+   "size": 181608,
+   "sha256": "2449e8339e0f031bc4f954398f5917b8eb5a2d20c32d4688a083d5dd9f637ab8",
+   "pdb": null,
+   "timestamp": 1662473144,
+   "functions": 534,
+   "exports": 38,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".gxfg",
+    ".gehcont",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "valve_wmf",
+   "file": "valve_wmf.dll",
+   "relpath": "bin/win64/valve_wmf.dll",
+   "role": "",
+   "size": 177304,
+   "sha256": "90357b160d7c3b242b72b2e944bb114c86cc0a88d406f8585a331d03a3d4236b",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\valve_wmf\\_vpc_valve_wmf\\default\\win64\\_msvc_\\Retail\\valve_wmf.pdb",
+   "timestamp": 1793662277,
+   "functions": 552,
+   "exports": 6,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "bugreporter_filequeue",
+   "file": "bugreporter_filequeue.dll",
+   "relpath": "bin/win64/bugreporter_filequeue.dll",
+   "role": "",
+   "size": 167576,
+   "sha256": "bd5e12600bfe5280b5559f323f9bff1f58a0784548215d4ab628032ae4331b09",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\utils\\bugreporter_filequeue\\_vpc_bugreporter_filequeue\\default\\win64\\_msvc_\\Retail\\bugreporter_filequeue.pdb",
+   "timestamp": 1793662182,
+   "functions": 490,
+   "exports": 3,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "symsrv",
+   "file": "symsrv.dll",
+   "relpath": "bin/win64/symsrv.dll",
+   "role": "",
+   "size": 149264,
+   "sha256": "c67be7d3f54d44ac264a18e33909482f1f8ca7b7fbaaf5659ef71ed9f8092c34",
+   "pdb": "symsrv.pdb",
+   "timestamp": 1265055348,
+   "functions": 374,
+   "exports": 30,
+   "sections": [
+    ".text",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "p4lib",
+   "file": "p4lib.dll",
+   "relpath": "bin/win64/p4lib.dll",
+   "role": "",
+   "size": 147608,
+   "sha256": "641b0538923c1de3e9381a3247c3e6458ed86c4ce660f32a57e41626a6c1b60a",
+   "pdb": "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\p4lib\\_vpc_p4lib\\default\\win64\\_msvc_\\Retail\\p4lib.pdb",
+   "timestamp": 1793662182,
+   "functions": 431,
+   "exports": 3,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "Qt5Concurrent",
+   "file": "Qt5Concurrent.dll",
+   "relpath": "bin/win64/Qt5Concurrent.dll",
+   "role": "",
+   "size": 131432,
+   "sha256": "d4a01961fff02cc38ab906d3bffaeb49db893edc624f840e06d07985086db29f",
+   "pdb": "D:\\dev\\thirdparty\\lgpl\\qt_source2\\valve\\qtbase\\lib\\Qt5Concurrent.pdb",
+   "timestamp": 1615842828,
+   "functions": 386,
+   "exports": 34,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "qgif",
+   "file": "qgif.dll",
+   "relpath": "bin/win64/qt5_plugins/imageformats/qgif.dll",
+   "role": "",
+   "size": 112640,
+   "sha256": "df50647b02abf30cda040460e9be6d903cc7a3d07fd79c229ce136997beafd96",
+   "pdb": "D:\\dev\\thirdparty\\lgpl\\qt_source2\\valve\\qtbase\\plugins\\imageformats\\qgif.pdb",
+   "timestamp": 1615843478,
+   "functions": 344,
+   "exports": 2,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".qtmetad",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "qico",
+   "file": "qico.dll",
+   "relpath": "bin/win64/qt5_plugins/imageformats/qico.dll",
+   "role": "",
+   "size": 110592,
+   "sha256": "ddafd14ac6215b2ba8af3cbb0a251dffc4d76b7c5d0f419d614991fe9d16a093",
+   "pdb": "D:\\dev\\thirdparty\\lgpl\\qt_source2\\valve\\qtbase\\plugins\\imageformats\\qico.pdb",
+   "timestamp": 1615843457,
+   "functions": 344,
+   "exports": 2,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".qtmetad",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "qtga",
+   "file": "qtga.dll",
+   "relpath": "bin/win64/qt5_plugins/imageformats/qtga.dll",
+   "role": "",
+   "size": 104448,
+   "sha256": "fce0a0c801f8be7799c12947d42bc0d975760f85934e9a3bfdf08e9f021ff6ab",
+   "pdb": "D:\\dev\\thirdparty\\lgpl\\qt_source2\\valve\\qtimageformats\\plugins\\imageformats\\qtga.pdb",
+   "timestamp": 1615843529,
+   "functions": 313,
+   "exports": 2,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".qtmetad",
+    "_RDATA",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libgmodule-2.0-0",
+   "file": "libgmodule-2.0-0.dll",
+   "relpath": "bin/win64/libgmodule-2.0-0.dll",
+   "role": "",
+   "size": 100712,
+   "sha256": "351d05acc97d19ea348a69a844b3d959a02ed6189357b8d8d65eb70b7f68e537",
+   "pdb": "c:\\buildslave\\pango_win32\\build\\glib-2.42.0\\build\\win32\\vs12\\Release\\x64\\bin\\libgmodule-2.0-0.pdb",
+   "timestamp": 1446755069,
+   "functions": 208,
+   "exports": 8,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  },
+  {
+   "module": "libgthread-2.0-0",
+   "file": "libgthread-2.0-0.dll",
+   "relpath": "bin/win64/libgthread-2.0-0.dll",
+   "role": "",
+   "size": 94568,
+   "sha256": "6dea26270e891756ca78422c289cf77c6780194e541598ff91c3b73c124c249c",
+   "pdb": "c:\\buildslave\\pango_win32\\build\\glib-2.42.0\\build\\win32\\vs12\\Release\\x64\\bin\\libgthread-2.0-0.pdb",
+   "timestamp": 1446755159,
+   "functions": 186,
+   "exports": 2,
+   "sections": [
+    ".text",
+    ".rdata",
+    ".data",
+    ".pdata",
+    ".rsrc",
+    ".reloc"
+   ],
+   "analysis": {
+    "disassembly_functions": 0,
+    "document": null,
+    "status": "inventory only"
+   }
+  }
+ ]
+}

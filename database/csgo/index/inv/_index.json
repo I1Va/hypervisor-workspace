@@ -1,0 +1,716 @@
+[
+ {
+  "name": "Qt5Concurrent.dll",
+  "rel": "bin/win64/Qt5Concurrent.dll",
+  "size": 131432,
+  "error": null,
+  "exports": 34
+ },
+ {
+  "name": "Qt5Core.dll",
+  "rel": "bin/win64/Qt5Core.dll",
+  "size": 6288744,
+  "error": null,
+  "exports": 8368
+ },
+ {
+  "name": "Qt5Gui.dll",
+  "rel": "bin/win64/Qt5Gui.dll",
+  "size": 7007080,
+  "error": null,
+  "exports": 16492
+ },
+ {
+  "name": "Qt5Widgets.dll",
+  "rel": "bin/win64/Qt5Widgets.dll",
+  "size": 5624168,
+  "error": null,
+  "exports": 9053
+ },
+ {
+  "name": "SDL3.dll",
+  "rel": "bin/win64/SDL3.dll",
+  "size": 2891928,
+  "error": null,
+  "exports": 1303
+ },
+ {
+  "name": "amd_ags_x64.dll",
+  "rel": "bin/win64/amd_ags_x64.dll",
+  "size": 181608,
+  "error": null,
+  "exports": 38
+ },
+ {
+  "name": "animationsystem.dll",
+  "rel": "bin/win64/animationsystem.dll",
+  "size": 9329816,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "assetpreview.dll",
+  "rel": "bin/win64/assetpreview.dll",
+  "size": 48612504,
+  "error": null,
+  "exports": 7
+ },
+ {
+  "name": "ati_compress_wrapper.dll",
+  "rel": "bin/win64/ati_compress_wrapper.dll",
+  "size": 754024,
+  "error": null,
+  "exports": 2
+ },
+ {
+  "name": "bugreporter_filequeue.dll",
+  "rel": "bin/win64/bugreporter_filequeue.dll",
+  "size": 167576,
+  "error": null,
+  "exports": 3
+ },
+ {
+  "name": "cairo.dll",
+  "rel": "bin/win64/cairo.dll",
+  "size": 1271960,
+  "error": null,
+  "exports": 325
+ },
+ {
+  "name": "cs2.exe",
+  "rel": "bin/win64/cs2.exe",
+  "size": 2967704,
+  "error": null,
+  "exports": 7
+ },
+ {
+  "name": "d3dcompiler_47.dll",
+  "rel": "bin/win64/d3dcompiler_47.dll",
+  "size": 4346120,
+  "error": null,
+  "exports": 29
+ },
+ {
+  "name": "dbghelp.dll",
+  "rel": "bin/win64/dbghelp.dll",
+  "size": 1558912,
+  "error": null,
+  "exports": 203
+ },
+ {
+  "name": "embree3.dll",
+  "rel": "bin/win64/embree3.dll",
+  "size": 21996904,
+  "error": null,
+  "exports": 117
+ },
+ {
+  "name": "engine2.dll",
+  "rel": "bin/win64/engine2.dll",
+  "size": 7498392,
+  "error": null,
+  "exports": 43
+ },
+ {
+  "name": "filesystem_stdio.dll",
+  "rel": "bin/win64/filesystem_stdio.dll",
+  "size": 2260120,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "gfsdk_aftermath_lib.x64.dll",
+  "rel": "bin/win64/gfsdk_aftermath_lib.x64.dll",
+  "size": 5736000,
+  "error": null,
+  "exports": 43
+ },
+ {
+  "name": "helpsystem.dll",
+  "rel": "bin/win64/helpsystem.dll",
+  "size": 755864,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "imemanager.dll",
+  "rel": "bin/win64/imemanager.dll",
+  "size": 248472,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "inputsystem.dll",
+  "rel": "bin/win64/inputsystem.dll",
+  "size": 302232,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "libavcodec-58.dll",
+  "rel": "bin/win64/libavcodec-58.dll",
+  "size": 6627176,
+  "error": null,
+  "exports": 217
+ },
+ {
+  "name": "libavformat-58.dll",
+  "rel": "bin/win64/libavformat-58.dll",
+  "size": 1847656,
+  "error": null,
+  "exports": 171
+ },
+ {
+  "name": "libavresample-4.dll",
+  "rel": "bin/win64/libavresample-4.dll",
+  "size": 756584,
+  "error": null,
+  "exports": 21
+ },
+ {
+  "name": "libavutil-56.dll",
+  "rel": "bin/win64/libavutil-56.dll",
+  "size": 1572712,
+  "error": null,
+  "exports": 547
+ },
+ {
+  "name": "libfbxsdk_2020_3_1.dll",
+  "rel": "bin/win64/libfbxsdk_2020_3_1.dll",
+  "size": 9950568,
+  "error": null,
+  "exports": 11378
+ },
+ {
+  "name": "libfontconfig-1.dll",
+  "rel": "bin/win64/libfontconfig-1.dll",
+  "size": 492904,
+  "error": null,
+  "exports": 196
+ },
+ {
+  "name": "libfreetype-6.dll",
+  "rel": "bin/win64/libfreetype-6.dll",
+  "size": 1069928,
+  "error": null,
+  "exports": 278
+ },
+ {
+  "name": "libglib-2.0-0.dll",
+  "rel": "bin/win64/libglib-2.0-0.dll",
+  "size": 1549160,
+  "error": null,
+  "exports": 1609
+ },
+ {
+  "name": "libgmodule-2.0-0.dll",
+  "rel": "bin/win64/libgmodule-2.0-0.dll",
+  "size": 100712,
+  "error": null,
+  "exports": 8
+ },
+ {
+  "name": "libgobject-2.0-0.dll",
+  "rel": "bin/win64/libgobject-2.0-0.dll",
+  "size": 334696,
+  "error": null,
+  "exports": 428
+ },
+ {
+  "name": "libgthread-2.0-0.dll",
+  "rel": "bin/win64/libgthread-2.0-0.dll",
+  "size": 94568,
+  "error": null,
+  "exports": 2
+ },
+ {
+  "name": "libmpg123-0.dll",
+  "rel": "bin/win64/libmpg123-0.dll",
+  "size": 352192,
+  "error": null,
+  "exports": 136
+ },
+ {
+  "name": "libpango-1.0-0.dll",
+  "rel": "bin/win64/libpango-1.0-0.dll",
+  "size": 400744,
+  "error": null,
+  "exports": 405
+ },
+ {
+  "name": "libpangoft2-1.0-0.dll",
+  "rel": "bin/win64/libpangoft2-1.0-0.dll",
+  "size": 389992,
+  "error": null,
+  "exports": 85
+ },
+ {
+  "name": "libswscale-5.dll",
+  "rel": "bin/win64/libswscale-5.dll",
+  "size": 1283432,
+  "error": null,
+  "exports": 34
+ },
+ {
+  "name": "localize.dll",
+  "rel": "bin/win64/localize.dll",
+  "size": 382104,
+  "error": null,
+  "exports": 8
+ },
+ {
+  "name": "materialsystem2.dll",
+  "rel": "bin/win64/materialsystem2.dll",
+  "size": 1428632,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "meshsystem.dll",
+  "rel": "bin/win64/meshsystem.dll",
+  "size": 1664664,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "navsystem.dll",
+  "rel": "bin/win64/navsystem.dll",
+  "size": 1314968,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "networksystem.dll",
+  "rel": "bin/win64/networksystem.dll",
+  "size": 2841752,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "p4lib.dll",
+  "rel": "bin/win64/p4lib.dll",
+  "size": 147608,
+  "error": null,
+  "exports": 3
+ },
+ {
+  "name": "panorama.dll",
+  "rel": "bin/win64/panorama.dll",
+  "size": 6108312,
+  "error": null,
+  "exports": 7
+ },
+ {
+  "name": "panorama_text_pango.dll",
+  "rel": "bin/win64/panorama_text_pango.dll",
+  "size": 2997912,
+  "error": null,
+  "exports": 7
+ },
+ {
+  "name": "panoramauiclient.dll",
+  "rel": "bin/win64/panoramauiclient.dll",
+  "size": 2748056,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "particles.dll",
+  "rel": "bin/win64/particles.dll",
+  "size": 6460568,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "phonon.dll",
+  "rel": "bin/win64/phonon.dll",
+  "size": 53322904,
+  "error": null,
+  "exports": 418
+ },
+ {
+  "name": "phonon4.dll",
+  "rel": "bin/win64/phonon4.dll",
+  "size": 567656,
+  "error": null,
+  "exports": 616
+ },
+ {
+  "name": "physicsbuilder.dll",
+  "rel": "bin/win64/physicsbuilder.dll",
+  "size": 13950616,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "propertyeditor.dll",
+  "rel": "bin/win64/propertyeditor.dll",
+  "size": 1522840,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "pulse_system.dll",
+  "rel": "bin/win64/pulse_system.dll",
+  "size": 2032792,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "qgif.dll",
+  "rel": "bin/win64/qt5_plugins/imageformats/qgif.dll",
+  "size": 112640,
+  "error": null,
+  "exports": 2
+ },
+ {
+  "name": "qico.dll",
+  "rel": "bin/win64/qt5_plugins/imageformats/qico.dll",
+  "size": 110592,
+  "error": null,
+  "exports": 2
+ },
+ {
+  "name": "qjpeg.dll",
+  "rel": "bin/win64/qt5_plugins/imageformats/qjpeg.dll",
+  "size": 550400,
+  "error": null,
+  "exports": 2
+ },
+ {
+  "name": "qtga.dll",
+  "rel": "bin/win64/qt5_plugins/imageformats/qtga.dll",
+  "size": 104448,
+  "error": null,
+  "exports": 2
+ },
+ {
+  "name": "qtiff.dll",
+  "rel": "bin/win64/qt5_plugins/imageformats/qtiff.dll",
+  "size": 523264,
+  "error": null,
+  "exports": 2
+ },
+ {
+  "name": "qwindows.dll",
+  "rel": "bin/win64/qt5_plugins/platforms/qwindows.dll",
+  "size": 1616384,
+  "error": null,
+  "exports": 2
+ },
+ {
+  "name": "qwindowsvistastyle.dll",
+  "rel": "bin/win64/qt5_plugins/styles/qwindowsvistastyle.dll",
+  "size": 231424,
+  "error": null,
+  "exports": 2
+ },
+ {
+  "name": "qtadvanceddocking-qt5.dll",
+  "rel": "bin/win64/qtadvanceddocking-qt5.dll",
+  "size": 828928,
+  "error": null,
+  "exports": 739
+ },
+ {
+  "name": "rendersystemdx11.dll",
+  "rel": "bin/win64/rendersystemdx11.dll",
+  "size": 4545688,
+  "error": null,
+  "exports": 49
+ },
+ {
+  "name": "rendersystemempty.dll",
+  "rel": "bin/win64/rendersystemempty.dll",
+  "size": 1774744,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "rendersystemvulkan.dll",
+  "rel": "bin/win64/rendersystemvulkan.dll",
+  "size": 6249624,
+  "error": null,
+  "exports": 58
+ },
+ {
+  "name": "resourcecompiler.dll",
+  "rel": "bin/win64/resourcecompiler.dll",
+  "size": 56351896,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "resourcesystem.dll",
+  "rel": "bin/win64/resourcesystem.dll",
+  "size": 532632,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "scenefilecache.dll",
+  "rel": "bin/win64/scenefilecache.dll",
+  "size": 1297048,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "scenesystem.dll",
+  "rel": "bin/win64/scenesystem.dll",
+  "size": 7094936,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "schemasystem.dll",
+  "rel": "bin/win64/schemasystem.dll",
+  "size": 445592,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "soundsystem.dll",
+  "rel": "bin/win64/soundsystem.dll",
+  "size": 5838488,
+  "error": null,
+  "exports": 42
+ },
+ {
+  "name": "steam_api64.dll",
+  "rel": "bin/win64/steam_api64.dll",
+  "size": 317080,
+  "error": null,
+  "exports": 1046
+ },
+ {
+  "name": "steamaudio.dll",
+  "rel": "bin/win64/steamaudio.dll",
+  "size": 3547288,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "steamnetworkingsockets.dll",
+  "rel": "bin/win64/steamnetworkingsockets.dll",
+  "size": 4290200,
+  "error": null,
+  "exports": 32
+ },
+ {
+  "name": "convarhelper_subtool.dll",
+  "rel": "bin/win64/subtools/convarhelper_subtool.dll",
+  "size": 887448,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "dashboard_subtool.dll",
+  "rel": "bin/win64/subtools/dashboard_subtool.dll",
+  "size": 227992,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "netgraph_subtool.dll",
+  "rel": "bin/win64/subtools/netgraph_subtool.dll",
+  "size": 366232,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "soundviewer_subtool.dll",
+  "rel": "bin/win64/subtools/soundviewer_subtool.dll",
+  "size": 418968,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "vprof_subtool.dll",
+  "rel": "bin/win64/subtools/vprof_subtool.dll",
+  "size": 338584,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "symsrv.dll",
+  "rel": "bin/win64/symsrv.dll",
+  "size": 149264,
+  "error": null,
+  "exports": 30
+ },
+ {
+  "name": "tier0.dll",
+  "rel": "bin/win64/tier0.dll",
+  "size": 3979928,
+  "error": null,
+  "exports": 2625
+ },
+ {
+  "name": "toolframework2.dll",
+  "rel": "bin/win64/toolframework2.dll",
+  "size": 13708952,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "v8.dll",
+  "rel": "bin/win64/v8.dll",
+  "size": 50473832,
+  "error": null,
+  "exports": 16384
+ },
+ {
+  "name": "v8_icui18n.dll",
+  "rel": "bin/win64/v8_icui18n.dll",
+  "size": 3937128,
+  "error": null,
+  "exports": 6474
+ },
+ {
+  "name": "v8_icuuc.dll",
+  "rel": "bin/win64/v8_icuuc.dll",
+  "size": 2849640,
+  "error": null,
+  "exports": 3160
+ },
+ {
+  "name": "v8_libbase.dll",
+  "rel": "bin/win64/v8_libbase.dll",
+  "size": 1637736,
+  "error": null,
+  "exports": 720
+ },
+ {
+  "name": "v8_libplatform.dll",
+  "rel": "bin/win64/v8_libplatform.dll",
+  "size": 1455464,
+  "error": null,
+  "exports": 201
+ },
+ {
+  "name": "v8_zlib.dll",
+  "rel": "bin/win64/v8_zlib.dll",
+  "size": 844136,
+  "error": null,
+  "exports": 86
+ },
+ {
+  "name": "v8system.dll",
+  "rel": "bin/win64/v8system.dll",
+  "size": 233624,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "valve_avi.dll",
+  "rel": "bin/win64/valve_avi.dll",
+  "size": 194200,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "valve_webm.dll",
+  "rel": "bin/win64/valve_webm.dll",
+  "size": 11384472,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "valve_wmf.dll",
+  "rel": "bin/win64/valve_wmf.dll",
+  "size": 177304,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "vconcomm.dll",
+  "rel": "bin/win64/vconcomm.dll",
+  "size": 259736,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "vconsole2.exe",
+  "rel": "bin/win64/vconsole2.exe",
+  "size": 5105816,
+  "error": null,
+  "exports": 5
+ },
+ {
+  "name": "vfx_dx11.dll",
+  "rel": "bin/win64/vfx_dx11.dll",
+  "size": 1327256,
+  "error": null,
+  "exports": 3
+ },
+ {
+  "name": "video64.dll",
+  "rel": "bin/win64/video64.dll",
+  "size": 4610448,
+  "error": null,
+  "exports": 57
+ },
+ {
+  "name": "visbuilder.dll",
+  "rel": "bin/win64/visbuilder.dll",
+  "size": 1855640,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "vphysics2.dll",
+  "rel": "bin/win64/vphysics2.dll",
+  "size": 4829848,
+  "error": null,
+  "exports": 25
+ },
+ {
+  "name": "vscript.dll",
+  "rel": "bin/win64/vscript.dll",
+  "size": 1352856,
+  "error": null,
+  "exports": 183
+ },
+ {
+  "name": "worldrenderer.dll",
+  "rel": "bin/win64/worldrenderer.dll",
+  "size": 2029720,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "csgo_legacy_app.exe",
+  "rel": "csgo/bin/legacy/csgo_legacy_app.exe",
+  "size": 1728360,
+  "error": null,
+  "exports": 7
+ },
+ {
+  "name": "client.dll",
+  "rel": "csgo/bin/win64/client.dll",
+  "size": 39227544,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "host.dll",
+  "rel": "csgo/bin/win64/host.dll",
+  "size": 1389208,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "matchmaking.dll",
+  "rel": "csgo/bin/win64/matchmaking.dll",
+  "size": 1890968,
+  "error": null,
+  "exports": 6
+ },
+ {
+  "name": "server.dll",
+  "rel": "csgo/bin/win64/server.dll",
+  "size": 34672792,
+  "error": null,
+  "exports": 6
+ }
+]

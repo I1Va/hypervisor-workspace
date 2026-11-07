@@ -60,3 +60,13 @@ use the live documents above.
 | Item | Purpose | Path |
 |---|---|---|
 | VMAware | The detection tool under test, vendored and pinned | `materials/VMAware/` |
+
+## CS2 / CS:GO corpus
+
+| topic | kind | description | path |
+|---|---|---|---|
+| csgo-corpus | reference | What the corpus is, layout, documented modules, method | `csgo/README.md` |
+| csgo-resume | reference | State at hand-off, bootstrap, per-module procedure, traps | `csgo/RESUME.md` |
+| csgo-cs2-launcher | reference | `cs2.exe`: Source 2 launcher and its install trust subsystem | `csgo/documents/cs2.md` |
+| csgo-client | reference | `client.dll`: interfaces, entities, prediction, HUD, ConVars | `csgo/documents/client.md` |
+| csgo-manifest | index | Every module: size, hash, PDB, function count, doc status | `csgo/index/manifest.json` |

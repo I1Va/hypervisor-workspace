@@ -1,0 +1,152 @@
+{
+ "path": "/tmp/opencode/csgo/bin/win64/libgthread-2.0-0.dll",
+ "name": "libgthread-2.0-0.dll",
+ "size": 94568,
+ "sha256": "6dea26270e891756ca78422c289cf77c6780194e541598ff91c3b73c124c249c",
+ "machine": "0x8664",
+ "subsystem": 2,
+ "timestamp": 1446755159,
+ "entrypoint_va": 6442455568,
+ "imagebase": 6442450944,
+ "size_image": 106496,
+ "checksum_ok": true,
+ "dll_characteristics": "0x120",
+ "aslr": false,
+ "dep": true,
+ "cfg": false,
+ "sections": [
+  {
+   "name": ".text",
+   "vaddr": "0x1000",
+   "vsize": 44116,
+   "rawsize": 44544,
+   "entropy": 6.43
+  },
+  {
+   "name": ".rdata",
+   "vaddr": "0xc000",
+   "vsize": 25836,
+   "rawsize": 26112,
+   "entropy": 3.98
+  },
+  {
+   "name": ".data",
+   "vaddr": "0x13000",
+   "vsize": 14776,
+   "rawsize": 5632,
+   "entropy": 2.9
+  },
+  {
+   "name": ".pdata",
+   "vaddr": "0x17000",
+   "vsize": 2232,
+   "rawsize": 2560,
+   "entropy": 4.3
+  },
+  {
+   "name": ".rsrc",
+   "vaddr": "0x18000",
+   "vsize": 1448,
+   "rawsize": 1536,
+   "entropy": 3.99
+  },
+  {
+   "name": ".reloc",
+   "vaddr": "0x19000",
+   "vsize": 1316,
+   "rawsize": 1536,
+   "entropy": 5.08
+  }
+ ],
+ "exports": {
+  "dll_name": "libgthread-2.0-0.dll",
+  "count": 2,
+  "names": [
+   "g_thread_init",
+   "g_thread_init_with_errorcheck_mutexes"
+  ]
+ },
+ "imports": [
+  {
+   "dll": "libglib-2.0-0.dll",
+   "count": 2,
+   "names": [
+    "g_log",
+    "g_assertion_message_expr"
+   ]
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "count": 63,
+   "names": [
+    "TlsGetValue",
+    "CreateFileW",
+    "CloseHandle",
+    "GetCommandLineA",
+    "GetCurrentThreadId",
+    "IsDebuggerPresent",
+    "IsProcessorFeaturePresent",
+    "GetLastError",
+    "SetLastError",
+    "EncodePointer",
+    "DecodePointer",
+    "ExitProcess",
+    "GetModuleHandleExW",
+    "GetProcAddress",
+    "MultiByteToWideChar",
+    "WideCharToMultiByte",
+    "GetProcessHeap",
+    "GetStdHandle",
+    "GetFileType",
+    "DeleteCriticalSection",
+    "GetStartupInfoW",
+    "GetModuleFileNameA",
+    "HeapFree",
+    "QueryPerformanceCounter",
+    "GetCurrentProcessId",
+    "GetSystemTimeAsFileTime",
+    "GetEnvironmentStringsW",
+    "FreeEnvironmentStringsW",
+    "RtlCaptureContext",
+    "RtlLookupFunctionEntry",
+    "RtlVirtualUnwind",
+    "UnhandledExceptionFilter",
+    "SetUnhandledExceptionFilter",
+    "InitializeCriticalSectionAndSpinCount",
+    "Sleep",
+    "GetCurrentProcess",
+    "TerminateProcess",
+    "TlsAlloc",
+    "TlsSetValue",
+    "TlsFree",
+    "GetModuleHandleW",
+    "RtlUnwindEx",
+    "EnterCriticalSection",
+    "LeaveCriticalSection",
+    "IsValidCodePage",
+    "GetACP",
+    "GetOEMCP",
+    "GetCPInfo",
+    "WriteFile",
+    "GetModuleFileNameW",
+    "LoadLibraryExW",
+    "HeapAlloc",
+    "HeapReAlloc",
+    "GetStringTypeW",
+    "OutputDebugStringW",
+    "HeapSize",
+    "LCMapStringW",
+    "FlushFileBuffers",
+    "GetConsoleCP",
+    "GetConsoleMode",
+    "SetStdHandle",
+    "SetFilePointerEx",
+    "WriteConsoleW"
+   ]
+  }
+ ],
+ "signed": false,
+ "pdb": [
+  "c:\\buildslave\\pango_win32\\build\\glib-2.42.0\\build\\win32\\vs12\\Release\\x64\\bin\\libgthread-2.0-0.pdb"
+ ]
+}

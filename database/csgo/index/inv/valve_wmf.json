@@ -1,0 +1,209 @@
+{
+ "path": "/tmp/opencode/csgo/bin/win64/valve_wmf.dll",
+ "name": "valve_wmf.dll",
+ "size": 177304,
+ "sha256": "90357b160d7c3b242b72b2e944bb114c86cc0a88d406f8585a331d03a3d4236b",
+ "machine": "0x8664",
+ "subsystem": 2,
+ "timestamp": 1793662277,
+ "entrypoint_va": 6442497560,
+ "imagebase": 6442450944,
+ "size_image": 184320,
+ "checksum_ok": true,
+ "dll_characteristics": "0x160",
+ "aslr": true,
+ "dep": true,
+ "cfg": false,
+ "sections": [
+  {
+   "name": ".text",
+   "vaddr": "0x1000",
+   "vsize": 96046,
+   "rawsize": 96256,
+   "entropy": 6.47
+  },
+  {
+   "name": ".rdata",
+   "vaddr": "0x19000",
+   "vsize": 55022,
+   "rawsize": 55296,
+   "entropy": 5.05
+  },
+  {
+   "name": ".data",
+   "vaddr": "0x27000",
+   "vsize": 10180,
+   "rawsize": 4096,
+   "entropy": 2.47
+  },
+  {
+   "name": ".pdata",
+   "vaddr": "0x2a000",
+   "vsize": 6624,
+   "rawsize": 6656,
+   "entropy": 5.2
+  },
+  {
+   "name": ".reloc",
+   "vaddr": "0x2c000",
+   "vsize": 2180,
+   "rawsize": 2560,
+   "entropy": 5.1
+  }
+ ],
+ "exports": {
+  "dll_name": "valve_wmf.dll",
+  "count": 6,
+  "names": [
+   "BinaryProperties_GetValue",
+   "CreateInterface",
+   "ExtractModuleMetadata",
+   "GetResourceManifestCount",
+   "GetResourceManifests",
+   "InstallSchemaBindings"
+  ]
+ },
+ "imports": [
+  {
+   "dll": "MFReadWrite.dll",
+   "count": 1,
+   "names": [
+    "MFCreateSinkWriterFromURL"
+   ]
+  },
+  {
+   "dll": "MFPlat.DLL",
+   "count": 6,
+   "names": [
+    "MFStartup",
+    "MFCreateSample",
+    "MFShutdown",
+    "MFCreateMediaType",
+    "MFCreateMemoryBuffer",
+    "MFFrameRateToAverageTimePerFrame"
+   ]
+  },
+  {
+   "dll": "ole32.dll",
+   "count": 2,
+   "names": [
+    "CoUninitialize",
+    "CoInitializeEx"
+   ]
+  },
+  {
+   "dll": "tier0.dll",
+   "count": 25,
+   "names": [
+    "Plat_NonFatalErrorFunc",
+    "LoggingSystem_RegisterLoggingChannel",
+    "Msg",
+    "MemAlloc_StrDupFunc",
+    "V_stricmp_fast",
+    "_V_strncpy",
+    "EarlyInit_Tier0",
+    "Plat_GetTime",
+    "InvokeMiniDumpHandler",
+    "GetDefaultMiniDumpTypeFlags",
+    "Plat_IsInDebugSession",
+    "Plat_ExitProcess",
+    "V_qsort_s",
+    "Plat_RegisterModule",
+    "Plat_FatalError",
+    "?Insert@CBufferString@@QEAAPEBDHPEBDH_N@Z",
+    "?Purge@CBufferString@@QEAAXH@Z",
+    "?FixSlashes@CBufferString@@QEAAPEBDD@Z",
+    "V_IsAbsolutePath",
+    "UtlVectorMemory_CalcNewAllocationCount",
+    "UtlVectorMemory_Alloc",
+    "Warning",
+    "g_pMemAlloc",
+    "_V_SetExtension",
+    "UtlVectorMemory_FailedAllocation"
+   ]
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "count": 72,
+   "names": [
+    "WriteConsoleW",
+    "RaiseException",
+    "RtlUnwindEx",
+    "InterlockedFlushSList",
+    "SetLastError",
+    "EnterCriticalSection",
+    "LeaveCriticalSection",
+    "CloseHandle",
+    "CreateFileW",
+    "SetFilePointerEx",
+    "GetConsoleMode",
+    "GetConsoleOutputCP",
+    "WriteFile",
+    "FlushFileBuffers",
+    "SetStdHandle",
+    "GetStringTypeW",
+    "GetFileType",
+    "GetStdHandle",
+    "MultiByteToWideChar",
+    "TlsSetValue",
+    "InitializeCriticalSectionAndSpinCount",
+    "GetLastError",
+    "TlsAlloc",
+    "GetProcAddress",
+    "FreeLibrary",
+    "TlsGetValue",
+    "TlsFree",
+    "LoadLibraryExW",
+    "ReleaseSRWLockExclusive",
+    "AcquireSRWLockExclusive",
+    "WakeAllConditionVariable",
+    "SleepConditionVariableSRW",
+    "RtlCaptureContext",
+    "RtlLookupFunctionEntry",
+    "RtlVirtualUnwind",
+    "IsDebuggerPresent",
+    "UnhandledExceptionFilter",
+    "SetUnhandledExceptionFilter",
+    "GetStartupInfoW",
+    "IsProcessorFeaturePresent",
+    "GetModuleHandleW",
+    "QueryPerformanceCounter",
+    "GetCurrentProcessId",
+    "GetCurrentThreadId",
+    "GetSystemTimeAsFileTime",
+    "InitializeSListHead",
+    "DeleteCriticalSection",
+    "GetProcessHeap",
+    "LCMapStringW",
+    "FlsFree",
+    "FlsSetValue",
+    "FlsGetValue",
+    "FlsAlloc",
+    "FreeEnvironmentStringsW",
+    "GetEnvironmentStringsW",
+    "WideCharToMultiByte",
+    "GetCommandLineW",
+    "GetCommandLineA",
+    "GetCPInfo",
+    "GetOEMCP",
+    "GetACP",
+    "IsValidCodePage",
+    "FindNextFileW",
+    "FindFirstFileExW",
+    "FindClose",
+    "GetModuleFileNameW",
+    "GetModuleHandleExW",
+    "ExitProcess",
+    "TerminateProcess",
+    "GetCurrentProcess",
+    "EncodePointer",
+    "RtlPcToFileHeader"
+   ]
+  }
+ ],
+ "signed": false,
+ "pdb": [
+  "C:\\buildworker\\csgo_rel_win64\\build\\_build_\\valve_wmf\\_vpc_valve_wmf\\default\\win64\\_msvc_\\Retail\\valve_wmf.pdb"
+ ],
+ "tls_callbacks": []
+}
