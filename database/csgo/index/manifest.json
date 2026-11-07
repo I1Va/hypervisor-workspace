@@ -1384,8 +1384,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/materialsystem2.md",
+    "status": "documented"
    }
   },
   {
@@ -1480,8 +1480,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/navsystem.md",
+    "status": "documented"
    }
   },
   {
@@ -1504,8 +1504,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/scenefilecache.md",
+    "status": "documented"
    }
   },
   {
@@ -1711,8 +1711,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/helpsystem.md",
+    "status": "documented"
    }
   },
   {
