@@ -629,8 +629,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/vphysics2.md",
+    "status": "documented"
    }
   },
   {
@@ -654,8 +654,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/video64.md",
+    "status": "documented"
    }
   },
   {
@@ -956,8 +956,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/panoramauiclient.md",
+    "status": "documented"
    }
   },
   {
