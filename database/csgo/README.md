@@ -8,7 +8,7 @@ the VMAware work: what shipped, hardened, anti-cheat-adjacent software does.
 
 ## Corpus
 
-- **102 modules, 544 MB, 1,111,969 functions.**
+- **102 modules, 544 MB, 1,126,183 functions.**
 - 34 Valve modules (the target) and 68 third-party (Qt, V8, ffmpeg, Embree,
   OpenSSL, SDL3 — out of scope except where Valve patched them).
 - Build: Source 2, `csgo_rel_win64`, module timestamps 2026-10-14 to 2026-11-04.

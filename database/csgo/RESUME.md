@@ -7,7 +7,7 @@ that produced it, can continue the work without redoing it.
 
 Static reverse engineering of the Counter-Strike 2 binaries installed on the DTB
 under `C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global
-Offensive`. **102 modules, 544 MB, 1,111,969 functions.** Nothing is executed;
+Offensive`. **102 modules, 544 MB, 1,126,183 functions.** Nothing is executed;
 the DTB is only used to *copy* the files out.
 
 This is the target corpus for the hypervisor detection work: the stand exists to
@@ -153,3 +153,38 @@ All 34 Valve modules documented to the standard of `cs2.md` and `client.md`.
 Third-party modules (Qt, V8, ffmpeg, Embree, OpenSSL) are out of scope except
 where Valve has patched them — `v8.dll` and `steamnetworkingsockets.dll` are
 worth a look, `Qt5Core.dll` is not.
+
+## Moving to another machine — checklist
+
+The two repositories are `I1Va/hypervisor-workspace` and
+`I1Va/hypervisor-controll`. Everything needed to resume is in them.
+
+On the new machine:
+
+```sh
+git clone git@github.com:I1Va/hypervisor-workspace.git
+git clone git@github.com:I1Va/hypervisor-controll.git   # sibling of workspace/
+```
+
+`control/` **must** sit next to `workspace/`, because `bootstrap.py` resolves
+`../../control/dtb/dtbctl` from `workspace/database/csgo/scripts/`.
+
+Then:
+
+1. `control/dtb/dtbctl status` — needs `verdict=ready`. If the daemon is not
+   running it starts on first use; if the boot server is down, `serve start`.
+2. `python3 database/csgo/scripts/bootstrap.py` — 20 s, verifies 102/102.
+3. Install the tooling: `radare2`, `r2ghidra`, `pefile`, `capstone`.
+4. Read `index/manifest.json` to pick the next module, then follow step 4 above.
+
+You do **not** need this session's history, the `/tmp` tree, or the 164 MB of
+disassembly. Everything in `/tmp` is reproducible from the two repositories plus
+the DTB.
+
+### What will not survive the move
+
+- The disassembly in `/tmp/opencode/csgo-analysis/docs/<module>/` — regenerate
+  with `batch_decomp.py` (14 s for `client.dll`).
+- `corpus.json` in the extraction directory — `bootstrap.py` writes it.
+- The DTB's own state: `boot_id`, the login session, the serial log. Check
+  `dbg_status` before trusting any earlier observation.
