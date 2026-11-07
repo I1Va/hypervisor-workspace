@@ -33,12 +33,18 @@ The binaries are **not** committed. They are re-fetched with
 
 ## Documented so far
 
-| Module | Document | Covers |
-|---|---|---|
-| `cs2.exe` | `documents/cs2.md` | Source 2 launcher; install trust subsystem; RSA manifest verification; inline detours on `NtOpenFile`/`LoadLibraryExW`/`PeekMessageW` |
-| `client.dll` | `documents/client.md` | Interface registry, entity system, prediction/reconciliation, HUD, 1,695 ConVars, weapon and player paths |
-| `server.dll` | `documents/server.md` | Authoritative tick loop, 10 interfaces, game-mode rules, sub-tick movement, fire path, lag compensation, 1,545 ConVars |
-| `engine2.dll` | `documents/engine2.md` | `Source2Main`, 8-phase bootstrap, 34 interfaces, main loop and sleep scheduler, hashed command-line flags, bundled codecs |
+**All 34 Valve modules are documented** (12,335 lines across `documents/`).
+
+| Group | Modules |
+|---|---|
+| Core | `cs2.exe`, `engine2`, `tier0`, `host`, `schemasystem`, `resourcesystem`, `filesystem_stdio` |
+| Game | `client`, `server`, `matchmaking`, `networksystem` |
+| Rendering | `scenesystem`, `worldrenderer`, `rendersystemdx11`, `rendersystemvulkan`, `rendersystemempty`, `materialsystem2`, `meshsystem` |
+| Animation / physics | `animationsystem`, `vphysics2`, `physicsbuilder`, `particles`, `pulse_system` |
+| Audio / UI | `soundsystem`, `panorama`, `panoramauiclient`, `video64`, `localize`, `inputsystem`, `helpsystem` |
+| Tools | `toolframework2`, `resourcecompiler`, `scenefilecache`, `navsystem` |
+
+Third-party modules (Qt, V8, ffmpeg, Embree, OpenSSL, phonon) remain out of scope.
 
 Derived indexes, usable without the binaries:
 
@@ -48,6 +54,7 @@ Derived indexes, usable without the binaries:
 | `index/symbols/tier0.txt` | 1,528 demangled MSVC C++ signatures from `tier0.dll` exports |
 | `index/vtables/server.json` | 3,990 classes / 4,897 vtables with slot RVAs (`server.dll`) |
 | `index/cvars/server.json` | 1,545 ConVars/ConCommands with help text (`server.dll`) |
+| `index/vtables/`, `index/cvars/` | per-module derived data where extracted |
 
 ## Facts worth knowing before opening a module
 

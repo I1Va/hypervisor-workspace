@@ -34,17 +34,16 @@ the committed manifest, and neither belongs in a repository.
 
 ## State at hand-off
 
-Four of 34 Valve modules are documented:
+**Complete: all 34 Valve modules are documented.** 12,335 lines across
+`documents/`. The corpus manifest marks every Valve module `documented`.
 
-| Module | Document | Lines | Notes |
-|---|---|---|---|
-| `cs2.exe` | `documents/cs2.md` | 1,246 | Complete. Launcher + trust subsystem. |
-| `client.dll` | `documents/client.md` | 1,585 | Complete. Entities, prediction, HUD, cvars. |
-| `server.dll` | `documents/server.md` | 2,227 | Complete. Tick, modes, movement, lag comp, 1,545 cvars. |
-| `engine2.dll` | `documents/engine2.md` | 1,481 | Complete. `Source2Main`, bootstrap, main loop. |
+Remaining optional work:
 
-The remaining 30 Valve modules have full PE inventory and RTTI extracted but **no
-document**. Start them one per subagent, in parallel.
+- Third-party modules (Qt, V8, ffmpeg, Embree, OpenSSL, phonon) — out of scope
+  except `v8.dll` and `steamnetworkingsockets.dll`, which Valve configures itself.
+- Depth: every document has an **Unknowns** section naming what would resolve it.
+  Those are the highest-value next targets, and most are vtable walks or wire-format
+  reversals that the `scripts/server/ad2.py` toolkit supports.
 
 ### The DTB is not required
 
@@ -167,6 +166,21 @@ Two hard rules, both learned the hard way:
   escaped strings for Windows paths.
 - `r2 -A` on a 39 MB DLL is slow. Use `-q -e scr.color=0 -A -c "pdg @ 0x<rva>"`
   per function, or prefer the pre-extracted `.asm` files.
+- **A function does not contain its strings.** The code is in `.text` and the
+  literals are in `.rdata`, reached by RIP-relative `lea`. Testing "is this string
+  inside the function's address range" can never match — resolve the `lea` target
+  instead (`next_ip + displacement`). Capstone prints the displacement, not the
+  target, for `[rip + 0x...]`.
+- **Section names carry NUL padding.** `s.Name` is `b'.rdata\x00\x00'`, so
+  comparing to `'.rdata'` silently fails. Strip and lowercase first.
+- **`ifaces/*.txt` is a superset, not a list of registrations.** It is a string
+  scan, so it includes names the module merely imports. Use `scripts/iface_stubs.py`
+  to find stubs that `jmp` to the module's own `CreateInterface` export.
+- **The stub target is not the export address.** Stubs jump to a thunk ~0x20
+  *before* the export. Compare against `export - 0x30 .. export`.
+- **Verify sizes and counts against `index/manifest.json`, never from memory.**
+  Several documents in this corpus were first drafted with invented byte counts and
+  function counts; all were caught only by re-reading the manifest.
 
 ## Step 5 — record what you learn
 
