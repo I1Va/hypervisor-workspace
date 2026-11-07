@@ -5,6 +5,7 @@
 #include <tlhelp32.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 /*
  * The hypervisor can read any address space, but it needs that space's CR3.
@@ -169,4 +170,66 @@ const module_info *target_module(const target *t, const char *name)
 			return &t->modules[i];
 	}
 	return NULL;
+}
+
+/*
+ * NtQueryInformationProcess(ProcessCommandLineInformation) = class 60.
+ * Declared locally rather than pulling in winternl.h, which is large and
+ * historically inconsistent about this class.
+ */
+typedef LONG (NTAPI *NtQIP_t)(HANDLE, ULONG, PVOID, ULONG, PULONG);
+
+typedef struct {
+	USHORT Length;
+	USHORT MaximumLength;
+	PWSTR  Buffer;
+} unicode_string_local;
+
+int target_command_line(const target *t, char *out, size_t cap)
+{
+	typedef LONG (NTAPI *fn_t)(HANDLE, int, void *, unsigned long, unsigned long *);
+	static fn_t ntqip = NULL;
+	unicode_string_local us;
+	unsigned long need = 0;
+	HMODULE ntdll;
+	char *buf;
+
+	if (cap == 0)
+		return 1;
+	out[0] = '\0';
+
+	if (ntqip == NULL) {
+		ntdll = GetModuleHandleA("ntdll.dll");
+		if (ntdll == NULL)
+			return 1;
+		ntqip = (fn_t)(void *)GetProcAddress(ntdll, "NtQueryInformationProcess");
+		if (ntqip == NULL)
+			return 1;
+	}
+
+	memset(&us, 0, sizeof(us));
+
+	/* Class 60 = ProcessCommandLineInformation. First call sizes it. */
+	if (ntqip(t->process, 60, &us, sizeof(us), &need) != 0)
+		return 1;
+	if (need == 0)
+		return 1;
+
+	buf = (char *)malloc(need);
+	if (buf == NULL)
+		return 1;
+
+	if (ntqip(t->process, 60, buf, need, &need) != 0) {
+		free(buf);
+		return 1;
+	}
+
+	{
+		unicode_string_local *p = (unicode_string_local *)buf;
+		WideCharToMultiByte(CP_ACP, 0, p->Buffer, p->Length / sizeof(WCHAR),
+				    out, (int)cap - 1, NULL, NULL);
+		out[cap - 1] = '\0';
+	}
+	free(buf);
+	return 0;
 }

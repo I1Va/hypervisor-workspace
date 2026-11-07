@@ -34,6 +34,10 @@
 
 static const char *INI = "cs2mem.ini";
 
+/* Overridable so the CR3 walk can be validated against a process you control
+ * before it is trusted with the game. */
+static const wchar_t *g_exe = L"cs2.exe";
+
 static void hexdump(const uint8_t *b, size_t n, uint64_t base)
 {
 	for (size_t i = 0; i < n; i += 16) {
@@ -75,7 +79,7 @@ static int cmd_modules(void)
 	target t;
 	char err[512];
 
-	if (target_open(&t, L"cs2.exe", err, sizeof(err)) != 0) {
+	if (target_open(&t, g_exe, err, sizeof(err)) != 0) {
 		printf("FAIL: %s\n", err);
 		return 1;
 	}
@@ -102,7 +106,7 @@ static int cmd_probe(uint64_t rva, size_t len)
 	if (len > sizeof(buf))
 		len = sizeof(buf);
 
-	if (target_open(&t, L"cs2.exe", err, sizeof(err)) != 0) {
+	if (target_open(&t, g_exe, err, sizeof(err)) != 0) {
 		printf("FAIL: %s\n", err);
 		return 1;
 	}
@@ -135,6 +139,40 @@ static int cmd_probe(uint64_t rva, size_t len)
 	return 0;
 }
 
+/*
+ * The offline guard, enforced rather than documented.
+ *
+ * `cs2_online_session` in cs2ent.c is a stub that returns 0 because the real
+ * answer needs the schema layer we have no offsets for. This is the check that
+ * actually runs: read the game's own command line and require -insecure, which
+ * is what disables VAC. A match launched without it is a live, secured session
+ * and the tool refuses.
+ *
+ * It is a policy check and it is stated as one: it stops the tool being pointed
+ * at a live match by accident or by habit. It is not a security boundary.
+ */
+static int require_offline(target *t)
+{
+	char cmdline[2048];
+
+	if (target_command_line(t, cmdline, sizeof(cmdline)) != 0) {
+		printf("FAIL: cannot read the game's command line, so the offline\n");
+		printf("      requirement cannot be verified. Refusing to run.\n");
+		return 1;
+	}
+
+	if (strstr(cmdline, "-insecure") == NULL) {
+		printf("REFUSED: cs2.exe was not started with -insecure.\n");
+		printf("         Command line: %s\n", cmdline);
+		printf("\n");
+		printf("This tool reads player state for offline bot matches only.\n");
+		printf("Launch CS2 with -insecure for a local match, e.g.:\n");
+		printf("  cs2.exe -insecure +map de_dust2 +bot_quota 10\n");
+		return 1;
+	}
+	return 0;
+}
+
 static int cmd_players(int json)
 {
 	target t;
@@ -146,7 +184,7 @@ static int cmd_players(int json)
 	int scanned = 0;
 	int n;
 
-	if (target_open(&t, L"cs2.exe", err, sizeof(err)) != 0) {
+	if (target_open(&t, g_exe, err, sizeof(err)) != 0) {
 		printf("FAIL: %s\n", err);
 		return 1;
 	}
@@ -171,6 +209,11 @@ static int cmd_players(int json)
 		return 1;
 	}
 	hv_ctx_use(&c.mem, t.cr3);
+
+	if (require_offline(&t) != 0) {
+		target_close(&t);
+		return 1;
+	}
 
 	if (cs2_init(&c, &off, client->base, t.cr3) != 0) {
 		target_close(&t);
@@ -214,7 +257,7 @@ static int cmd_players(int json)
 
 static void usage(void)
 {
-	printf("usage: cs2mem <check|modules|probe <rva> [len]|players [--json]|discover>\n");
+	printf("usage: cs2mem [--exe NAME] <check|modules|probe <rva> [len]|players [--json]|discover>\n");
 	printf("\n");
 	printf("  check      verify hypercalls and print the current CR3\n");
 	printf("  modules    find cs2.exe, print PID, CR3 and module bases\n");
@@ -227,6 +270,19 @@ static void usage(void)
 
 int main(int argc, char **argv)
 {
+	/* --exe NAME is global, so strip it before command dispatch. */
+	for (int i = 1; i < argc; i++) {
+		if (strcmp(argv[i], "--exe") == 0 && i + 1 < argc) {
+			static wchar_t buf[MAX_PATH];
+			MultiByteToWideChar(CP_ACP, 0, argv[i + 1], -1, buf, MAX_PATH);
+			g_exe = buf;
+			for (int j = i; j < argc - 2; j++)
+				argv[j] = argv[j + 2];
+			argc -= 2;
+			break;
+		}
+	}
+
 	if (argc < 2) {
 		usage();
 		return 2;

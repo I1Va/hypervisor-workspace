@@ -47,6 +47,18 @@ void target_close(target *t);
 const module_info *target_module(const target *t, const char *name);
 
 /*
+ * Read the target's command line.
+ *
+ * Uses NtQueryInformationProcess(ProcessCommandLineInformation), which needs
+ * only PROCESS_QUERY_LIMITED_INFORMATION - the same access we already hold - so
+ * this does not add a read handle. Returns 0 on success.
+ *
+ * Used to enforce the offline guard: the tool refuses to run unless the game was
+ * started with -insecure, which is what turns VAC off for a local bot match.
+ */
+int target_command_line(const target *t, char *out, size_t cap);
+
+/*
  * Resolve the CR3 of a process from its EPROCESS.
  *
  * This is the one genuinely privileged step. It walks the kernel's PsActiveProcess
