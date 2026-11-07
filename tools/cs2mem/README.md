@@ -28,7 +28,7 @@ cs2mem check      verify hypercalls work, print the current CR3
 cs2mem modules    find cs2.exe, print PID, CR3, module bases
 cs2mem probe R    hexdump client.dll+R through the hypervisor
 cs2mem players    read live player state (needs cs2mem.ini)
-cs2mem discover   scan for the entity system and offsets (not yet implemented)
+cs2mem discover   measure the entity system and offsets, write cs2mem.ini
 ```
 
 ## Why the hypervisor, and what it costs
@@ -68,7 +68,7 @@ guest (needed for the module snapshot and for the hypercall's kernel walk).
    for reading the game. See `hypervisor_patch.md` — this is a ~60-line addition
    and the tool reports its absence explicitly rather than as "game not found".
 2. **`cs2mem.ini` must exist and match the running `client.dll`.** Generate it
-   with `discover` (not yet implemented — see below).
+   with `cs2mem discover`.
 3. **CS2 launched `-insecure`.**
 
 ## The honest gap: offsets are not resolved
@@ -77,8 +77,10 @@ guest (needed for the module snapshot and for the hypercall's kernel walk).
 stride and the `CEntityIndex` → chunk mapping were **not** recovered from the
 disassembly. I am not going to invent numbers for them.
 
-So `cs2mem players` will refuse until `cs2mem.ini` exists, and `discover` is a
-stub. What `discover` has to do:
+So `cs2mem players` will refuse until `cs2mem.ini` exists. `discover` now
+implements the measurement, and it is validated against a synthetic address space
+(`selftest.c`) rather than against a live game - see "Verification" below. What it
+does:
 
 1. Find the `dw_entity_system` global. It is a data-section pointer that becomes
    non-null when a map loads. Scan `client.dll`'s `.data` for a pointer whose
@@ -111,11 +113,40 @@ next piece of work.
 
 ## Verification status
 
-- Compiles clean with `-Wall -Wextra`, no warnings.
+Verified:
+
+- Compiles clean with `-Wall -Wextra`, no warnings (mingw-w64 and native gcc).
 - The hypercall register ABI was checked against the generated assembly: leaf
   `0x4000BABE` in EAX, key in RCX, call number in RDI, arguments from RSI.
-- **Not run against a live game.** The DTB is offline and there is no local CS2
-  install. Every claim about behaviour at runtime is untested.
+- **The discovery algorithm is tested.** `selftest.c` builds a synthetic address
+  space with a known ground truth - a module image, a global pointer, an entity
+  system, two chunks, six live players and twenty decoys - and checks that
+  discovery recovers every value. Ground truth is deliberately *not* the first
+  candidate in any list, so a pass proves the search works rather than that the
+  defaults were right. Three cases: by-value chunks, via-identity chunks, and an
+  empty world (which must report "not found", not guess).
+- The offsets parser was executed natively: valid load, unknown-key rejection,
+  bad-number rejection, short-hash rejection, and the by-value layout
+  (`off_identity_entity = 0`) validating correctly.
+
+Three real bugs were found by that test and fixed:
+
+1. The candidate layout `{list: 0x10, highest: 0x14}` was impossible - an 8-byte
+   pointer overlapping a 4-byte count. Overlapping pairs are now excluded.
+2. `dw_entity_system` was computed from the entity system's address instead of
+   the address of the *global pointer*, giving an RVA into heap memory.
+3. A vec3 validates equally at `off`, `off-4` and `off+4`, so any tie-break was
+   arbitrary. Fixed properly: a player origin has positive z (above the floor),
+   and a shifted read puts y there, which is routinely negative.
+
+Not verified:
+
+- **Never run against a live game.** The DTB is offline and there is no local CS2
+  install. Everything above tests the algorithm against a model of the layout;
+  whether the real layout matches that model is exactly what remains unknown.
+- The candidate offset lists (health/team/origin) are hypotheses drawn from
+  known-stable CS2 members. If none matches the build you run, `discover` reports
+  "best hypothesis validated N entities" rather than inventing an answer.
 
 ## Ethics and limits, stated plainly
 

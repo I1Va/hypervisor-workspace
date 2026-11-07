@@ -33,10 +33,11 @@ typedef struct field
 {
 	const char *name;
 	size_t      offset;
-	size_t      size;   /* 8 for uint64/uint32 pairs, 65 for the hash string */
+	size_t      size;      /* 8 for uint64/uint32 pairs, 65 for the hash string */
+	int         zero_ok;   /* zero is a meaningful value, not "unset" */
 } field;
 
-#define F(n) { #n, offsetof(cs2_offsets, n), sizeof(((cs2_offsets *)0)->n) }
+#define F(n) { #n, offsetof(cs2_offsets, n), sizeof(((cs2_offsets *)0)->n), 0 }
 
 static const field FIELDS[] = {
 	F(dw_entity_system),
@@ -44,6 +45,12 @@ static const field FIELDS[] = {
 	F(off_highest_index),
 	F(chunk_stride),
 	F(chunk_entities),
+	/*
+	 * 0 is meaningful here: it selects the by-value chunk layout. So presence,
+	 * not value, is what the completeness check tests for this one.
+	 */
+	{ "off_identity_entity", offsetof(cs2_offsets, off_identity_entity),
+	  sizeof(((cs2_offsets *)0)->off_identity_entity), 1 },
 	F(off_health),
 	F(off_team),
 	F(off_origin),
@@ -54,6 +61,16 @@ static const field FIELDS[] = {
 	F(off_handle_serial),
 };
 
+/* Which fields the loaded file actually contained. */
+static unsigned seen_mask;
+
+static uint64_t field_value(const cs2_offsets *o, const field *f)
+{
+	if (f->size == 8)
+		return *(const uint64_t *)((const char *)o + f->offset);
+	return *(const uint32_t *)((const char *)o + f->offset);
+}
+
 int cs2_offsets_load(cs2_offsets *o, const char *path, char *err, size_t err_cap)
 {
 	FILE *f;
@@ -61,6 +78,7 @@ int cs2_offsets_load(cs2_offsets *o, const char *path, char *err, size_t err_cap
 	int lineno = 0;
 
 	cs2_offsets_clear(o);
+	seen_mask = 0;
 
 	f = fopen(path, "r");
 	if (f == NULL) {
@@ -134,6 +152,7 @@ int cs2_offsets_load(cs2_offsets *o, const char *path, char *err, size_t err_cap
 					*(uint64_t *)((char *)o + FIELDS[i].offset) = v;
 				else
 					*(uint32_t *)((char *)o + FIELDS[i].offset) = (uint32_t)v;
+				seen_mask |= 1u << i;
 				found = 1;
 				break;
 			}
@@ -183,11 +202,16 @@ int cs2_offsets_complete(const cs2_offsets *o)
 
 	if (o->client_sha256[0] == '\0')
 		return 0;
+
 	for (i = 0; i < sizeof(FIELDS) / sizeof(FIELDS[0]); i++) {
-		uint64_t v = FIELDS[i].size == 8
-			? *(const uint64_t *)((const char *)o + FIELDS[i].offset)
-			: *(const uint32_t *)((const char *)o + FIELDS[i].offset);
-		if (v == 0)
+		/*
+		 * Presence first, then value. A field that was never in the file is
+		 * unset even if the struct byte happens to be non-zero; a field whose
+		 * zero is meaningful (off_identity_entity) is valid once present.
+		 */
+		if ((seen_mask & (1u << i)) == 0)
+			return 0;
+		if (!FIELDS[i].zero_ok && field_value(o, &FIELDS[i]) == 0)
 			return 0;
 	}
 	return 1;

@@ -1,9 +1,81 @@
 #include "hvmem.h"
 #include "hvcalls.h"
 
+#include <stdlib.h>
 #include <string.h>
 
 #define PAGE 0x1000ULL
+
+/*
+ * Synthetic address space.
+ *
+ * A flat byte array with a base address, so an address is (addr - base). That is
+ * enough to model everything the discovery algorithm touches: a module image, a
+ * data section, an entity-system object, chunks and entities. It is deliberately
+ * not a paging model - the algorithm does not care about pages, only about
+ * whether a given address reads back the bytes it expects.
+ */
+struct synth
+{
+	uint8_t *mem;
+	uint64_t base;
+	size_t   size;
+};
+
+struct synth *synth_create(uint64_t base, size_t size)
+{
+	struct synth *s = calloc(1, sizeof(*s));
+
+	if (s == NULL)
+		return NULL;
+	s->mem = calloc(1, size);
+	if (s->mem == NULL) {
+		free(s);
+		return NULL;
+	}
+	s->base = base;
+	s->size = size;
+	return s;
+}
+
+void synth_destroy(struct synth *s)
+{
+	if (s == NULL)
+		return;
+	free(s->mem);
+	free(s);
+}
+
+uint8_t *synth_ptr(struct synth *s, uint64_t addr, size_t size)
+{
+	if (s == NULL)
+		return NULL;
+	if (addr < s->base)
+		return NULL;
+	if (addr - s->base > s->size)
+		return NULL;
+	if (size > s->size - (size_t)(addr - s->base))
+		return NULL;
+	return s->mem + (addr - s->base);
+}
+
+void synth_use(hv_ctx *ctx, struct synth *s)
+{
+	ctx->synth = s;
+	ctx->ok = 1;
+}
+
+static int synth_read(hv_ctx *ctx, uint64_t addr, void *out, size_t size)
+{
+	uint8_t *src = synth_ptr(ctx->synth, addr, size);
+
+	if (src == NULL) {
+		ctx->faults++;
+		return 4;
+	}
+	memcpy(out, src, size);
+	return 0;
+}
 
 int hv_ctx_init(hv_ctx *ctx)
 {
@@ -38,6 +110,9 @@ int hv_read(hv_ctx *ctx, uint64_t addr, void *out, size_t size)
 		return 2;
 	if (size == 0)
 		return 0;
+
+	if (ctx->synth != NULL)
+		return synth_read(ctx, addr, out, size);
 
 	while (size > 0) {
 		uint64_t page_off = addr & (PAGE - 1);

@@ -33,12 +33,26 @@ typedef struct cs2_offsets
 	uint32_t off_highest_index;    /* highest entity index in use */
 
 	/*
-	 * Entity chunk layout. `client.md` documents that the stride was not
-	 * resolved from the disassembly, so it is a discovered value: the reader
-	 * takes it as data and the validator checks every candidate before use.
+	 * Entity chunk layout.
+	 *
+	 * Two layouts are possible and the tool must not assume either:
+	 *
+	 *   by-value      the chunk holds entity structs inline; fields are read at
+	 *                 slot_addr + field_offset.
+	 *   via-identity  the chunk holds CEntityIdentity structs; the entity (pawn)
+	 *                 is reached through a pointer inside the identity. Fields
+	 *                 are read at *(slot_addr + off_identity_entity) + field_offset.
+	 *
+	 * off_identity_entity selects: 0 means by-value, non-zero means via-identity
+	 * with that offset holding the entity pointer.
+	 *
+	 * The distinction is not cosmetic. Getting it wrong reads the identity's own
+	 * bytes as if they were a pawn, which yields plausible-looking health and
+	 * origin values from the wrong structure.
 	 */
-	uint32_t chunk_stride;         /* bytes between consecutive chunks */
-	uint32_t chunk_entities;       /* entity slots per chunk */
+	uint32_t chunk_stride;         /* bytes between consecutive slots */
+	uint32_t chunk_entities;       /* slots per chunk (CS2: 512) */
+	uint32_t off_identity_entity;  /* identity -> entity pointer, 0 = by-value */
 
 	/* Offsets inside a C_BaseEntity / C_CSPlayerPawn. */
 	uint32_t off_health;

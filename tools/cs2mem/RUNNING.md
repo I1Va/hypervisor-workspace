@@ -102,8 +102,23 @@ two failures otherwise look identical downstream.
 
 ## Step 5 — generate the offsets
 
-`discover` is a stub. Until it is written, fill `cs2mem.ini` by hand using the
-procedure in `README.md`. In outline:
+```bat
+cs2mem discover
+```
+
+This measures the offsets and writes `cs2mem.ini`. It needs a bot match running:
+an empty world cannot distinguish a real layout from a coincidence, and it says so
+rather than guessing.
+
+It leaves `client_sha256` empty, because the module snapshot gives a base address
+but not a file path. Fill it in before `players` will run:
+
+```bat
+certutil -hashfile "C:\...\game\csgo\bin\win64\client.dll" SHA256
+```
+
+If `discover` cannot find a consistent layout, fall back to the manual procedure in
+`README.md`. In outline:
 
 1. **`dw_entity_system`** — in `client.dll`'s `.data`, find a qword that becomes
    non-null after a map loads and whose target's first qword is a vtable pointing

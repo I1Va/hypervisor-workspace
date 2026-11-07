@@ -101,7 +101,8 @@ static int entity_addr(cs2 *c, int index, uint64_t *out)
 {
 	uint32_t per_chunk = c->off.chunk_entities;
 	uint64_t chunk_ptr = 0;
-	uint64_t addr;
+	uint64_t slot_addr;
+	uint64_t entity_ptr = 0;
 
 	if (per_chunk == 0)
 		return 1;
@@ -116,9 +117,25 @@ static int entity_addr(cs2 *c, int index, uint64_t *out)
 		if (chunk_ptr == 0)
 			return 1;
 
-		addr = chunk_ptr + (uint64_t)slot * c->off.chunk_stride;
+		slot_addr = chunk_ptr + (uint64_t)slot * c->off.chunk_stride;
 	}
-	*out = addr;
+
+	/*
+	 * If the chunk holds identities rather than entities, the entity is behind
+	 * a pointer inside the identity. Reading fields straight off the identity
+	 * would return its own bytes reinterpreted as a pawn - values that pass a
+	 * loose check but describe the wrong structure.
+	 */
+	if (c->off.off_identity_entity != 0) {
+		if (hv_read_u64(&c->mem, slot_addr + c->off.off_identity_entity,
+				&entity_ptr) != 0)
+			return 1;
+		if (entity_ptr == 0)
+			return 1;   /* slot is empty */
+		slot_addr = entity_ptr;
+	}
+
+	*out = slot_addr;
 	return 0;
 }
 

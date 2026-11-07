@@ -24,6 +24,7 @@
  */
 #include "cs2cfg.h"
 #include "cs2ent.h"
+#include "discover.h"
 #include "hvmem.h"
 #include "hvcalls.h"
 #include "target.h"
@@ -255,6 +256,123 @@ static int cmd_players(int json)
 	return 0;
 }
 
+/*
+ * discover: measure the offsets instead of trusting a table.
+ *
+ * Requires the game in a bot match - an empty world cannot distinguish a real
+ * layout from a coincidence, and the algorithm says so rather than guessing.
+ */
+static int cmd_discover(void)
+{
+	target t;
+	char err[512];
+	hv_ctx mem;
+	discover_opts o;
+	discover_result r;
+	cs2_offsets off;
+	const module_info *client;
+
+	if (target_open(&t, g_exe, err, sizeof(err)) != 0) {
+		printf("FAIL: %s\n", err);
+		return 1;
+	}
+	client = target_module(&t, "client");
+	if (client == NULL) {
+		printf("FAIL: client.dll not loaded\n");
+		target_close(&t);
+		return 1;
+	}
+	if (require_offline(&t) != 0) {
+		target_close(&t);
+		return 1;
+	}
+
+	if (hv_ctx_init(&mem) != 0) {
+		printf("FAIL: hypercalls unavailable\n");
+		target_close(&t);
+		return 1;
+	}
+	hv_ctx_use(&mem, t.cr3);
+
+	/* .data bounds come from the PE headers, which we can read ourselves. */
+	{
+		uint8_t hdr[0x400];
+		uint32_t e_lfanew;
+		uint16_t nsect;
+		uint32_t opt_size;
+		uint32_t sect_off;
+
+		if (hv_read(&mem, client->base, hdr, sizeof(hdr)) != 0) {
+			printf("FAIL: cannot read client.dll headers\n");
+			target_close(&t);
+			return 1;
+		}
+		memcpy(&e_lfanew, hdr + 0x3c, 4);
+		memcpy(&nsect, hdr + e_lfanew + 6, 2);
+		memcpy(&opt_size, hdr + e_lfanew + 20, 2);
+		sect_off = e_lfanew + 24 + opt_size;
+
+		memset(&o, 0, sizeof(o));
+		o.client_base = client->base;
+		o.client_size = client->size;
+
+		for (int i = 0; i < nsect; i++) {
+			uint8_t sh[40];
+			char nm[9];
+			uint32_t vsize, vaddr;
+
+			if (hv_read(&mem, client->base + sect_off + (uint32_t)i * 40,
+				    sh, sizeof(sh)) != 0)
+				break;
+			memcpy(nm, sh, 8);
+			nm[8] = 0;
+			memcpy(&vsize, sh + 8, 4);
+			memcpy(&vaddr, sh + 12, 4);
+			if (strncmp(nm, ".data", 5) == 0) {
+				o.data_rva = vaddr;
+				o.data_size = vsize;
+				break;
+			}
+		}
+		if (o.data_size == 0) {
+			printf("FAIL: no .data section found in client.dll\n");
+			target_close(&t);
+			return 1;
+		}
+	}
+
+	printf("client.dll base 0x%llx, .data +0x%x size 0x%x\n",
+	       (unsigned long long)client->base, o.data_rva, o.data_size);
+
+	if (discover_all(&mem, &o, &off, &r) != 0) {
+		discover_print(&r);
+		printf("\nFAIL: could not determine offsets.\n");
+		printf("      A bot match must be running: an empty world cannot\n");
+		printf("      distinguish a real layout from a coincidence.\n");
+		target_close(&t);
+		return 1;
+	}
+
+	/*
+	 * The hash is left empty on purpose. Hashing client.dll needs its file
+	 * path, which the module snapshot does not give us (only the loaded base),
+	 * and inventing a path would produce a hash of the wrong file. An empty
+	 * hash makes cs2_offsets_complete() return false, so `players` refuses
+	 * until the user fills it in - which is the correct failure, not a
+	 * workaround.
+	 */
+	off.client_sha256[0] = '\0';
+
+	discover_print(&r);
+	if (cs2_offsets_save(&off, INI) == 0) {
+		printf("\nwrote %s\n", INI);
+		printf("Set client_sha256 in that file before using `players`:\n");
+		printf("  certutil -hashfile <path>\\client.dll SHA256\n");
+	}
+	target_close(&t);
+	return 0;
+}
+
 static void usage(void)
 {
 	printf("usage: cs2mem [--exe NAME] <check|modules|probe <rva> [len]|players [--json]|discover>\n");
@@ -307,10 +425,8 @@ int main(int argc, char **argv)
 		int json = (argc > 2 && strcmp(argv[2], "--json") == 0);
 		return cmd_players(json);
 	}
-	if (strcmp(argv[1], "discover") == 0) {
-		printf("discover: not implemented yet - see README.md\n");
-		return 3;
-	}
+	if (strcmp(argv[1], "discover") == 0)
+		return cmd_discover();
 
 	usage();
 	return 2;

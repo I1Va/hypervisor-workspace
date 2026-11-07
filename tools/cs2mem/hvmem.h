@@ -21,7 +21,28 @@ typedef struct hv_ctx
 	uint64_t cr3;      /* address space to read: the game's, not ours */
 	int      ok;       /* set once hv_ctx_init has validated a hypercall */
 	uint64_t faults;   /* pages that failed to translate */
+
+	/*
+	 * Optional synthetic backend.
+	 *
+	 * When set, reads come from an in-memory image instead of the hypervisor.
+	 * This exists so the discovery algorithm can be tested without hardware:
+	 * `discover` is the part most likely to be wrong, and testing it against a
+	 * real game requires a real game. A synthetic image built to the layout the
+	 * algorithm expects proves the algorithm, and the only thing left untested
+	 * is whether the real layout matches.
+	 */
+	struct synth *synth;
 } hv_ctx;
+
+/*
+ * Synthetic address space for tests. Opaque; see hvmem.c.
+ * `size` is the extent from `base`; reads outside it fail.
+ */
+struct synth *synth_create(uint64_t base, size_t size);
+void synth_destroy(struct synth *s);
+uint8_t *synth_ptr(struct synth *s, uint64_t addr, size_t size);
+void synth_use(hv_ctx *ctx, struct synth *s);
 
 /* Prove the hypercall path works and capture the current CR3. Returns 0 on success. */
 int hv_ctx_init(hv_ctx *ctx);
