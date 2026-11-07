@@ -1814,8 +1814,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/resourcesystem.md",
+    "status": "documented"
    }
   },
   {
@@ -1891,8 +1891,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/schemasystem.md",
+    "status": "documented"
    }
   },
   {
@@ -1989,8 +1989,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/localize.md",
+    "status": "documented"
    }
   },
   {
@@ -2142,8 +2142,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/inputsystem.md",
+    "status": "documented"
    }
   },
   {

@@ -76,10 +76,12 @@ All six are the standard Source 2 module surface:
 | `GetResourceManifestCount` / `GetResourceManifests` | Resource manifests this module ships |
 | `InstallSchemaBindings` | Registers this module's schema types |
 
-`host` exports the same six as `client.dll`, `server.dll`, `engine2.dll` and every
-other Valve module. This is the Source 2 **module ABI**: any DLL that wants to be
-a Source 2 module implements exactly this surface, which is why `CreateInterface`
-can be located mechanically in every binary.
+`host` exports the same six as `client.dll`, `server.dll` and `engine2.dll`. This
+is the Source 2 **module ABI**: 24 of the 34 Valve modules publish exactly this
+surface, which is why `CreateInterface` can be located mechanically in almost
+every binary. The other ten add module-specific exports on top (tier0 has 2,625,
+engine2 43, soundsystem 42) or publish a reduced set (cs2.exe has 7 but is a
+launcher, not a module).
 
 ---
 
