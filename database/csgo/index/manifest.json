@@ -980,8 +980,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/filesystem_stdio.md",
+    "status": "documented"
    }
   },
   {
@@ -1004,8 +1004,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/pulse_system.md",
+    "status": "documented"
    }
   },
   {
@@ -1126,8 +1126,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/rendersystemempty.md",
+    "status": "documented"
    }
   },
   {
@@ -1176,8 +1176,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/meshsystem.md",
+    "status": "documented"
    }
   },
   {
