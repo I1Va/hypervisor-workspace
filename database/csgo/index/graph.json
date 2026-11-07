@@ -1,0 +1,1588 @@
+{
+ "modules": {
+  "Qt5Concurrent": {
+   "valve": false,
+   "imports": {
+    "Qt5Core": 27,
+    "KERNEL32": 69
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "Qt5Core": {
+   "valve": false,
+   "imports": {
+    "MPR": 1,
+    "USERENV": 1,
+    "VERSION": 3,
+    "NETAPI32": 2,
+    "WS2_32": 4,
+    "ADVAPI32": 27,
+    "KERNEL32": 176,
+    "ole32": 5,
+    "SHELL32": 4,
+    "USER32": 25,
+    "WINMM": 2
+   },
+   "imported_by": {
+    "Qt5Concurrent": 27,
+    "Qt5Gui": 1230,
+    "Qt5Widgets": 1256,
+    "assetpreview": 307,
+    "convarhelper_subtool": 185,
+    "dashboard_subtool": 20,
+    "helpsystem": 249,
+    "netgraph_subtool": 74,
+    "propertyeditor": 332,
+    "qgif": 32,
+    "qico": 37,
+    "qjpeg": 83,
+    "qtadvanceddocking-qt5": 266,
+    "qtga": 28,
+    "qtiff": 38,
+    "qwindows": 551,
+    "qwindowsvistastyle": 77,
+    "soundviewer_subtool": 58,
+    "toolframework2": 301,
+    "vconsole2": 398,
+    "vprof_subtool": 67
+   },
+   "layer": null,
+   "role": ""
+  },
+  "Qt5Gui": {
+   "valve": false,
+   "imports": {
+    "d3d11": 1,
+    "dxgi": 1,
+    "Qt5Core": 1230,
+    "GDI32": 8,
+    "ole32": 2,
+    "USER32": 7,
+    "KERNEL32": 88
+   },
+   "imported_by": {
+    "Qt5Widgets": 1687,
+    "assetpreview": 286,
+    "convarhelper_subtool": 105,
+    "dashboard_subtool": 24,
+    "helpsystem": 174,
+    "netgraph_subtool": 58,
+    "propertyeditor": 386,
+    "qgif": 30,
+    "qico": 45,
+    "qjpeg": 51,
+    "qtadvanceddocking-qt5": 86,
+    "qtga": 27,
+    "qtiff": 50,
+    "qwindows": 772,
+    "qwindowsvistastyle": 155,
+    "soundviewer_subtool": 51,
+    "toolframework2": 235,
+    "vconsole2": 362,
+    "vprof_subtool": 55
+   },
+   "layer": null,
+   "role": ""
+  },
+  "Qt5Widgets": {
+   "valve": false,
+   "imports": {
+    "Qt5Gui": 1687,
+    "Qt5Core": 1256,
+    "UxTheme": 7,
+    "dwmapi": 3,
+    "SHELL32": 1,
+    "GDI32": 7,
+    "ole32": 1,
+    "USER32": 12,
+    "KERNEL32": 77
+   },
+   "imported_by": {
+    "assetpreview": 1228,
+    "convarhelper_subtool": 640,
+    "dashboard_subtool": 162,
+    "helpsystem": 1063,
+    "netgraph_subtool": 364,
+    "propertyeditor": 1277,
+    "qtadvanceddocking-qt5": 429,
+    "qwindowsvistastyle": 149,
+    "soundviewer_subtool": 543,
+    "toolframework2": 1270,
+    "vconsole2": 1535,
+    "vprof_subtool": 558
+   },
+   "layer": null,
+   "role": ""
+  },
+  "SDL3": {
+   "valve": false,
+   "imports": {
+    "SETUPAPI": 10,
+    "WINMM": 2,
+    "IMM32": 11,
+    "VERSION": 3,
+    "KERNEL32": 154,
+    "USER32": 139,
+    "GDI32": 24,
+    "ADVAPI32": 5,
+    "SHELL32": 9,
+    "ole32": 11,
+    "OLEAUT32": 1,
+    "HID": 5
+   },
+   "imported_by": {
+    "panorama": 31
+   },
+   "layer": null,
+   "role": ""
+  },
+  "amd_ags_x64": {
+   "valve": false,
+   "imports": {
+    "KERNEL32": 77,
+    "USER32": 1
+   },
+   "imported_by": {
+    "rendersystemdx11": 7
+   },
+   "layer": null,
+   "role": ""
+  },
+  "animationsystem": {
+   "valve": true,
+   "imports": {
+    "tier0": 233,
+    "KERNEL32": 84
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Skeletal animation and anim graph"
+  },
+  "assetpreview": {
+   "valve": true,
+   "imports": {
+    "Qt5Core": 307,
+    "Qt5Gui": 286,
+    "Qt5Widgets": 1228,
+    "tier0": 381,
+    "winsqlite3": 14,
+    "KERNEL32": 138,
+    "USER32": 11,
+    "ADVAPI32": 9,
+    "WS2_32": 35,
+    "Secur32": 1,
+    "CRYPT32": 16,
+    "bcrypt": 1,
+    "IPHLPAPI": 1
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Asset preview tool"
+  },
+  "ati_compress_wrapper": {
+   "valve": false,
+   "imports": {
+    "KERNEL32": 79
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "bugreporter_filequeue": {
+   "valve": false,
+   "imports": {
+    "WSOCK32": 3,
+    "tier0": 57,
+    "KERNEL32": 75
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "cairo": {
+   "valve": false,
+   "imports": {
+    "KERNEL32": 78
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "client": {
+   "valve": true,
+   "imports": {
+    "USER32": 3,
+    "ADVAPI32": 8,
+    "embree3": 10,
+    "steam_api64": 14,
+    "tier0": 691,
+    "v8": 67,
+    "video64": 2,
+    "KERNEL32": 145,
+    "WS2_32": 6
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Client game module: entities, prediction, HUD, weapons, input"
+  },
+  "convarhelper_subtool": {
+   "valve": false,
+   "imports": {
+    "Qt5Core": 185,
+    "Qt5Gui": 105,
+    "Qt5Widgets": 640,
+    "tier0": 94,
+    "KERNEL32": 72
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "cs2": {
+   "valve": true,
+   "imports": {
+    "USER32": 4,
+    "KERNEL32": 106
+   },
+   "imported_by": {},
+   "layer": 0,
+   "role": "Source 2 launcher: verifies the install, then calls engine2!Source2Main"
+  },
+  "csgo_legacy_app": {
+   "valve": false,
+   "imports": {
+    "USER32": 3,
+    "ADVAPI32": 2,
+    "KERNEL32": 109
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "d3dcompiler_47": {
+   "valve": false,
+   "imports": {
+    "msvcrt": 117,
+    "KERNEL32": 68,
+    "ADVAPI32": 12,
+    "RPCRT4": 1
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "dashboard_subtool": {
+   "valve": false,
+   "imports": {
+    "Qt5Core": 20,
+    "Qt5Gui": 24,
+    "Qt5Widgets": 162,
+    "tier0": 49,
+    "KERNEL32": 72
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "dbghelp": {
+   "valve": false,
+   "imports": {
+    "msvcrt": 88,
+    "KERNEL32": 99
+   },
+   "imported_by": {
+    "v8_libbase": 9
+   },
+   "layer": null,
+   "role": ""
+  },
+  "embree3": {
+   "valve": false,
+   "imports": {
+    "KERNEL32": 47,
+    "ADVAPI32": 3,
+    "MSVCP140": 47,
+    "VCRUNTIME140": 15,
+    "VCRUNTIME140_1": 1,
+    "api-ms-win-crt-runtime-l1-1-0": 12,
+    "api-ms-win-crt-heap-l1-1-0": 5,
+    "api-ms-win-crt-stdio-l1-1-0": 2,
+    "api-ms-win-crt-math-l1-1-0": 13,
+    "api-ms-win-crt-convert-l1-1-0": 2,
+    "api-ms-win-crt-string-l1-1-0": 1
+   },
+   "imported_by": {
+    "client": 10,
+    "resourcecompiler": 14
+   },
+   "layer": null,
+   "role": ""
+  },
+  "engine2": {
+   "valve": true,
+   "imports": {
+    "USER32": 11,
+    "ADVAPI32": 1,
+    "GDI32": 9,
+    "WS2_32": 13,
+    "steam_api64": 22,
+    "steamnetworkingsockets": 2,
+    "tier0": 709,
+    "KERNEL32": 154,
+    "WINMM": 1
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Engine core: Source2Main, module bootstrap, frame loop"
+  },
+  "filesystem_stdio": {
+   "valve": true,
+   "imports": {
+    "steam_api64": 3,
+    "tier0": 235,
+    "KERNEL32": 108,
+    "USER32": 3,
+    "ADVAPI32": 3,
+    "WS2_32": 6
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Filesystem layer over stdio and VPK"
+  },
+  "gfsdk_aftermath_lib.x64": {
+   "valve": false,
+   "imports": {
+    "VERSION": 3,
+    "KERNEL32": 139,
+    "USER32": 2,
+    "ole32": 2,
+    "OLEAUT32": 1,
+    "ADVAPI32": 3
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "helpsystem": {
+   "valve": true,
+   "imports": {
+    "Qt5Core": 249,
+    "Qt5Gui": 174,
+    "Qt5Widgets": 1063,
+    "tier0": 111,
+    "KERNEL32": 80,
+    "USER32": 5
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Help system"
+  },
+  "host": {
+   "valve": true,
+   "imports": {
+    "tier0": 82,
+    "KERNEL32": 83
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Host state: cvar/command registry, game UI state"
+  },
+  "imemanager": {
+   "valve": false,
+   "imports": {
+    "USER32": 4,
+    "ADVAPI32": 6,
+    "IMM32": 17,
+    "tier0": 47,
+    "KERNEL32": 76
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "inputsystem": {
+   "valve": true,
+   "imports": {
+    "USER32": 29,
+    "ADVAPI32": 1,
+    "IMM32": 1,
+    "tier0": 101,
+    "KERNEL32": 73
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Input device handling"
+  },
+  "libavcodec-58": {
+   "valve": false,
+   "imports": {
+    "libavutil-56": 146,
+    "ole32": 1,
+    "KERNEL32": 116
+   },
+   "imported_by": {
+    "libavformat-58": 73,
+    "video64": 12
+   },
+   "layer": null,
+   "role": ""
+  },
+  "libavformat-58": {
+   "valve": false,
+   "imports": {
+    "libavcodec-58": 73,
+    "libavutil-56": 156,
+    "WS2_32": 22,
+    "KERNEL32": 103
+   },
+   "imported_by": {
+    "video64": 16
+   },
+   "layer": null,
+   "role": ""
+  },
+  "libavresample-4": {
+   "valve": false,
+   "imports": {
+    "libavutil-56": 30,
+    "KERNEL32": 84
+   },
+   "imported_by": {
+    "video64": 6
+   },
+   "layer": null,
+   "role": ""
+  },
+  "libavutil-56": {
+   "valve": false,
+   "imports": {
+    "USER32": 1,
+    "bcrypt": 3,
+    "KERNEL32": 124
+   },
+   "imported_by": {
+    "libavcodec-58": 146,
+    "libavformat-58": 156,
+    "libavresample-4": 30,
+    "libswscale-5": 18,
+    "video64": 17
+   },
+   "layer": null,
+   "role": ""
+  },
+  "libfbxsdk_2020_3_1": {
+   "valve": false,
+   "imports": {
+    "KERNEL32": 190,
+    "ADVAPI32": 6
+   },
+   "imported_by": {
+    "resourcecompiler": 2,
+    "toolframework2": 57
+   },
+   "layer": null,
+   "role": ""
+  },
+  "libfontconfig-1": {
+   "valve": false,
+   "imports": {
+    "libfreetype-6": 20,
+    "KERNEL32": 99
+   },
+   "imported_by": {
+    "libpangoft2-1.0-0": 34,
+    "panorama_text_pango": 3
+   },
+   "layer": null,
+   "role": ""
+  },
+  "libfreetype-6": {
+   "valve": false,
+   "imports": {
+    "KERNEL32": 83
+   },
+   "imported_by": {
+    "libfontconfig-1": 20,
+    "libpangoft2-1.0-0": 13,
+    "panorama_text_pango": 4
+   },
+   "layer": null,
+   "role": ""
+  },
+  "libglib-2.0-0": {
+   "valve": false,
+   "imports": {
+    "WS2_32": 11,
+    "WINMM": 1,
+    "KERNEL32": 141,
+    "USER32": 5,
+    "ADVAPI32": 4,
+    "SHELL32": 3,
+    "ole32": 1
+   },
+   "imported_by": {
+    "libgmodule-2.0-0": 26,
+    "libgobject-2.0-0": 158,
+    "libgthread-2.0-0": 2,
+    "libpango-1.0-0": 132,
+    "libpangoft2-1.0-0": 65,
+    "panorama_text_pango": 4
+   },
+   "layer": null,
+   "role": ""
+  },
+  "libgmodule-2.0-0": {
+   "valve": false,
+   "imports": {
+    "KERNEL32": 69,
+    "libglib-2.0-0": 26
+   },
+   "imported_by": {
+    "libpango-1.0-0": 4
+   },
+   "layer": null,
+   "role": ""
+  },
+  "libgobject-2.0-0": {
+   "valve": false,
+   "imports": {
+    "libglib-2.0-0": 158,
+    "KERNEL32": 63
+   },
+   "imported_by": {
+    "libpango-1.0-0": 29,
+    "libpangoft2-1.0-0": 27,
+    "panorama_text_pango": 2
+   },
+   "layer": null,
+   "role": ""
+  },
+  "libgthread-2.0-0": {
+   "valve": false,
+   "imports": {
+    "libglib-2.0-0": 2,
+    "KERNEL32": 63
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "libmpg123-0": {
+   "valve": false,
+   "imports": {
+    "KERNEL32": 34,
+    "msvcrt": 41,
+    "SHLWAPI": 3
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "libpango-1.0-0": {
+   "valve": false,
+   "imports": {
+    "libgmodule-2.0-0": 4,
+    "libgobject-2.0-0": 29,
+    "libglib-2.0-0": 132,
+    "KERNEL32": 68
+   },
+   "imported_by": {
+    "libpangoft2-1.0-0": 71,
+    "panorama_text_pango": 85
+   },
+   "layer": null,
+   "role": ""
+  },
+  "libpangoft2-1.0-0": {
+   "valve": false,
+   "imports": {
+    "libfontconfig-1": 34,
+    "libfreetype-6": 13,
+    "USP10": 4,
+    "RPCRT4": 1,
+    "libgobject-2.0-0": 27,
+    "libglib-2.0-0": 65,
+    "KERNEL32": 67,
+    "USER32": 2,
+    "GDI32": 5,
+    "libpango-1.0-0": 71
+   },
+   "imported_by": {
+    "panorama_text_pango": 6
+   },
+   "layer": null,
+   "role": ""
+  },
+  "libswscale-5": {
+   "valve": false,
+   "imports": {
+    "libavutil-56": 18,
+    "KERNEL32": 84
+   },
+   "imported_by": {
+    "video64": 3
+   },
+   "layer": null,
+   "role": ""
+  },
+  "localize": {
+   "valve": true,
+   "imports": {
+    "steam_api64": 2,
+    "tier0": 111,
+    "KERNEL32": 75
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Localisation token tables"
+  },
+  "matchmaking": {
+   "valve": true,
+   "imports": {
+    "steam_api64": 7,
+    "tier0": 188,
+    "KERNEL32": 85
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Steam matchmaking and lobby glue"
+  },
+  "materialsystem2": {
+   "valve": true,
+   "imports": {
+    "GDI32": 17,
+    "tier0": 230,
+    "KERNEL32": 72
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Material and shader binding"
+  },
+  "meshsystem": {
+   "valve": true,
+   "imports": {
+    "tier0": 160,
+    "KERNEL32": 75
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Mesh and LOD management"
+  },
+  "navsystem": {
+   "valve": true,
+   "imports": {
+    "tier0": 120,
+    "KERNEL32": 80
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Navigation mesh and AI pathing"
+  },
+  "netgraph_subtool": {
+   "valve": false,
+   "imports": {
+    "Qt5Core": 74,
+    "Qt5Gui": 58,
+    "Qt5Widgets": 364,
+    "tier0": 64,
+    "KERNEL32": 72
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "networksystem": {
+   "valve": true,
+   "imports": {
+    "ADVAPI32": 1,
+    "WS2_32": 3,
+    "steam_api64": 12,
+    "steamnetworkingsockets": 13,
+    "tier0": 204,
+    "KERNEL32": 86
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Network channel, delta compression, Steam networking"
+  },
+  "p4lib": {
+   "valve": false,
+   "imports": {
+    "tier0": 19,
+    "KERNEL32": 72
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "panorama": {
+   "valve": true,
+   "imports": {
+    "USER32": 10,
+    "WINMM": 2,
+    "SDL3": 31,
+    "steam_api64": 5,
+    "tier0": 287,
+    "v8": 96,
+    "video64": 5,
+    "KERNEL32": 122,
+    "ADVAPI32": 3,
+    "WS2_32": 6
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Panorama UI engine (HTML/CSS-like)"
+  },
+  "panorama_text_pango": {
+   "valve": false,
+   "imports": {
+    "libfontconfig-1": 3,
+    "libglib-2.0-0": 4,
+    "libgobject-2.0-0": 2,
+    "libfreetype-6": 4,
+    "libpango-1.0-0": 85,
+    "libpangoft2-1.0-0": 6,
+    "tier0": 76,
+    "KERNEL32": 106,
+    "USER32": 3,
+    "ADVAPI32": 3,
+    "WS2_32": 6
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "panoramauiclient": {
+   "valve": true,
+   "imports": {
+    "steam_api64": 7,
+    "tier0": 206,
+    "v8": 47,
+    "video64": 2,
+    "KERNEL32": 88
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Client-side Panorama bindings"
+  },
+  "particles": {
+   "valve": true,
+   "imports": {
+    "tier0": 236,
+    "KERNEL32": 75
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Particle systems"
+  },
+  "phonon": {
+   "valve": false,
+   "imports": {
+    "KERNEL32": 134,
+    "ole32": 2,
+    "ADVAPI32": 5,
+    "CFGMGR32": 4
+   },
+   "imported_by": {
+    "steamaudio": 157
+   },
+   "layer": null,
+   "role": ""
+  },
+  "phonon4": {
+   "valve": false,
+   "imports": {
+    "QtGui4": 281,
+    "QtCore4": 209,
+    "KERNEL32": 70
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "physicsbuilder": {
+   "valve": true,
+   "imports": {
+    "tier0": 320,
+    "KERNEL32": 100,
+    "USER32": 6
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Physics shape building (tool)"
+  },
+  "propertyeditor": {
+   "valve": false,
+   "imports": {
+    "Qt5Core": 332,
+    "Qt5Gui": 386,
+    "Qt5Widgets": 1277,
+    "tier0": 141,
+    "KERNEL32": 83,
+    "USER32": 5
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "pulse_system": {
+   "valve": true,
+   "imports": {
+    "tier0": 166,
+    "KERNEL32": 73
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Pulse graph (Source 2 scripting)"
+  },
+  "qgif": {
+   "valve": false,
+   "imports": {
+    "Qt5Gui": 30,
+    "Qt5Core": 32,
+    "KERNEL32": 71
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "qico": {
+   "valve": false,
+   "imports": {
+    "Qt5Gui": 45,
+    "Qt5Core": 37,
+    "KERNEL32": 71
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "qjpeg": {
+   "valve": false,
+   "imports": {
+    "Qt5Gui": 51,
+    "Qt5Core": 83,
+    "KERNEL32": 75
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "qtadvanceddocking-qt5": {
+   "valve": false,
+   "imports": {
+    "Qt5Widgets": 429,
+    "Qt5Gui": 86,
+    "Qt5Core": 266,
+    "KERNEL32": 23,
+    "USER32": 1,
+    "MSVCP140": 2,
+    "VCRUNTIME140_1": 1,
+    "VCRUNTIME140": 13,
+    "api-ms-win-crt-heap-l1-1-0": 3,
+    "api-ms-win-crt-runtime-l1-1-0": 13,
+    "api-ms-win-crt-string-l1-1-0": 1
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "qtga": {
+   "valve": false,
+   "imports": {
+    "Qt5Gui": 27,
+    "Qt5Core": 28,
+    "KERNEL32": 71
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "qtiff": {
+   "valve": false,
+   "imports": {
+    "Qt5Gui": 50,
+    "Qt5Core": 38,
+    "KERNEL32": 74
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "qwindows": {
+   "valve": false,
+   "imports": {
+    "dwmapi": 4,
+    "IMM32": 11,
+    "OLEAUT32": 4,
+    "WTSAPI32": 2,
+    "ole32": 18,
+    "USER32": 132,
+    "GDI32": 45,
+    "Qt5Gui": 772,
+    "Qt5Core": 551,
+    "SHELL32": 12,
+    "WINMM": 1,
+    "KERNEL32": 94
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "qwindowsvistastyle": {
+   "valve": false,
+   "imports": {
+    "Qt5Widgets": 149,
+    "Qt5Gui": 155,
+    "Qt5Core": 77,
+    "UxTheme": 17,
+    "USER32": 8,
+    "GDI32": 10,
+    "KERNEL32": 74
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "rendersystemdx11": {
+   "valve": true,
+   "imports": {
+    "USER32": 6,
+    "ADVAPI32": 7,
+    "amd_ags_x64": 7,
+    "d3d11": 1,
+    "d3d9": 4,
+    "D3DCOMPILER_47": 3,
+    "dxgi": 2,
+    "tier0": 283,
+    "KERNEL32": 127,
+    "SHLWAPI": 1,
+    "SETUPAPI": 4,
+    "CFGMGR32": 2,
+    "ole32": 1
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "D3D11 render backend"
+  },
+  "rendersystemempty": {
+   "valve": true,
+   "imports": {
+    "ADVAPI32": 5,
+    "tier0": 201,
+    "KERNEL32": 90
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Null render backend (dedicated server / headless)"
+  },
+  "rendersystemvulkan": {
+   "valve": true,
+   "imports": {
+    "USER32": 6,
+    "ADVAPI32": 7,
+    "GFSDK_Aftermath_Lib.x64": 18,
+    "tier0": 325,
+    "KERNEL32": 134
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Vulkan render backend"
+  },
+  "resourcecompiler": {
+   "valve": true,
+   "imports": {
+    "libfbxsdk_2020_3_1": 2,
+    "embree3": 14,
+    "WS2_32": 8,
+    "steam_api64": 9,
+    "tier0": 705,
+    "v8": 33,
+    "KERNEL32": 140,
+    "USER32": 9,
+    "ADVAPI32": 3
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Resource compiler tool"
+  },
+  "resourcesystem": {
+   "valve": true,
+   "imports": {
+    "ADVAPI32": 1,
+    "tier0": 120,
+    "KERNEL32": 75
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Resource compiler runtime"
+  },
+  "scenefilecache": {
+   "valve": true,
+   "imports": {
+    "tier0": 147,
+    "KERNEL32": 81
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Compiled scene file cache"
+  },
+  "scenesystem": {
+   "valve": true,
+   "imports": {
+    "USER32": 50,
+    "tier0": 225,
+    "KERNEL32": 110,
+    "SHELL32": 1,
+    "IMM32": 4,
+    "GDI32": 1
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Render scene graph and draw lists"
+  },
+  "schemasystem": {
+   "valve": true,
+   "imports": {
+    "USER32": 6,
+    "tier0": 75,
+    "KERNEL32": 75
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Schema type system"
+  },
+  "server": {
+   "valve": true,
+   "imports": {
+    "steam_api64": 11,
+    "tier0": 524,
+    "v8": 101,
+    "KERNEL32": 119,
+    "USER32": 3,
+    "ADVAPI32": 3,
+    "WS2_32": 6
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Authoritative game module: tick, snapshot, game rules, hit reg"
+  },
+  "soundsystem": {
+   "valve": true,
+   "imports": {
+    "WINMM": 1,
+    "tier0": 311,
+    "KERNEL32": 83
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Audio mixing and spatialisation"
+  },
+  "soundviewer_subtool": {
+   "valve": false,
+   "imports": {
+    "Qt5Core": 58,
+    "Qt5Gui": 51,
+    "Qt5Widgets": 543,
+    "tier0": 50,
+    "KERNEL32": 72
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "steam_api64": {
+   "valve": false,
+   "imports": {
+    "KERNEL32": 91,
+    "ADVAPI32": 3,
+    "SHELL32": 1
+   },
+   "imported_by": {
+    "client": 14,
+    "engine2": 22,
+    "filesystem_stdio": 3,
+    "localize": 2,
+    "matchmaking": 7,
+    "networksystem": 12,
+    "panorama": 5,
+    "panoramauiclient": 7,
+    "resourcecompiler": 9,
+    "server": 11,
+    "vconsole2": 5
+   },
+   "layer": null,
+   "role": ""
+  },
+  "steamaudio": {
+   "valve": false,
+   "imports": {
+    "phonon": 157,
+    "tier0": 174,
+    "KERNEL32": 98,
+    "USER32": 3,
+    "ADVAPI32": 3,
+    "WS2_32": 6
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "steamnetworkingsockets": {
+   "valve": false,
+   "imports": {
+    "KERNEL32": 118,
+    "WS2_32": 22,
+    "WINMM": 2,
+    "IPHLPAPI": 1,
+    "bcrypt": 1,
+    "USER32": 3,
+    "ADVAPI32": 3
+   },
+   "imported_by": {
+    "engine2": 2,
+    "networksystem": 13
+   },
+   "layer": null,
+   "role": ""
+  },
+  "symsrv": {
+   "valve": false,
+   "imports": {
+    "msvcrt": 43,
+    "KERNEL32": 71,
+    "ADVAPI32": 9
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "tier0": {
+   "valve": true,
+   "imports": {
+    "USER32": 55,
+    "ADVAPI32": 18,
+    "GDI32": 15,
+    "WS2_32": 4,
+    "RPCRT4": 4,
+    "api-ms-win-core-synch-l1-2-0": 3,
+    "WINMM": 1,
+    "KERNEL32": 217
+   },
+   "imported_by": {
+    "animationsystem": 233,
+    "assetpreview": 381,
+    "bugreporter_filequeue": 57,
+    "client": 691,
+    "convarhelper_subtool": 94,
+    "dashboard_subtool": 49,
+    "engine2": 709,
+    "filesystem_stdio": 235,
+    "helpsystem": 111,
+    "host": 82,
+    "imemanager": 47,
+    "inputsystem": 101,
+    "localize": 111,
+    "matchmaking": 188,
+    "materialsystem2": 230,
+    "meshsystem": 160,
+    "navsystem": 120,
+    "netgraph_subtool": 64,
+    "networksystem": 204,
+    "p4lib": 19,
+    "panorama": 287,
+    "panorama_text_pango": 76,
+    "panoramauiclient": 206,
+    "particles": 236,
+    "physicsbuilder": 320,
+    "propertyeditor": 141,
+    "pulse_system": 166,
+    "rendersystemdx11": 283,
+    "rendersystemempty": 201,
+    "rendersystemvulkan": 325,
+    "resourcecompiler": 705,
+    "resourcesystem": 120,
+    "scenefilecache": 147,
+    "scenesystem": 225,
+    "schemasystem": 75,
+    "server": 524,
+    "soundsystem": 311,
+    "soundviewer_subtool": 50,
+    "steamaudio": 174,
+    "toolframework2": 339,
+    "v8system": 63,
+    "valve_avi": 32,
+    "valve_webm": 77,
+    "valve_wmf": 25,
+    "vconcomm": 133,
+    "vconsole2": 473,
+    "vfx_dx11": 152,
+    "visbuilder": 128,
+    "vphysics2": 195,
+    "vprof_subtool": 49,
+    "vscript": 140,
+    "worldrenderer": 187
+   },
+   "layer": 0,
+   "role": "Platform layer: allocators, threads, logging, crash handler"
+  },
+  "toolframework2": {
+   "valve": true,
+   "imports": {
+    "ADVAPI32": 3,
+    "libfbxsdk_2020_3_1": 57,
+    "Qt5Core": 301,
+    "Qt5Gui": 235,
+    "Qt5Widgets": 1270,
+    "WS2_32": 13,
+    "tier0": 339,
+    "KERNEL32": 107,
+    "USER32": 11,
+    "SHLWAPI": 1
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Editor/tool framework"
+  },
+  "v8": {
+   "valve": false,
+   "imports": {
+    "ADVAPI32": 4,
+    "KERNEL32": 113,
+    "v8_libbase": 188,
+    "v8_icui18n": 208,
+    "v8_icuuc": 157,
+    "v8_zlib": 9
+   },
+   "imported_by": {
+    "client": 67,
+    "panorama": 96,
+    "panoramauiclient": 47,
+    "resourcecompiler": 33,
+    "server": 101,
+    "v8system": 32
+   },
+   "layer": null,
+   "role": ""
+  },
+  "v8_icui18n": {
+   "valve": false,
+   "imports": {
+    "KERNEL32": 102,
+    "v8_icuuc": 781
+   },
+   "imported_by": {
+    "v8": 208
+   },
+   "layer": null,
+   "role": ""
+  },
+  "v8_icuuc": {
+   "valve": false,
+   "imports": {
+    "ADVAPI32": 5,
+    "KERNEL32": 133
+   },
+   "imported_by": {
+    "v8": 157,
+    "v8_icui18n": 781
+   },
+   "layer": null,
+   "role": ""
+  },
+  "v8_libbase": {
+   "valve": false,
+   "imports": {
+    "dbghelp": 9,
+    "WINMM": 1,
+    "KERNEL32": 152
+   },
+   "imported_by": {
+    "v8": 188,
+    "v8_libplatform": 46
+   },
+   "layer": null,
+   "role": ""
+  },
+  "v8_libplatform": {
+   "valve": false,
+   "imports": {
+    "ADVAPI32": 4,
+    "KERNEL32": 97,
+    "v8_libbase": 46
+   },
+   "imported_by": {
+    "v8system": 1
+   },
+   "layer": null,
+   "role": ""
+  },
+  "v8_zlib": {
+   "valve": false,
+   "imports": {
+    "KERNEL32": 91
+   },
+   "imported_by": {
+    "v8": 9
+   },
+   "layer": null,
+   "role": ""
+  },
+  "v8system": {
+   "valve": false,
+   "imports": {
+    "tier0": 63,
+    "v8": 32,
+    "v8_libplatform": 1,
+    "KERNEL32": 72
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "valve_avi": {
+   "valve": false,
+   "imports": {
+    "USER32": 4,
+    "GDI32": 5,
+    "AVIFIL32": 17,
+    "tier0": 32,
+    "KERNEL32": 72
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "valve_webm": {
+   "valve": false,
+   "imports": {
+    "tier0": 77,
+    "KERNEL32": 101
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "valve_wmf": {
+   "valve": false,
+   "imports": {
+    "MFReadWrite": 1,
+    "MFPlat": 6,
+    "ole32": 2,
+    "tier0": 25,
+    "KERNEL32": 72
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "vconcomm": {
+   "valve": false,
+   "imports": {
+    "USER32": 6,
+    "WS2_32": 17,
+    "tier0": 133,
+    "KERNEL32": 75
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "vconsole2": {
+   "valve": true,
+   "imports": {
+    "USER32": 19,
+    "tier0": 473,
+    "Qt5Core": 398,
+    "Qt5Gui": 362,
+    "Qt5Widgets": 1535,
+    "WS2_32": 13,
+    "steam_api64": 5,
+    "KERNEL32": 104
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "External console application"
+  },
+  "vfx_dx11": {
+   "valve": false,
+   "imports": {
+    "slang": 1,
+    "tier0": 152,
+    "KERNEL32": 72
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "video64": {
+   "valve": true,
+   "imports": {
+    "KERNEL32": 178,
+    "USER32": 25,
+    "ADVAPI32": 7,
+    "SHELL32": 1,
+    "OLEAUT32": 1,
+    "WS2_32": 28,
+    "PSAPI": 2,
+    "libavcodec-58": 12,
+    "libavformat-58": 16,
+    "libavresample-4": 6,
+    "libavutil-56": 17,
+    "libswscale-5": 3,
+    "VERSION": 1,
+    "CRYPT32": 7,
+    "WSOCK32": 1,
+    "bcrypt": 1
+   },
+   "imported_by": {
+    "client": 2,
+    "panorama": 5,
+    "panoramauiclient": 2
+   },
+   "layer": 0,
+   "role": "Video playback"
+  },
+  "visbuilder": {
+   "valve": false,
+   "imports": {
+    "tier0": 128,
+    "KERNEL32": 85
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "vphysics2": {
+   "valve": true,
+   "imports": {
+    "tier0": 195,
+    "KERNEL32": 75
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "Rigid body physics (VPhysics2)"
+  },
+  "vprof_subtool": {
+   "valve": false,
+   "imports": {
+    "Qt5Core": 67,
+    "Qt5Gui": 55,
+    "Qt5Widgets": 558,
+    "tier0": 49,
+    "KERNEL32": 72
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "vscript": {
+   "valve": false,
+   "imports": {
+    "WS2_32": 16,
+    "tier0": 140,
+    "KERNEL32": 97
+   },
+   "imported_by": {},
+   "layer": null,
+   "role": ""
+  },
+  "worldrenderer": {
+   "valve": true,
+   "imports": {
+    "tier0": 187,
+    "KERNEL32": 83
+   },
+   "imported_by": {},
+   "layer": 1,
+   "role": "World geometry renderer"
+  }
+ },
+ "third_party_surface": {
+  "assetpreview": {
+   "Qt5Widgets": 1228,
+   "Qt5Core": 307,
+   "Qt5Gui": 286,
+   "winsqlite3": 14
+  },
+  "client": {
+   "v8": 67,
+   "steam_api64": 14,
+   "embree3": 10
+  },
+  "engine2": {
+   "steam_api64": 22,
+   "steamnetworkingsockets": 2
+  },
+  "filesystem_stdio": {
+   "steam_api64": 3
+  },
+  "helpsystem": {
+   "Qt5Widgets": 1063,
+   "Qt5Core": 249,
+   "Qt5Gui": 174
+  },
+  "localize": {
+   "steam_api64": 2
+  },
+  "matchmaking": {
+   "steam_api64": 7
+  },
+  "networksystem": {
+   "steamnetworkingsockets": 13,
+   "steam_api64": 12
+  },
+  "panorama": {
+   "v8": 96,
+   "SDL3": 31,
+   "steam_api64": 5
+  },
+  "panoramauiclient": {
+   "v8": 47,
+   "steam_api64": 7
+  },
+  "rendersystemdx11": {
+   "amd_ags_x64": 7,
+   "d3d9": 4,
+   "D3DCOMPILER_47": 3,
+   "dxgi": 2,
+   "CFGMGR32": 2,
+   "d3d11": 1
+  },
+  "rendersystemvulkan": {
+   "GFSDK_Aftermath_Lib.x64": 18
+  },
+  "resourcecompiler": {
+   "v8": 33,
+   "embree3": 14,
+   "steam_api64": 9,
+   "libfbxsdk_2020_3_1": 2
+  },
+  "server": {
+   "v8": 101,
+   "steam_api64": 11
+  },
+  "toolframework2": {
+   "Qt5Widgets": 1270,
+   "Qt5Core": 301,
+   "Qt5Gui": 235,
+   "libfbxsdk_2020_3_1": 57
+  },
+  "vconsole2": {
+   "Qt5Widgets": 1535,
+   "Qt5Core": 398,
+   "Qt5Gui": 362,
+   "steam_api64": 5
+  },
+  "video64": {
+   "libavutil-56": 17,
+   "libavformat-58": 16,
+   "libavcodec-58": 12,
+   "libavresample-4": 6,
+   "libswscale-5": 3,
+   "WSOCK32": 1
+  }
+ }
+}

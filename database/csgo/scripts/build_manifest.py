@@ -7,12 +7,12 @@ identity of every module (size, hash, function count) plus the per-module
 analysis state, so the next machine can tell what is done, what is partial, and
 what it has to re-extract.
 """
-import json, pathlib, sys
+import json, os, pathlib, sys
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from funcmap import function_map
 
-ROOT = pathlib.Path('/tmp/opencode/csgo')
-ANALYSIS = pathlib.Path('/tmp/opencode/csgo-analysis')
+ROOT = pathlib.Path(os.environ.get('CSGO_CORPUS', '/tmp/opencode/csgo'))
+ANALYSIS = pathlib.Path(os.environ.get('CSGO_ANALYSIS', '/tmp/opencode/csgo-analysis'))
 
 # What each module is, for a reader who has never seen the tree.
 ROLES = {
@@ -64,6 +64,9 @@ def module_path(name):
     return None
 
 def main():
+    if not ROOT.is_dir():
+        raise SystemExit(f'corpus not found at {ROOT}; set CSGO_CORPUS or run '
+                         'bootstrap.py first')
     inv_dir = ANALYSIS / 'inv'
     entries = []
     for j in sorted(inv_dir.glob('*.json')):
@@ -75,7 +78,9 @@ def main():
         nfuncs = len(function_map(str(p))) if p else 0
         asm_dir = ANALYSIS / 'docs' / name
         asm_count = len(list(asm_dir.glob('*.asm'))) if asm_dir.is_dir() else 0
-        doc = ANALYSIS / 'docs' / f'{name}.md'
+        # Documents live in the repository, not in the scratch analysis tree.
+        doc = (pathlib.Path(__file__).resolve().parents[1] / 'documents' / f'{name}.md')
+        doc_exists = doc.exists()
         entries.append({
             'module': name,
             'file': p.name if p else None,
@@ -91,8 +96,8 @@ def main():
             'sections': [s['name'] for s in d.get('sections', [])],
             'analysis': {
                 'disassembly_functions': asm_count,
-                'document': f'documents/{name}.md' if doc.exists() else None,
-                'status': ('documented' if doc.exists()
+                'document': f'documents/{name}.md' if doc_exists else None,
+                'status': ('documented' if doc_exists
                            else 'extracted, not documented' if asm_count
                            else 'inventory only'),
             },
@@ -118,4 +123,17 @@ def main():
     print('extracted only:', len(partial), 'modules')
 
 if __name__ == '__main__':
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--filelist', help='also write a DepotDownloader filelist '
+                    'of the modules (paths relative to the Steam game root)')
+    args = ap.parse_args()
+    if args.filelist:
+        import pathlib as _p
+        d = json.loads((_p.Path(__file__).resolve().parents[1]
+                        / 'index' / 'manifest.json').read_text())
+        lines = sorted({'game/' + m['relpath'] for m in d['modules']
+                        if m.get('relpath')})
+        _p.Path(args.filelist).write_text('\n'.join(lines) + '\n')
+        print(f'wrote {len(lines)} paths to {args.filelist}')
     main()

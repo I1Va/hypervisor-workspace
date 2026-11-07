@@ -34,17 +34,32 @@ the committed manifest, and neither belongs in a repository.
 
 ## State at hand-off
 
-Two of 34 Valve modules are documented:
+Four of 34 Valve modules are documented:
 
 | Module | Document | Lines | Notes |
 |---|---|---|---|
 | `cs2.exe` | `documents/cs2.md` | 1,246 | Complete. Launcher + trust subsystem. |
 | `client.dll` | `documents/client.md` | 1,585 | Complete. Entities, prediction, HUD, cvars. |
+| `server.dll` | `documents/server.md` | 2,227 | Complete. Tick, modes, movement, lag comp, 1,545 cvars. |
+| `engine2.dll` | `documents/engine2.md` | 1,481 | Complete. `Source2Main`, bootstrap, main loop. |
 
-The remaining 30 Valve modules have full PE inventory and RTTI extracted, plus
-disassembly on the machine that did the work, but **no document**. `server.dll`
-and `engine2.dll` were in progress and produced nothing — restart them from
-scratch.
+The remaining 30 Valve modules have full PE inventory and RTTI extracted but **no
+document**. Start them one per subagent, in parallel.
+
+### The DTB is not required
+
+The corpus was recovered without it, from Steam. Depot **2347771** of appid 730
+holds every module, anonymously downloadable:
+
+```sh
+DepotDownloader -app 730 -depot 2347771 -manifest 3019944380727688040 \
+                -filelist filelist.txt -dir ./cs2
+```
+
+172 MB downloaded for 544 MB uncompressed, and all 102 modules matched the
+committed SHA256 exactly. `scripts/build_manifest.py` regenerates
+`filelist.txt` from `index/manifest.json`. Depot 2347770 holds only VPKs and
+signatures — the DLLs are not there.
 
 ## Step 1 — bring up the stand
 
@@ -63,7 +78,28 @@ curl -s -o /dev/null -w "%{http_code}\n" http://127.0.0.1:6767/PulverizedDXE.efi
 `dbg_boot` / `dtbctl boot` also starts the server. A reset does nothing to a
 powered-off machine; the tool now checks the LED first.
 
-## Step 2 — pull the corpus
+## Step 2 — get the corpus
+
+Two routes. Prefer the first when the DTB is reachable; use the second when it is
+not, or when the corpus must survive a reboot.
+
+### From Steam (no DTB needed)
+
+Depot **2347771** of appid 730 carries every module and allows anonymous access:
+
+```sh
+python3 database/csgo/scripts/build_manifest.py --filelist /tmp/filelist.txt
+DepotDownloader -app 730 -depot 2347771 -manifest 3019944380727688040 \
+                -filelist /tmp/filelist.txt -dir /tmp/cs2dl
+```
+
+172 MB of download for 544 MB uncompressed. Verify against `index/manifest.json`
+— all 102 modules matched byte-for-byte when this route was first used.
+
+Depot 2347770 looks like the obvious choice and is **wrong**: it holds only VPKs
+and signature files. The DLLs are in 2347771.
+
+### From the DTB
 
 ```sh
 python3 database/csgo/scripts/bootstrap.py --dest /tmp/opencode/csgo

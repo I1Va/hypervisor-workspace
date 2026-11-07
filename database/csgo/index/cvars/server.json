@@ -1,0 +1,9272 @@
+[
+ {
+  "name": "pvs_debugentity",
+  "site": 306532,
+  "help": "Verbose spew for this entity when doing IsInPVS computation.",
+  "float": false
+ },
+ {
+  "name": "pvs_flowtype",
+  "site": 306702,
+  "help": "Flow through spawn groups for vis (0 == default, 1 == always visible, 2 == never visible.",
+  "float": false
+ },
+ {
+  "name": "r_light_flickering_enabled",
+  "site": 306874,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_networkvar_log_fullchanges",
+  "site": 307582,
+  "help": "Log FUL_FULL_EDICT_CHANGED calls.",
+  "float": false
+ },
+ {
+  "name": "sv_pvs_cache_query_inflate_amount",
+  "site": 307758,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_pvs_entity",
+  "site": 307937,
+  "help": "If set, only allows this ent index to network (other than players and things that force sending).",
+  "float": false
+ },
+ {
+  "name": "sv_pvs_random",
+  "site": 308155,
+  "help": "If set, objects blink in/out of pvs randomly.",
+  "float": false
+ },
+ {
+  "name": "sv_use_pvs_cache",
+  "site": 308334,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_clanid",
+  "site": 312014,
+  "help": "Steam clan ID to allow members to set some convars",
+  "float": false
+ },
+ {
+  "name": "sv_prime_accounts_only",
+  "site": 312574,
+  "help": "When this setting is enabled only prime users can connect to this game server.",
+  "float": false
+ },
+ {
+  "name": "sv_workshop_allow_other_maps",
+  "site": 312750,
+  "help": "When hosting a workshop collection, users can play other workshop map on this server when it is empty and then mapcycle into this server collection.",
+  "float": false
+ },
+ {
+  "name": "tv_allow_camera_man_steamid2",
+  "site": 312975,
+  "help": "Allows tournament production tv cameraman to run csgo.exe -interactivecaster on SteamID 7650123456XXX and be the tv camera man.",
+  "float": false
+ },
+ {
+  "name": "tv_allow_camera_man_steamid",
+  "site": 313151,
+  "help": "Allows tournament production cameraman to run csgo.exe -interactivecaster on SteamID 7650123456XXX and be the camera man.",
+  "float": false
+ },
+ {
+  "name": "mp_logdetail",
+  "site": 317287,
+  "help": "Logs attacks.  Values are: 0=off, 1=enemy, 2=teammate, 3=both)",
+  "float": false
+ },
+ {
+  "name": "mp_logdetail_items",
+  "site": 317454,
+  "help": "Logs a line any time a player acquires or loses an item.",
+  "float": false
+ },
+ {
+  "name": "radarvismethod",
+  "site": 318178,
+  "help": "0 for traditional method, 1 for more realistic method",
+  "float": false
+ },
+ {
+  "name": "sv_auto_cstrafe_attempt_window",
+  "site": 320054,
+  "help": "The length of the window of trailing counter-strafe attempts considered during input automation detection.",
+  "float": false
+ },
+ {
+  "name": "sv_auto_cstrafe_kick",
+  "site": 320222,
+  "help": "Whether or not to kick players when counter-strafe input automation is detected.",
+  "float": false
+ },
+ {
+  "name": "sv_auto_cstrafe_logging",
+  "site": 320410,
+  "help": "0: never, 1: every time counter-strafe input automation is detected, 2: every counter-strafe",
+  "float": false
+ },
+ {
+  "name": "sv_auto_cstrafe_min_attempts",
+  "site": 320790,
+  "help": "The minimum number of counter-strafe attempts required for input automation detection. The player must be moving more than 135.2 units/s for their counter-strafe to be considered an attempt. An attempt is either considered a success (counter-strafing took place within a single tick), an overlap (both directions were held for 1+ ticks) or an underlap (neither direction was held for 1+ ticks).",
+  "float": false
+ },
+ {
+  "name": "sv_auto_cstrafe_sequence_length",
+  "site": 320982,
+  "help": "The length of sequential counter-strafe attempts evaluated relative to the success threshold. Input automation detection considers the best sequence within the larger attempt window.",
+  "float": false
+ },
+ {
+  "name": "sv_auto_cstrafe_success_threshold",
+  "site": 321174,
+  "help": "The minimum number of successful counter-strafes within a best sequence that will trigger input automation detection. The number of successes that trigger input automation detection is interpolated between the success threshold and a 'perfect' sequence (all counter-strafes in a sequence are successes), depending on the player's percentage of overlapping counter-strafe attempts.",
+  "float": false
+ },
+ {
+  "name": "sv_debugroundstats",
+  "site": 321514,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_nonemesis",
+  "site": 321705,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_record_item_time_data",
+  "site": 321886,
+  "help": "Turn on recording of per player item time data into the server log.",
+  "float": false
+ },
+ {
+  "name": "bot_chatter_use_rr",
+  "site": 323918,
+  "help": "0 = Use old bot chatter system, 1 = Use response rules",
+  "float": false
+ },
+ {
+  "name": "bot_freeze",
+  "site": 324090,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "bot_mimic",
+  "site": 324266,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cs_ShowStateTransitions",
+  "site": 324612,
+  "help": "cs_ShowStateTransitions <ent index or -1 for all>. Show player state transitions.",
+  "float": false
+ },
+ {
+  "name": "cs_logtouchexpansion",
+  "site": 324948,
+  "help": "cs_logtouchexpansion <ent index or -1 for all>. Log player touch expansion component.",
+  "float": false
+ },
+ {
+  "name": "dev_add_onground_on_spawn",
+  "site": 325118,
+  "help": "Should we mess with the ground flag when we spawn? (I don't think we should). If we don't hit the assert in CCSPlayer_MovementServices::ProcessMovement, we should remove this by Dec 2022.",
+  "float": false
+ },
+ {
+  "name": "mp_deathcam_skippable",
+  "site": 328286,
+  "help": "Determines whether a player can early-out of the deathcam.",
+  "float": false
+ },
+ {
+  "name": "sv_guardian_spawn_health_ct",
+  "site": 329204,
+  "help": "Starting health in guardian modes.",
+  "float": false
+ },
+ {
+  "name": "sv_guardian_spawn_health_t",
+  "site": 329380,
+  "help": "Starting health in guardian modes.",
+  "float": false
+ },
+ {
+  "name": "sv_kill_players_at_coord_min",
+  "site": 329550,
+  "help": "Kill players with fall damage at negative coord min",
+  "float": false
+ },
+ {
+  "name": "sv_max_deathmatch_respawns_per_tick",
+  "site": 329722,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_nowinpanel",
+  "site": 329899,
+  "help": "Turn on/off win panel on server",
+  "float": false
+ },
+ {
+  "name": "sv_override_max_health",
+  "site": 330074,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_playerradio_use_allowlist",
+  "site": 330254,
+  "help": "playerradio commands may only use responses from an allow list of commands.",
+  "float": false
+ },
+ {
+  "name": "sv_show_teammate_death_notification",
+  "site": 330590,
+  "help": "Show chat notification upon teammate death",
+  "float": false
+ },
+ {
+  "name": "sv_show_voip_indicator_for_enemies",
+  "site": 330766,
+  "help": "Makes it so the voip icon is shown over enemies as well as allies when they are talking",
+  "float": false
+ },
+ {
+  "name": "tv_relayradio",
+  "site": 331054,
+  "help": "Relay team radio commands to TV: 0=off, 1=on",
+  "float": false
+ },
+ {
+  "name": "sv_allow_votes",
+  "site": 337326,
+  "help": "Allow voting?",
+  "float": false
+ },
+ {
+  "name": "sv_mapvetopickvote_maps",
+  "site": 337891,
+  "help": "Which maps are used for map veto pick sequence",
+  "float": false
+ },
+ {
+  "name": "sv_mapvetopickvote_phase_duration",
+  "site": 338177,
+  "help": "How many seconds each phase lasts",
+  "float": false
+ },
+ {
+  "name": "sv_vote_allow_in_warmup",
+  "site": 338350,
+  "help": "Allow voting during warmup?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_allow_spectators",
+  "site": 338526,
+  "help": "Allow spectators to initiate votes?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_count_spectator_votes",
+  "site": 338878,
+  "help": "Allow spectators to vote on issues?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_disallow_kick_on_match_point",
+  "site": 339214,
+  "help": "Disallow vote kicking on the match point round.",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_changelevel_allowed",
+  "site": 339547,
+  "help": "Can people hold votes to change levels?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_kick_allowed",
+  "site": 339726,
+  "help": "Can people hold votes to kick players from the server?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_loadbackup_allowed",
+  "site": 339902,
+  "help": "Can people hold votes to load match from backup?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_loadbackup_spec_authoritative",
+  "site": 340078,
+  "help": "When enabled, admins load match from backup without players vote",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_loadbackup_spec_only",
+  "site": 340254,
+  "help": "When enabled, only admins load match from backup",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_loadbackup_spec_safe",
+  "site": 340430,
+  "help": "When enabled, admins load match from backup in safe time of the round only",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_matchready_allowed",
+  "site": 340603,
+  "help": "Can people hold votes to ready/unready the match?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_nextlevel_allowed",
+  "site": 340779,
+  "help": "Can people hold votes to set the next level?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_nextlevel_allowextend",
+  "site": 340955,
+  "help": "Allow players to extend the current map?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_nextlevel_choicesmode",
+  "site": 341131,
+  "help": "Present players with a list of lowest playtime maps to choose from?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_nextlevel_prevent_change",
+  "site": 341307,
+  "help": "Not allowed to vote for a nextlevel if one has already been set.",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_pause_match_allowed",
+  "site": 341483,
+  "help": "Can people hold votes to pause/unpause the match?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_pause_match_spec_only",
+  "site": 341662,
+  "help": "When enabled, only admins start technical pause",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_restart_game_allowed",
+  "site": 341838,
+  "help": "Can people hold votes to restart the game?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_scramble_teams_allowed",
+  "site": 342011,
+  "help": "Can people hold votes to scramble the teams?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_surrrender_allowed",
+  "site": 342187,
+  "help": "Can people hold votes to surrender?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_swap_teams_allowed",
+  "site": 342363,
+  "help": "Can people hold votes to swap the teams?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_issue_timeout_allowed",
+  "site": 342539,
+  "help": "Can people hold votes to time out?",
+  "float": false
+ },
+ {
+  "name": "sv_vote_to_changelevel_before_match_point",
+  "site": 343230,
+  "help": "Restricts vote to change level to rounds prior to match point (default 0, vote is never disallowed)",
+  "float": false
+ },
+ {
+  "name": "sv_vote_to_changelevel_rndmin",
+  "site": 343406,
+  "help": "When non-zero, restricts vote to change level to this many first rounds or minutes of the match (default 0, vote is not disallowed)",
+  "float": false
+ },
+ {
+  "name": "sv_workshop_map_save_data_max_filesize_mb",
+  "site": 343584,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "debug_aim_angle",
+  "site": 345338,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "logaddress_token_secret",
+  "site": 352625,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "suspicious_hit_strategy",
+  "site": 353918,
+  "help": "What to do about suspicious hits. 0: Nothing. 1: Skip the bullet. 2: Skip the bullet and re-roll a new bullet.",
+  "float": false
+ },
+ {
+  "name": "sv_log_http_record_before_any_listeners",
+  "site": 354090,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "weapon_accuracy_logging",
+  "site": 354266,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "weapon_accuracy_shotgun_spread_patterns",
+  "site": 354442,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "weapon_debug_inaccuracy_only_up",
+  "site": 354622,
+  "help": "Force weapon inaccuracy to be in exactly the up direction",
+  "float": false
+ },
+ {
+  "name": "weapon_debug_max_inaccuracy",
+  "site": 354798,
+  "help": "Force all shots to have maximum inaccuracy",
+  "float": false
+ },
+ {
+  "name": "weapon_near_empty_sound",
+  "site": 354970,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "bot_force_duck",
+  "site": 356155,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "bot_ignore_players",
+  "site": 356670,
+  "help": "Bots will not see non-bot players.",
+  "float": false
+ },
+ {
+  "name": "bot_join_delay",
+  "site": 356846,
+  "help": "Prevents bots from joining the server for this many seconds after a map change.",
+  "float": false
+ },
+ {
+  "name": "bot_join_in_warmup",
+  "site": 357022,
+  "help": "Prevents bots from joining the server while warmup phase is active.",
+  "float": false
+ },
+ {
+  "name": "bot_show_battlefront",
+  "site": 358046,
+  "help": "Show areas where rushing players will initially meet.",
+  "float": false
+ },
+ {
+  "name": "bot_show_occupy_time",
+  "site": 358222,
+  "help": "Show when each nav area can first be reached by each team.",
+  "float": false
+ },
+ {
+  "name": "bot_allow_grenades",
+  "site": 358670,
+  "help": "If nonzero, bots may use grenades.",
+  "float": false
+ },
+ {
+  "name": "bot_allow_machine_guns",
+  "site": 358846,
+  "help": "If nonzero, bots may use the machine gun.",
+  "float": false
+ },
+ {
+  "name": "bot_allow_pistols",
+  "site": 359022,
+  "help": "If nonzero, bots may use pistols.",
+  "float": false
+ },
+ {
+  "name": "bot_allow_rifles",
+  "site": 359198,
+  "help": "If nonzero, bots may use rifles.",
+  "float": false
+ },
+ {
+  "name": "bot_allow_rogues",
+  "site": 359374,
+  "help": "If nonzero, bots may occasionally go 'rogue'. Rogue bots do not obey radio commands, nor pursue scenario goals.",
+  "float": false
+ },
+ {
+  "name": "bot_allow_shotguns",
+  "site": 359550,
+  "help": "If nonzero, bots may use shotguns.",
+  "float": false
+ },
+ {
+  "name": "bot_allow_snipers",
+  "site": 359726,
+  "help": "If nonzero, bots may use sniper rifles.",
+  "float": false
+ },
+ {
+  "name": "bot_allow_sub_machine_guns",
+  "site": 359902,
+  "help": "If nonzero, bots may use sub-machine guns.",
+  "float": false
+ },
+ {
+  "name": "bot_auto_follow",
+  "site": 360078,
+  "help": "If nonzero, bots with high co-op may automatically follow a nearby human player.",
+  "float": false
+ },
+ {
+  "name": "bot_auto_vacate",
+  "site": 360254,
+  "help": "If nonzero, bots will automatically leave to make room for human players.",
+  "float": false
+ },
+ {
+  "name": "bot_chatter",
+  "site": 360449,
+  "help": "Control how bots talk. Allowed values: 'off', 'radio', 'minimal', or 'normal'.",
+  "float": false
+ },
+ {
+  "name": "bot_controllable",
+  "site": 360622,
+  "help": "Determines whether bots can be controlled by players",
+  "float": false
+ },
+ {
+  "name": "bot_debug",
+  "site": 360798,
+  "help": "For internal testing purposes.",
+  "float": false
+ },
+ {
+  "name": "bot_debug_target",
+  "site": 360974,
+  "help": "For internal testing purposes.",
+  "float": false
+ },
+ {
+  "name": "bot_defer_to_human_goals",
+  "site": 361150,
+  "help": "If nonzero and there is a human on the team, the bots will not do the scenario tasks.",
+  "float": false
+ },
+ {
+  "name": "bot_defer_to_human_items",
+  "site": 361326,
+  "help": "If nonzero and there is a human on the team, the bots will not get scenario items.",
+  "float": false
+ },
+ {
+  "name": "bot_difficulty",
+  "site": 361508,
+  "help": "Defines the skill of bots joining the game.  Values are: 0=easy, 1=normal, 2=hard, 3=expert.",
+  "float": false
+ },
+ {
+  "name": "bot_dont_shoot",
+  "site": 361678,
+  "help": "If nonzero, bots will not fire weapons (for debugging).",
+  "float": false
+ },
+ {
+  "name": "bot_flipout",
+  "site": 362014,
+  "help": "If nonzero, bots use no CPU for AI. Instead, they run around randomly.",
+  "float": false
+ },
+ {
+  "name": "bot_ignore_enemies",
+  "site": 362190,
+  "help": "If nonzero, bots will ignore enemies (for debugging).",
+  "float": false
+ },
+ {
+  "name": "bot_join_after_player",
+  "site": 362366,
+  "help": "If nonzero, bots wait until a player joins before entering the game.",
+  "float": false
+ },
+ {
+  "name": "bot_join_team",
+  "site": 362561,
+  "help": "Determines the team bots will join into. Allowed values: 'any', 'T', or 'CT'.",
+  "float": false
+ },
+ {
+  "name": "bot_path_require_reachable_goal",
+  "site": 362734,
+  "help": "If nonzero, bots refuse to path to a nav area that the nav build did not reach from a player spawn.",
+  "float": false
+ },
+ {
+  "name": "bot_prefix",
+  "site": 362945,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "bot_quota",
+  "site": 363124,
+  "help": "Determines the total number of bots in the game.",
+  "float": false
+ },
+ {
+  "name": "bot_quota_mode",
+  "site": 363313,
+  "help": "Determines the type of quota.",
+  "float": false
+ },
+ {
+  "name": "bot_show_nav",
+  "site": 363486,
+  "help": "For internal testing purposes.",
+  "float": false
+ },
+ {
+  "name": "bot_stop",
+  "site": 363681,
+  "help": "bot_stop <1|all> | <not_bomber> | <t> | <ct>",
+  "float": false
+ },
+ {
+  "name": "bot_traceview",
+  "site": 364014,
+  "help": "For internal testing purposes.",
+  "float": false
+ },
+ {
+  "name": "bot_walk",
+  "site": 364190,
+  "help": "If nonzero, bots can only walk, not run.",
+  "float": false
+ },
+ {
+  "name": "bot_zombie",
+  "site": 364366,
+  "help": "If nonzero, bots will stay in idle mode and not attack.",
+  "float": false
+ },
+ {
+  "name": "mp_bot_ai_bt",
+  "site": 364561,
+  "help": "Use the specified behavior tree file to drive the bot behavior.",
+  "float": false
+ },
+ {
+  "name": "mp_coopmission_bot_difficulty_offset",
+  "site": 364846,
+  "help": "The difficulty offset modifier for bots during coop missions.",
+  "float": false
+ },
+ {
+  "name": "throttle_expensive_ai",
+  "site": 365127,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cv_bot_ai_bt_debug_target",
+  "site": 365300,
+  "help": "Draw the behavior tree of the given bot.",
+  "float": false
+ },
+ {
+  "name": "cv_bot_ai_bt_moveto_show_next_hiding_spot",
+  "site": 365486,
+  "help": "Draw the hiding spot the bot will check next.",
+  "float": false
+ },
+ {
+  "name": "cv_bot_ai_bt_hiding_spot_show",
+  "site": 365662,
+  "help": "Draw hiding spots.",
+  "float": false
+ },
+ {
+  "name": "csgo_fatdemo_enable",
+  "site": 365834,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "csgo_fatdemo_output",
+  "site": 366029,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_bot_parallel_threat_detection",
+  "site": 366571,
+  "help": "Perform bot threat detection in parallel",
+  "float": false
+ },
+ {
+  "name": "bot_loadout",
+  "site": 366769,
+  "help": "bots are given these items at round start",
+  "float": false
+ },
+ {
+  "name": "bot_randombuy",
+  "site": 366942,
+  "help": "should bots ignore their prefered weapons and just buy weapons at random?",
+  "float": false
+ },
+ {
+  "name": "inferno_child_spawn_max_depth",
+  "site": 370368,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "inferno_ct_experiment",
+  "site": 370542,
+  "help": "enable ct incendiary experiment",
+  "float": false
+ },
+ {
+  "name": "inferno_debug",
+  "site": 371034,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "inferno_max_flames",
+  "site": 372180,
+  "help": "Maximum number of flames that can be created",
+  "float": false
+ },
+ {
+  "name": "chicken_stop",
+  "site": 374106,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "debug_chicken",
+  "site": 374286,
+  "help": "Chicken debug info",
+  "float": false
+ },
+ {
+  "name": "devonly_chicken_activity_debug",
+  "site": 374462,
+  "help": "Print chicken activity info to the console",
+  "float": false
+ },
+ {
+  "name": "glow_chickens",
+  "site": 376908,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "inferno_max_trace_per_tick",
+  "site": 377405,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_minimum_desired_chicken_count",
+  "site": 378686,
+  "help": "Minimum number of chickens to attempt to spawn in the map",
+  "float": false
+ },
+ {
+  "name": "mp_hostages_max",
+  "site": 382180,
+  "help": "Maximum number of hostages to spawn.",
+  "float": false
+ },
+ {
+  "name": "mp_hostages_spawn_farthest",
+  "site": 382542,
+  "help": "When enabled will consistently force the farthest hostages to spawn.",
+  "float": false
+ },
+ {
+  "name": "mp_hostages_spawn_force_positions",
+  "site": 382737,
+  "help": "Comma separated list of zero based indices to force spawn positions, e.g. '0,2' or '1,6'",
+  "float": false
+ },
+ {
+  "name": "mp_hostages_spawn_force_positions_xyz",
+  "site": 382929,
+  "help": "Comma separated list of xyz locations to force spawn positions, e.g. 'x1 y1 z1,x2 y2 z2'",
+  "float": false
+ },
+ {
+  "name": "mp_hostages_spawn_same_every_round",
+  "site": 383102,
+  "help": "0 = spawn hostages randomly every round, 1 = same spawns for entire match.",
+  "float": false
+ },
+ {
+  "name": "mp_guardian_target_site",
+  "site": 387140,
+  "help": "If set to the index of a bombsite, will cause random spawns to be only created near that site.",
+  "float": false
+ },
+ {
+  "name": "nav_draw_dangerareas",
+  "site": 387470,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_hidingspots",
+  "site": 387646,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ai_debug_shoot_positions",
+  "site": 393274,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ai_disabled",
+  "site": 393450,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "debug_overlay_fullposition",
+  "site": 394215,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ent_actornames_font",
+  "site": 394401,
+  "help": "ent_actornames font name",
+  "float": false
+ },
+ {
+  "name": "ent_actornames_fontsize",
+  "site": 394580,
+  "help": "ent_actornames font size",
+  "float": false
+ },
+ {
+  "name": "ent_show_contexts",
+  "site": 395694,
+  "help": "Show entity contexts in ent_text display",
+  "float": false
+ },
+ {
+  "name": "ent_text_flags_active",
+  "site": 395984,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ent_text_no_name_really_i_mean_it",
+  "site": 396154,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "filter_player_simulation_time",
+  "site": 396330,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "props_break_apply_radial_forces",
+  "site": 399706,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "props_break_max_pieces_perframe",
+  "site": 399892,
+  "help": "Maximum prop breakable piece count per frame (-1 = model default)",
+  "float": false
+ },
+ {
+  "name": "sv_phys_async_buoyancy_update",
+  "site": 400238,
+  "help": "If true, server buoyancy motion controllers are updated in an async job after the tick has completed.",
+  "float": false
+ },
+ {
+  "name": "vprof_scope_entity_thinks",
+  "site": 400570,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "vprof_think_limit",
+  "site": 400743,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "snd_event_cone_debug",
+  "site": 448202,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "snd_event_oriented_box_debug",
+  "site": 448378,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "trigger_fan_debug",
+  "site": 449034,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "trigger_fan_player_windblock_debug",
+  "site": 449210,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "animgraph2_enable_parallel_update",
+  "site": 467034,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "animgraph2_serialize_pose_recipe_in_pre_pack_entities",
+  "site": 467210,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "animgraph_draw_traces",
+  "site": 467386,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "animgraph_slope_draw_raycasts",
+  "site": 467674,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "animgraph_trace_ignore_prop_physics",
+  "site": 467850,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "animgraph_trace_static_only",
+  "site": 468026,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cl_skip_hierarchy_update_for_unchanged_entities",
+  "site": 468430,
+  "help": "Skip updating hierarchy information in PostDataUpdate for entities that have not changed",
+  "float": false
+ },
+ {
+  "name": "sv_massreport",
+  "site": 474199,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "r_decal_hit_confirmation",
+  "site": 474362,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "r_decals",
+  "site": 474544,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "r_decals_max_triangle_anchored",
+  "site": 475680,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "r_decals_overlap_threshold",
+  "site": 476016,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "save_debug_snapshots",
+  "site": 477246,
+  "help": "Save/Load debug snapshot data",
+  "float": false
+ },
+ {
+  "name": "skill",
+  "site": 477456,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_skip_update_animations",
+  "site": 477630,
+  "help": "Enable to skip game animations",
+  "float": false
+ },
+ {
+  "name": "sv_lightquery_debug",
+  "site": 477834,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "disable_source_soundscape_trace",
+  "site": 479019,
+  "help": "Bypasses lookup of soundscapes for indvidual audio sources when enabled.",
+  "float": false
+ },
+ {
+  "name": "sv_hitbox_debug",
+  "site": 481415,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "phys_agg_world_compounds",
+  "site": 481658,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_phys_animated_hierarchy",
+  "site": 481831,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_phys_debug_callback_entities",
+  "site": 482270,
+  "help": "Print all entities that get touch callbacks. Each entity is printed only once.",
+  "float": false
+ },
+ {
+  "name": "sv_phys_enabled",
+  "site": 482782,
+  "help": "Enable all physics simulation",
+  "float": false
+ },
+ {
+  "name": "phys_log_updaters",
+  "site": 483066,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "phys_log_updaters_exclude",
+  "site": 483261,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "phys_log_updaters_include",
+  "site": 483453,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "phys_multithreading_enabled",
+  "site": 483644,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "phys_show_stats",
+  "site": 483818,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_phys_sleep_enable",
+  "site": 484110,
+  "help": "Enable sleeping for dynamic physics bodies.",
+  "float": false
+ },
+ {
+  "name": "sv_phys_sound_disable_impact_sounds_under_hard_threshold",
+  "site": 484286,
+  "help": "if true, impact sounds wont play if no soft impact sound is present and the impact is below the hard velocity threshold.",
+  "float": false
+ },
+ {
+  "name": "sv_phys_stop_at_collision",
+  "site": 484477,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "phys_threaded_cloth_bone_update",
+  "site": 484650,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "phys_threaded_kinematic_bone_update",
+  "site": 484826,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "phys_threaded_transform_update",
+  "site": 485002,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_phys_visualize_awake",
+  "site": 485351,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "phys_visualize_awake_dynamic_only",
+  "site": 485514,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "phys_visualize_awake_unattached_only",
+  "site": 485690,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "script_attach_debugger_at_startup",
+  "site": 488919,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "script_break_in_native_debugger_on_error",
+  "site": 489191,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "snd_break_on_start_soundevent",
+  "site": 491505,
+  "help": "Use to debug break on any soundevent that is started matching this name",
+  "float": false
+ },
+ {
+  "name": "sos_debug_emit",
+  "site": 491722,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sos_use_guid_filter",
+  "site": 491898,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "soundscape_debug",
+  "site": 492078,
+  "help": "When on, draws lines to all env_soundscape entities. Green lines show the active soundscape, red lines show soundscapes that aren't in range, and white lines show soundscapes that are in range, but not the active soundscape.",
+  "float": false
+ },
+ {
+  "name": "soundscape_update_include_bots",
+  "site": 492366,
+  "help": "Enable to calculate soundscape audio params for bots.",
+  "float": false
+ },
+ {
+  "name": "ai_debug_dyninteractions",
+  "site": 533326,
+  "help": "Debug the NPC dynamic interaction system.",
+  "float": false
+ },
+ {
+  "name": "fog_volume_debug",
+  "site": 579499,
+  "help": "If enabled, prints diagnostic information about the current fog volume",
+  "float": false
+ },
+ {
+  "name": "ammo_338mag_max",
+  "site": 602960,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_357sig_max",
+  "site": 603456,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_357sig_min_max",
+  "site": 603632,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_357sig_p250_max",
+  "site": 603808,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_357sig_small_max",
+  "site": 603984,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_45acp_max",
+  "site": 604480,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_50AE_max",
+  "site": 604976,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_556mm_box_max",
+  "site": 605472,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_556mm_max",
+  "site": 605968,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_556mm_small_max",
+  "site": 606144,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_57mm_max",
+  "site": 606640,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_762mm_max",
+  "site": 607136,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_9mm_max",
+  "site": 607632,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_buckshot_max",
+  "site": 608128,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_grenade_limit_default",
+  "site": 608304,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_grenade_limit_flashbang",
+  "site": 608480,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_grenade_limit_total",
+  "site": 608655,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_item_limit_adrenaline",
+  "site": 608832,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ammo_item_limit_healthshot",
+  "site": 609008,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_player_bomb_defused",
+  "site": 621536,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_player_bomb_planted",
+  "site": 621712,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_player_damage_hostage",
+  "site": 621888,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_player_drop_on_death",
+  "site": 622058,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_player_drop_on_death_stack_value",
+  "site": 622240,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_player_get_killed",
+  "site": 622410,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_player_interact_with_hostage",
+  "site": 622592,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_player_killed_enemy_default",
+  "site": 622768,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_player_killed_hostage",
+  "site": 623104,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_player_killed_teammate",
+  "site": 623280,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_player_rescued_hostage",
+  "site": 623456,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_player_respawn_amount",
+  "site": 623626,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_bonus_shorthanded",
+  "site": 623802,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_elimination_bomb_map",
+  "site": 623984,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_elimination_hostage_map_ct",
+  "site": 624160,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_elimination_hostage_map_t",
+  "site": 624336,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_hostage_alive",
+  "site": 624506,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_hostage_interaction",
+  "site": 624688,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_loser_bonus",
+  "site": 624864,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_loser_bonus_consecutive_rounds",
+  "site": 625040,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_per_dead_enemy",
+  "site": 625216,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_planted_bomb_but_defused",
+  "site": 625392,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_rescued_hostage",
+  "site": 625562,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_terrorist_win_bomb",
+  "site": 625744,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_win_by_defusing_bomb",
+  "site": 625920,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_win_by_hostage_rescue",
+  "site": 626096,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_win_by_time_running_out_bomb",
+  "site": 626272,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_win_by_time_running_out_hostage",
+  "site": 626448,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cash_team_winner_bonus_consecutive_rounds",
+  "site": 626618,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "contributionscore_assist",
+  "site": 627140,
+  "help": "amount of contribution score added for an assist",
+  "float": false
+ },
+ {
+  "name": "contributionscore_assist_reqs",
+  "site": 627310,
+  "help": "extra requirements to earn contribution score for an assist",
+  "float": false
+ },
+ {
+  "name": "contributionscore_bomb_defuse_major",
+  "site": 627491,
+  "help": "amount of contribution score for defusing a bomb while at least one enemy remains alive",
+  "float": false
+ },
+ {
+  "name": "contributionscore_bomb_defuse_minor",
+  "site": 627668,
+  "help": "amount of contribution score for defusing a bomb after eliminating enemy team",
+  "float": false
+ },
+ {
+  "name": "contributionscore_bomb_exploded",
+  "site": 627844,
+  "help": "amount of contribution score awarded to bomb planter and terrorists remaining alive if bomb explosion wins the round",
+  "float": false
+ },
+ {
+  "name": "contributionscore_bomb_planted",
+  "site": 628020,
+  "help": "amount of contribution score for planting a bomb",
+  "float": false
+ },
+ {
+  "name": "contributionscore_cash_bundle",
+  "site": 628190,
+  "help": "amount of contribution score for picking up a cash bundle",
+  "float": false
+ },
+ {
+  "name": "contributionscore_crate_break",
+  "site": 628366,
+  "help": "amount of contribution score for breaking an item crate",
+  "float": false
+ },
+ {
+  "name": "contributionscore_hostage_kill",
+  "site": 628548,
+  "help": "amount of contribution score for killing a hostage, normally negative",
+  "float": false
+ },
+ {
+  "name": "contributionscore_hostage_rescue_major",
+  "site": 628723,
+  "help": "amount of contribution score added to rescuer per hostage rescued",
+  "float": false
+ },
+ {
+  "name": "contributionscore_hostage_rescue_minor",
+  "site": 628900,
+  "help": "amount of contribution score added to all alive CTs per hostage rescued",
+  "float": false
+ },
+ {
+  "name": "contributionscore_kill",
+  "site": 629076,
+  "help": "amount of contribution score added for a kill",
+  "float": false
+ },
+ {
+  "name": "contributionscore_kill_reqs",
+  "site": 629406,
+  "help": "extra requirements to earn contribution score for a kill",
+  "float": false
+ },
+ {
+  "name": "contributionscore_objective_kill",
+  "site": 629587,
+  "help": "amount of contribution score added for an objective related kill",
+  "float": false
+ },
+ {
+  "name": "contributionscore_participation",
+  "site": 629758,
+  "help": "amount of contribution score awarded to players for active participation in the round",
+  "float": false
+ },
+ {
+  "name": "contributionscore_suicide",
+  "site": 629940,
+  "help": "amount of contribution score for a suicide, normally negative",
+  "float": false
+ },
+ {
+  "name": "contributionscore_team_kill",
+  "site": 630116,
+  "help": "amount of contribution score for a team kill, normally negative",
+  "float": false
+ },
+ {
+  "name": "cs_AssistDamageThreshold",
+  "site": 630292,
+  "help": "cs_AssistDamageThreshold defines the amount of damage needed to score an assist",
+  "float": false
+ },
+ {
+  "name": "dev_reportmoneychanges",
+  "site": 630462,
+  "help": "Displays money account changes for players in the console",
+  "float": false
+ },
+ {
+  "name": "ff_damage_decoy_explosion",
+  "site": 630766,
+  "help": "Enables or disables team damage from decoy detonation",
+  "float": false
+ },
+ {
+  "name": "mp_fraglimit",
+  "site": 630938,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "game_online",
+  "site": 636974,
+  "help": "The current game is online.",
+  "float": false
+ },
+ {
+  "name": "game_public",
+  "site": 637150,
+  "help": "The current game is public.",
+  "float": false
+ },
+ {
+  "name": "hostage_debug",
+  "site": 637326,
+  "help": "Show hostage AI debug information",
+  "float": false
+ },
+ {
+  "name": "hostage_is_silent",
+  "site": 637502,
+  "help": "When set, the hostage won't play any code driven response rules lines",
+  "float": false
+ },
+ {
+  "name": "mapcyclefile",
+  "site": 638046,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_afterroundmoney",
+  "site": 638222,
+  "help": "amount of money awared to every player after each round",
+  "float": false
+ },
+ {
+  "name": "mp_anyone_can_pickup_c4",
+  "site": 638398,
+  "help": "If set, everyone can pick up the c4, not just Ts.",
+  "float": false
+ },
+ {
+  "name": "mp_autokick",
+  "site": 638574,
+  "help": "Kick idle/team-killing/team-damaging players",
+  "float": false
+ },
+ {
+  "name": "mp_autoteambalance",
+  "site": 638746,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_backup_restore_load_autopause",
+  "site": 639038,
+  "help": "Whether to automatically pause the match after restoring round data from backup",
+  "float": false
+ },
+ {
+  "name": "mp_backup_round_auto",
+  "site": 639326,
+  "help": "If enabled will keep in-memory backups to handle reconnecting players even if the backup files aren't written to disk",
+  "float": false
+ },
+ {
+  "name": "mp_backup_round_file",
+  "site": 639521,
+  "help": "If set then server will save all played rounds information to files filename_date_time_team1_team2_mapname_roundnum_score1_score2.txt",
+  "float": false
+ },
+ {
+  "name": "mp_backup_round_file_last",
+  "site": 639713,
+  "help": "Every time a backup file is written the value of this convar gets updated to hold the name of the backup file.",
+  "float": false
+ },
+ {
+  "name": "mp_backup_round_file_pattern",
+  "site": 639905,
+  "help": "If set then server will save all played rounds information to files named by this pattern, e.g.'%prefix%_%date%_%time%_%team1%_%team2%_%map%_round%round%_score_%score1%_%score2%.txt'",
+  "float": false
+ },
+ {
+  "name": "mp_buy_allow_grenades",
+  "site": 640078,
+  "help": "Whether players can purchase grenades from the buy menu or not.",
+  "float": false
+ },
+ {
+  "name": "mp_buy_allow_guns",
+  "site": 640274,
+  "help": "Whether players can purchase guns: pistols (1), SMGs (2), rifles (4), shotguns (8), sniper rifles (16), heavy MGs (32).",
+  "float": false
+ },
+ {
+  "name": "mp_buy_anywhere",
+  "site": 640446,
+  "help": "When set, players can buy anywhere, not only in buyzones. 0 = default. 1 = both teams. 2 = Terrorists. 3 = Counter-Terrorists.",
+  "float": false
+ },
+ {
+  "name": "mp_buy_during_immunity",
+  "site": 640622,
+  "help": "When set, players can buy when immune, ignoring buytime. 0 = default. 1 = both teams. 2 = Terrorists. 3 = Counter-Terrorists.",
+  "float": false
+ },
+ {
+  "name": "mp_c4_cannot_be_defused",
+  "site": 640974,
+  "help": "If set, the planted c4 cannot be defused.",
+  "float": false
+ },
+ {
+  "name": "mp_c4timer",
+  "site": 641166,
+  "help": "how long from when the C4 is armed until it blows",
+  "float": false
+ },
+ {
+  "name": "mp_chattime",
+  "site": 641366,
+  "help": "amount of time players can chat after the game is over",
+  "float": false
+ },
+ {
+  "name": "mp_consecutive_loss_aversion",
+  "site": 641706,
+  "help": "How loss streak is affected with round win: 0 = win fully resets loss bonus, 1 = first win steps down loss bonus, 2 = first win holds loss bonus and step down starting with second win",
+  "float": false
+ },
+ {
+  "name": "mp_consecutive_loss_max",
+  "site": 641898,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_ct_default_grenades",
+  "site": 642097,
+  "help": "The default grenades that the CTs will spawn with.",
+  "float": false
+ },
+ {
+  "name": "mp_ct_default_melee",
+  "site": 642289,
+  "help": "The default melee weapon that the CTs will spawn with.",
+  "float": false
+ },
+ {
+  "name": "mp_ct_default_primary",
+  "site": 642481,
+  "help": "The default primary (rifle) weapon that the CTs will spawn with",
+  "float": false
+ },
+ {
+  "name": "mp_ct_default_secondary",
+  "site": 642673,
+  "help": "The default secondary (pistol) weapon that the CTs will spawn with",
+  "float": false
+ },
+ {
+  "name": "mp_damage_headshot_only",
+  "site": 642846,
+  "help": "Determines whether non-headshot hits do any damage.",
+  "float": false
+ },
+ {
+  "name": "mp_death_drop_c4",
+  "site": 643822,
+  "help": "Whether c4 is droppable",
+  "float": false
+ },
+ {
+  "name": "mp_death_drop_defuser",
+  "site": 643998,
+  "help": "Drop defuser on player death",
+  "float": false
+ },
+ {
+  "name": "mp_death_drop_grenade",
+  "site": 644194,
+  "help": "Which grenade to drop on player death: 0=none, 1=best, 2=current or best, 3=all grenades",
+  "float": false
+ },
+ {
+  "name": "mp_death_drop_gun",
+  "site": 644382,
+  "help": "Which gun to drop on player death: 0=none, 1=best, 2=current or best, 3=both",
+  "float": false
+ },
+ {
+  "name": "mp_death_drop_healthshot",
+  "site": 644558,
+  "help": "Drop healthshot on player death",
+  "float": false
+ },
+ {
+  "name": "mp_death_drop_taser",
+  "site": 644734,
+  "help": "Drop taser on player death",
+  "float": false
+ },
+ {
+  "name": "mp_default_team_winner_no_objective",
+  "site": 645028,
+  "help": "If the map doesn't define an objective (bomb, hostage, etc), the value of this convar will declare the winner when the time runs out in the round.",
+  "float": false
+ },
+ {
+  "name": "mp_defuser_allocation",
+  "site": 645210,
+  "help": "How to allocate defusers to CTs at start or round: 0=none, 1=random, 2=everyone",
+  "float": false
+ },
+ {
+  "name": "mp_disconnect_kills_bots",
+  "site": 645390,
+  "help": "When a bot disconnects, kill them first.  Requires mp_disconnect_kills_players.",
+  "float": false
+ },
+ {
+  "name": "mp_disconnect_kills_players",
+  "site": 645566,
+  "help": "When a player disconnects, kill them first (triggering item drops, stats, etc.)",
+  "float": false
+ },
+ {
+  "name": "mp_display_kill_assists",
+  "site": 645742,
+  "help": "Whether to display and score player assists",
+  "float": false
+ },
+ {
+  "name": "mp_dm_bonus_percent",
+  "site": 646250,
+  "help": "Percent of points additionally awarded when someone gets a kill with the bonus weapon during the bonus period.",
+  "float": false
+ },
+ {
+  "name": "mp_dm_bonusweapon_dogtags",
+  "site": 646430,
+  "help": "Additional dogtags to drop when making a kill with the bonus weapon",
+  "float": false
+ },
+ {
+  "name": "mp_dm_dogtag_score",
+  "site": 646611,
+  "help": "Points to award for picking up a dogtag in deathmatch.",
+  "float": false
+ },
+ {
+  "name": "mp_dm_healthshot_killcount",
+  "site": 646787,
+  "help": "Grant healthshots in deathmatch after n kills",
+  "float": false
+ },
+ {
+  "name": "mp_dm_kill_base_score",
+  "site": 646970,
+  "help": "Number of base points to award for a kill in deathmatch.  Cheaper weapons award 1 or 2 additional points.",
+  "float": false
+ },
+ {
+  "name": "mp_dm_taser_bonus_streak_max",
+  "site": 647162,
+  "help": "Maximum times to multiply the score for getting a streak of taser kills in a single life.",
+  "float": false
+ },
+ {
+  "name": "mp_dm_teammode",
+  "site": 647342,
+  "help": "In deathmatch, enables team DM visuals & scoring (0: personal, 1: team mode, 2: use team contribution score)",
+  "float": false
+ },
+ {
+  "name": "mp_dm_teammode_bonus_score",
+  "site": 647524,
+  "help": "Team deathmatch victory points to award for kill with bonus weapon",
+  "float": false
+ },
+ {
+  "name": "mp_dm_teammode_dogtag_score",
+  "site": 647694,
+  "help": "Team deathmatch victory points to award for collecting enemy dogtags",
+  "float": false
+ },
+ {
+  "name": "mp_dm_teammode_kill_score",
+  "site": 647876,
+  "help": "Team deathmatch victory points to award for enemy kill",
+  "float": false
+ },
+ {
+  "name": "mp_dogtag_despawn_on_killer_death",
+  "site": 648366,
+  "help": "Whether dogtags should despawn when their killer dies",
+  "float": false
+ },
+ {
+  "name": "mp_dogtag_pickup_rule",
+  "site": 648718,
+  "help": "Who is eligible to pick up a dogtag (0 = killer only, 1 = killer's team, 2 = victim's team, 3 = killer & victim's team, 4 = anyone)",
+  "float": false
+ },
+ {
+  "name": "mp_economy_reset_rounds",
+  "site": 649006,
+  "help": "Reset all player money every N rounds (0 for never)",
+  "float": false
+ },
+ {
+  "name": "mp_endmatch_votenextmap",
+  "site": 649342,
+  "help": "Whether or not players vote for the next map at the end of the match when the final scoreboard comes up",
+  "float": false
+ },
+ {
+  "name": "mp_endmatch_votenextmap_keepcurrent",
+  "site": 649518,
+  "help": "If set, keeps the current map in the list of voting options.  If not set, the current map will not appear in the list of voting options.",
+  "float": false
+ },
+ {
+  "name": "mp_endmatch_votenextmap_wargames_modes",
+  "site": 649727,
+  "help": "Modes available for endmatch voting during War Games. Separate names with spaces.",
+  "float": false
+ },
+ {
+  "name": "mp_endmatch_votenextmap_wargames_nummaps",
+  "site": 649923,
+  "help": "Maximum number of maps to include in endmatch voting during War Games",
+  "float": false
+ },
+ {
+  "name": "mp_endmatch_votenextmap_wargames_nummodes",
+  "site": 650100,
+  "help": "Maximum number of other War Games to include in endmatch voting during War Games",
+  "float": false
+ },
+ {
+  "name": "mp_endwarmup_player_count",
+  "site": 650270,
+  "help": "Number of players required to be connected to end warmup early. 0 to require maximum players for mode.",
+  "float": false
+ },
+ {
+  "name": "mp_equipment_reset_rounds",
+  "site": 650446,
+  "help": "Reset all player equipment every N rounds (0 for never)",
+  "float": false
+ },
+ {
+  "name": "mp_footsteps_serverside",
+  "site": 650636,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_free_armor",
+  "site": 650974,
+  "help": "Determines whether kevlar (1+) and/or helmet (2+) are given automatically.",
+  "float": false
+ },
+ {
+  "name": "mp_freezetime",
+  "site": 651170,
+  "help": "how many seconds to keep players frozen when the round starts",
+  "float": false
+ },
+ {
+  "name": "mp_give_player_c4",
+  "site": 651342,
+  "help": "Whether this map should spawn a c4 bomb for a player or not.",
+  "float": false
+ },
+ {
+  "name": "mp_halftime",
+  "site": 651678,
+  "help": "Determines whether the match switches sides in a halftime event.",
+  "float": false
+ },
+ {
+  "name": "mp_halftime_pausematch",
+  "site": 652046,
+  "help": "Set to 1 to pause match after halftime countdown elapses. Match must be resumed by vote or admin.",
+  "float": false
+ },
+ {
+  "name": "mp_halftime_pausetimer",
+  "site": 652222,
+  "help": "Set to 1 to stay in halftime indefinitely. Set to 0 to resume the timer.",
+  "float": false
+ },
+ {
+  "name": "mp_hostages_rescuetowin",
+  "site": 652564,
+  "help": "0 == all alive, any other number is the number the CT's need to rescue to win the round.",
+  "float": false
+ },
+ {
+  "name": "mp_hostages_takedamage",
+  "site": 652734,
+  "help": "Whether or not hostages can be hurt.",
+  "float": false
+ },
+ {
+  "name": "mp_humanteam",
+  "site": 652929,
+  "help": "Restricts human players to a single team {any, CT, T}",
+  "float": false
+ },
+ {
+  "name": "mp_ignore_round_win_conditions",
+  "site": 653102,
+  "help": "Ignore conditions which would end the current round",
+  "float": false
+ },
+ {
+  "name": "mp_items_prohibited",
+  "site": 653313,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_limitteams",
+  "site": 653682,
+  "help": "Max # of players 1 team can have over another (0 disables check)",
+  "float": false
+ },
+ {
+  "name": "mp_match_can_clinch",
+  "site": 653854,
+  "help": "Can a team clinch and end the match by being so far ahead that the other team has no way to catching up?",
+  "float": false
+ },
+ {
+  "name": "mp_match_end_changelevel",
+  "site": 654030,
+  "help": "At the end of the match, perform a changelevel even if next map is the same",
+  "float": false
+ },
+ {
+  "name": "mp_match_end_restart",
+  "site": 654206,
+  "help": "At the end of the match, perform a restart instead of loading a new map",
+  "float": false
+ },
+ {
+  "name": "mp_match_restart_delay",
+  "site": 654406,
+  "help": "Time (in seconds) until a match restarts.",
+  "float": false
+ },
+ {
+  "name": "mp_max_armor",
+  "site": 654580,
+  "help": "Determines the highest level of armor allowed to be purchased. (0) None, (1) Kevlar, (2) Helmet",
+  "float": false
+ },
+ {
+  "name": "mp_maxmoney",
+  "site": 654762,
+  "help": "maximum amount of money allowed in a player's account",
+  "float": false
+ },
+ {
+  "name": "mp_maxrounds",
+  "site": 654947,
+  "help": "max number of rounds to play before server changes maps",
+  "float": false
+ },
+ {
+  "name": "mp_only_cts_rescue_hostages",
+  "site": 655422,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_overtime_enable",
+  "site": 655598,
+  "help": "If a match ends in a tie, use overtime rules to determine winner",
+  "float": false
+ },
+ {
+  "name": "mp_overtime_halftime_pausetimer",
+  "site": 655774,
+  "help": "If set to 1 will set mp_halftime_pausetimer to 1 before every half of overtime. Set mp_halftime_pausetimer to 0 to resume the timer.",
+  "float": false
+ },
+ {
+  "name": "mp_overtime_limit",
+  "site": 655950,
+  "help": "When overtime is enabled, only so many overtimes can be played",
+  "float": false
+ },
+ {
+  "name": "mp_overtime_maxrounds",
+  "site": 656132,
+  "help": "When overtime is enabled play additional rounds to determine winner",
+  "float": false
+ },
+ {
+  "name": "mp_overtime_startmoney",
+  "site": 656308,
+  "help": "Money assigned to all players at start of every overtime half",
+  "float": false
+ },
+ {
+  "name": "mp_playercashawards",
+  "site": 656590,
+  "help": "Players can earn money by performing in-game actions",
+  "float": false
+ },
+ {
+  "name": "mp_playerid",
+  "site": 656778,
+  "help": "Controls what information player see in the status bar: 0 all names; 1 team names; 2 no names",
+  "float": false
+ },
+ {
+  "name": "mp_randomspawn",
+  "site": 657342,
+  "help": "Determines whether players are to spawn. 0 = default; 1 = both teams; 2 = Terrorists; 3 = CTs.",
+  "float": false
+ },
+ {
+  "name": "mp_randomspawn_dist",
+  "site": 657518,
+  "help": "If using mp_randomspawn, determines whether to test distance when selecting this spot.",
+  "float": false
+ },
+ {
+  "name": "mp_randomspawn_los",
+  "site": 657694,
+  "help": "If using mp_randomspawn, determines whether to test Line of Sight when spawning.",
+  "float": false
+ },
+ {
+  "name": "mp_require_gun_use_to_acquire",
+  "site": 657870,
+  "help": "Whether guns must be +used to acquire or default is touch-to-pickup",
+  "float": false
+ },
+ {
+  "name": "mp_respawn_on_death_ct",
+  "site": 658206,
+  "help": "When set to 1, counter-terrorists will respawn after dying.",
+  "float": false
+ },
+ {
+  "name": "mp_respawn_on_death_t",
+  "site": 658382,
+  "help": "When set to 1, terrorists will respawn after dying.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_ct_count",
+  "site": 658916,
+  "help": "Number of CT's when playing retakes.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_ct_loadout_bonus_card",
+  "site": 659105,
+  "help": "CT bonus card for full buy round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_ct_loadout_bonus_card_availability",
+  "site": 659297,
+  "help": "CT bonus card availability pattern for full buy round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_ct_loadout_default_pistol_round",
+  "site": 659489,
+  "help": "CT Loadouts for default pistol round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_ct_loadout_enemy_card",
+  "site": 659681,
+  "help": "CT enemy card for full buy round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_ct_loadout_full_buy_round",
+  "site": 659873,
+  "help": "CT Loadouts for full buy round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_ct_loadout_light_buy_round",
+  "site": 660065,
+  "help": "CT Loadouts for force buy round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_ct_loadout_upgraded_pistol_round",
+  "site": 660257,
+  "help": "CT Loadouts for upgraded pistol round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_max_consecutive_rounds_same_target_site",
+  "site": 660436,
+  "help": "Limit the number of consecutive rounds targeting the same site.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_t_count",
+  "site": 660611,
+  "help": "Number of terrorists when playing retakes.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_t_loadout_bonus_card",
+  "site": 660801,
+  "help": "T bonus card for full buy round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_t_loadout_bonus_card_availability",
+  "site": 660993,
+  "help": "T bonus card availability pattern for full buy round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_t_loadout_default_pistol_round",
+  "site": 661185,
+  "help": "T Loadouts for default pistol round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_t_loadout_enemy_card",
+  "site": 661377,
+  "help": "T enemy card for full buy round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_t_loadout_full_buy_round",
+  "site": 661569,
+  "help": "T Loadouts for full buy round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_t_loadout_light_buy_round",
+  "site": 661761,
+  "help": "T Loadouts for force buy round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_retake_t_loadout_upgraded_pistol_round",
+  "site": 661953,
+  "help": "T Loadouts for upgraded pistol round when playing bomb site retake.",
+  "float": false
+ },
+ {
+  "name": "mp_shorthanded_cash_bonus_ignore_kicked",
+  "site": 662958,
+  "help": "Determines whether kicked players are included in the assessment for short-handedness",
+  "float": false
+ },
+ {
+  "name": "mp_shorthanded_cash_bonus_round_delay",
+  "site": 663140,
+  "help": "number of previous rounds that a team needs to have been shorthanded before they are eligible for the short-handed bonus",
+  "float": false
+ },
+ {
+  "name": "mp_solid_enemies",
+  "site": 663316,
+  "help": "How solid are enemies: 0 = transparent; 1 = fully solid",
+  "float": false
+ },
+ {
+  "name": "mp_solid_teammates",
+  "site": 663492,
+  "help": "How solid are teammates: 0 = transparent; 1 = fully solid; 2 = can stand on top of heads",
+  "float": false
+ },
+ {
+  "name": "mp_spawnprotectiontime",
+  "site": 663668,
+  "help": "Kick players who team-kill within this many seconds of a round restart.",
+  "float": false
+ },
+ {
+  "name": "mp_spectators_max",
+  "site": 663850,
+  "help": "How many spectators are allowed in a match.",
+  "float": false
+ },
+ {
+  "name": "mp_starting_losses",
+  "site": 664035,
+  "help": "Determines what the initial loss streak is.",
+  "float": false
+ },
+ {
+  "name": "mp_startmoney",
+  "site": 664218,
+  "help": "amount of money each player gets when they reset",
+  "float": false
+ },
+ {
+  "name": "mp_suicide_penalty",
+  "site": 664398,
+  "help": "Punish players for suicides",
+  "float": false
+ },
+ {
+  "name": "mp_t_default_grenades",
+  "site": 664705,
+  "help": "The default grenades that the Ts will spawn with.",
+  "float": false
+ },
+ {
+  "name": "mp_t_default_melee",
+  "site": 664897,
+  "help": "The default melee weapon that the Ts will spawn with",
+  "float": false
+ },
+ {
+  "name": "mp_t_default_primary",
+  "site": 665089,
+  "help": "The default primary (rifle) weapon that the Ts will spawn with",
+  "float": false
+ },
+ {
+  "name": "mp_t_default_secondary",
+  "site": 665281,
+  "help": "The default secondary (pistol) weapon that the Ts will spawn with",
+  "float": false
+ },
+ {
+  "name": "mp_td_dmgtokick",
+  "site": 665460,
+  "help": "The damage threshhold players have to exceed in a match to get kicked.",
+  "float": false
+ },
+ {
+  "name": "mp_td_dmgtowarn",
+  "site": 665636,
+  "help": "The damage threshhold players have to exceed in a match to get warned that they are about to be kicked.",
+  "float": false
+ },
+ {
+  "name": "mp_td_spawndmgthreshold",
+  "site": 665812,
+  "help": "The damage threshold players have to exceed at the start of the round to be warned/kick.",
+  "float": false
+ },
+ {
+  "name": "mp_team_intro_type",
+  "site": 666177,
+  "help": "none, normal, wingman, rush, or auto (implies normal if mp_halftime is set, none otherwise)",
+  "float": false
+ },
+ {
+  "name": "mp_team_timeout_max",
+  "site": 666356,
+  "help": "Number of timeouts each team gets per match.",
+  "float": false
+ },
+ {
+  "name": "mp_team_timeout_ot_add_each",
+  "site": 666526,
+  "help": "Number of timeouts to add for each team when match goes to 2nd and each next overtime.",
+  "float": false
+ },
+ {
+  "name": "mp_team_timeout_ot_add_once",
+  "site": 666702,
+  "help": "Number of timeouts to add for each team when regulation time ends and match goes to overtime.",
+  "float": false
+ },
+ {
+  "name": "mp_team_timeout_ot_max",
+  "site": 666884,
+  "help": "Max number of timeouts each team can have per OT after all OT timeouts got added.",
+  "float": false
+ },
+ {
+  "name": "mp_team_timeout_time",
+  "site": 667060,
+  "help": "Duration of each timeout.",
+  "float": false
+ },
+ {
+  "name": "mp_teamcashawards",
+  "site": 667230,
+  "help": "Teams can earn money by performing in-game actions",
+  "float": false
+ },
+ {
+  "name": "mp_teamflag_1",
+  "site": 667425,
+  "help": "Enter a country's alpha 2 code to show that flag next to team 1's name in the spectator scoreboard.",
+  "float": false
+ },
+ {
+  "name": "mp_teamflag_2",
+  "site": 667617,
+  "help": "Enter a country's alpha 2 code to show that flag next to team 2's name in the spectator scoreboard.",
+  "float": false
+ },
+ {
+  "name": "mp_teamlogo_1",
+  "site": 667809,
+  "help": "Enter a team's shorthand image name to display their logo. Images can be found here: 'resource/flash/econ/tournaments/teams'",
+  "float": false
+ },
+ {
+  "name": "mp_teamlogo_2",
+  "site": 668001,
+  "help": "Enter a team's shorthand image name to display their logo. Images can be found here: 'resource/flash/econ/tournaments/teams'",
+  "float": false
+ },
+ {
+  "name": "mp_teammatchstat_1",
+  "site": 668193,
+  "help": "A non-empty string sets first team's match stat.",
+  "float": false
+ },
+ {
+  "name": "mp_teammatchstat_2",
+  "site": 668385,
+  "help": "A non-empty string sets second team's match stat.",
+  "float": false
+ },
+ {
+  "name": "mp_teammatchstat_txt",
+  "site": 668897,
+  "help": "A non-empty string sets the match stat description, e.g. 'Match 2 of 3'.",
+  "float": false
+ },
+ {
+  "name": "mp_teammates_are_enemies",
+  "site": 669070,
+  "help": "When set, your teammates act as enemies and all players are valid targets.",
+  "float": false
+ },
+ {
+  "name": "mp_teamname_1",
+  "site": 669265,
+  "help": "A non-empty string overrides the first team's name.",
+  "float": false
+ },
+ {
+  "name": "mp_teamname_2",
+  "site": 669457,
+  "help": "A non-empty string overrides the second team's name.",
+  "float": false
+ },
+ {
+  "name": "mp_teamprediction_pct",
+  "site": 669630,
+  "help": "A value between 1 and 99 will show predictions in favor of CT team.",
+  "float": false
+ },
+ {
+  "name": "mp_teamprediction_txt",
+  "site": 669825,
+  "help": "A value between 1 and 99 will set predictions in favor of first team.",
+  "float": false
+ },
+ {
+  "name": "mp_teamscore_1",
+  "site": 669998,
+  "help": "A non-empty string for best-of-N maps won by the first team.",
+  "float": false
+ },
+ {
+  "name": "mp_teamscore_2",
+  "site": 670174,
+  "help": "A non-empty string for best-of-N maps won by the second team.",
+  "float": false
+ },
+ {
+  "name": "mp_teamscore_max",
+  "site": 670378,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_technical_timeout_duration_s",
+  "site": 670558,
+  "help": "How many seconds is a full technical timeout?",
+  "float": false
+ },
+ {
+  "name": "mp_technical_timeout_per_team",
+  "site": 670734,
+  "help": "How many technical timeouts are there per team?",
+  "float": false
+ },
+ {
+  "name": "mp_tkpunish",
+  "site": 671086,
+  "help": "Will TK'ers and team damagers be punished in the next round?  {0=no,  1=yes}",
+  "float": false
+ },
+ {
+  "name": "mp_tournament",
+  "site": 671258,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_use_respawn_waves",
+  "site": 671550,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_verbose_changelevel_spew",
+  "site": 671728,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_warmup_items_drop_policy",
+  "site": 672020,
+  "help": "Which items can drop during warmup (bitfield, 1=gun, 2=c4, 4=nade, 8=defuser, 16=taser, 32=healthshot)",
+  "float": false
+ },
+ {
+  "name": "mp_warmup_items_nocount_policy",
+  "site": 672196,
+  "help": "Which items are unlimited during warmup (bitfield, 1=gun, 2=c4, 4=nade, 8=defuser/kevlar, 16=taser, 32=healthshot)",
+  "float": false
+ },
+ {
+  "name": "mp_warmup_offline_enabled",
+  "site": 672366,
+  "help": "Whether or not to do a warmup period at the start of a match in an offline (bot) match.",
+  "float": false
+ },
+ {
+  "name": "mp_warmup_online_enabled",
+  "site": 672542,
+  "help": "Whether or not to do a warmup period at the start of an online match.",
+  "float": false
+ },
+ {
+  "name": "mp_warmup_pausetimer",
+  "site": 672718,
+  "help": "Set to 1 to stay in warmup indefinitely. Set to 0 to resume the timer.",
+  "float": false
+ },
+ {
+  "name": "mp_weapons_allow_heavy",
+  "site": 673700,
+  "help": "Determines which team, if any, can purchase Heavy guns. -1 = any; 0 = non; 2 = Ts; 3 = CTs.",
+  "float": false
+ },
+ {
+  "name": "mp_weapons_allow_map_placed",
+  "site": 673870,
+  "help": "If this convar is set, when a match starts, the game will not delete weapons placed in the map.",
+  "float": false
+ },
+ {
+  "name": "mp_weapons_allow_pistols",
+  "site": 674052,
+  "help": "Determines which team, if any, can purchase Pistols. -1 = any; 0 = non; 2 = Ts; 3 = CTs.",
+  "float": false
+ },
+ {
+  "name": "mp_weapons_allow_rifles",
+  "site": 674228,
+  "help": "Determines which team, if any, can purchase Rifles. -1 = any; 0 = non; 2 = Ts; 3 = CTs.",
+  "float": false
+ },
+ {
+  "name": "mp_weapons_allow_smgs",
+  "site": 674404,
+  "help": "Determines which team, if any, can purchase SMGs. -1 = any; 0 = non; 2 = Ts; 3 = CTs.",
+  "float": false
+ },
+ {
+  "name": "mp_weapons_allow_typecount",
+  "site": 674580,
+  "help": "Determines how many purchases of each weapon type allowed per player per round (0 to disallow purchasing, -1 to have no limit).",
+  "float": false
+ },
+ {
+  "name": "mp_weapons_allow_zeus",
+  "site": 674756,
+  "help": "Determines how many Zeus purchases a player can make per round (0 to disallow, -1 to have no limit).",
+  "float": false
+ },
+ {
+  "name": "mp_weapons_max_gun_purchases_per_weapon_per_match",
+  "site": 674950,
+  "help": "Max number of times a player may purchase any weapon per match",
+  "float": false
+ },
+ {
+  "name": "mp_winlimit",
+  "site": 675283,
+  "help": "Max score one team can reach before server changes maps",
+  "float": false
+ },
+ {
+  "name": "nextlevel",
+  "site": 675473,
+  "help": "If set to a valid map name, will trigger a changelevel to the specified map at the end of the round",
+  "float": false
+ },
+ {
+  "name": "nextmap_print_enabled",
+  "site": 675646,
+  "help": "When enabled prints next map to clients",
+  "float": false
+ },
+ {
+  "name": "nextmode",
+  "site": 675841,
+  "help": "Sets the game mode to be played when the next level loads",
+  "float": false
+ },
+ {
+  "name": "sv_allow_annotations_access_level",
+  "site": 676654,
+  "help": "0:off | 1: view-only | 2: edit.",
+  "float": false
+ },
+ {
+  "name": "sv_allow_approximate_spawns",
+  "site": 676830,
+  "help": "Test spawn points for occupancy. Fall back to placing players in the nearest empty space instead of overlapping.",
+  "float": false
+ },
+ {
+  "name": "sv_annotation_limits_max_rounds_per_half",
+  "site": 677022,
+  "help": "Hard limit on maximum number of rounds (per half) that annotations can be seen in a live match",
+  "float": false
+ },
+ {
+  "name": "sv_auto_adjust_bot_difficulty",
+  "site": 677198,
+  "help": "Adjust the difficulty of bots each round based on contribution score.",
+  "float": false
+ },
+ {
+  "name": "sv_auto_full_alltalk_during_warmup_half_end",
+  "site": 677374,
+  "help": "When enabled will automatically turn on full all talk mode in warmup, at halftime and at the end of the match",
+  "float": false
+ },
+ {
+  "name": "sv_autoexec_mapname_cfg",
+  "site": 677550,
+  "help": "Execute a mapname cfg file on the server automatically in custom game modes that require it.",
+  "float": false
+ },
+ {
+  "name": "sv_bots_get_easier_each_win",
+  "site": 677886,
+  "help": "If > 0, some # of bots will lower thier difficulty each time they win. The argument defines how many will lower their difficulty each time.",
+  "float": false
+ },
+ {
+  "name": "sv_buy_status_override",
+  "site": 678068,
+  "help": "Override for buy status map info. 0 = everyone can buy, 1 = ct only, 2 = t only 3 = nobody",
+  "float": false
+ },
+ {
+  "name": "sv_coaching_enabled",
+  "site": 678398,
+  "help": "Allows spectating and communicating with a team ( 'coach t' or 'coach ct' )",
+  "float": false
+ },
+ {
+  "name": "sv_competitive_minspec",
+  "site": 678574,
+  "help": "Enable to force certain client convars to minimum/maximum values to help prevent competitive advantages.",
+  "float": false
+ },
+ {
+  "name": "sv_compute_per_bot_difficulty",
+  "site": 678750,
+  "help": "0 = compute all bot difficulties equally, 1 = compute unique bot difficulty for each bot ",
+  "float": false
+ },
+ {
+  "name": "sv_csgo_gpu_culling_skybox",
+  "site": 678922,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_deadtalk",
+  "site": 679102,
+  "help": "Dead players can speak (voice, text) to the living",
+  "float": false
+ },
+ {
+  "name": "sv_disable_immunity_alpha",
+  "site": 679278,
+  "help": "If set, clients won't slam the player model render settings each frame for immunity [mod authors use this]",
+  "float": false
+ },
+ {
+  "name": "sv_disable_observer_interpolation",
+  "site": 679454,
+  "help": "Disallow interpolating between observer targets on this server.",
+  "float": false
+ },
+ {
+  "name": "sv_disable_radar",
+  "site": 679630,
+  "help": "0: regular radar; 1: always disabled; 2: disabled in warmup",
+  "float": false
+ },
+ {
+  "name": "sv_disable_teamselect_menu",
+  "site": 679806,
+  "help": "Disable teamselect menu on clients",
+  "float": false
+ },
+ {
+  "name": "sv_disconnected_players_cleanup_delay",
+  "site": 679994,
+  "help": "Delay between player disconnecting and their corpse getting cleaned up.",
+  "float": false
+ },
+ {
+  "name": "sv_fade_player_visibility_farz",
+  "site": 680970,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_freeze_camera_angles",
+  "site": 681652,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_freeze_camera_enabled",
+  "site": 681822,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_freeze_camera_min_remaining",
+  "site": 682003,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_freeze_camera_position",
+  "site": 682196,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_full_alltalk",
+  "site": 682366,
+  "help": "Any player (including Spectator team) can speak to any other player",
+  "float": false
+ },
+ {
+  "name": "sv_game_mode_flags",
+  "site": 682542,
+  "help": "Dedicated server game mode flags to run",
+  "float": false
+ },
+ {
+  "name": "sv_gameinstructor_disable",
+  "site": 682718,
+  "help": "Force all clients to disable their game instructors.",
+  "float": false
+ },
+ {
+  "name": "sv_hide_roundtime_until_seconds",
+  "site": 682890,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_human_autojoin_team",
+  "site": 683390,
+  "help": "Force human players on to a team. 0 to disable.",
+  "float": false
+ },
+ {
+  "name": "sv_invites_only_mainmenu",
+  "site": 683566,
+  "help": "If turned on, will ignore all invites when user is playing a match",
+  "float": false
+ },
+ {
+  "name": "sv_kick_players_with_cooldown",
+  "site": 683908,
+  "help": "(0: do not kick on insecure servers; 1: kick players with Untrusted status or convicted by Overwatch; 2: kick players with any cooldown)",
+  "float": false
+ },
+ {
+  "name": "sv_log_roundstats",
+  "site": 684078,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_matchend_drops_enabled",
+  "site": 684254,
+  "help": "Rewards gameplay time is always accumulated for players, but drops at the end of the match can be prevented",
+  "float": false
+ },
+ {
+  "name": "sv_matchpause_auto_5v5",
+  "site": 684430,
+  "help": "When enabled will automatically pause the match at next freeze time if less than 5 players are connected on each team.",
+  "float": false
+ },
+ {
+  "name": "sv_outofammo_indicator",
+  "site": 684602,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_party_mode",
+  "site": 684782,
+  "help": "Party!!",
+  "float": false
+ },
+ {
+  "name": "sv_reliableavatardata",
+  "site": 684972,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_server_graphic1",
+  "site": 685169,
+  "help": "A 360x60 (<16kb) image file in /csgo/ that will be displayed to spectators.",
+  "float": false
+ },
+ {
+  "name": "sv_server_graphic2",
+  "site": 685361,
+  "help": "A 220x45 (<16kb) image file in /csgo/ that will be displayed to spectators.",
+  "float": false
+ },
+ {
+  "name": "sv_show_bot_difficulty_in_name",
+  "site": 685534,
+  "help": "0 = hide bot difficulty in bot name, 1 = show bot difficulty in bot name",
+  "float": false
+ },
+ {
+  "name": "sv_show_team_equipment_force_on",
+  "site": 685710,
+  "help": "Force on if not prohibited",
+  "float": false
+ },
+ {
+  "name": "sv_show_team_equipment_prohibit",
+  "site": 685886,
+  "help": "Determines whether +cl_show_team_equipment is prohibited.",
+  "float": false
+ },
+ {
+  "name": "sv_skirmish_id",
+  "site": 686062,
+  "help": "Dedicated server skirmish id to run",
+  "float": false
+ },
+ {
+  "name": "sv_spec_hear",
+  "site": 686419,
+  "help": "Determines who spectators can hear: 0: only spectators; 1: all players; 2: spectated team; 3: self only; 4: nobody",
+  "float": false
+ },
+ {
+  "name": "sv_talk_enemy_dead",
+  "site": 686750,
+  "help": "Dead players can hear all dead enemy communication (voice, chat)",
+  "float": false
+ },
+ {
+  "name": "sv_talk_enemy_living",
+  "site": 686926,
+  "help": "Living players can hear all living enemy communication (voice, chat)",
+  "float": false
+ },
+ {
+  "name": "sv_teamid_overhead",
+  "site": 687102,
+  "help": "Shows teamID over player's heads.  0 = off, 1 = on",
+  "float": false
+ },
+ {
+  "name": "sv_teamid_overhead_always_prohibit",
+  "site": 687278,
+  "help": "Determines whether cl_teamid_overhead_always is prohibited.",
+  "float": false
+ },
+ {
+  "name": "sv_teamid_overhead_maxdist",
+  "site": 687454,
+  "help": "If >0, server will override cl_teamid_overhead_maxdist",
+  "float": false
+ },
+ {
+  "name": "sv_teamid_overhead_maxdist_spec",
+  "site": 687630,
+  "help": "If >0, server will override cl_teamid_overhead_maxdist_spec",
+  "float": false
+ },
+ {
+  "name": "sv_versus_screen_scene_id",
+  "site": 687806,
+  "help": "Determines which scene is used for the versus screen.",
+  "float": false
+ },
+ {
+  "name": "sv_warmup_to_freezetime_delay",
+  "site": 688162,
+  "help": "Delay between end of warmup and start of match.",
+  "float": false
+ },
+ {
+  "name": "tv_delaymapchange",
+  "site": 688558,
+  "help": "Delays map change until broadcast is complete",
+  "float": false
+ },
+ {
+  "name": "sv_force_team_intro_random",
+  "site": 707242,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_force_team_intro_variant",
+  "site": 707418,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "imgui_show_bullets",
+  "site": 719310,
+  "help": "CSGO/Bullets",
+  "float": false
+ },
+ {
+  "name": "imgui_show_cs2_worldmodel",
+  "site": 719486,
+  "help": "CSGO/WorldModel",
+  "float": false
+ },
+ {
+  "name": "imgui_show_grenades_window",
+  "site": 719662,
+  "help": "CSGO/Show Grenades History",
+  "float": false
+ },
+ {
+  "name": "steamworks_sessionid_server",
+  "site": 720161,
+  "help": "The server session ID for the new steamworks gamestats.",
+  "float": false
+ },
+ {
+  "name": "sv_pushaway_clientside",
+  "site": 720462,
+  "help": "Clientside physics push away (0=off, 1=only localplayer, 1=all players)",
+  "float": false
+ },
+ {
+  "name": "sv_turbophysics",
+  "site": 721438,
+  "help": "Turns on turbo physics",
+  "float": false
+ },
+ {
+  "name": "healthshot_allow_use_at_full",
+  "site": 731786,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "healthshot_health",
+  "site": 731968,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "molotov_usethrow_direction",
+  "site": 732618,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "smoke_grenade_ct_color",
+  "site": 736073,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "smoke_grenade_t_color",
+  "site": 736313,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "smoke_param5",
+  "site": 737146,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "smoke_use_noise_texture",
+  "site": 737322,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_grenade_collision_sphere",
+  "site": 737726,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_grenade_trajectory_prac_pipreview",
+  "site": 738062,
+  "help": "Shows grenade trajectory practice picture-in-picture preview.",
+  "float": false
+ },
+ {
+  "name": "sv_health_approach_enabled",
+  "site": 738586,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_ignoregrenaderadio",
+  "site": 738926,
+  "help": "Turn off Fire in the hole messages",
+  "float": false
+ },
+ {
+  "name": "sv_molotov_broken_glass_trap",
+  "site": 739210,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "dev_cs_frame_firing_enable",
+  "site": 747166,
+  "help": "Enable that firing will pretend like it's happening on frames.",
+  "float": false
+ },
+ {
+  "name": "dev_cs_frame_firing_insert_idle_pose_now",
+  "site": 747342,
+  "help": "Should we insert the idle pose at this time to make the animation interpolation punchier?",
+  "float": false
+ },
+ {
+  "name": "dev_cs_frame_firing_play_animevents",
+  "site": 747518,
+  "help": "Should we play the animevents that animgraph will skip over?",
+  "float": false
+ },
+ {
+  "name": "dev_cs_frame_firing_skip_first_frame_enable",
+  "site": 747694,
+  "help": "Should we skip the first frame of shooting to make the animation punchier?",
+  "float": false
+ },
+ {
+  "name": "dev_cs_frame_firing_tick_offset_enable",
+  "site": 747870,
+  "help": "Should we offset the current frame to the tick",
+  "float": false
+ },
+ {
+  "name": "mp_guardian_bomb_plant_custom_x_mark_location",
+  "site": 781761,
+  "help": "x,y,z to display an X for the bomb plant in guardian missions with custom bomb plant boundaries.",
+  "float": false
+ },
+ {
+  "name": "mp_plant_c4_anywhere",
+  "site": 781934,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_c4_upright_constraint_enabled",
+  "site": 791499,
+  "help": "Use a constraint to keep C4 pointed upright when thrown",
+  "float": false
+ },
+ {
+  "name": "sv_csgo_shoot_assert_lagcompensation_error",
+  "site": 791834,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_csgo_shoot_force_full_interp",
+  "site": 792010,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_csgo_shoot_force_use_target_time",
+  "site": 792186,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_csgo_shoot_log",
+  "site": 792522,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_csgo_shoot_log_attack_cmds_only",
+  "site": 792698,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_csgo_shoot_use_full_interp",
+  "site": 792874,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_csgo_shoot_verify",
+  "site": 793050,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_csgo_shoot_verify_on_attack_only",
+  "site": 793230,
+  "help": "Only run lag compensation error check when primary attack goes down.",
+  "float": false
+ },
+ {
+  "name": "sv_strafing_inaccuracy_enabled",
+  "site": 793562,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_turning_inaccuracy_enabled",
+  "site": 794218,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "weapon_accuracy_nospread",
+  "site": 794558,
+  "help": "Disable weapon inaccuracy spread",
+  "float": false
+ },
+ {
+  "name": "weapon_accuracy_reset_on_deploy",
+  "site": 794734,
+  "help": "On deploy, forcibly reset weapon accuracy to zero.",
+  "float": false
+ },
+ {
+  "name": "weapon_accuracy_stack_boost_limit",
+  "site": 794916,
+  "help": "Apply ladder inaccuracy to players boosted by a stack of this many (or more) players",
+  "float": false
+ },
+ {
+  "name": "weapon_max_before_cleanup",
+  "site": 795582,
+  "help": "If set to non-zero, will remove the oldest dropped weapon to maintain the specified number of dropped weapons in the world.",
+  "float": false
+ },
+ {
+  "name": "weapon_reticle_knife_show",
+  "site": 795758,
+  "help": "When enabled will show knife reticle on clients. Used for game modes requiring target id display when holding a knife.",
+  "float": false
+ },
+ {
+  "name": "weapon_skin_force_legacy",
+  "site": 795936,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "camera_path_edit_mode",
+  "site": 806650,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cl_viewing_vanity_loadout",
+  "site": 806840,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "CS_WarnFriendlyDamageInterval",
+  "site": 809411,
+  "help": "Defines how frequently the server notifies clients that a player damaged a friend",
+  "float": false
+ },
+ {
+  "name": "mp_promoted_item_enabled",
+  "site": 811214,
+  "help": "Allow the purchasing of the promoted item.",
+  "float": false
+ },
+ {
+  "name": "sv_autobuyammo",
+  "site": 811950,
+  "help": "Enable automatic ammo purchase when inside buy zones during buy periods",
+  "float": false
+ },
+ {
+  "name": "sv_clip_penetration_traces_to_players",
+  "site": 812122,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_damage_prediction_allowed",
+  "site": 812298,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_disconnected_player_data_hold_time",
+  "site": 812484,
+  "help": "Duration, in seconds, to hold onto the data of disconnected players, for scoreboard display.",
+  "float": false
+ },
+ {
+  "name": "sv_limit_buyrandom_per_life",
+  "site": 812654,
+  "help": "Enable to limit buyrandom command to only run once per player life",
+  "float": false
+ },
+ {
+  "name": "sv_mute_players_with_social_penalties",
+  "site": 812826,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_nomvp",
+  "site": 813017,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_predictable_damage_tag_ticks",
+  "site": 813204,
+  "help": "Delay player slowdown when damaged by # ticks to reduce misprediction effects",
+  "float": false
+ },
+ {
+  "name": "sv_runcmds",
+  "site": 813367,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_sellback_enabled",
+  "site": 813534,
+  "help": "Determines whether players can undo purchases in the buy menu",
+  "float": false
+ },
+ {
+  "name": "sv_showbullethits",
+  "site": 813710,
+  "help": "1=show hits and near misses, 2=show hits only",
+  "float": false
+ },
+ {
+  "name": "sv_showimpacts",
+  "site": 813886,
+  "help": "Shows client (red) and server (blue) bullet impact point (1=both, 2=client-only, 3=server-only)",
+  "float": false
+ },
+ {
+  "name": "sv_showimpacts_penetration",
+  "site": 814062,
+  "help": "Shows extra data when bullets penetrate. (use sv_showimpacts_time to increase time shown)",
+  "float": false
+ },
+ {
+  "name": "bot_crouch",
+  "site": 817050,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "dev_create_bhop_reports",
+  "site": 817230,
+  "help": "Whether we should create bhop reports when you jump. Reports are created for the client and server and are numbered monotonically",
+  "float": false
+ },
+ {
+  "name": "dev_create_move_report",
+  "site": 817406,
+  "help": "Whether we should create move reports when you push movement keys. Reports are created for the server and are numbered monotonically",
+  "float": false
+ },
+ {
+  "name": "dev_cs_force_disable_move",
+  "site": 817582,
+  "help": "forcibly prevent players from moving",
+  "float": false
+ },
+ {
+  "name": "slope_drop_enable",
+  "site": 822318,
+  "help": "Toggles a test dropping the view offset based on the slope",
+  "float": false
+ },
+ {
+  "name": "sv_accelerate_debug_speed",
+  "site": 822810,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_accelerate_use_weapon_speed",
+  "site": 822986,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_autobunnyhopping",
+  "site": 823326,
+  "help": "Players automatically re-jump while holding jump button",
+  "float": false
+ },
+ {
+  "name": "sv_debug_player_use",
+  "site": 823838,
+  "help": "Visualizes +use logic. Green cross=trace success, Red cross=trace too far, Green box=radius success",
+  "float": false
+ },
+ {
+  "name": "sv_enablebunnyhopping",
+  "site": 824014,
+  "help": "Allow jump speed to exceed 1.1x max speed",
+  "float": false
+ },
+ {
+  "name": "sv_give_item",
+  "site": 824556,
+  "help": "Player's extra item to give",
+  "float": false
+ },
+ {
+  "name": "sv_guardian_extra_equipment_ct",
+  "site": 824753,
+  "help": "Extra starting equipment for CT players in guardian modes",
+  "float": false
+ },
+ {
+  "name": "sv_guardian_extra_equipment_t",
+  "site": 824945,
+  "help": "Extra starting equipment for Terrorist players in guardian modes",
+  "float": false
+ },
+ {
+  "name": "sv_jump_precision_enable",
+  "site": 825294,
+  "help": "Enable jump precision. Some game modes benefit from being able to turn this off.",
+  "float": false
+ },
+ {
+  "name": "sv_legacy_jump",
+  "site": 826206,
+  "help": "Whether or not to use the pre-2026 jump code.",
+  "float": false
+ },
+ {
+  "name": "sv_optimizedmovement",
+  "site": 826698,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_quantize_movement_input",
+  "site": 826878,
+  "help": "Quantize movement input values. Enabling this restricts players from using analog input to move at fractional speeds normally impossible with digital button input.",
+  "float": false
+ },
+ {
+  "name": "sv_server_verify_blood_on_player",
+  "site": 827050,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_show_move_collisions",
+  "site": 827230,
+  "help": "Enable this to visualize collisions between player and geometry.",
+  "float": false
+ },
+ {
+  "name": "sv_showplayerhitboxes",
+  "site": 827406,
+  "help": "Show lag compensated hitboxes for the specified player index whenever a player fires.",
+  "float": false
+ },
+ {
+  "name": "sv_spec_use_tournament_content_standards",
+  "site": 827578,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_subtick_movement_view_angles",
+  "site": 828798,
+  "help": "Whether or not subtick view angles are taken into account during movement.",
+  "float": false
+ },
+ {
+  "name": "sv_surf_sounds",
+  "site": 828974,
+  "help": "Should we try to play sounds for surf?",
+  "float": false
+ },
+ {
+  "name": "sv_use_playercache",
+  "site": 829502,
+  "help": "Cache off player bounds for traces.",
+  "float": false
+ },
+ {
+  "name": "sv_weapon_swap_difficulty_near_hi_pri",
+  "site": 830004,
+  "help": "0 = Cone searches easily reach past high priority items to swap weapons. 1 = Cone searches are narrowed and require that the weapon is strictly closer. 2 = cone searches are disabled near high priority items",
+  "float": false
+ },
+ {
+  "name": "mp_drop_grenade_enable",
+  "site": 832238,
+  "help": "Allows players to drop grenades.",
+  "float": false
+ },
+ {
+  "name": "mp_drop_knife_enable",
+  "site": 832414,
+  "help": "Allows players to drop knives.",
+  "float": false
+ },
+ {
+  "name": "mp_logmoney",
+  "site": 832590,
+  "help": "Enables money logging.  Values are: 0=off, 1=on",
+  "float": false
+ },
+ {
+  "name": "mp_shoot_dropped_grenades",
+  "site": 832766,
+  "help": "Dropped grenades detonate when shot.",
+  "float": false
+ },
+ {
+  "name": "mp_warmup_items_nocost",
+  "site": 832942,
+  "help": "Determines whether weapons are free to buy during warmup.",
+  "float": false
+ },
+ {
+  "name": "sv_allow_ground_weapon_pickup",
+  "site": 833374,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_allow_switching_weapon_handedness",
+  "site": 833550,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_buymenu_open_prevents_opportunistic_pickup",
+  "site": 833722,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_clantags_enabled",
+  "site": 833902,
+  "help": "Show players' clan tags in their names.",
+  "float": false
+ },
+ {
+  "name": "sv_dev_damage_use_netvars",
+  "site": 834078,
+  "help": "Whether we should use network vars (true) or legacy messages (false).",
+  "float": false
+ },
+ {
+  "name": "sv_disable_networkable_loadouts",
+  "site": 834250,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_extract_ammo_from_dropped_weapons",
+  "site": 834426,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_guardian_refresh_ammo_for_items_on_waves",
+  "site": 834625,
+  "help": "List of additional weapons to refill ammo on waves.",
+  "float": false
+ },
+ {
+  "name": "sv_sniper_tracer_mode",
+  "site": 835124,
+  "help": "Mode for sniper tracers. 0: legacy, 1: hide when more than sv_sniper_tracer_innacuracy inaccurate.",
+  "float": false
+ },
+ {
+  "name": "mp_weaponstay",
+  "site": 835450,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ag2_network_recipeshape_cache_size",
+  "site": 838198,
+  "help": "Cache size for recently-used pose recipe shapes.",
+  "float": false
+ },
+ {
+  "name": "ag2_preserve_params_on_reload",
+  "site": 838366,
+  "help": "When an animgraph is reloaded, should the underlying system restore all params?",
+  "float": false
+ },
+ {
+  "name": "sv_ag2_record_entity_graph",
+  "site": 838561,
+  "help": "Automatically start AG2 recording when an entity with this name (wildcard) or id is created.",
+  "float": false
+ },
+ {
+  "name": "ag2_use_networked_serialization_context_demo",
+  "site": 838734,
+  "help": "Use networked compatibility serialization context in demo playback.",
+  "float": false
+ },
+ {
+  "name": "ag2_use_networked_serialization_context_game",
+  "site": 838910,
+  "help": "Use networked compatibility serialization context in games.",
+  "float": false
+ },
+ {
+  "name": "ai_sequence_debug",
+  "site": 839082,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "animgraph_debug",
+  "site": 839374,
+  "help": "Debug animation graph",
+  "float": false
+ },
+ {
+  "name": "animgraph_debug_animevents",
+  "site": 839550,
+  "help": "Print info about animevents emitted by AnimGraph",
+  "float": false
+ },
+ {
+  "name": "animgraph_debug_entindex",
+  "site": 839726,
+  "help": "The entity to specifically debug",
+  "float": false
+ },
+ {
+  "name": "animgraph_debug_filterent",
+  "site": 839902,
+  "help": "Filter setting for animgraph_debug_variables output. If set to -1, show debug for all entities. If set to 0, show debug for any NPCs that have been npc_selected. If set to >0, something other than 0, show debug for the entity with the matching entindex.",
+  "float": false
+ },
+ {
+  "name": "animgraph_debug_set_filter_params",
+  "site": 840097,
+  "help": "Comma separated list of params to filter against when drawing debug text overlays",
+  "float": false
+ },
+ {
+  "name": "animgraph_debug_set_filter_tags",
+  "site": 840289,
+  "help": "Comma separated list of tags to filter against when drawing debug text overlays",
+  "float": false
+ },
+ {
+  "name": "animgraph_debug_show_unreferenced_params",
+  "site": 840458,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "animgraph_debug_show_unreferenced_tags",
+  "site": 840634,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "animgraph_debug_tags",
+  "site": 840810,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "animgraph_debug_variables",
+  "site": 840990,
+  "help": "Turn on to see animgraph variable changes for entities passing animgraph_debug_filterent.",
+  "float": false
+ },
+ {
+  "name": "animgraph_debug_variables_ignore_missing",
+  "site": 841166,
+  "help": "If set, animgraph_debug_variables won't show debug for warnings about sets to missing variables.",
+  "float": false
+ },
+ {
+  "name": "animgraph_debug_variables_ignore_nonchanges",
+  "site": 841342,
+  "help": "If set, animgraph_debug_variables won't show debug for variable sets that don't change the value.",
+  "float": false
+ },
+ {
+  "name": "animgraph_enable",
+  "site": 841518,
+  "help": "Enable animation graph",
+  "float": false
+ },
+ {
+  "name": "animgraph_footstep_node_supresses_events",
+  "site": 841690,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "animgraph_network_enable",
+  "site": 841870,
+  "help": "Enable animation graph networking. The setting is only read at graph creation time; to use please set on the command line.",
+  "float": false
+ },
+ {
+  "name": "animgraph_slope_enable",
+  "site": 842042,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cq_enable",
+  "site": 842414,
+  "help": "Run one usercmd per server tick and maintain a buffer.  Client speeds up/slows down it's usercmd tick rate to maintain server command queue buffering.",
+  "float": false
+ },
+ {
+  "name": "debug_error_model",
+  "site": 842590,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "disable_dynamic_prop_loading",
+  "site": 842766,
+  "help": "If non-zero when a map loads, dynamic props won't be loaded",
+  "float": false
+ },
+ {
+  "name": "ent_steadystate_batchsize",
+  "site": 843169,
+  "help": "Max number of entities to transmit to player",
+  "float": false
+ },
+ {
+  "name": "fire_use_modifier",
+  "site": 843498,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "footstep_debug",
+  "site": 843834,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "pawn_mimic_all",
+  "site": 845418,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "phys_powered_ragdoll_debug",
+  "site": 845594,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ragdoll_move_entity",
+  "site": 846202,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ragdoll_parallel_pose_control",
+  "site": 846378,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ragdoll_resolve_initial_conflict",
+  "site": 846554,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ragdoll_resolve_separation",
+  "site": 846730,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ragdoll_update_from_weights",
+  "site": 846906,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "rr_debugclassname",
+  "site": 847105,
+  "help": "If set, rr_debugclassname will print only response tests where 'classname' corresponds to this variable. Use to filter for a specific character.",
+  "float": false
+ },
+ {
+  "name": "rr_debugresponseconcept",
+  "site": 847297,
+  "help": "If set, rr_debugresponseconcept will print only responses testing for the specified concept",
+  "float": false
+ },
+ {
+  "name": "rr_debugresponses",
+  "site": 847470,
+  "help": "Show verbose matching output (1 for simple, 2 for rule scoring, 3 for noisy). If set to 4, it will only show response success/failure for npc_selected NPCs.",
+  "float": false
+ },
+ {
+  "name": "rr_debugrule",
+  "site": 847665,
+  "help": "If set to the name of the rule, that rule's score will be shown whenever a concept is passed into the response rules system.",
+  "float": false
+ },
+ {
+  "name": "rr_dumpresponses",
+  "site": 847946,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_sequence_debug2",
+  "site": 848925,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_sequence_debug",
+  "site": 849101,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_sequence_model_substring",
+  "site": 849290,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_lagcomp_filterbyviewangle",
+  "site": 850078,
+  "help": "If true, player pawn will filter lag compensation targets by their view angle.",
+  "float": false
+ },
+ {
+  "name": "sv_showhitregistration",
+  "site": 850622,
+  "help": "Display lag_compensated hitboxes. 0 = off, 1 = server only, 2 = client only, 3 = both server and client",
+  "float": false
+ },
+ {
+  "name": "sv_suppress_friendlyfire_decals",
+  "site": 850798,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "breakable_multiplayer",
+  "site": 854535,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "debug_destructible_parts",
+  "site": 854702,
+  "help": "Draw debug information for destructible parts.",
+  "float": false
+ },
+ {
+  "name": "debug_destructible_parts_enabled",
+  "site": 854878,
+  "help": "Toggle enabling/disabling the destructible parts system for debug.",
+  "float": false
+ },
+ {
+  "name": "debug_destructible_parts_radius_damage",
+  "site": 855050,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "destructible_parts_destroy_parts_when_gibbing",
+  "site": 855946,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "display_convars_onscreen_in_big_text",
+  "site": 856145,
+  "help": "Display the convars on the screen in big text. Use semicolons to separate multiple convars",
+  "float": false
+ },
+ {
+  "name": "ent_attachment_filter_substrings",
+  "site": 856337,
+  "help": "If an attachment's name has any of the given substrings in it, it will be displayed. Substrings can be delimited by the ',' or '|' character.",
+  "float": false
+ },
+ {
+  "name": "ent_joint_filter_name",
+  "site": 856689,
+  "help": "If a joint's entire name matches (case insensitive), it will be displayed.",
+  "float": false
+ },
+ {
+  "name": "ent_joint_filter_substrings",
+  "site": 856881,
+  "help": "If a joint's name has any of the given substrings in it, it will be displayed. Substrings can be delimited by the ',' or '|' character.",
+  "float": false
+ },
+ {
+  "name": "ent_joint_lines",
+  "site": 857054,
+  "help": "Draw a line between a rendered joint and its parent.",
+  "float": false
+ },
+ {
+  "name": "ent_joint_names",
+  "site": 857230,
+  "help": "Draw the name of a rendered joint.",
+  "float": false
+ },
+ {
+  "name": "ent_joint_only_ik_joints",
+  "site": 857399,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ent_joint_use_bind_pose",
+  "site": 857559,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ent_showonlyattachment",
+  "site": 857741,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ent_skeleton_only_ik_joints",
+  "site": 857911,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "imgui_debug_draw_dashboard_toggle_pause",
+  "site": 868798,
+  "help": "Dashboard/Pause Game When Activated",
+  "float": false
+ },
+ {
+  "name": "imgui_debug_draw_dashboard_window",
+  "site": 868974,
+  "help": "Dashboard/Show Dashboard",
+  "float": false
+ },
+ {
+  "name": "imgui_debug_draw_dashboard_window_toggle_focus",
+  "site": 869150,
+  "help": "Dashboard toggle focus",
+  "float": false
+ },
+ {
+  "name": "imgui_domain",
+  "site": 869444,
+  "help": "1 == client, 2 == server",
+  "float": false
+ },
+ {
+  "name": "imgui_enable",
+  "site": 869614,
+  "help": "if imgui should display",
+  "float": false
+ },
+ {
+  "name": "imgui_enable_input",
+  "site": 869790,
+  "help": "if imgui should consume input",
+  "float": false
+ },
+ {
+  "name": "imgui_ent_text_enable",
+  "site": 869966,
+  "help": "Show Entity Text in Window",
+  "float": false
+ },
+ {
+  "name": "imgui_temp_enable",
+  "site": 870366,
+  "help": "if imgui should display temporarily",
+  "float": false
+ },
+ {
+  "name": "npc_record_skeleton_snapshot",
+  "site": 870538,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "npc_record_snapshot_data",
+  "site": 870714,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_pause_on_tick",
+  "site": 871646,
+  "help": "Tick count to pause on",
+  "float": false
+ },
+ {
+  "name": "autosave_fully_async",
+  "site": 873339,
+  "help": "Set to 1 to have autosaves execute completely on the save thread, forces 'render only' mode while the save completes",
+  "float": false
+ },
+ {
+  "name": "display_game_events",
+  "site": 873738,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ent_messages_draw",
+  "site": 874030,
+  "help": "Visualizes all entity input/output activity.",
+  "float": false
+ },
+ {
+  "name": "gamestats_file_output_directory",
+  "site": 875326,
+  "help": "When -gamestatsfileoutputonly is specified, file will be emitted here instead of to modpath",
+  "float": false
+ },
+ {
+  "name": "net_showeventlisteners",
+  "site": 875611,
+  "help": "Show listening addition/removals",
+  "float": false
+ },
+ {
+  "name": "net_showevents",
+  "site": 875787,
+  "help": "Dump game events to console (1=client only, 2=all).",
+  "float": false
+ },
+ {
+  "name": "parallel_perform_invalidate_physics",
+  "site": 875962,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "particle_cluster_bounds_debug",
+  "site": 876138,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "particle_cluster_debug",
+  "site": 876314,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "particle_cluster_nodraw",
+  "site": 876650,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "particle_cluster_use_collision_hulls",
+  "site": 876826,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "save_async",
+  "site": 880711,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "save_fake_hitch",
+  "site": 881099,
+  "help": "Force a busy wait for the specified number of milliseconds during save to simulate a hitch",
+  "float": false
+ },
+ {
+  "name": "save_history_count",
+  "site": 881393,
+  "help": "Keep this many old copies in history of autosaves and quicksaves.",
+  "float": false
+ },
+ {
+  "name": "save_maxarray_spew",
+  "site": 881586,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "save_parallel",
+  "site": 881754,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "save_screenshot",
+  "site": 881937,
+  "help": "0 = none, 1 = non-autosave, 2 = always, 3 = bug_only",
+  "float": false
+ },
+ {
+  "name": "save_spew",
+  "site": 882330,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "save_write_kv3",
+  "site": 882750,
+  "help": "Write the KV3 entity data as a text file in the save directory",
+  "float": false
+ },
+ {
+  "name": "saving_enabled",
+  "site": 882922,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_autosave",
+  "site": 883214,
+  "help": "Set to 1 to autosave game on level transition. Does not affect autosave triggers.",
+  "float": false
+ },
+ {
+  "name": "particle_test_attach_attachment",
+  "site": 886750,
+  "help": "Attachment index for attachment mode",
+  "float": false
+ },
+ {
+  "name": "particle_test_attach_mode",
+  "site": 886945,
+  "help": "Possible Values: 'start_at_attachment', 'follow_attachment', 'start_at_origin', 'follow_origin'",
+  "float": false
+ },
+ {
+  "name": "particle_test_file",
+  "site": 887361,
+  "help": "Name of the particle system to dynamically spawn",
+  "float": false
+ },
+ {
+  "name": "path_closest_point_debug",
+  "site": 887754,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "in_spewbuttondelta",
+  "site": 890478,
+  "help": "Spew button deltas, 0 = off, 1 = server, 2 = client, 3 = both",
+  "float": false
+ },
+ {
+  "name": "in_spewbuttonhold",
+  "site": 890654,
+  "help": "Spew button hold times, 0 = off, 1 = server, 2 = client, 3 = both",
+  "float": false
+ },
+ {
+  "name": "in_spewent",
+  "site": 890836,
+  "help": "Which entity should we spew input for? (Useful for debugging bot input)",
+  "float": false
+ },
+ {
+  "name": "in_spewinput",
+  "site": 891006,
+  "help": "Spew input, 0 = off, 1 = server, 2 = client, 3 = both",
+  "float": false
+ },
+ {
+  "name": "mp_allowspectators",
+  "site": 891182,
+  "help": "toggles whether the server allows spectator mode or not",
+  "float": false
+ },
+ {
+  "name": "mp_fadetoblack",
+  "site": 891358,
+  "help": "fade a player's screen to black when he dies",
+  "float": false
+ },
+ {
+  "name": "mp_forcecamera",
+  "site": 891550,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "noclip_fixup",
+  "site": 891722,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "smoothstairs",
+  "site": 891998,
+  "help": "Smooth player eye z coordinate when traversing stairs.",
+  "float": false
+ },
+ {
+  "name": "sv_condense_late_buttons",
+  "site": 892171,
+  "help": "When condensing late commands. Should we compress multiple moves of button presses into the target move?",
+  "float": false
+ },
+ {
+  "name": "sv_late_commands_allowed",
+  "site": 892356,
+  "help": "Allow N late commands to run at 0 timescale prior to running an on-time command. Negative values for network round trip based calculation with a hard cap of the of absolute value",
+  "float": false
+ },
+ {
+  "name": "sv_noclipduringpause",
+  "site": 892526,
+  "help": "If cheats are enabled, then you can noclip with the game paused (for doing screenshots, etc.).",
+  "float": false
+ },
+ {
+  "name": "sv_suppress_viewpunch",
+  "site": 892698,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_usercmd_custom_random_seed",
+  "site": 892878,
+  "help": "When enabled server will populate an additional random seed independent of the client",
+  "float": false
+ },
+ {
+  "name": "sv_infinite_ammo",
+  "site": 893790,
+  "help": "Player's active weapon will never run out of ammo",
+  "float": false
+ },
+ {
+  "name": "anim_disable",
+  "site": 895098,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_cloth_interp_rot",
+  "site": 895274,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "debug_shared_random",
+  "site": 895450,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_ent_showonlyhitbox",
+  "site": 895680,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ik_debug_groundtraces",
+  "site": 902206,
+  "help": "Show IK trace related details",
+  "float": false
+ },
+ {
+  "name": "phys_dynamic_scaling",
+  "site": 902378,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "skel_debug",
+  "site": 902621,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "skeleton_instance_debug_bodygroups",
+  "site": 902798,
+  "help": "Debug bodygroups",
+  "float": false
+ },
+ {
+  "name": "skeleton_instance_lod_optimization",
+  "site": 902974,
+  "help": "Compute LOD mask internally like since 2016, i.e. force all LOD groups' bones to compute",
+  "float": false
+ },
+ {
+  "name": "skeleton_instance_scaleset_enable",
+  "site": 903146,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "skeleton_instance_smear_boneflags",
+  "site": 903326,
+  "help": "Smear boneflags across the model.  Costs computation, but tests to make sure your bone flags are consistent.",
+  "float": false
+ },
+ {
+  "name": "skeleton_physics_joint_fixup",
+  "site": 903498,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_vac_webapi_auth_key",
+  "site": 904097,
+  "help": "Key for when posting to vac related webapis.",
+  "float": false
+ },
+ {
+  "name": "vis_force",
+  "site": 908282,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ai_debug_los",
+  "site": 908478,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ai_debug_speech",
+  "site": 908647,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ai_force_serverside_ragdoll",
+  "site": 908807,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ai_off_nav_show_nearest",
+  "site": 908970,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ai_use_visibility_cache",
+  "site": 909153,
+  "help": "Sets whether or not NPCs can cache their Visibility checks against other entities. If set to 2, also tests to make sure that NPC->Target results match that of Target->NPC.",
+  "float": false
+ },
+ {
+  "name": "ai_use_visibility_cache_reciprocation",
+  "site": 909323,
+  "help": "Sets whether or not the visibility check cache should be reciprocal.",
+  "float": false
+ },
+ {
+  "name": "always_perform_full_spatial_partition_update",
+  "site": 909498,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "buddha",
+  "site": 909678,
+  "help": "Player takes damage but won't die",
+  "float": false
+ },
+ {
+  "name": "buddha_ignore_bots",
+  "site": 909854,
+  "help": "Bots always buddha 0",
+  "float": false
+ },
+ {
+  "name": "buddha_reset_hp",
+  "site": 910036,
+  "help": "HP to set when damaged below zero in Buddha Mode",
+  "float": false
+ },
+ {
+  "name": "camera_datadriven_disable_cache",
+  "site": 910202,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "clear_debug_flags_on_death",
+  "site": 911383,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "g_debug_doors",
+  "site": 914663,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "parallel_update_surrounding_bounds_in_spatial_partition_update",
+  "site": 921914,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "player_debug_off_nav",
+  "site": 922730,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "player_debug_print_damage",
+  "site": 922910,
+  "help": "When true, print amount and type of all damage received by player to console.",
+  "float": false
+ },
+ {
+  "name": "target_scan_use_query_cache",
+  "site": 928071,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "tv_relaytextchat",
+  "site": 928580,
+  "help": "Relay text chat data to GOTV: 0=off, 1=say, 2=say+say_team",
+  "float": false
+ },
+ {
+  "name": "update_all_keyframed_in_spatial_partition_update",
+  "site": 928746,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ai_debug_ragdoll_magnets",
+  "site": 935207,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "commentary",
+  "site": 935388,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "commentary_available",
+  "site": 935563,
+  "help": "Automatically set by the game when a commentary file is available for the current map.",
+  "float": false
+ },
+ {
+  "name": "debug_visibility_monitor",
+  "site": 936186,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "vismon_trace_limit",
+  "site": 956112,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "env_shake_debug",
+  "site": 961182,
+  "help": "Draw debug info for active env_shakes: query radius, affected physics bodies/particles, and the forces/velocity deltas applied to them.",
+  "float": false
+ },
+ {
+  "name": "fish_dormant",
+  "site": 961582,
+  "help": "Turns off interactive fish behavior. Fish become immobile and unresponsive.",
+  "float": false
+ },
+ {
+  "name": "func_break_max_pieces",
+  "site": 961760,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "func_mover_async_movable_navmesh_updates",
+  "site": 962087,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "func_mover_debug",
+  "site": 962359,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "func_mover_debug_all",
+  "site": 962519,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "func_mover_debug_follower",
+  "site": 962679,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "func_mover_debug_parallel",
+  "site": 962839,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "func_mover_debug_showtext",
+  "site": 962999,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "func_mover_debug_verbose",
+  "site": 963159,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "func_mover_disable_movement",
+  "site": 963319,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "func_mover_force_transition_start_direction",
+  "site": 963479,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "func_mover_imgui_log_count",
+  "site": 963789,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "func_mover_run_parallel",
+  "site": 963959,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "func_rotator_debug",
+  "site": 964343,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "func_rotator_run_parallel",
+  "site": 964503,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "path_mover_enable_high_resolution_debug_rendering",
+  "site": 974199,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "path_mover_entity_spawner_debug",
+  "site": 974359,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "shatterglass_cleanup",
+  "site": 975354,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "shatterglass_cleanup_max",
+  "site": 975536,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "shatterglass_debug",
+  "site": 975706,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_showladders",
+  "site": 976475,
+  "help": "Show bbox and dismount points for all ladders (must be set before level load.)",
+  "float": false
+ },
+ {
+  "name": "check_transmit_dump_ents",
+  "site": 977770,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "debug_radial_damage",
+  "site": 978170,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ent_bitvec_enable",
+  "site": 978615,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ent_steadystate_enable",
+  "site": 978935,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_forcerespawn",
+  "site": 979098,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_friendlyfire",
+  "site": 979278,
+  "help": "Allows team members to injure other members of their team",
+  "float": false
+ },
+ {
+  "name": "hostfile",
+  "site": 984417,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "lservercfgfile",
+  "site": 984602,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "motdfile",
+  "site": 984817,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "net_debug_to_file",
+  "site": 984983,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "servercfgfile",
+  "site": 985501,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sk_autoaim_mode",
+  "site": 985680,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_early_network_message_processing",
+  "site": 985902,
+  "help": "Processes network messages on the server before entities think, instead of at the end of the tick.",
+  "float": false
+ },
+ {
+  "name": "sv_force_transmit_ents",
+  "site": 986078,
+  "help": "Will transmit all entities to client, regardless of PVS conditions (will still skip based on transmit flags, however).",
+  "float": false
+ },
+ {
+  "name": "sv_hide_ent_in_pvs",
+  "site": 986256,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_matchperfstats_maxclientperfsamples",
+  "site": 986433,
+  "help": "Don't retain more than N perf samples for any given client",
+  "float": false
+ },
+ {
+  "name": "sv_parallel_checktransmit",
+  "site": 986606,
+  "help": "Set to 1 to use threaded checkentities for transmit/pvs on listen servers, 2 for dedicated servers.",
+  "float": false
+ },
+ {
+  "name": "sv_remove_ent_from_pvs",
+  "site": 986778,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_shared_team_pvs",
+  "site": 986955,
+  "help": "PVS is shared between teams",
+  "float": false
+ },
+ {
+  "name": "mp_teamplay",
+  "site": 987130,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "tv_allow_autorecording_index",
+  "site": 987316,
+  "help": "When >=0 restricts autorecording only to the specified TV index",
+  "float": false
+ },
+ {
+  "name": "tv_allow_camera_man",
+  "site": 987483,
+  "help": "Auto director allows spectators to become camera man",
+  "float": false
+ },
+ {
+  "name": "tv_allow_static_shots",
+  "site": 987662,
+  "help": "Auto director uses fixed level cameras for shots",
+  "float": false
+ },
+ {
+  "name": "tv_delay1",
+  "site": 987858,
+  "help": "SourceTV[instance 1] broadcast delay in seconds",
+  "float": false
+ },
+ {
+  "name": "tv_delay",
+  "site": 988050,
+  "help": "SourceTV broadcast delay in seconds",
+  "float": false
+ },
+ {
+  "name": "tv_log_director_events",
+  "site": 988219,
+  "help": "Log game events being considered by the director",
+  "float": false
+ },
+ {
+  "name": "logic_entity_analyzer_debug",
+  "site": 1030090,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "logic_npc_counter_debug",
+  "site": 1030266,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ent_debug_draw_thinkers",
+  "site": 1037034,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "g_debug_constraint_sounds",
+  "site": 1040110,
+  "help": "Enable debug printing about constraint sounds.",
+  "float": false
+ },
+ {
+  "name": "movement_stats_debug_draw",
+  "site": 1056506,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "movement_stats_force_calculate",
+  "site": 1056682,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_restartgame",
+  "site": 1056862,
+  "help": "If non-zero, game will restart in the specified number of seconds",
+  "float": false
+ },
+ {
+  "name": "phys_force_controller_debug",
+  "site": 1057034,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "phys_joint_teleport",
+  "site": 1057214,
+  "help": "Teleport joint anchors if connected to world",
+  "float": false
+ },
+ {
+  "name": "phys_use_block_solver",
+  "site": 1057982,
+  "help": "Use block solving for constraint entities",
+  "float": false
+ },
+ {
+  "name": "prop_debug_collision",
+  "site": 1058284,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "prop_nav_obstacle_avoid_use_connection_blocker",
+  "site": 1058935,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ragdoll_debug_item_detachment",
+  "site": 1061130,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ragdoll_fixup_joint_limits",
+  "site": 1061310,
+  "help": "Adjusts bone transforms so that physics joints don't appear violated (limits)",
+  "float": false
+ },
+ {
+  "name": "ragdoll_fixup_joint_limits_max_height",
+  "site": 1061492,
+  "help": "Disable ragdoll_fixup_joint_limits on joints too high in the hierarchy because long chains tend to depend on violating limits",
+  "float": false
+ },
+ {
+  "name": "ragdoll_fixup_joint_orientation",
+  "site": 1061662,
+  "help": "Adjusts bone transforms so that physics joints don't appear violated (orientation)",
+  "float": false
+ },
+ {
+  "name": "ragdoll_fixup_joint_orientation_max_height",
+  "site": 1061844,
+  "help": "Disable ragdoll_fixup_joint_orientation on joints too high in the hierarchy because small differences can massively accumulate (e.g. long chains)",
+  "float": false
+ },
+ {
+  "name": "ragdoll_fixup_joint_translation",
+  "site": 1062014,
+  "help": "Adjusts bone transforms so that physics joints don't appear violated (translation)",
+  "float": false
+ },
+ {
+  "name": "ragdoll_override_root_orientation",
+  "site": 1062186,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ragdoll_prop_settle",
+  "site": 1062366,
+  "help": "Enable more aggressive ragdoll settling",
+  "float": false
+ },
+ {
+  "name": "ragdoll_scale_sleep_tolerance",
+  "site": 1062858,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ragdoll_visualize_creation_skeleton",
+  "site": 1063038,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "spec_replay_bot",
+  "site": 1063774,
+  "help": "Enable Spectator Hltv Replay when killed by bot",
+  "float": false
+ },
+ {
+  "name": "sv_allchat",
+  "site": 1064382,
+  "help": "Players can receive all other players' text chat, no death restrictions",
+  "float": false
+ },
+ {
+  "name": "sv_skyname",
+  "site": 1066977,
+  "help": "Current name of the skybox texture",
+  "float": false
+ },
+ {
+  "name": "sv_specnoclip",
+  "site": 1067306,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "vehicle_debug_impact_damage",
+  "site": 1068618,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cq_debug",
+  "site": 1072574,
+  "help": "Verbose command queue logging.",
+  "float": false
+ },
+ {
+  "name": "cq_fake_starve",
+  "site": 1072750,
+  "help": "if set, starve this many commands by discarding during process usercmds.",
+  "float": false
+ },
+ {
+  "name": "cq_logging",
+  "site": 1072926,
+  "help": "command queue logging of events.",
+  "float": false
+ },
+ {
+  "name": "cq_max_starved_substitute_commands",
+  "site": 1073268,
+  "help": "Server will stop generating substitute commands if client hasn't sent one, after N in a row",
+  "float": false
+ },
+ {
+  "name": "cq_print_every_command",
+  "site": 1073438,
+  "help": "print every command as we execute it",
+  "float": false
+ },
+ {
+  "name": "cq_runtests",
+  "site": 1073610,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "cq_runtests_broadcast_info",
+  "site": 1073790,
+  "help": "send message to remote client console when tests change.",
+  "float": false
+ },
+ {
+  "name": "debug_physimpact",
+  "site": 1074119,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "g_debug_angularsensor",
+  "site": 1074586,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_cq_delta_encode_svc_usercmds",
+  "site": 1084478,
+  "help": "Delta encode svc_UserCmds message",
+  "float": false
+ },
+ {
+  "name": "sv_cq_trim_bloat_remainder",
+  "site": 1084660,
+  "help": "When trimming a bloated CQ, leave at least N more commands than the minimum",
+  "float": false
+ },
+ {
+  "name": "sv_cq_trim_bloat_space",
+  "site": 1084830,
+  "help": "When trimming a bloated CQ, try to leave room for N more commands to be added.  0 will trim only what is needed to remove the immediate bloat, a very large value will reset the whole queue.",
+  "float": false
+ },
+ {
+  "name": "sv_cq_trim_catchup_remainder",
+  "site": 1085012,
+  "help": "When trimming an overful CQ due to app 'catchup' request, leave at least N more commands than the minimum",
+  "float": false
+ },
+ {
+  "name": "sv_cq_validate_encoded_svc_usercmds",
+  "site": 1085182,
+  "help": "VERY EXPENSIVE: serialize non-delta-encoded commands along with delta-encoded for validation",
+  "float": false
+ },
+ {
+  "name": "sv_lagcompensationforcerestore",
+  "site": 1085358,
+  "help": "Don't test validity of a lag comp restore, just do it.",
+  "float": false
+ },
+ {
+  "name": "sv_remapper_loopsoundfix",
+  "site": 1085690,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_unlag",
+  "site": 1086190,
+  "help": "Enables player lag compensation",
+  "float": false
+ },
+ {
+  "name": "sv_unlag_debug",
+  "site": 1086362,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_unlag_fixstuck",
+  "site": 1086542,
+  "help": "Disallow backtracking a player for lag compensation if it will cause them to become stuck",
+  "float": false
+ },
+ {
+  "name": "tv_include_usercommands",
+  "site": 1086718,
+  "help": "HLTV streams will include player usercommands each tick",
+  "float": false
+ },
+ {
+  "name": "sv_pvs_shadows_include_env",
+  "site": 1094554,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ai_debug_scripted_sequence",
+  "site": 1098285,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "g_ragdoll_important_maxcount",
+  "site": 1103648,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "g_ragdoll_maxcount",
+  "site": 1103824,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_ragdoll_lru_debug",
+  "site": 1104106,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ragdoll_lru_debug_removal",
+  "site": 1104282,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "scene_clientflex",
+  "site": 1105630,
+  "help": "Do client side flex animation.",
+  "float": false
+ },
+ {
+  "name": "scene_print",
+  "site": 1105934,
+  "help": "When playing back a scene, print timing and event info to console.",
+  "float": false
+ },
+ {
+  "name": "snd_disable_radar_visualize",
+  "site": 1106106,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "snd_new_visualize",
+  "site": 1106286,
+  "help": "Displays soundevent name played at it's 3d position",
+  "float": false
+ },
+ {
+  "name": "snd_occlusion_debug",
+  "site": 1106458,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "snd_opvar_set_dome_cluster_steps_per_think",
+  "site": 1107120,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "snd_opvar_set_point_debug",
+  "site": 1107290,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "snd_steamaudio_dynamicpathing_max_samples",
+  "site": 1107792,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "snd_steamaudio_pathing_enable_caching",
+  "site": 1108122,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "soundevent_check_networked_entity",
+  "site": 1108298,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_disable_querycache",
+  "site": 1108638,
+  "help": "debug - disable trace query cache",
+  "float": false
+ },
+ {
+  "name": "sv_regeneration_force_on",
+  "site": 1108940,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "debug_takedamage_summaries",
+  "site": 1119306,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "g_debug_transitions",
+  "site": 1119550,
+  "help": "Set to 1 and restart the map to be warned if the map has no trigger_transition volumes. Set to 2 to see a dump of all entities & associated results during a transition.",
+  "float": false
+ },
+ {
+  "name": "snd_sos_debug_trigger_opvar",
+  "site": 1148279,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_alltalk",
+  "site": 1148446,
+  "help": "Players can hear all other players' voice communication, no team restrictions",
+  "float": false
+ },
+ {
+  "name": "sv_debug_client_not_in_pvs",
+  "site": 1148622,
+  "help": "If set, draw failed client PVS checks with red box",
+  "float": false
+ },
+ {
+  "name": "sv_strict_notarget",
+  "site": 1148795,
+  "help": "If set, notarget will cause entities to never think they are in the pvs",
+  "float": false
+ },
+ {
+  "name": "teleport_trigger_debug",
+  "site": 1148970,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "tool_spawned_model_scales",
+  "site": 1149175,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "trigger_physics_debug",
+  "site": 1149358,
+  "help": "Toggle trigger_physics debug visualization.",
+  "float": false
+ },
+ {
+  "name": "voice_serverdebug",
+  "site": 1149527,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mp_tournament_whitelist",
+  "site": 1153694,
+  "help": "Specifies the item whitelist file to use.",
+  "float": false
+ },
+ {
+  "name": "nav_attribute_obstacle_draw",
+  "site": 1157162,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_attribute_obstacle_draw_attribute",
+  "site": 1157357,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_attribute_obstacle_draw_elements",
+  "site": 1157530,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_create_indirect_connection_set_from",
+  "site": 1158756,
+  "help": "Set the 'from' location of an indirect connection.",
+  "float": false
+ },
+ {
+  "name": "nav_create_indirect_connection_set_to",
+  "site": 1159060,
+  "help": "Set the 'to' location of an indirect connection.",
+  "float": false
+ },
+ {
+  "name": "nav_drag_selection_volume_zmax_offset",
+  "site": 1159460,
+  "help": "The offset of the nav drag volume top from center",
+  "float": false
+ },
+ {
+  "name": "nav_drag_selection_volume_zmin_offset",
+  "site": 1159636,
+  "help": "The offset of the nav drag volume bottom from center",
+  "float": false
+ },
+ {
+  "name": "nav_draw_area_color_by_game_attribute",
+  "site": 1159802,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_area_connections",
+  "site": 1159978,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_area_filled",
+  "site": 1160154,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_area_gravity",
+  "site": 1160330,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_area_ground",
+  "site": 1160506,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_area_hull_support",
+  "site": 1160682,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_area_ids",
+  "site": 1160858,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_area_normal",
+  "site": 1161194,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_area_should_be_destroyed",
+  "site": 1161370,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_area_split_by_obstacle_mgr",
+  "site": 1161546,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_area_ztest",
+  "site": 1161722,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_attribute_dynamic",
+  "site": 1161921,
+  "help": "Draw all nav areas with this dynamic attribute",
+  "float": false
+ },
+ {
+  "name": "nav_draw_attribute_game",
+  "site": 1162113,
+  "help": "Draw all nav areas with this game attribute",
+  "float": false
+ },
+ {
+  "name": "nav_draw_attribute_space",
+  "site": 1162305,
+  "help": "Draw only nav blocks with this attribute",
+  "float": false
+ },
+ {
+  "name": "nav_draw_blocked",
+  "site": 1162474,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_blocked_connections",
+  "site": 1162650,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_boundary_areas",
+  "site": 1162826,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_dormant_movable_meshes",
+  "site": 1163166,
+  "help": "Draw dormant movable meshes.",
+  "float": false
+ },
+ {
+  "name": "nav_draw_externally_created",
+  "site": 1163338,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_flow_map",
+  "site": 1163514,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_indirect_connections",
+  "site": 1163690,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_jump_links",
+  "site": 1163866,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_limit",
+  "site": 1164052,
+  "help": "The maximum number of areas to draw in edit mode",
+  "float": false
+ },
+ {
+  "name": "nav_draw_link_alignment",
+  "site": 1164218,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_links",
+  "site": 1164394,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_markup",
+  "site": 1164570,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_mesh",
+  "site": 1164746,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_mesh_grid",
+  "site": 1164926,
+  "help": "Draw the mesh's spatial grid structure around the edit cursor position.",
+  "float": false
+ },
+ {
+  "name": "nav_draw_space_boundary",
+  "site": 1165262,
+  "help": "Draw the boundaries of the 3d nav space. 1 = draw flying space, 2 = draw swimming space",
+  "float": false
+ },
+ {
+  "name": "nav_draw_space_cells",
+  "site": 1165434,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_space_fly",
+  "site": 1165610,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_space_neighbors",
+  "site": 1165786,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_space_portals",
+  "site": 1165962,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_space_swim",
+  "site": 1166298,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_draw_space_transitions",
+  "site": 1166474,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_edit",
+  "site": 1166654,
+  "help": "Set to one to interactively edit the Navigation Mesh. Set to zero to leave edit mode.",
+  "float": false
+ },
+ {
+  "name": "nav_edit_draw_navlinks",
+  "site": 1166826,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_edit_use_camera",
+  "site": 1167002,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_edit_validate",
+  "site": 1167182,
+  "help": "Validate navmesh structures.",
+  "float": false
+ },
+ {
+  "name": "nav_flow_map_enabled",
+  "site": 1167802,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_genrt_debug",
+  "site": 1167978,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_select_allow_blocked",
+  "site": 1169182,
+  "help": "When selecting an area under nav_edit, allow area marked as blocked.",
+  "float": false
+ },
+ {
+  "name": "nav_select_area_id",
+  "site": 1169364,
+  "help": "Select nav area with matching ID.",
+  "float": false
+ },
+ {
+  "name": "nav_select_block_id",
+  "site": 1169540,
+  "help": "Select nav space block with matching ID.",
+  "float": false
+ },
+ {
+  "name": "nav_select_hull",
+  "site": 1169710,
+  "help": "Restrict area selection to areas that can support a hull of the given category",
+  "float": false
+ },
+ {
+  "name": "nav_show_area_connections",
+  "site": 1170110,
+  "help": "Show connections to selected area when true",
+  "float": false
+ },
+ {
+  "name": "nav_show_area_verts",
+  "site": 1170286,
+  "help": "Show area vertex positions",
+  "float": false
+ },
+ {
+  "name": "nav_show_area_water_info",
+  "site": 1170462,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_show_elem_info",
+  "site": 1170634,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_show_elem_info_font",
+  "site": 1170829,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_split_show_line",
+  "site": 1171598,
+  "help": "Show the free split line.",
+  "float": false
+ },
+ {
+  "name": "nav_test_area_gravity",
+  "site": 1171994,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_bfs_lattice_hex",
+  "site": 1172654,
+  "help": "Demonstrates searching hexagonal lattice over nav mesh.",
+  "float": false
+ },
+ {
+  "name": "nav_test_bfs_lattice_simple",
+  "site": 1172986,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_bfs_simple",
+  "site": 1173642,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_boundary_zone_force",
+  "site": 1173978,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_boundary_zone_rays_random",
+  "site": 1174794,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_curve_opt",
+  "site": 1175130,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_find_nearest",
+  "site": 1175310,
+  "help": "Calculate the nearest point on the navmesh to the trace point.  Uses selection from nav_select_hull.",
+  "float": false
+ },
+ {
+  "name": "nav_test_find_nearest_clear",
+  "site": 1175486,
+  "help": "Calculate the nearest point on the navmesh to the trace point.  Uses selection from nav_select_hull.",
+  "float": false
+ },
+ {
+  "name": "nav_test_find_random_connected",
+  "site": 1175662,
+  "help": "Demonstrates finding random points that are connected in the nav mesh to the start point.",
+  "float": false
+ },
+ {
+  "name": "nav_test_force_npc_repath",
+  "site": 1176314,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_genrt",
+  "site": 1176490,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_genrt_place",
+  "site": 1176666,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_genrt_tile_removal_place",
+  "site": 1177002,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_getareaoverlapping_gravity",
+  "site": 1177178,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_getnearestnav_gravity",
+  "site": 1177354,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_multi_connection",
+  "site": 1177754,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_npc_area",
+  "site": 1177930,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_npc_collision",
+  "site": 1178106,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_npc_collision_show_geometry",
+  "site": 1178442,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_path",
+  "site": 1178622,
+  "help": "Calculate and draw a path from player/camera position to the test position.",
+  "float": false
+ },
+ {
+  "name": "nav_test_path_lock_goal",
+  "site": 1178798,
+  "help": "Lock the pathfinding goal to the current intersection point.",
+  "float": false
+ },
+ {
+  "name": "nav_test_path_lock_start",
+  "site": 1178974,
+  "help": "Lock the pathfinding start to the current intersection point.",
+  "float": false
+ },
+ {
+  "name": "nav_test_path_move",
+  "site": 1179146,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_path_npc",
+  "site": 1179326,
+  "help": "Calculate and draw a path for the selected NPC to the test position.",
+  "float": false
+ },
+ {
+  "name": "nav_test_path_opt",
+  "site": 1179662,
+  "help": "Enable path optimization for nav_edit_path paths.",
+  "float": false
+ },
+ {
+  "name": "nav_test_path_opt_transitions",
+  "site": 1179834,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_path_return",
+  "site": 1180014,
+  "help": "Calculate a return path from cursor position to the path calculated by nav_test_path.",
+  "float": false
+ },
+ {
+  "name": "nav_test_path_space",
+  "site": 1180190,
+  "help": "Should nav_test_path test 3d navigation?  1 = space to space, 2 = multi-modal space/ground",
+  "float": false
+ },
+ {
+  "name": "nav_test_path_space_fly",
+  "site": 1180366,
+  "help": "Test flight paths",
+  "float": false
+ },
+ {
+  "name": "nav_test_path_space_swim",
+  "site": 1180542,
+  "help": "Test swim paths",
+  "float": false
+ },
+ {
+  "name": "nav_test_pos_name",
+  "site": 1180730,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_pos_place",
+  "site": 1180909,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_ray_space",
+  "site": 1181082,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_rays",
+  "site": 1181258,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_rays_use_npc_move",
+  "site": 1181434,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_search_on_path",
+  "site": 1181614,
+  "help": "Test the 'on path' search mode for tactical searches. Requires a selected NPC with a current path.",
+  "float": false
+ },
+ {
+  "name": "nav_test_search_on_path_boundary_edges_only",
+  "site": 1181790,
+  "help": "Activate the 'boundary edges only' constraint when testing the 'on path' search mode for tactical searches.",
+  "float": false
+ },
+ {
+  "name": "nav_test_search_on_path_setgoal",
+  "site": 1181966,
+  "help": "Test the 'on path' search mode for tactical searches using SetGoal w/ possible path clipping (flips between 2 searches). Requires a selected NPC.",
+  "float": false
+ },
+ {
+  "name": "nav_test_smooth",
+  "site": 1182138,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_spline",
+  "site": 1183434,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_split_obstacle",
+  "site": 1183610,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_split_obstacle_dirty",
+  "site": 1183786,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_split_obstacle_leave",
+  "site": 1183962,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_test_split_obstacle_update_pos",
+  "site": 1184298,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "sv_no_navmesh",
+  "site": 1185150,
+  "help": "Block loading of the navmesh. Unplayable, only used for memory sampling.",
+  "float": false
+ },
+ {
+  "name": "nav_bfs_debug",
+  "site": 1185338,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_curve_alt",
+  "site": 1185514,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_curve_iter",
+  "site": 1185690,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_curve_lock",
+  "site": 1185872,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_curve_set",
+  "site": 1186208,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_debug_blocked",
+  "site": 1186538,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_find_occluded_node_nozup_use_raycast",
+  "site": 1186714,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_obstacle_validate",
+  "site": 1186890,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_obstruction_async_update",
+  "site": 1187066,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_obstruction_draw_change",
+  "site": 1187402,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_obstruction_draw_island_hull",
+  "site": 1187904,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_obstruction_draw_movefail_blocking",
+  "site": 1188074,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_debug",
+  "site": 1188250,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_draw_areas",
+  "site": 1188426,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_draw_arrow",
+  "site": 1188602,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_draw_climb_segments",
+  "site": 1188778,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_draw_connected_areas",
+  "site": 1188954,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_draw_ground_segments",
+  "site": 1189130,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_draw_jump_segments",
+  "site": 1189306,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_draw_ladder_segments",
+  "site": 1189482,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_draw_link_segments",
+  "site": 1189658,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_fixup_climb_up_segments",
+  "site": 1189994,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_fixup_gap_segments",
+  "site": 1190170,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_jump_process_debug",
+  "site": 1190346,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_optimize",
+  "site": 1190522,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_optimize_portals",
+  "site": 1190698,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_path_optimizer_debug",
+  "site": 1190874,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_smooth_arrival_enable",
+  "site": 1191050,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_smooth_arrival_spline",
+  "site": 1191386,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_smooth_arrival_spring",
+  "site": 1191562,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_smooth_constrain_spline",
+  "site": 1191738,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_smooth_constrain_spring",
+  "site": 1192080,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_smooth_draw_arrival_calc",
+  "site": 1192410,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_smooth_draw_calc",
+  "site": 1192746,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_smooth_draw_constraint_spline",
+  "site": 1192922,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_smooth_enable",
+  "site": 1193424,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_smooth_relax",
+  "site": 1193754,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_smooth_relax_use_timesteps",
+  "site": 1193930,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_smooth_spring_enable",
+  "site": 1194266,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "navspace_path_use_water_level_locator",
+  "site": 1197002,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "navspace_create_water_smooth_connections",
+  "site": 1197386,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "navspace_create_water_surface_connections",
+  "site": 1197562,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "navspace_create_water_transition_connections",
+  "site": 1197738,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "npcsolve_attract_draw",
+  "site": 1198391,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "npcsolve_constraint_nav",
+  "site": 1198551,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "npcsolve_constraint_npc",
+  "site": 1198711,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "npcsolve_forward",
+  "site": 1199015,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "npcsolve_separation",
+  "site": 1200423,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "npcsolve_separation_draw",
+  "site": 1200903,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "npcsolve_separation_r2",
+  "site": 1201207,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "labelled_debug_helper_arc_segments",
+  "site": 1213808,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "labelled_debug_helper_enabled",
+  "site": 1213978,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "labelled_debug_helper_scale",
+  "site": 1214160,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "labelled_debug_helper_show_position",
+  "site": 1214330,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "labelled_debug_helper_show_text",
+  "site": 1214506,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "labelled_debug_helper_skeleton_show_bone_names",
+  "site": 1214682,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ik_debug_perlin_solver",
+  "site": 1217290,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "entity_log_load_unserialize",
+  "site": 1217566,
+  "help": "Output unserialization of entities on map load. 0 - off, 1 - client/server, 2 - server, 3 - client",
+  "float": false
+ },
+ {
+  "name": "mesh_calculate_curvature_smooth_invert",
+  "site": 1239486,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mesh_calculate_curvature_smooth_pass_count",
+  "site": 1239667,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "mesh_calculate_curvature_smooth_weight",
+  "site": 1239844,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "model_default_preview_sequence_name",
+  "site": 1240045,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ik_hinge_debug_bone_index",
+  "site": 1240800,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "ik_debug_chain_to_filter_by",
+  "site": 1240989,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_ignore_vpk_navdata",
+  "site": 1241262,
+  "help": "For testing using legacy nav data",
+  "float": false
+ },
+ {
+  "name": "nav_recorder_enabled",
+  "site": 1241434,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_pathfind_debug_log",
+  "site": 1242506,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_pathfind_draw",
+  "site": 1242688,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_pathfind_draw_blocked",
+  "site": 1242864,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_pathfind_draw_costs",
+  "site": 1243034,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_pathfind_draw_fail",
+  "site": 1243216,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_pathfind_draw_total_costs",
+  "site": 1243386,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_pathfind_inadmissable_heuristic_factor",
+  "site": 1243568,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_add_jumps",
+  "site": 1244362,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_agent_radius_buffer",
+  "site": 1244548,
+  "help": "Buffer to add to agent radius before passing to nav gen",
+  "float": false
+ },
+ {
+  "name": "nav_gen_clip_polys_to_clearance",
+  "site": 1244714,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_clip_polys_to_clearance_debug",
+  "site": 1244890,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_connect_allow_multiple",
+  "site": 1245066,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_connect_angle",
+  "site": 1245248,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_connect_angle_ignore_z",
+  "site": 1245418,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_connect_dist_a",
+  "site": 1245600,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_connect_dist_b",
+  "site": 1245776,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_connect_dist_z_mult",
+  "site": 1245952,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_connect_overlap",
+  "site": 1246128,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_degen_limit",
+  "site": 1246304,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_false",
+  "site": 1246478,
+  "help": "Always false",
+  "float": false
+ },
+ {
+  "name": "nav_gen_island_removal",
+  "site": 1246650,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_island_removal_all_hulls",
+  "site": 1246826,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_join_nonzup",
+  "site": 1247002,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_jump_connection_min_overlap_ratio",
+  "site": 1247188,
+  "help": "Minimum edge overlap required for jump connection consideration as a percentage of agent radius",
+  "float": false
+ },
+ {
+  "name": "nav_gen_markup_split_expand",
+  "site": 1247360,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_markup_split_tol_base",
+  "site": 1247536,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_markup_split_tol_nonav",
+  "site": 1247712,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_markup_split_tol_nonentity",
+  "site": 1247888,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_max_bottleneck_width",
+  "site": 1248064,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_max_bottleneck_width_do_clip",
+  "site": 1248234,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_max_edge_len",
+  "site": 1248416,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_max_edge_len_do_clip",
+  "site": 1248586,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_max_edge_len_split_tol",
+  "site": 1248768,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_opt_to_quads",
+  "site": 1248938,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_opt_to_quads_angle_limit",
+  "site": 1249120,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_opt_to_quads_num_steps",
+  "site": 1249296,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_opt_to_quads_planar_deviation_limit",
+  "site": 1249472,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_opt_to_quads_se_limit_end",
+  "site": 1249648,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_opt_to_quads_se_limit_start",
+  "site": 1249824,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_opt_to_quads_weld_limit_end",
+  "site": 1250000,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_opt_to_quads_weld_limit_start",
+  "site": 1250176,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_remove_vertical_polys",
+  "site": 1250346,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_split_boundary_polys",
+  "site": 1250522,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_split_multi_connection_polys",
+  "site": 1250698,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_split_multi_connection_polys_tol",
+  "site": 1250880,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_true",
+  "site": 1251054,
+  "help": "Always true",
+  "float": false
+ },
+ {
+  "name": "nav_gen_vertical_limit",
+  "site": 1251232,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_volume_debug",
+  "site": 1251406,
+  "help": "Draw or print debug information about nav volume queries.",
+  "float": false
+ },
+ {
+  "name": "nav_pathfind_multithread",
+  "site": 1251642,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "recast_mark_overhang",
+  "site": 1251822,
+  "help": "Enable/disable overhang detection",
+  "float": false
+ },
+ {
+  "name": "recast_partitioning",
+  "site": 1251998,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "nav_gen_oriented_angle_tol",
+  "site": 1252180,
+  "help": "Max abrupt orientation difference an NPC can tolerate when moving through the mesh (degrees).",
+  "float": false
+ },
+ {
+  "name": "nav_gen_oriented_max_region_range",
+  "site": 1252356,
+  "help": "Max orientation range allowed within a region before it gets further split.",
+  "float": false
+ },
+ {
+  "name": "pulse_cursor_infinite_loop_detection_threshold",
+  "site": 1255008,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "pulse_save_execution_history",
+  "site": 1255390,
+  "help": "Keep a history of all instructions run on a per graph basis.",
+  "float": false
+ },
+ {
+  "name": "pulse_save_execution_history_limit",
+  "site": 1255620,
+  "help": "Keep a history of all instructions run on a per graph basis.",
+  "float": false
+ },
+ {
+  "name": "cojob_lock_hold_warning_threshold_ms",
+  "site": 1258356,
+  "help": "How long in milliseconds before we warn about lock hold duration",
+  "float": false
+ },
+ {
+  "name": "cojob_max_no_yield_time_us",
+  "site": 1258532,
+  "help": "Will spew if a job takes longer than the specified number of microseconds",
+  "float": false
+ },
+ {
+  "name": "hullivr_edge_merge_tan",
+  "site": 1261572,
+  "help": "Should we try to straighten two faces connected to this edge? (tangent)",
+  "float": false
+ },
+ {
+  "name": "hullivr_faceisland_merge_disp",
+  "site": 1261748,
+  "help": "Should we straighten face island if the displacement is this much? (inches)",
+  "float": false
+ },
+ {
+  "name": "hullivr_faceisland_merge_tan",
+  "site": 1261924,
+  "help": "Should we try to straighten an island of faces deviating from their average normal (tangent)?",
+  "float": false
+ },
+ {
+  "name": "hullivr_version",
+  "site": 1262095,
+  "help": null,
+  "float": false
+ },
+ {
+  "name": "r_mixed_shadows_fade_in_time",
+  "site": 307039,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_mixed_shadows_fade_out_time",
+  "site": 307199,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_maxuptimelimit",
+  "site": 312401,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "radarvisdistance",
+  "site": 317635,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "radarvismaxdot",
+  "site": 317819,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "radarvispow",
+  "site": 317990,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_auto_cstrafe_lower_overlap_pct_threshold",
+  "site": 320598,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_auto_cstrafe_upper_overlap_pct_threshold",
+  "site": 321350,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "bot_mimic_yaw_offset",
+  "site": 324431,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "cs_hostage_near_rescue_music_distance",
+  "site": 324767,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_radio_throttle_window",
+  "site": 330422,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_vote_command_delay",
+  "site": 338707,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_vote_creation_timer",
+  "site": 339046,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_vote_failure_timer",
+  "site": 339382,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_vote_kick_ban_duration",
+  "site": 342710,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_vote_quorum_ratio",
+  "site": 342899,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_vote_timer_duration",
+  "site": 343062,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_max_view_distance",
+  "site": 352785,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_potentially_visible_dot_tolerance",
+  "site": 352943,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "snd_max_pitch_shift_inaccuracy",
+  "site": 353423,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "suspicious_hit_odds_threshold",
+  "site": 353583,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "suspicious_hit_player_radius",
+  "site": 353743,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "bot_coop_idle_max_vision_distance",
+  "site": 355827,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "bot_defense_rush_chance",
+  "site": 355990,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "bot_max_vision_distance_override",
+  "site": 357539,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "csgo_nav_jump_link_detour_threshold",
+  "site": 358502,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "bot_eco_limit",
+  "site": 361846,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "bot_strafe",
+  "site": 363841,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "bot_max_visible_smoke_length",
+  "site": 366198,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_bot_buy_decoy_weight",
+  "site": 367115,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_bot_buy_flash_weight",
+  "site": 367291,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_bot_buy_grenade_chance",
+  "site": 367483,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_bot_buy_hegrenade_weight",
+  "site": 367659,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_bot_buy_molotov_weight",
+  "site": 367835,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_bot_buy_smoke_weight",
+  "site": 368011,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_child_spawn_interval_multiplier",
+  "site": 370198,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_damage",
+  "site": 370710,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_damage_ct",
+  "site": 370870,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_flame_lifetime",
+  "site": 371206,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_flame_lifetime_incendiary",
+  "site": 371366,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_flame_spacing",
+  "site": 371526,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_friendly_fire_duration",
+  "site": 371686,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_initial_spawn_interval",
+  "site": 371846,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_max_child_spawn_interval",
+  "site": 372006,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_max_range",
+  "site": 372342,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_max_range_ct",
+  "site": 372502,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_per_flame_spawn_duration",
+  "site": 372662,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_spawn_angle",
+  "site": 372822,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_spread_speed_mult",
+  "site": 372982,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_spread_speed_mult_ct",
+  "site": 373142,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_surface_offset",
+  "site": 373295,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_velocity_decay_factor",
+  "site": 373455,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_velocity_factor",
+  "site": 373615,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_velocity_factor_ct",
+  "site": 373775,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_velocity_normal_factor",
+  "site": 373930,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "devonly_chicken_blocktimer",
+  "site": 374630,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "devonly_chicken_feeler_distance",
+  "site": 374790,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "devonly_chicken_feeler_height",
+  "site": 374950,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "devonly_chicken_feeler_pitch",
+  "site": 375110,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_damage_timer",
+  "site": 377078,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_forward_reduction_factor",
+  "site": 377231,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "inferno_smoke_volume_density",
+  "site": 377567,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "hostage_drop_time",
+  "site": 382006,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_hostages_run_speed_modifier",
+  "site": 382371,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_pushaway_hostage_force",
+  "site": 383510,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_pushaway_max_hostage_force",
+  "site": 383670,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_approach_points_area_size_threshold",
+  "site": 387302,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_hegrenade_damage_multiplier",
+  "site": 390351,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_hegrenade_radius_multiplier",
+  "site": 390511,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "break_damage_inherit_scale",
+  "site": 393615,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "break_invulnerable_spawn_duration",
+  "site": 393775,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "breakable_debug_spawn_transform_time",
+  "site": 393937,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ent_pivot_size",
+  "site": 395071,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "props_break_radial_force_ratio",
+  "site": 400047,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_script_think_interval",
+  "site": 400399,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "snd_event_oriented_lerp_max_distance",
+  "site": 448543,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "snd_event_oriented_lerp_min_distance",
+  "site": 448703,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_pushaway_clientside_size",
+  "site": 448870,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ent_skeleton_duration",
+  "site": 471505,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_decals_additional_offset",
+  "site": 474703,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_decals_default_fade_duration",
+  "site": 474863,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_decals_default_start_fade",
+  "site": 475023,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_decals_distance_scale",
+  "site": 475190,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_decals_distance_scale_end",
+  "site": 475350,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_decals_distance_scale_start",
+  "site": 475510,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_decals_overide_fadestarttime_params",
+  "site": 475839,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_decals_triangle_max_stretch",
+  "site": 476182,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "phys_continuous_kinematic_update",
+  "site": 481983,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_338mag_headshot_mult",
+  "site": 602630,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_338mag_impulse",
+  "site": 602790,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_357sig_headshot_mult",
+  "site": 603126,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_357sig_impulse",
+  "site": 603286,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_45acp_headshot_mult",
+  "site": 604150,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_45acp_impulse",
+  "site": 604310,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_50AE_headshot_mult",
+  "site": 604646,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_50AE_impulse",
+  "site": 604806,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_556mm_box_headshot_mult",
+  "site": 605142,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_556mm_box_impulse",
+  "site": 605302,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_556mm_headshot_mult",
+  "site": 605638,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_556mm_impulse",
+  "site": 605798,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_57mm_headshot_mult",
+  "site": 606310,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_57mm_impulse",
+  "site": 606470,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_762mm_headshot_mult",
+  "site": 606806,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_762mm_impulse",
+  "site": 606966,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_9mm_headshot_mult",
+  "site": 607302,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_9mm_impulse",
+  "site": 607462,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_buckshot_headshot_mult",
+  "site": 607798,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ammo_buckshot_impulse",
+  "site": 607958,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "frag_grenade_blip_frequency",
+  "site": 609391,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "bot_autodifficulty_threshold_high",
+  "site": 621171,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "bot_autodifficulty_threshold_low",
+  "site": 621363,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "cash_player_killed_enemy_factor",
+  "site": 622927,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "contributionscore_kill_factor",
+  "site": 629233,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_buytime",
+  "site": 640795,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_competitive_endofmatch_extra_time",
+  "site": 641526,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_damage_scale_ct_body",
+  "site": 643014,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_damage_scale_ct_head",
+  "site": 643174,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_damage_scale_t_body",
+  "site": 643334,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_damage_scale_t_head",
+  "site": 643494,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_damage_vampiric_amount",
+  "site": 643649,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_dm_bonus_length_max",
+  "site": 645910,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_dm_bonus_length_min",
+  "site": 646070,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_dm_time_between_bonus_max",
+  "site": 648038,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_dm_time_between_bonus_min",
+  "site": 648198,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_dogtag_despawn_time",
+  "site": 648539,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_endmatch_votenextleveltime",
+  "site": 649174,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_force_pick_time",
+  "site": 650806,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_global_damage_per_second",
+  "site": 651510,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_halftime_duration",
+  "site": 651867,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_hostages_rescuetime",
+  "site": 652390,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_join_grace_time",
+  "site": 653494,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_min_halftime_duration",
+  "site": 655131,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_playerid_delay",
+  "site": 656971,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_playerid_hold",
+  "site": 657163,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_respawn_immunitytime",
+  "site": 658038,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_round_restart_delay",
+  "site": 662123,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_roundtime",
+  "site": 662323,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_roundtime_defuse",
+  "site": 662502,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_roundtime_hostage",
+  "site": 662678,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_team_intro_time",
+  "site": 665979,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_teammatchstat_cycletime",
+  "site": 668550,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_teammatchstat_holdtime",
+  "site": 668710,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_warmuptime",
+  "site": 673033,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_warmuptime_all_players_connected",
+  "site": 673201,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_warmuptime_match_cancelled",
+  "site": 673366,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_weapon_self_inflict_amount",
+  "site": 673521,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_win_panel_display_time",
+  "site": 675110,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "spec_replay_round_delay",
+  "site": 676369,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_bot_difficulty_kbm",
+  "site": 677713,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_chat_proximity",
+  "site": 678223,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_endmatch_item_drop_interval",
+  "site": 680166,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_endmatch_item_drop_interval_ancient",
+  "site": 680326,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_endmatch_item_drop_interval_legendary",
+  "site": 680486,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_endmatch_item_drop_interval_mythical",
+  "site": 680646,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_endmatch_item_drop_interval_rare",
+  "site": 680806,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_falldamage_to_below_player_multiplier",
+  "site": 681142,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_falldamage_to_below_player_ratio",
+  "site": 681297,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_flashed_amount_for_blind_kill",
+  "site": 681462,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_highlight_distance",
+  "site": 683062,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_highlight_duration",
+  "site": 683222,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_kick_ban_duration",
+  "site": 683734,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_spawn_random_nudge_offset",
+  "site": 686246,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_talk_after_dying_time",
+  "site": 686577,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_voice_proximity",
+  "site": 687967,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_pushaway_force",
+  "site": 720630,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_pushaway_max_force",
+  "site": 720790,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_pushaway_max_player_force",
+  "site": 720950,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_pushaway_min_player_speed",
+  "site": 721110,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_pushaway_player_force",
+  "site": 721270,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "cl_smoke_edge_feather",
+  "site": 725663,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "cl_smoke_lower_speed",
+  "site": 725823,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "cl_smoke_origin_height",
+  "site": 725983,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "cl_smoke_torus_ring_radius",
+  "site": 726143,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "cl_smoke_torus_ring_subradius",
+  "site": 726303,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "healthshot_healthboost_speed_multiplier",
+  "site": 732127,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "healthshot_healthboost_time",
+  "site": 732287,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "molotov_throw_detonate_time",
+  "site": 732447,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "smoke_param1",
+  "site": 736495,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "smoke_param2",
+  "site": 736655,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "smoke_param3",
+  "site": 736815,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "smoke_param4",
+  "site": 736970,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_grenade_collision_sphere_radius",
+  "site": 737894,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_grenade_trajectory_prac_trailtime",
+  "site": 738246,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_grenade_trajectory_time_spectator",
+  "site": 738422,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_health_approach_speed",
+  "site": 738751,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "weapon_molotov_maxdetonateslope",
+  "site": 739963,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_weapon_next_owner_touch_time",
+  "site": 782095,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_weapon_prev_owner_touch_time",
+  "site": 782255,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_c4_upright_constraint_damping",
+  "site": 791331,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_c4_upright_constraint_strength",
+  "site": 791667,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_csgo_shoot_lagcompensation_max_error",
+  "site": 792358,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_strafing_inaccuracy_bias",
+  "site": 793391,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_strafing_inaccuracy_scale",
+  "site": 793727,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_turning_inaccuracy_angle_min",
+  "site": 793887,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_turning_inaccuracy_decay",
+  "site": 794047,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "weapon_accuracy_forcespread",
+  "site": 794385,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "weapon_air_spread_scale",
+  "site": 795083,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "weapon_auto_cleanup_time",
+  "site": 795249,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "weapon_land_dip_amt",
+  "site": 795414,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "weapon_sound_falloff_multiplier",
+  "site": 796102,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_taser_recharge_time",
+  "site": 803862,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "spec_freeze_deathanim_time",
+  "site": 807846,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "spec_freeze_time",
+  "site": 808006,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "spec_freeze_time_lock",
+  "site": 808166,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "spec_freeze_traveltime",
+  "site": 808326,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_spawn_afk_bomb_drop_time",
+  "site": 808486,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ff_damage_bullet_penetration",
+  "site": 810054,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ff_damage_reduction_bullets",
+  "site": 810214,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ff_damage_reduction_grenade",
+  "site": 810374,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ff_damage_reduction_grenade_self",
+  "site": 810534,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ff_damage_reduction_other",
+  "site": 810694,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "healthshot_healthboost_damage_multiplier",
+  "site": 810879,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_flinch_punch_scale",
+  "site": 811046,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_warmup_jointeam_cooldown",
+  "site": 811375,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "phys_headshotscale",
+  "site": 811542,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "phys_playerscale",
+  "site": 811702,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_showimpacts_time",
+  "site": 814251,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "dev_cs_ragdoll_head_ankle_delta_z_threshold",
+  "site": 817750,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "dev_cs_ragdoll_nudge_intensity",
+  "site": 817910,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "dev_cs_ragdoll_nudge_max_duration",
+  "site": 818070,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "dev_cs_ragdoll_progress_check_interval",
+  "site": 818230,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "mp_tagging_scale",
+  "site": 821558,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "player_ping_token_cooldown",
+  "site": 821830,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "player_use_radius",
+  "site": 821983,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "slope_drop_off_ground_blend_speed",
+  "site": 822150,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "slope_drop_max_offset",
+  "site": 822486,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "surf_speed_slow",
+  "site": 822646,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_air_max_wishspeed",
+  "site": 823151,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_bhop_time_window",
+  "site": 823499,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_cs_player_speed_has_hostage",
+  "site": 823670,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_extreme_strafe_accuracy_fishtail",
+  "site": 824206,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_falldamage_scale",
+  "site": 824367,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_jump_impulse",
+  "site": 825115,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_jump_spam_penalty_time",
+  "site": 825462,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_ladder_angle",
+  "site": 825651,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_ladder_dampen",
+  "site": 825835,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_ladder_scale_speed",
+  "site": 826027,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_max_distance_transmit_footsteps",
+  "site": 826374,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_min_jump_landing_sound",
+  "site": 826527,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_staminajumpcost",
+  "site": 827755,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_staminalandcost",
+  "site": 827931,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_staminamax",
+  "site": 828123,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_staminarecoveryrate",
+  "site": 828299,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_standable_normal",
+  "site": 828463,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_step_move_vel_min",
+  "site": 828630,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_timebetweenducks",
+  "site": 829163,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_use_hi_pri_context_switch_time",
+  "site": 829334,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_walkable_normal",
+  "site": 829663,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_water_slow_amount",
+  "site": 829823,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "view_punch_decay",
+  "site": 830166,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_sniper_tracer_innacuracy",
+  "site": 834790,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_sniper_tracer_innacuracy_length",
+  "site": 834950,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_weapon_require_use_grace_period",
+  "site": 835279,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "cq_dilation_percentage",
+  "site": 842243,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ent_steadystate_interval",
+  "site": 843331,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "footstep_audible_threshold",
+  "site": 843663,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "footstep_force_volume",
+  "site": 843999,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ragdoll_friction_scale",
+  "site": 845871,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ragdoll_gravity_scale",
+  "site": 846031,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_client_max_interp_ratio",
+  "site": 849497,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_client_min_interp_ratio",
+  "site": 849700,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_clockcorrection_msecs",
+  "site": 849862,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_maxunlag",
+  "site": 850267,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_maxunlag_player",
+  "site": 850451,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_usercmd_execute_warning_ms",
+  "site": 850966,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "debug_destructible_parts_ttl",
+  "site": 855222,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ent_joint_axis_size",
+  "site": 856492,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "func_breakdmg_bullet",
+  "site": 858060,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "func_breakdmg_club",
+  "site": 858220,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "func_breakdmg_explosive",
+  "site": 858380,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "screenmessage_notifytime",
+  "site": 871427,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "particle_cluster_manager_search_dist",
+  "site": 876479,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "path_node_evaluation_debug",
+  "site": 887914,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "in_button_double_press_window",
+  "site": 890182,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "phys_impactforcescale",
+  "site": 922076,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "phys_stressbodyweights",
+  "site": 922236,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "phys_upimpactforcescale",
+  "site": 922396,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "phys_vehicleimpactforcescale",
+  "site": 922556,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "rr_followup_maxdist",
+  "site": 923750,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "rr_thenany_score_slop",
+  "site": 924017,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sk_player_arm",
+  "site": 926316,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sk_player_chest",
+  "site": 926476,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sk_player_head",
+  "site": 926636,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sk_player_leg",
+  "site": 926796,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sk_player_stomach",
+  "site": 926956,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "snd_foliage_db_loss",
+  "site": 927126,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "spec_replay_winddown_time",
+  "site": 927382,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_regeneration_wait_time",
+  "site": 927903,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "vismon_poll_frequency",
+  "site": 955935,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "func_break_reduction_factor",
+  "site": 961916,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "func_mover_get_speed_override",
+  "site": 963623,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "shatterglass_hit_tolerance",
+  "site": 975871,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "shatterglass_shard_lifetime",
+  "site": 976143,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_ladder_slack_z_mult",
+  "site": 976310,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "decalfrequency",
+  "site": 978335,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ent_steadystate_delay",
+  "site": 978771,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "markup_volume_ref_cone_angle",
+  "site": 1030764,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "pickup_check_period",
+  "site": 1030924,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "phys_shoot_speed",
+  "site": 1039932,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "phys_length_damping_ratio",
+  "site": 1057382,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "phys_length_frequency",
+  "site": 1057542,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "phys_shoot_angular_speed",
+  "site": 1057692,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "prop_nav_ignore_edge_len",
+  "site": 1058444,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "prop_nav_ignore_mass",
+  "site": 1058604,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "prop_nav_obstacle_avoid_mass",
+  "site": 1058764,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "prop_nav_obstacle_block_edge_min_a",
+  "site": 1059084,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "prop_nav_obstacle_block_edge_min_",
+  "site": 1059244,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "prop_nav_obstacle_block_edge_min_c",
+  "site": 1059404,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "prop_nav_obstacle_block_mass_a",
+  "site": 1059564,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "prop_nav_obstacle_block_mass_b",
+  "site": 1059724,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "prop_nav_obstacle_block_mass_c",
+  "site": 1059884,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_AirboatViewDampenDamp",
+  "site": 1060159,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_AirboatViewDampenFreq",
+  "site": 1060319,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_AirboatViewZHeight",
+  "site": 1060474,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_JeepViewDampenDamp",
+  "site": 1060639,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_JeepViewDampenFreq",
+  "site": 1060799,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "r_JeepViewZHeight",
+  "site": 1060959,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ragdoll_prop_sleepaftertime",
+  "site": 1062534,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ragdoll_prop_sleepdisabletime",
+  "site": 1062694,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ragdoll_vphysics_scale",
+  "site": 1063206,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_accelerate",
+  "site": 1064047,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_airaccelerate",
+  "site": 1064207,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_backspeed",
+  "site": 1064550,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_bounce",
+  "site": 1064705,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_footsteps",
+  "site": 1064870,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_friction",
+  "site": 1065030,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_maxspeed",
+  "site": 1065183,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_maxvelocity",
+  "site": 1065350,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_mover_maxslope",
+  "site": 1065510,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_mover_pogodampingratio",
+  "site": 1065670,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_mover_pogofrequency",
+  "site": 1065830,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_noclipaccelerate",
+  "site": 1065983,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_noclipfriction",
+  "site": 1066150,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_noclipspeed",
+  "site": 1066303,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_noclipspeedscaleonshift",
+  "site": 1066463,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_rollangle",
+  "site": 1066625,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_rollspeed",
+  "site": 1066783,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_specaccelerate",
+  "site": 1067135,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_specspeed",
+  "site": 1067485,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_stepsize",
+  "site": 1067647,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_stopspeed",
+  "site": 1067814,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_wateraccelerate",
+  "site": 1067967,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_waterdist",
+  "site": 1068134,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_waterfriction",
+  "site": 1068287,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "think_limit",
+  "site": 1068454,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "cq_logging_interval",
+  "site": 1073089,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "cq_runtests_interval",
+  "site": 1073951,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_player_search_range",
+  "site": 1085519,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_remapper_range_multiplier",
+  "site": 1085855,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "sv_showlagcompensation_rec",
+  "site": 1086017,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "voice_player_speaking_delay_threshold",
+  "site": 1086879,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "ragdoll_lru_min_age",
+  "site": 1104447,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "snd_opvar_set_dome_catchup_distance",
+  "site": 1106623,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "snd_opvar_set_dome_catchup_rate",
+  "site": 1106783,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "snd_opvar_set_dome_churn_fraction",
+  "site": 1106943,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "snd_opvar_set_point_update_interval",
+  "site": 1107455,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "snd_opvar_set_point_update_interval_fast",
+  "site": 1107615,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "snd_steamaudio_pathing_caching_threshold",
+  "site": 1107951,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "soundpatch_captionlength",
+  "site": 1108470,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "phys_pushscale",
+  "site": 1147343,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_draw_area_inset_margin",
+  "site": 1161018,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_draw_connected_area_radius",
+  "site": 1162991,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_draw_mesh_offset",
+  "site": 1165094,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_draw_space_radius",
+  "site": 1166122,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_show_elem_info_font_size",
+  "site": 1170991,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_show_elem_info_font_voffset",
+  "site": 1171151,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_space_select_dist",
+  "site": 1171311,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_bfs_lattice_dist_0",
+  "site": 1172159,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_bfs_lattice_dist_1",
+  "site": 1172319,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_bfs_lattice_dist_2",
+  "site": 1172479,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_bfs_lattice_mark",
+  "site": 1172815,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_bfs_lattice_spacing_0",
+  "site": 1173151,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_bfs_lattice_spacing_1",
+  "site": 1173311,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_bfs_lattice_spacing_2",
+  "site": 1173471,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_boundary_zone_circle",
+  "site": 1173802,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_boundary_zone_grid_dim",
+  "site": 1174143,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_boundary_zone_path",
+  "site": 1174298,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_boundary_zone_rays",
+  "site": 1174463,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_boundary_zone_rays_margin",
+  "site": 1174623,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_boundary_zone_sphere",
+  "site": 1174954,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_find_random_connected_dist_max",
+  "site": 1175823,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_find_random_connected_dist_min",
+  "site": 1175983,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_find_z",
+  "site": 1176138,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_genrt_tile_removal_extent",
+  "site": 1176831,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_npc_collision_range",
+  "site": 1178271,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_path_npc_success_radius_when_blocked",
+  "site": 1179494,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_smooth_extern_push",
+  "site": 1182298,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_smooth_in_speed",
+  "site": 1182463,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_smooth_in_yaw",
+  "site": 1182618,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_smooth_path_speed",
+  "site": 1182783,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_smooth_separating_dist",
+  "site": 1182943,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_smooth_spring_const",
+  "site": 1183103,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_smooth_spring_tension_max",
+  "site": 1183263,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_test_split_obstacle_size",
+  "site": 1184127,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_curve_max_step",
+  "site": 1186031,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_curve_step",
+  "site": 1186367,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_obstruction_draw",
+  "site": 1187226,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_obstruction_draw_dist",
+  "site": 1187567,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_obstruction_draw_island",
+  "site": 1187722,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_path_draw_tick",
+  "site": 1189818,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_arrival_handle_scale",
+  "site": 1191215,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_constrain_spline_relax",
+  "site": 1191903,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_constrain_spring_relax",
+  "site": 1192239,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_draw_boundary",
+  "site": 1192570,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_draw_constraint_spring",
+  "site": 1193082,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_draw_speed",
+  "site": 1193242,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_push_from_walls",
+  "site": 1193583,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_const_override",
+  "site": 1194095,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_factor_deriv",
+  "site": 1194426,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_factor_dist",
+  "site": 1194586,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_factor_speed",
+  "site": 1194746,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_forward_dist_base",
+  "site": 1194911,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_forward_dist_time_limit",
+  "site": 1195071,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_max_dist",
+  "site": 1195231,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_tension_max_override",
+  "site": 1195391,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_timestep_factor_accel",
+  "site": 1195551,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_timestep_factor_speed",
+  "site": 1195711,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_timestep_max",
+  "site": 1195871,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_timestep_min",
+  "site": 1196031,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_yaw_rotation_speed",
+  "site": 1196191,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "nav_smooth_spring_yaw_threshold",
+  "site": 1196351,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "navspace_debug_stringpull",
+  "site": 1196671,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "navspace_debug_transition_calc",
+  "site": 1196826,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "population_distribution_debug",
+  "site": 1197162,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "navspace_debug_trace",
+  "site": 1197898,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "navspace_draw_changes_blocks",
+  "site": 1198065,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "navspace_draw_changes_waters",
+  "site": 1198225,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "npcsolve_drag_linear",
+  "site": 1198855,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "npcsolve_forward_const",
+  "site": 1199164,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "npcsolve_forward_dist",
+  "site": 1199324,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "npcsolve_forward_margin",
+  "site": 1199484,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "npcsolve_path_close_const",
+  "site": 1199639,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "npcsolve_path_close_max_tension",
+  "site": 1199788,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "npcsolve_path_lookahead_dist",
+  "site": 1200108,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "npcsolve_path_vel_const",
+  "site": 1200263,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "npcsolve_separation_const",
+  "site": 1200572,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "npcsolve_separation_dist",
+  "site": 1200732,
+  "help": null,
+  "float": true
+ },
+ {
+  "name": "npcsolve_separation_jitter",
+  "site": 1201047,
+  "help": null,
+  "float": true
+ }
+]

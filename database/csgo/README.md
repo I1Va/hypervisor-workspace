@@ -37,6 +37,17 @@ The binaries are **not** committed. They are re-fetched with
 |---|---|---|
 | `cs2.exe` | `documents/cs2.md` | Source 2 launcher; install trust subsystem; RSA manifest verification; inline detours on `NtOpenFile`/`LoadLibraryExW`/`PeekMessageW` |
 | `client.dll` | `documents/client.md` | Interface registry, entity system, prediction/reconciliation, HUD, 1,695 ConVars, weapon and player paths |
+| `server.dll` | `documents/server.md` | Authoritative tick loop, 10 interfaces, game-mode rules, sub-tick movement, fire path, lag compensation, 1,545 ConVars |
+| `engine2.dll` | `documents/engine2.md` | `Source2Main`, 8-phase bootstrap, 34 interfaces, main loop and sleep scheduler, hashed command-line flags, bundled codecs |
+
+Derived indexes, usable without the binaries:
+
+| Path | Holds |
+|---|---|
+| `index/graph.json` | Cross-module dependency graph, load layers, third-party surface |
+| `index/symbols/tier0.txt` | 1,528 demangled MSVC C++ signatures from `tier0.dll` exports |
+| `index/vtables/server.json` | 3,990 classes / 4,897 vtables with slot RVAs (`server.dll`) |
+| `index/cvars/server.json` | 1,545 ConVars/ConCommands with help text (`server.dll`) |
 
 ## Facts worth knowing before opening a module
 

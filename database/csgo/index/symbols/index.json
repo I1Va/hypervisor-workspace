@@ -1,0 +1,244 @@
+{
+ "total_demangled": 1528,
+ "modules": [
+  {
+   "module": "animationsystem",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "client",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "cs2",
+   "valve": true,
+   "exports": 7,
+   "demangled": 0,
+   "plain": 7
+  },
+  {
+   "module": "engine2",
+   "valve": true,
+   "exports": 43,
+   "demangled": 0,
+   "plain": 43
+  },
+  {
+   "module": "filesystem_stdio",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "helpsystem",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "host",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "inputsystem",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "localize",
+   "valve": true,
+   "exports": 8,
+   "demangled": 0,
+   "plain": 8
+  },
+  {
+   "module": "matchmaking",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "materialsystem2",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "meshsystem",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "navsystem",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "networksystem",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "panorama",
+   "valve": true,
+   "exports": 7,
+   "demangled": 0,
+   "plain": 7
+  },
+  {
+   "module": "panoramauiclient",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "particles",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "physicsbuilder",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "pulse_system",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "rendersystemdx11",
+   "valve": true,
+   "exports": 49,
+   "demangled": 0,
+   "plain": 49
+  },
+  {
+   "module": "rendersystemempty",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "rendersystemvulkan",
+   "valve": true,
+   "exports": 58,
+   "demangled": 0,
+   "plain": 58
+  },
+  {
+   "module": "resourcecompiler",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "resourcesystem",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "scenefilecache",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "scenesystem",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "schemasystem",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "server",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "soundsystem",
+   "valve": true,
+   "exports": 42,
+   "demangled": 0,
+   "plain": 42
+  },
+  {
+   "module": "tier0",
+   "valve": true,
+   "exports": 2625,
+   "demangled": 1528,
+   "plain": 1096
+  },
+  {
+   "module": "toolframework2",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  },
+  {
+   "module": "video64",
+   "valve": true,
+   "exports": 57,
+   "demangled": 0,
+   "plain": 57
+  },
+  {
+   "module": "vphysics2",
+   "valve": true,
+   "exports": 25,
+   "demangled": 0,
+   "plain": 25
+  },
+  {
+   "module": "worldrenderer",
+   "valve": true,
+   "exports": 6,
+   "demangled": 0,
+   "plain": 6
+  }
+ ],
+ "scope": "Valve modules only; third-party (Qt/V8/FBX/ICU) exports were demangled then discarded as out of scope"
+}
