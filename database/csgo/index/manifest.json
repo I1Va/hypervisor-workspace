@@ -427,8 +427,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/particles.md",
+    "status": "documented"
    }
   },
   {
@@ -503,8 +503,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/panorama.md",
+    "status": "documented"
    }
   },
   {
@@ -528,8 +528,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/soundsystem.md",
+    "status": "documented"
    }
   },
   {
