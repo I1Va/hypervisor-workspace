@@ -14,7 +14,6 @@ daemon does not read this directory (see `database/policies/repository.md`).
 | `dr2.cpp` | whether a `#DB` loses `DR6` in hardware or in the `CONTEXT` Windows builds, by taking three readings inside one handler |
 | `exc.cpp` | per-exit cost: `cpuid`, `vmcall`, `rdtsc`, `lfence` against a cross-core software counter |
 | `hvx.cpp` | every gate VMAware's `hyper_x()` evaluates, and the real `tbs.dll` TCG-log result |
-| `hvbrand.cs` | flips CPUID branding on or off at runtime (`hvbrand.exe 1` / `0`), so the 150-point spoof risk can be tested and reverted inside one boot |
 | `tpmgate.cpp` | reproduces `is_log_present()` exactly — the gate that decides `HYPERV_HOST` versus `HYPERV_SPOOFED` |
 | `trapdb.cpp` | the exact `DR6` for five `#DB` cases (`trap`, `trap_only`, `dr0_only`, `icebp`, `cpuid_tf`) |
 | `tfprobe.cpp` | `TF` and `DR0` single-shot counters with `DR6` |
@@ -47,11 +46,6 @@ guest, so the working pattern is a host HTTP server plus
   the `CONTEXT` and a fresh `GetThreadContext` (hardware genuinely empty); a DR0
   `#DB` reports `0xFFFF0FF1` (hardware set B0). That split is what located the
   TRAP problem, and what proved `#DB` interception makes it worse.
-- `hvx` → with branding on it must report `vendor_is_Microsoft_Hv=1`,
-  `root_partition=1`, and a maximum hypervisor leaf of `0x40000006`. If
-  `root_partition=0`, check that the flag is in **0x40000003 EBX**, not
-  0x40000001 — that single mistake adds three detections. See
-  `database/hv/hyperv-branding.md`.
-- `hvbrand 1` / `hvbrand 0` → toggles branding without a reboot. Use it to check
-  that turning branding off really does bring TRAP and TIMER back, which is the
-  only way to know the measurement is attributable.
+- `hvx` → reports the CPUID leaves VMAware's `hyper_x()` reads. The hypervisor
+  no longer brands the guest, so the expected state is the plain one: hypervisor
+  bit clear, no `Microsoft Hv` vendor string, no root-partition flag.
