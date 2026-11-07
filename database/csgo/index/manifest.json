@@ -752,8 +752,8 @@
    ],
    "analysis": {
     "disassembly_functions": 300,
-    "document": null,
-    "status": "extracted, not documented"
+    "document": "documents/tier0.md",
+    "status": "documented"
    }
   },
   {
@@ -932,8 +932,8 @@
    ],
    "analysis": {
     "disassembly_functions": 0,
-    "document": null,
-    "status": "inventory only"
+    "document": "documents/networksystem.md",
+    "status": "documented"
    }
   },
   {
