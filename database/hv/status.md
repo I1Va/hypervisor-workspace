@@ -11,6 +11,36 @@ vmaware: v2.8.2-56-gc8092c6
 **Snapshot, not truth.** Each section is dated and superseded by a newer one
 above it. Compare only against records with the same `commit` and `vmaware`.
 
+## 2026-11-08 - owned histogram rejected after boot 28 measurement
+
+The separate dense-owner histogram candidate measured CPUID medians 786 and
+774 ticks, versus 774 twice on production boot 27. It did not establish a
+repeatable gain. Installed VMAware stayed TIMER fires:45, TRAP/EIP_OVERFLOW 0.
+The candidate was removed, its exact patch preserved, and production rebuilt to
+its original image hash. Ready boot 29 reproduced the 774-tick median and
+TIMER fires:45. Details and source provenance limitations live in
+`../experiments/2026-11-08-owned-exit-counters/record.md`.
+
+A new linked-image test preserves the host-FS invariant independently: it scans
+sized function ranges, checks stack-protector/TLS configuration, and rejects
+unexpected segment memory/base instructions. It does not analyze dynamic WRMSR
+operands or replace architectural review.
+
+## 2026-11-08 - remaining VMCS read and counter-ownership audit
+
+After boot 27's measured host-FS improvement, source review found no generally
+safe removal among the remaining CPUID VMREADs: reason/RIP/length,
+interruptibility and RFLAGS carry state not present in root GPRs, and the CS-rights
+read is already conditional on possible 32-bit wrapping. This is a scoped audit,
+not a proof that all future restructuring is impossible.
+
+The public histogram API supports same-shard concurrent writers and must retain
+atomic RMW. Initial APIC IDs are truncated to eight bits and setup does not prove
+their uniqueness on arbitrary x2APIC systems. A separate dispatcher-only owned
+store must therefore use the validated dense processor-context index and never
+mix its load/store increments with generic atomic writers. The existing public
+multiwriter tests remain required.
+
 ## 2026-11-08 - host FS CPU identity; boot 27
 
 Boot_id 27 loaded uncommitted image SHA-256

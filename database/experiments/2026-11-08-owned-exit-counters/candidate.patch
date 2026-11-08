@@ -1,0 +1,519 @@
+diff --git a/Sources/HvStats.c b/Sources/HvStats.c
+index af9a85d..934250b 100644
+--- a/Sources/HvStats.c
++++ b/Sources/HvStats.c
+@@ -34,6 +34,19 @@ typedef struct __attribute__((aligned(64)))
+ } HV_STATS_EXIT_SHARD;
+ 
+ STATIC HV_STATS_EXIT_SHARD g_HvExitShards[HV_STATS_SHARD_COUNT];
++
++/* Separate words from the generic RMW shards: only the dispatcher owning the
++ * validated dense context index may increment these bins. Host NMI paths do not
++ * count exits. Readers remain atomic; no scan, lock, or owner detection is needed
++ * in the exit path. Duplicate APIC IDs still have distinct owner storage. */
++typedef struct __attribute__((aligned(64)))
++{
++	HV_STATS_EXIT_SHARD Counts;
++	UINT32 ApicId; /* Immutable after Valid is published. */
++	volatile UINT32 Valid;
++} HV_STATS_OWNED_EXIT_SHARD;
++
++STATIC HV_STATS_OWNED_EXIT_SHARD g_HvOwnedExitShards[HV_STATS_CORE_COUNT];
+ STATIC volatile UINT64 g_HvPendingDebugQueued;
+ STATIC volatile UINT64 g_HvDr6StatusPublished;
+ STATIC volatile UINT64 g_HvHypercallCount;
+@@ -52,6 +65,38 @@ HvStatsNoteExit(
+ 	__atomic_add_fetch(Counter, 1, __ATOMIC_RELAXED);
+ }
+ 
++VOID
++HvStatsNoteOwnedExit(
++	UINT32 BasicExitReason,
++	UINT32 ApicId,
++	UINT32 OwnerIndex
++	)
++{
++	if (OwnerIndex >= HV_STATS_CORE_COUNT)
++	{
++		HvStatsNoteExit(BasicExitReason, ApicId);
++		return;
++	}
++
++	HV_STATS_OWNED_EXIT_SHARD *Shard = &g_HvOwnedExitShards[OwnerIndex];
++	if (!__atomic_load_n(&Shard->Valid, __ATOMIC_RELAXED))
++	{
++		Shard->ApicId = ApicId;
++		/* Publish immutable metadata before this owner's first event. */
++		__atomic_store_n(&Shard->Valid, 1, __ATOMIC_RELEASE);
++	}
++	else if (Shard->ApicId != ApicId)
++	{
++		/* Misuse must not relabel prior events or discard this event. */
++		HvStatsNoteExit(BasicExitReason, ApicId);
++		return;
++	}
++	volatile UINT64 *Counter = BasicExitReason < HV_STATS_REASON_COUNT
++	    ? &Shard->Counts.ExitReason[BasicExitReason] : &Shard->Counts.OtherReason;
++	UINT64 Count = __atomic_load_n(Counter, __ATOMIC_RELAXED);
++	__atomic_store_n(Counter, Count + 1, __ATOMIC_RELAXED);
++}
++
+ /* Total includes every reason and APIC ID, without another hot-path counter. */
+ UINT64
+ HvStatsTotalExits(
+@@ -72,6 +117,20 @@ HvStatsTotalExits(
+ 		Total += __atomic_load_n(&g_HvExitShards[Core].OtherReason, __ATOMIC_RELAXED);
+ 	}
+ 
++	for (Core = 0; Core < HV_STATS_CORE_COUNT; ++Core)
++	{
++		HV_STATS_OWNED_EXIT_SHARD *Shard = &g_HvOwnedExitShards[Core];
++		if (!__atomic_load_n(&Shard->Valid, __ATOMIC_ACQUIRE))
++		{
++			continue;
++		}
++		for (Reason = 0; Reason < HV_STATS_REASON_COUNT; ++Reason)
++		{
++			Total += __atomic_load_n(&Shard->Counts.ExitReason[Reason], __ATOMIC_RELAXED);
++		}
++		Total += __atomic_load_n(&Shard->Counts.OtherReason, __ATOMIC_RELAXED);
++	}
++
+ 	return Total;
+ }
+ 
+@@ -145,6 +204,31 @@ HvStatsFill(
+ 		}
+ 	}
+ 
++	/* Read each owned bin once too, deriving histogram, total and APIC totals
++	 * from that value. Acquire guards the immutable APIC mapping; multiple
++	 * owners with the same APIC ID aggregate into the same public core slot. */
++	for (Core = 0; Core < HV_STATS_CORE_COUNT; ++Core)
++	{
++		HV_STATS_OWNED_EXIT_SHARD *Shard = &g_HvOwnedExitShards[Core];
++		UINT64 CoreTotal = 0;
++		if (!__atomic_load_n(&Shard->Valid, __ATOMIC_ACQUIRE))
++		{
++			continue;
++		}
++		for (Reason = 0; Reason < HV_STATS_REASON_COUNT; ++Reason)
++		{
++			UINT64 Count = __atomic_load_n(&Shard->Counts.ExitReason[Reason], __ATOMIC_RELAXED);
++			Stats->ExitReason[Reason] += Count;
++			CoreTotal += Count;
++		}
++		CoreTotal += __atomic_load_n(&Shard->Counts.OtherReason, __ATOMIC_RELAXED);
++		Stats->TotalExits += CoreTotal;
++		if (Shard->ApicId < HV_STATS_CORE_COUNT)
++		{
++			Stats->CoreExits[Shard->ApicId] += CoreTotal;
++		}
++	}
++
+ 	Stats->PendingDebugQueued = __atomic_load_n(&g_HvPendingDebugQueued, __ATOMIC_RELAXED);
+ 	Stats->Dr6StatusPublished = __atomic_load_n(&g_HvDr6StatusPublished, __ATOMIC_RELAXED);
+ 	Stats->Hypercalls = __atomic_load_n(&g_HvHypercallCount, __ATOMIC_RELAXED);
+diff --git a/Sources/HvStats.h b/Sources/HvStats.h
+index 7847097..829ab82 100644
+--- a/Sources/HvStats.h
++++ b/Sources/HvStats.h
+@@ -13,6 +13,13 @@
+ 
+ /* Record any reason/APIC ID with one relaxed atomic RMW in an exit shard. */
+ VOID HvStatsNoteExit(UINT32 BasicExitReason, UINT32 ApicId);
++/* Dispatcher only: OwnerIndex is the validated dense ProcessorNum, never APIC ID.
++ * Each index <64 has exactly one non-reentrant writer and an immutable ApicId
++ * for the lifetime of these counters. No NMI/other caller may write its bins.
++ * Indices >=64 (including unknown sentinels) use HvStatsNoteExit's atomic RMW.
++ * Owned storage is separate from the generic API, even for the same APIC ID.
++ * A changed APIC ID on an already published owner falls back without relabeling. */
++VOID HvStatsNoteOwnedExit(UINT32 BasicExitReason, UINT32 ApicId, UINT32 OwnerIndex);
+ /* A #DB was queued through GUEST_PENDING_DEBUG_EXCEPTIONS. */
+ VOID HvStatsNotePendingDebug(VOID);
+ /* DR6 status bits were published by the VMM rather than by hardware. */
+diff --git a/Sources/Vmx/VmxExitHandlers.c b/Sources/Vmx/VmxExitHandlers.c
+index e84070f..701c779 100644
+--- a/Sources/Vmx/VmxExitHandlers.c
++++ b/Sources/Vmx/VmxExitHandlers.c
+@@ -2135,10 +2135,11 @@ VOID VmExitHandler(VMX_GUEST_STATE *GuestRegisters)
+ 
+ 		/*
+ 		 * The exit-reason histogram, so GET_STATS can answer "which exit
+-		 * dominates" without a rebuilt probe. Two relaxed atomics, no scan.
++		 * dominates" without a rebuilt probe. The validated dense context index
++		 * owns separate bins: one non-reentrant dispatcher writer, no NMI writer.
+ 		 * Independent of the optional age diagnostics and HV_LOG.
+ 		 */
+-		HvStatsNoteExit(vmExitReason.BasicExitReason, SelfApic);
++		HvStatsNoteOwnedExit(vmExitReason.BasicExitReason, SelfApic, HvCurrentExitStatsIndex());
+ 	}
+ 
+ 	/*
+diff --git a/Sources/Vmx/VmxHelpers.c b/Sources/Vmx/VmxHelpers.c
+index e481cde..8aec08c 100644
+--- a/Sources/Vmx/VmxHelpers.c
++++ b/Sources/Vmx/VmxHelpers.c
+@@ -187,6 +187,18 @@ HvCurrentVmcsApicId(
+ 	return ApicId;
+ }
+ 
++UINT32
++HvCurrentExitStatsIndex(
++	VOID
++	)
++{
++	UINT32 OwnerIndex;
++
++	/* Dispatcher after VM exit only, same validated HOST_FS identity record. */
++	asm volatile("movl %%fs:4, %0" : "=r"(OwnerIndex) : : "memory");
++	return OwnerIndex;
++}
++
+ /*!
+     @brief Adjusts a pin-based control value in consideration with the VMX
+ 	capability MSR.
+diff --git a/Sources/Vmx/VmxHelpers.h b/Sources/Vmx/VmxHelpers.h
+index 635205f..42696ce 100644
+--- a/Sources/Vmx/VmxHelpers.h
++++ b/Sources/Vmx/VmxHelpers.h
+@@ -101,6 +101,9 @@ UINT32 HvCurrentApicId(VOID);
+  * Prelaunch callers must keep using HvCurrentApicId. Root code must neither
+  * use FS for TLS nor overwrite its base. Guest FS is restored by VM entry. */
+ UINT32 HvCurrentVmcsApicId(VOID);
++/* Same exit-only identity ABI: FS:4 is the immutable dense context index,
++ * validated and initialized at setup; zero is a valid owner. */
++UINT32 HvCurrentExitStatsIndex(VOID);
+ 
+ CR0 AdjustGuestCr0(CR0 Cr0);
+ CR4 AdjustGuestCr4(CR4 Cr4);
+diff --git a/Sources/Vmx/VmxHypervisor.c b/Sources/Vmx/VmxHypervisor.c
+index d998040..e52f0d3 100644
+--- a/Sources/Vmx/VmxHypervisor.c
++++ b/Sources/Vmx/VmxHypervisor.c
+@@ -86,6 +86,10 @@ STATIC BOOLEAN VmxSetupHostIdentity(VMX_PER_PROCESSOR_CTX *vmCtx)
+ 		return FALSE;
+ 	}
+ 
++	/* Exact context ownership and allocation bounds above prove a unique dense
++	 * index. Publish it before VM entry; dispatcher counting cannot reenter and
++	 * host NMI paths never write the owned counters. Indices >=64 use RMW bins. */
++	vmCtx->ExitStatsOwnerIndex = vmCtx->ProcessorNum;
+ 	UINT64 IdentityAddress = (UINT64)&vmCtx->InitialApicId;
+ 	return vmwrite(VMCS_HOST_FS_SELECTOR, AsmReadFs() & ~HOST_SEGMENT_SELECTOR_MASK) == 0 &&
+ 	       vmwrite(VMCS_HOST_FS_BASE, IdentityAddress) == 0;
+diff --git a/Sources/Vmx/VmxHypervisor.h b/Sources/Vmx/VmxHypervisor.h
+index f042b16..9e08b87 100644
+--- a/Sources/Vmx/VmxHypervisor.h
++++ b/Sources/Vmx/VmxHypervisor.h
+@@ -36,10 +36,16 @@ typedef struct
+ 	SEGMENT_DESCRIPTOR_64 HostGuestGdt[MAX_GDT_ENTRIES];
+ 	TASK_STATE_SEGMENT_64 HostGuestTss;
+ 
+-	/* Immutable after setup; HOST_FS_BASE addresses this dword on VM exit. */
++	/* Immutable host identity: HOST_FS_BASE addresses APIC ID at FS:0 and
++	 * the validated dense context index at FS:4. Guest FS is independent. */
+ 	UINT32 InitialApicId;
++	UINT32 ExitStatsOwnerIndex;
+ } VMX_PER_PROCESSOR_CTX;
+ 
++_Static_assert(__builtin_offsetof(VMX_PER_PROCESSOR_CTX, ExitStatsOwnerIndex) ==
++    __builtin_offsetof(VMX_PER_PROCESSOR_CTX, InitialApicId) + sizeof(UINT32),
++    "HOST_FS identity requires adjacent UINT32 APIC ID and owner index");
++
+ typedef struct
+ {
+ 	PAGE_ALIGNED MSR_BITMAPS MsrBitmaps;
+diff --git a/Tests/hv_stats_test.c b/Tests/hv_stats_test.c
+index e0413b5..9793ba9 100644
+--- a/Tests/hv_stats_test.c
++++ b/Tests/hv_stats_test.c
+@@ -33,6 +33,8 @@ _Static_assert(offsetof(HV_STATS, Dr6StatusPublished) == 1640, "DR6 offset");
+ _Static_assert(offsetof(HV_STATS, Hypercalls) == 1648, "hypercalls offset");
+ _Static_assert(_Alignof(HV_STATS_EXIT_SHARD) >= 64, "shard alignment");
+ _Static_assert(sizeof(HV_STATS_EXIT_SHARD) % 64 == 0, "no shard false sharing");
++_Static_assert(_Alignof(HV_STATS_OWNED_EXIT_SHARD) >= 64, "owned alignment");
++_Static_assert(sizeof(HV_STATS_OWNED_EXIT_SHARD) % 64 == 0, "owned stride");
+ 
+ static HV_STATS Expected;
+ static unsigned TickCalls;
+@@ -60,6 +62,7 @@ static void Reset(void)
+ {
+ 	/* Only called with no writers/readers running. */
+ 	memset(g_HvExitShards, 0, sizeof(g_HvExitShards));
++	memset(g_HvOwnedExitShards, 0, sizeof(g_HvOwnedExitShards));
+ 	__atomic_store_n(&g_HvPendingDebugQueued, 0, __ATOMIC_RELAXED);
+ 	__atomic_store_n(&g_HvDr6StatusPublished, 0, __ATOMIC_RELAXED);
+ 	__atomic_store_n(&g_HvHypercallCount, 0, __ATOMIC_RELAXED);
+@@ -253,11 +256,126 @@ static void TestConcurrent(int SameCore)
+ 	Check();
+ }
+ 
++static void OwnedEvent(UINT32 Reason, UINT32 Apic, UINT32 Owner)
++{
++	HvStatsNoteOwnedExit(Reason, Apic, Owner);
++	ExpectEvent(Reason, Apic);
++}
++
++static void TestOwnedBoundaries(void)
++{
++	static const UINT32 Apics[] = {0, 0, 63, 64, 255, UINT32_MAX};
++	static const UINT32 Reasons[] = {0, 71, 72, UINT32_MAX};
++	Reset();
++	for (UINT32 Owner = 0; Owner < 64; ++Owner)
++	{
++		assert((uintptr_t)&g_HvOwnedExitShards[Owner] % 64 == 0);
++		UINT32 Apic = Apics[Owner % 6];
++		for (unsigned R = 0; R < 4; ++R)
++		{
++			OwnedEvent(Reasons[R], Apic, Owner);
++			Check();
++		}
++		assert(g_HvOwnedExitShards[Owner].Valid == 1);
++		assert(g_HvOwnedExitShards[Owner].ApicId == Apic);
++	}
++	/* Invalid owners never alias an owned slot, including zero/sentinel APIC. */
++	OwnedEvent(0, 0, 64);
++	OwnedEvent(71, 63, 65);
++	OwnedEvent(72, 64, UINT32_MAX);
++	OwnedEvent(UINT32_MAX, UINT32_MAX, UINT32_MAX);
++	/* A changed label falls back; old counts and immutable metadata survive. */
++	OwnedEvent(48, 37, 0);
++	assert(g_HvOwnedExitShards[0].ApicId == 0);
++	OwnedEvent(48, 0, 0);
++	Check();
++}
++
++typedef struct {
++	UINT32 Apic;
++	UINT32 Owner;
++	int Generic;
++	int Publication;
++} OWNED_WRITER;
++
++static void *WriteOwnedExits(void *Argument)
++{
++	OWNED_WRITER *Writer = Argument;
++	while (!__atomic_load_n(&Start, __ATOMIC_ACQUIRE)) { }
++	for (unsigned Index = 0; Index < ITERATIONS; ++Index)
++	{
++		UINT32 Reason = Writer->Publication ? Writer->Apic : ThreadReasons[Index % 5];
++		if (Writer->Generic) HvStatsNoteExit(Reason, Writer->Apic);
++		else HvStatsNoteOwnedExit(Reason, Writer->Apic, Writer->Owner);
++	}
++	__atomic_add_fetch(&Done, 1, __ATOMIC_RELEASE);
++	return NULL;
++}
++
++static void TestOwnedConcurrent(int Fallback, int Publication)
++{
++	/* Eight owned writers with repeated APIC 0/7; a ninth generic writer
++	 * simultaneously updates APIC 0 using entirely separate RMW storage. */
++	static const UINT32 Apics[THREAD_COUNT] = {0, 0, 7, 7, 63, 64, 255, UINT32_MAX};
++	pthread_t Threads[THREAD_COUNT + 1];
++	OWNED_WRITER Writers[THREAD_COUNT + 1];
++	HV_STATS Previous = {0}, Stats;
++	Reset();
++	__atomic_store_n(&Start, 0, __ATOMIC_RELAXED);
++	__atomic_store_n(&Done, 0, __ATOMIC_RELAXED);
++	for (unsigned Thread = 0; Thread <= THREAD_COUNT; ++Thread)
++	{
++		Writers[Thread].Apic = Publication ? (Thread % 4) * 7 :
++		    (Thread == THREAD_COUNT ? 0 : Apics[Thread]);
++		Writers[Thread].Publication = Publication;
++		/* All fallback writers share the same >=64 owner, and two share
++		 * the generic writer's APIC shard. Both paths must retain every event. */
++		Writers[Thread].Owner = Fallback ? 64 : Thread;
++		Writers[Thread].Generic = Thread == THREAD_COUNT;
++		assert(pthread_create(&Threads[Thread], NULL, WriteOwnedExits, &Writers[Thread]) == 0);
++	}
++	__atomic_store_n(&Start, 1, __ATOMIC_RELEASE);
++	do
++	{
++		HvStatsFill(&Stats);
++		CheckLive(&Previous, &Stats);
++		Previous = Stats;
++		if (Publication)
++		{
++			UINT64 Total = 0;
++			for (unsigned Core = 0; Core < 64; ++Core)
++			{
++				assert(Stats.CoreExits[Core] == Stats.ExitReason[Core]);
++				Total += Stats.CoreExits[Core];
++			}
++			assert(Total == Stats.TotalExits);
++		}
++	} while (__atomic_load_n(&Done, __ATOMIC_ACQUIRE) != THREAD_COUNT + 1);
++	for (unsigned Thread = 0; Thread <= THREAD_COUNT; ++Thread)
++	{
++		assert(pthread_join(Threads[Thread], NULL) == 0);
++		for (unsigned Index = 0; Index < ITERATIONS; ++Index)
++			ExpectEvent(Publication ? Writers[Thread].Apic : ThreadReasons[Index % 5],
++			    Writers[Thread].Apic);
++	}
++	for (unsigned Owner = 0; Owner < 64; ++Owner)
++	{
++		assert(g_HvOwnedExitShards[Owner].Valid == (UINT32)(!Fallback && Owner < THREAD_COUNT));
++		if (!Fallback && Owner < THREAD_COUNT)
++			assert(g_HvOwnedExitShards[Owner].ApicId == Writers[Owner].Apic);
++	}
++	Check();
++}
++
+ int main(void)
+ {
+ 	TestBoundaries();
+ 	TestConcurrent(0); /* Independent cores, including concurrent fallback users. */
+ 	TestConcurrent(1); /* Same-shard writers: atomic RMW must not lose increments. */
+-	puts("hv_stats_test: PASS (ABI, boundaries, totals, atomic snapshots, concurrency)");
++	TestOwnedBoundaries();
++	TestOwnedConcurrent(0, 0); /* Distinct owners, duplicate APICs, generic overlap. */
++	TestOwnedConcurrent(1, 0); /* Shared owner fallback retains atomic RMW semantics. */
++	TestOwnedConcurrent(0, 1); /* Live publication: reason == APIC, exact view agreement. */
++	puts("hv_stats_test: PASS (ABI, generic RMW, owned counters, fallback, publication, concurrency)");
+ 	return 0;
+ }
+diff --git a/Tests/run_core_stall_tests.py b/Tests/run_core_stall_tests.py
+index 48ef12a..cb1040d 100644
+--- a/Tests/run_core_stall_tests.py
++++ b/Tests/run_core_stall_tests.py
+@@ -66,7 +66,7 @@ common = dispatcher[:cpuid_branch]
+ common_tokens = (
+     "HvCurrentVmcsApicId()", "EptSyncOnExit(SelfApic)",
+     "VmxRead(VMCS_EXIT_REASON)", "VmxRead(VMCS_GUEST_RIP)",
+-    "HvStatsNoteExit(vmExitReason.BasicExitReason, SelfApic)",
++    "HvStatsNoteOwnedExit(vmExitReason.BasicExitReason, SelfApic, HvCurrentExitStatsIndex())",
+     "STATIC HV_LIVELOCK_RECORD Records[HV_APIC_TRACK_SLOTS]",
+     "Record->Repeats == HV_LIVELOCK_LIMIT",
+ )
+@@ -141,7 +141,7 @@ for diagnostic in (0, 1):
+         assert ("AsmReadTsc" in dispatcher) == bool(diagnostic)
+         assert "AsmReadTsc" not in non_cpuid
+         assert "RecordPendingSingleStep(" not in non_cpuid
+-        assert "HvStatsNoteExit(vmExitReason.BasicExitReason, SelfApic)" in dispatcher
++        assert "HvStatsNoteOwnedExit(vmExitReason.BasicExitReason, SelfApic, HvCurrentExitStatsIndex())" in dispatcher
+         assert ("g_HvCoreStall" in preprocessed) == bool(diagnostic)
+         assert ("HV_CORE_STALL" in preprocessed) == bool(diagnostic)
+         for token in ("g_GuestProgressTick", "g_HvLastGuestTick", "g_HvNmiPending",
+@@ -198,6 +198,7 @@ BOOLEAN HvBootSnapshotNote(CONST VMX_GUEST_STATE *Guest, UINT32 Id, UINT32 Heart
+ }
+ static UINT32 HvCurrentApicId(VOID) { return Apic; }
+ static UINT32 HvCurrentVmcsApicId(VOID) { return Apic; }
++static UINT32 HvCurrentExitStatsIndex(VOID) { return 7; }
+ static UINT64 VmxRead(UINT64 Field)
+ {
+     if (Field == VMCS_EXIT_REASON) return Reason;
+@@ -222,9 +223,9 @@ static VOID RecordPendingSingleStep(UINT32 Value, BOOLEAN KnownClear)
+            !(CpuidShadow & VMX_INTERRUPTIBILITY_STATE_BLOCKING_BY_MOV_SS_FLAG)));
+     ++PendingSteps;
+ }
+-VOID HvStatsNoteExit(UINT32 Value, UINT32 Id)
++VOID HvStatsNoteOwnedExit(UINT32 Value, UINT32 Id, UINT32 OwnerIndex)
+ {
+-    assert(Value == Reason && Id == Apic && Id < 64);
++    assert(Value == Reason && Id == Apic && Id < 64 && OwnerIndex == 7);
+     ++Stats;
+ }
+ #ifdef HV_LOG
+diff --git a/Tests/run_host_identity_tests.py b/Tests/run_host_identity_tests.py
+index 7774f57..31e56f8 100644
+--- a/Tests/run_host_identity_tests.py
++++ b/Tests/run_host_identity_tests.py
+@@ -59,6 +59,11 @@ operand = '"movl %%fs:0, %0" : "=r"(ApicId) : : "memory"'
+ assert identity.count(operand) == 1
+ synthetic = identity.replace(operand,
+                             '"movl %1, %0" : "=r"(ApicId) : "m"(*SyntheticIdentity) : "memory"')
++owner_identity = extract(helpers, "UINT32\nHvCurrentExitStatsIndex(")
++owner_operand = '"movl %%fs:4, %0" : "=r"(OwnerIndex) : : "memory"'
++assert owner_identity.count(owner_operand) == 1
++synthetic_owner = owner_identity.replace(
++    owner_operand, '"movl %1, %0" : "=r"(OwnerIndex) : "m"(*SyntheticOwnerIdentity) : "memory"')
+ # Extract the actual setup call/failure branch and primary-control write/guard.
+ setup_call = extract(setup, "\tif (!VmxSetupHostIdentity(vmCtx))")
+ bitmap_call = extract(setup, "\tif (vmwrite(VMCS_CTRL_MSR_BITMAP_ADDRESS,")
+@@ -97,6 +102,14 @@ assert callers == ["VmxExitHandlers.c"], callers
+ exit_code = clean((PKG / "Sources/Vmx/VmxExitHandlers.c").read_text())
+ assert exit_code.count("HvCurrentVmcsApicId()") == 1
+ assert "UINT32 SelfApic = HvCurrentVmcsApicId();" in exit_code
++assert "vmCtx->ExitStatsOwnerIndex = vmCtx->ProcessorNum;" in code
++for symbol, implementation in (("HvCurrentExitStatsIndex", "VmxHelpers.c"),
++                               ("HvStatsNoteOwnedExit", "HvStats.c")):
++    callers = [path.name for path in (PKG / "Sources").rglob("*.c")
++               if path.name != implementation and symbol + "(" in clean(path.read_text())]
++    assert callers == ["VmxExitHandlers.c"], (symbol, callers)
++    assert exit_code.count(symbol + "(") == 1
++    assert symbol + "(" in clean(extract(exit_code, "VOID VmExitHandler("))
+ 
+ # Compile complete changed translation units against the recorded production
+ # headers/flags, without building or linking firmware.
+@@ -158,7 +171,11 @@ UINT64 EFIAPI AsmReadMsr64(UINT32 Msr) {
+ VOID *EFIAPI ZeroMem(VOID *Buffer, UINTN Length) { return memset(Buffer, 0, Length); }
+ ''' + production + r'''
+ static const UINT32 *SyntheticIdentity;
+-''' + synthetic + r'''
++static const UINT32 *SyntheticOwnerIdentity;
++_Static_assert(__builtin_offsetof(VMX_PER_PROCESSOR_CTX, ExitStatsOwnerIndex) -
++               __builtin_offsetof(VMX_PER_PROCESSOR_CTX, InitialApicId) == 4,
++               "FS:4 must address the owner dword, not padding");
++''' + synthetic + synthetic_owner + r'''
+ static EFI_STATUS SetupIdentity(VMX_PER_PROCESSOR_CTX *vmCtx) {
+ ''' + setup_call + r'''
+     return EFI_SUCCESS;
+@@ -184,12 +201,15 @@ static void Reset(void) {
+     g_VmxSharedCtx = &Shared;
+     Contexts[0].ProcessorNum = 0; Contexts[1].ProcessorNum = 1;
+     Contexts[0].InitialApicId = 0; Contexts[1].InitialApicId = 37;
++    Contexts[0].ExitStatsOwnerIndex = Contexts[1].ExitStatsOwnerIndex = MAX_UINT32;
+     FailField = MAX_UINT64; Writes = MsrReads = 0;
+     HostBase = HostSelector = MAX_UINT64;
+ }
+ static void Rejected(VMX_PER_PROCESSOR_CTX *Context) {
+     assert(SetupIdentity(Context) == EFI_UNSUPPORTED);
+     assert(Writes == 0);
++    assert(Contexts[0].ExitStatsOwnerIndex == MAX_UINT32);
++    assert(Contexts[1].ExitStatsOwnerIndex == MAX_UINT32);
+ }
+ int main(void) {
+     Reset();
+@@ -205,6 +225,9 @@ int main(void) {
+         assert(HostSelector == (0x3b & ~HOST_SEGMENT_SELECTOR_MASK));
+         assert(MsrReads == 0); // No physical FS_BASE changes/capture in host setup.
+         SyntheticIdentity = (const UINT32 *)HostBase;
++        SyntheticOwnerIdentity = (const UINT32 *)(HostBase + 4);
++        assert(Contexts[i].ExitStatsOwnerIndex == i);
++        assert(HvCurrentExitStatsIndex() == i);
+         assert(HvCurrentVmcsApicId() == (i ? 37 : 0));
+         Contexts[i].InitialApicId = 0xff;
+         assert(HvCurrentVmcsApicId() == 0xff); // Volatile load, no cached result.
+diff --git a/Tests/run_vmread_asm_tests.py b/Tests/run_vmread_asm_tests.py
+index 4176acd..b880609 100644
+--- a/Tests/run_vmread_asm_tests.py
++++ b/Tests/run_vmread_asm_tests.py
+@@ -86,6 +86,9 @@ HELPERS = Path(ENTRY["file"]).read_text()
+ identity_start = HELPERS.index("UINT32\nHvCurrentVmcsApicId(")
+ identity_end = HELPERS.index("\n}\n", identity_start) + 3
+ IDENTITY = HELPERS[identity_start:identity_end]
++owner_start = HELPERS.index("UINT32\nHvCurrentExitStatsIndex(")
++owner_end = HELPERS.index("\n}\n", owner_start) + 3
++IDENTITY += HELPERS[owner_start:owner_end]
+ # Compile the actual identity helper alongside the VMREAD probes.
+ with SOURCE.open("a") as source:
+     source.write('\n#include "Vmx/VmxHypervisor.h"\n'
+@@ -149,11 +152,12 @@ def inspect(image, mode):
+         if name == "ProbeCheckedVpid":
+             assert not any("[" in insn for insn in body), (name, body)
+         print(f"{mode} {name}: {'; '.join(body)}")
+-    body = bodies["HvCurrentVmcsApicId"]
+-    assert len(body) == 2, body
+-    assert re.fullmatch(r"mov e(?:ax|bx|cx|dx|si|di|bp|sp),DWORD PTR fs:0x0", body[0]), body
+-    assert body[1] == "ret", body
+-    print(f"{mode} HvCurrentVmcsApicId: {'; '.join(body)}")
++    for name, offset in (("HvCurrentVmcsApicId", 0), ("HvCurrentExitStatsIndex", 4)):
++        body = bodies[name]
++        assert len(body) == 2, body
++        assert re.fullmatch(rf"mov e(?:ax|bx|cx|dx|si|di|bp|sp),DWORD PTR fs:0x{offset:x}", body[0]), body
++        assert body[1] == "ret", body
++        print(f"{mode} {name}: {'; '.join(body)}")
+     for name in ("ProbeWriteDynamic", "ProbeWriteRip", "ProbeWriteClear"):
+         body = bodies[name]
+         writes = [insn for insn in body if insn.startswith("vmwrite ")]
