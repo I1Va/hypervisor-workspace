@@ -138,7 +138,19 @@ by `dbg_screenshot` confirmed the full **TEST DATA - NOT A MATCH** banner,
 `#7 HP:84 4M` / `#11 HP:76 6M` labels on desktop session 1. The preview task
 returned zero. This establishes synthetic graphics only, not real player data.
 
-Physical mouse interaction and real offline CS2 match data still require separate
-runtime validation. The available corpus identifies module hashes but does not
-verify the necessary entity layout, local-pawn/matrix roots, absolute-position
-storage, or connected/local-server flags. No real bot-match success is established.
+Physical mouse interaction was exercised separately through a bounded
+interactive-desktop helper on boot 33 (opening the pause menu and clicking Return
+to game). It is remote desktop input, not a test of framebuffer button capture.
+
+The hash-pinned `cs2-2026-11-04-offline-bots` user-mode adapter now uses verified
+client/engine structures rather than the intentionally invalid example offsets.
+It audits the full server participant vector before and after each frame,
+requiring one local human and all other occupied slots fake clients/bots.
+Read-only boot-33 diagnostics confirmed the full loopback session, one human plus
+nine bots, and live pawn positions/health/team values. A bounded 60-second live
+run returned zero with 974 presentations and clean teardown. The operator later
+confirmed that the live overlay works on the DTB. Automated visual alignment was
+not independently established: screenshots did not show live boxes, and a later
+launch refused an existing framebuffer owner. Do not treat counters as visual
+proof. The pinned adapter has native mocked-memory tests; see its README
+for exact build identity, coverage limits, and launch commands.
