@@ -30,6 +30,12 @@ Earlier measurements recorded CPUID/reference=6.00 and debug/software-exception
 =0.93. Those values belong to those particular builds and probes. They do not
 prove that every implementation must exceed 2.75 or that optimization is useless.
 
+A separate debug-enabled TIMER-only wrapper around the unchanged header now
+exposes both ratios. It identifies the instruction-latency subcheck as firing,
+while the exception-latency subcheck stays below its threshold. Build identities,
+ratios and limits belong in `status.md`; the separately compiled wrapper does not
+authenticate the installed checker or guarantee identical generated code.
+
 The current independently reproduced result is TIMER fires:45 on VMAware
 `v2.8.2-56-gc8092c6`. It remains a failure until the unchanged check measures
 otherwise. Advertising another hypervisor's identity to trigger an exclusion is
@@ -93,6 +99,50 @@ one; the native diagnostic includes both references without altering either.
 
 Do not replace APIC discovery with an ungated x2APIC MSR read: that register
 faults when x2APIC mode is not enabled.
+
+The clock-correctness work removes per-exit TSC subtraction entirely. Ordinary
+CPUID and timer exits now bypass the logger filters at the dispatch site (verbose
+exit totals still count them). Known-field VMCS writes whose status was already
+discarded use inline `VmxWrite`; checked writes retain `vmwrite`. Retirement uses
+inline reads for instruction length and CS rights. The accompanying assembly
+checks cover both read and write helpers, and native retirement tests retain the
+same VMCS effects. Current measured comparisons and their limits are in
+`status.md`; these changes do not establish a TIMER pass or a repeatable speedup.
+
+The common dispatcher directly handles CPUID and calls a noinline non-CPUID
+switch for other exits. `VmExitHandler` and `HandleCpuid` use GCC O2 function
+optimization while the module remains size-optimized; this lets LTO inline
+retirement into the measured CPUID path. A reversal boot A/B showed a repeatable
+~1.4% median reduction, but TIMER still fires. The exact image measurements are
+in `status.md`. Its shared prefix still synchronizes EPT, clears stale
+entry events, records statistics and tracks repeated exits; pending-debug handling
+runs once after either branch. Livelock records occupy separate 64-byte cache
+lines and invalid APIC IDs do not alias CPU 0. Retirement omits the CS-rights read
+only when the calculated next RIP fits in 32 bits, where truncation cannot change
+it. These changes have native semantic tests; current measurements are in
+`status.md` and do not establish a latency gain.
+
+SDM Vol. 3C 30.3.4 supplies a narrow redundant-write opportunity: a genuine
+CPUID exit saves pending-debug exceptions clear when its original MOV-SS
+blocking bit is clear. If the final computed pending value is also zero and no
+handler writes that field or switches VMCS in between, a zero VMWRITE is
+redundant. The predicate must use the original interruptibility state returned
+from retirement, before its MOV-SS bit is cleared. Nonzero pending values,
+MOV-SS cases and all non-CPUID exits require their existing handling. This is
+a sufficient condition, not a claim that every MOV-SS exit saves nonzero state.
+
+A per-CPU leaf-0 cache was removed after a measured regression. CPUID leaf 0 is
+not completely immutable: IA32_MISC_ENABLE[22] can limit its maximum basic leaf.
+The tested cache's live MSR check preserved that behavior, but the combined path
+was slower. Ordinary guest requests continue executing native root-mode CPUID.
+
+The entry-event valid bit is also hardware-maintained: SDM Vol. 3C 30.2 clears
+bit 31 of encoding 0x4016 on every real VM exit. It need not be zero-written at
+every dispatcher entry; lower stale bits are ignored while valid is clear, and
+InjectInterrupt replaces the entire field for a new injection. Explicit checked
+zero initialization is needed before first launch. VM-entry failure leaves the
+valid bit unchanged (29.8), so any future recovery path must deliberately handle
+that attempted event; the current fatal path must preserve diagnostic state.
 
 Further optimizations must preserve CPUID topology/per-core semantics, pending
 events, EPT invalidation, and guest register state. Do not cache arbitrary CPUID
