@@ -11,6 +11,126 @@ vmaware: v2.8.2-56-gc8092c6
 **Snapshot, not truth.** Each section is dated and superseded by a newer one
 above it. Compare only against records with the same `commit` and `vmaware`.
 
+## 2026-11-08 - synthetic graphics verified; firmware-delay blocker
+
+`dbg_screenshot` now visually confirms the full synthetic warning banner,
+two boxes, health bars and readable HP/distance labels; the bounded preview
+returns zero. This is synthetic graphics, not verified game memory. Live offline
+CS2 remains blocked on independently verified layouts/session fields.
+
+The next stall-diagnostic-off image (mtime `1794089961.933886`) rebooted through
+Windows but remains pre-ExitBootServices with advancing per-core timer samples.
+BSP samples are around `0x9a9977de–0x9a997887`; APs report HLT activity at
+`0x9e1e5`. Timer samples prove recurring VM entry/exit, not AP instruction progress.
+No reset was issued while classified booting. Its latency has not been measured.
+Daemon restart renumbered this same physical boot from boot_id 6 to 1.
+
+Direct native CPUID emulation and a bounded one-shot firmware snapshot are now
+built and locally validated but **not live measured**. Final candidate SHA-256:
+`7d847d70994d96719be668aeace83bc0e7c43cd13e8e480c9bbb1d3e2d620971`,
+mtime `1794090854.6469235`. The snapshot is limited to one pre-EBS BSP record,
+with validated code32/stack16 reads and an unchanged ordinary-RAM allowlist.
+Latest observation of the running older image: heartbeat 2432, still pre-EBS,
+no SSH, no panic. The new candidate cannot be loaded without a subsequent boot;
+no reset has been issued while this boot remains classified booting.
+
+## 2026-11-08 - retirement snapshot reuse measured
+
+Image SHA-256 `8e14a13145a56c7c6d938679ab04891681e9b19820876c42cc7baac2ba480b0e`
+(mtime `1794089554.376869`, uncommitted worktree) software-rebooted in 88.0
+seconds, daemon boot_id 5. CPUID retirement reuses the dispatcher's pre-handler
+RIP snapshot through a common retirement core; other handlers retain a live-RIP
+wrapper. Interrupt shadow and compatibility-mode wrapping remain intact.
+
+Native CPUID(0) median **890 TSC ticks**; all 2000 samples accepted. The prior
+inline-VMREAD-only build measured 917 (versus 920 before inlining), so no large
+latency gain was established for inlining alone. **TRAP and EIP_OVERFLOW clean;
+TIMER fires:45.** Clock-state query reports disabled correction and zero offsets
+in the first eight APIC slots. No undetectability/full-sweep claim.
+
+## 2026-11-08 - VMCS processor identity lookup measured
+
+Image SHA-256 `f9a374ad6ac3b7907faa9bf54eec4108ac6eb91a6c5a4d2fb656391de9fb3d93`
+(mtime `1794088701.4518332`, uncommitted worktree) booted by software restart in
+87.2 seconds, daemon boot_id 3. The dispatcher now resolves its existing VPID to
+an immutable hardware initial-APIC-ID cache, with checked VMREAD/bounds and a
+CPUID fallback. Entry stack/assembly and guest CPUID output are unchanged.
+
+Native diagnostic CPUID(0) median: **920 TSC ticks**, versus 1191 in the preceding
+build and 1487 in the initial register-safe baseline. Software-counter median:
+163 increments. All 2000 samples accepted for each tested instruction. The
+8-LFENCE reference is now measured separately; these descriptive measurements
+still do not reproduce TIMER's synchronization/filtering.
+
+**TRAP clean (0), TIMER fires:45** on the unchanged VMAware revision. Collision
+probe: exactly one exception, CONTEXT.Dr6=`0xffff4ff1`, normal continuation.
+Clock-state snapshots before/after: correction disabled, zero offsets in the
+first eight APIC slots. No claim of undetectability or full-sweep success.
+
+## 2026-11-08 - software reboot and framebuffer runtime validation
+
+A graceful `shutdown /r /t 0` reboot through the new software-boot path was
+confirmed (84.7 seconds, daemon boot_id 1 to 2 after its restart). No hardware
+reset or forced application termination was used. The tested uncommitted image
+mtime was `1794087769.0597942`; the pinned VMAware revision remains unchanged.
+
+The current build includes C-only APIC-ID reuse for EPT, shared pre-dispatch RIP,
+removal of the unused private exit counter, sharded exit statistics, and optional
+aggregate trace totals (disabled by default). Native CPUID(0) median measured
+1191 TSC ticks versus the earlier register-safe baseline's 1487. These are not
+TIMER's software-counter ratios. GET_TSC_OFFSET snapshots before/after reported
+disabled correction and zero offsets in APIC slots 0–7. **TRAP remains clean;
+TIMER still fires:45.** No complete sweep has been performed.
+
+The image also corrects confirmed EFIAPI/SysV AP callback and root-exception
+argument mismatches. Their relationship to intermittent firmware delay remains
+unproven; a single successful boot cannot establish causality.
+
+The framebuffer now passes live capability and exclusive self-tests (pixels,
+rectangle bounds, mouse/buttons/keys/wheel/focus). Actual Windows visual output
+and real bot-match data are not yet verified. See `overlay.md` for the boundary.
+
+## 2026-11-08 - boot recovery and timing work, uncommitted worktree
+
+The APIC-ID stack-header experiment was reverted. Its boot eventually reached
+Windows after a prolonged firmware phase; advancing heartbeats were evidence
+against a CPU wedge. Restoring the prior assembly/C entry ABI and HOST_RSP setup
+restored a 53.7-second boot (boot_id 5). The reason for the delay is unresolved.
+
+On boot_id 5, VMAware `v2.8.2-56-gc8092c6` still reports **TRAP clean (0)** and
+**TIMER fires:45**. The independent collision probe still records exactly one
+exception with CONTEXT.Dr6=`0xffff4ff1` and successful continuation. These results
+belong to the uncommitted worktree; no new complete sweep establishes that every
+other vector is clean.
+
+Next performance candidate: reuse the dispatcher's APIC-ID result in the EPT
+check entirely in C, without changing assembly or guest-visible CPUID output.
+The native register-safe latency diagnostic will replace the older C# probe,
+whose generated CPUID stubs fail to preserve RBX.
+
+## 2026-11-07 - debug-state correction, uncommitted worktree
+
+Network boot is restored: DTB HTTP requests fetched both EFI payloads and the
+serial log records processor startup, BOOT-CAT, and ExitBootServices. Results
+below are for the **uncommitted worktree**, not the historical commit in the
+frontmatter. VMAware remains `v2.8.2-56-gc8092c6`; no complete sweep was performed.
+
+| Technique | Before correction | Boot_id 2 | Change |
+|---|---|---|---|
+| `TRAP` | fires:100 | clean (0) | Save/restore guest DR7 and DEBUGCTL; read guest DR7 from VMCS |
+| `TIMER` | fires:45 | fires:45 | Not fixed; counter-based latency remains |
+
+Independent suspended-worker probe: TF+DR0 collision at the CPUID resume RIP
+changed from CONTEXT.Dr6=0 to `0xffff4ff1` (BS+B0), exactly one exception, normal
+continuation. A plain execution breakpoint survived CPUID. Effective debug
+save/load controls were logged as 1/1 on all four processors. This is an
+architectural preservation correction, not the historical Hyper-V branding
+exclusion. See `debug-exception-delivery.md` and `cpuid-exiting-floor.md`.
+
+A separate APIC-ID handoff optimization is being boot-tested; no improvement in
+TIMER is claimed yet. The previous documentation's claims that TRAP was
+intrinsically impossible and that root CPUID causes nested exits were incorrect.
+
 ## 2026-11-07 - article-driven hardening; NOT measured
 
 Worked from `hv/detection-article.md` (see `hv/article-checks.md` for the

@@ -1,223 +1,99 @@
 ---
 topic: cpuid-exiting-floor
 kind: reference
-updated: 2026-11-06
-see: [detection-vectors, interruptibility, vmexit-cost]
+updated: 2026-11-07
+see: [debug-exception-delivery, detection-vectors]
 ---
 
-# The CPUID exit floor
+# CPUID VM-exit overhead: architecture versus measurement
 
-Two of the three remaining detections are the same fact seen from two sides:
-**CPUID always VM-exits, and on this processor that cannot be changed.** This
-document records the measurement that establishes it and what follows.
+## Architectural boundary
 
-## The measurement
+CPUID unconditionally exits in VMX non-root operation. There is no ordinary
+primary execution control to let it execute natively. **Primary processor-based
+control bit 1 is not a CPUID-exiting switch.** Earlier versions of this document
+misread that reserved control and the capability masks. The low capability dword
+specifies required-1 bits; the high dword specifies allowed-1 settings.
 
-`IA32_VMX_PROCBASED_CTLS` (0x482) reports, for each primary processor-based
-control bit, whether it may be 0 (low 32 bits) and whether it may be 1 (high 32
-bits). Read on the DTB (i5-4460, Haswell):
+A CPUID executed in VMX **root** mode does not cause a nested VM exit. It still
+has a real serialization/instruction cost. Removing redundant root CPUID calls
+is valid optimization, not removal of the mandatory guest exit.
 
-```
-PROCBASED cap=FFF9FFFE0401E172  eff=94006172  cpuid_exit_bit=1  must1=1
-```
+## Current detector boundary
 
-Bit 1 of the *high* dword is set, i.e. CPUID exiting is in the "must be 1" mask.
-Intel VT-x **mandates** that CPUID causes a VM exit. There is no configuration
-in which a guest executes CPUID natively while VMX is active.
+VMAware's Windows TIMER uses a counter thread on another CPU, not simply RDTSC.
+Its independent checks compare CPUID/reference latency (threshold 2.75) and
+single-step/software-exception latency (threshold 2.5). A guest TSC offset cannot
+hide elapsed time measured by a separately executing software counter.
 
-That single fact decides two detections.
+Earlier measurements recorded CPUID/reference=6.00 and debug/software-exception
+=0.93. Those values belong to those particular builds and probes. They do not
+prove that every implementation must exceed 2.75 or that optimization is useless.
 
-## What it costs
+The current independently reproduced result is TIMER fires:45 on VMAware
+`v2.8.2-56-gc8092c6`. It remains a failure until the unchanged check measures
+otherwise. Advertising another hypervisor's identity to trigger an exclusion is
+not a timing or debug-state correctness fix.
 
-Measured with a cross-core software counter (the same technique VMAware's TIMER
-uses, so the units are comparable). Two threads pinned to different cores, the
-counter thread incrementing a volatile in a straight line:
+## TRAP is not an intrinsic CPUID limitation
 
-| Operation | Ticks | Ratio to LFENCE | Note |
-|---|---|---|---|
-| LFENCE ×8 | 512 | 1.00 | baseline, no exit |
-| CPUID | 3072 | **6.00** | limit is 2.75 |
-| `#DB` (single-step) | 7168 | — | |
-| `ZwRaiseException` | 7680 | — | ratio 0.93, limit 2.5 |
+The old explanation that TF and an execute breakpoint cannot coincide after a
+CPUID exit was wrong. Execute breakpoints are fault-class conditions recognized
+before their target executes; the boundary may carry both trap/fault causes.
 
-A VM exit plus entry costs on the order of 1500+ cycles; bare-metal CPUID costs
-roughly 100-200. The ratio is therefore bounded below by the exit itself. **No
-amount of handler optimisation reaches 2.75.** Removing our own instrumentation
-(two RDTSCP pairs, ~140 cycles) was worth doing but changed nothing measurable,
-which is the evidence that the floor dominates.
+The implementation omitted guest DR7/DEBUGCTL save+restore. VM exit reset the
+physical register used by its breakpoint helper. Requesting/checking both debug
+controls and reading saved DR7 from the VMCS fixed the measured collision:
+Windows' exception CONTEXT.Dr6 became `0xffff4ff1`, exactly one exception arrived,
+and VMAware TRAP changed from 100 to 0 on daemon boot_id 2. No branding was used.
+See `debug-exception-delivery.md` for the probe and remaining limitations.
 
-## TIMER: why it fires
+## Timing work
 
-`VM::timer()` has two independent sub-checks:
-
-1. CPUID latency / LFENCE latency ≥ 2.75 → "Detected #VMEXIT latency".
-2. `#DB` latency / `ZwRaiseException` latency ≥ 2.5 → "Detected #DB interception".
-
-Measured here: (1) is 6.00 and fires; (2) is 0.93 and does not. That is consistent
-with the exception bitmap being 0 — we are not in the `#DB` path, so sub-check 2
-is satisfied while sub-check 1 is structurally impossible to satisfy.
-
-## TRAP: why it fires
-
-VMAware's `trap()` requires `DR6.BS` and `DR6.B0` in the *same* `#DB`:
-
-```asm
-or dword [rsp], 0x10100   ; TF and RF
-popfq
-cpuid                     ; offset 12 - TF makes this the trapping instruction
-mov rbx, r8               ; offset 14 - also the DR0 target
-```
-
-On bare metal CPUID completes, the TF trap is taken at the next instruction
-boundary, DR0 matches that same address, and the processor sets BS and B0
-together. Under VMX the CPUID exits; the VMM queues BS in
-`GUEST_PENDING_DEBUG_EXCEPTIONS` and the `#DB` is delivered at VM entry, before
-any guest instruction at offset 14 has executed. The processor sets BS and not
-B0, VMAware sees "status lost", and TRAP fires.
-
-`SINGLE_STEP` is clean because it needs only BS, which is exactly what the pending
-field provides. TRAP needs the collision, and the collision cannot happen because
-the instruction the breakpoint is on never runs before the trap is delivered.
-
-## What was tried and rejected
-
-- **Synthesising B0 in the pending-debug path.** Gated on TF-set *and* DR0
-  matching the resume RIP it did not hang, but it also did not change the
-  observed DR6 — the guest-side value stayed 0x0. Ungated, an earlier attempt
-  hung the guest: B0 re-armed a breakpoint on an instruction that had not run, so
-  the guest took `#DB`, resumed at the same RIP, and fired again. A hang is worse
-  than a detection.
-- **Clearing CPUID exiting.** Impossible; see the capability MSR above.
-- **Making the handler cheaper.** Measured, no effect on the ratio.
-
-## The DR6 split, which is where TRAP actually lives
-
-Measured on boot 10 with all five `trapdb` cases and `tfprobe`:
-
-| Case | Delivery | DR6 observed by the guest |
-|---|---|---|
-| `tfcount` (TF, no CPUID) | TF | `0x0` |
-| `cpuid_tf` (TF across a CPUID exit) | pending field | `0x0` |
-| `icebp` | BS | `0x0` |
-| `trap` (TF + DR0) | pending field | `0x0` |
-| `dr0count` (DR0, no TF) | breakpoint | **`0xFFFF0FF1`** |
-
-Every **TF-driven** `#DB` reports `DR6 = 0x0`; a **DR0-driven** `#DB` reports the
-real value with B0 set. That is not consistent with "the pending field loses BS",
-because `tfcount` sets no pending field at all and still reads 0.
-
-A related defect found on the way: `BreakpointBitsForRip` read
-`VMCS_GUEST_DR7`, but `SaveDebugControls`/`LoadDebugControls` are both 0, so the
-field is stale (still `0x400` from setup) and the function always returned 0.
-Fixed to read the physical `DR7`. That is a correctness fix and did not change
-TRAP, which is further evidence the problem is delivery, not status synthesis.
-
-So the next step is not another hypervisor bit: it is to establish whether
-Windows' `CONTEXT` for a TF `#DB` on this guest reports `DR6` at all. The probe
-for that is `drtest.exe`, which currently crashes with exit code 4 before
-printing, so it needs fixing first.
-
-## The delivery experiment: #DB interception after boot
-
-`drtest.exe` was replaced by `dr2.cpp`, which takes three readings inside the same
-handler — the exception `CONTEXT`, a fresh `GetThreadContext`, and a second fresh
-read — so "hardware has no bits" and "Windows dropped them" can be told apart.
-
-Boot 13, no interception:
-
-| Case | `CONTEXT.Dr6` | fresh `GetThreadContext` | Conclusion |
-|---|---|---|---|
-| TF single-step | `0x0` | `0x0` | genuinely empty in hardware |
-| DR0 breakpoint | `0xFFFF0FF1` | `0xFFFF0FF0` | hardware set B0 correctly |
-
-So the TF path loses the bits in hardware, not in the `CONTEXT`, and the
-`CONTEXT` is a faithful copy. The mechanism is that a `#DB` raised from
-`GUEST_PENDING_DEBUG_EXCEPTIONS` at VM entry does not update DR6 — the processor
-only sets status bits for exceptions it raises itself. TF is almost always
-carried across an exit here, because the preemption timer and CPUID exit
-constantly.
-
-The obvious fix — intercept `#DB` after boot so the handler publishes DR6 just
-before injecting — was implemented and measured. Boot 12, interception armed on
-all four cores after `ExitBootServices`:
-
-| Case | Without interception | With interception |
-|---|---|---|
-| DR0 breakpoint | `0xFFFF0FF1` | **`0x0`** |
-| TF single-step | `0x0` | `0x0` |
-
-Interception makes it worse. Injecting a debug exception makes the processor set
-DR6 for the exception *it* delivers, discarding whatever the VMM wrote first.
-That destroys the only path that worked, so `g_HvDebugExitingWanted` stays
-`FALSE` and the arming path is kept dormant.
-
-The remaining possibility is to publish DR6 *after* the injection has taken
-effect, which is not reachable from the exit handler because the exception is
-delivered during the VM entry that returns to the guest. That is why this is
-recorded as a boundary rather than an open bug.
-
-### What this leaves for TRAP and SINGLE_STEP
-
-`SINGLE_STEP` is clean anyway: it needs BS, and the guest's handler tolerates the
-empty DR6 well enough to pass. `TRAP` needs BS **and** B0 together, and the only
-delivery that produces B0 is a real breakpoint — which cannot coincide with a
-trap boundary that is reached through a VM exit. Both detections therefore trace
-back to the CPUID exit, and both are out of reach of hypervisor code that stays
-inside the current design.
-
-## The one remaining lever
-
-`hyper_x()` in VMAware decides whether the machine is a Hyper-V *host*. If it
-returns `HYPERV_HOST`, `timer()` sets `check_nested` and **skips the CPUID
-sub-check entirely**; `trap()` treats a missing B0 as acceptable; and
-`interrupt_shadow()` returns false immediately.
-
-Reaching `HYPERV_HOST` requires all of:
-
-- `cpuid.0x40000001` EBX bit 0 set (root partition),
-- `cpuid.0x40000000` vendor string exactly `Microsoft Hv`,
-- a TCG measured-boot log readable through `tbs.dll` (`is_log_present`),
-- on Windows 11 + admin only, the Hyper-V HAL check.
-
-The last two are the obstacle: presenting the Hyper-V brand without a TPM log
-makes VMAware take the `HYPERV_SPOOFED` branch, which adds
-`brand_enum::NULL_BRAND` at **150 points** — far worse than the 45 and 100 it
-would clear. So spoofing is only viable with a plausible TPM event log, which is
-a separate project. Recorded here so the idea is not re-attempted blind.
-
-## Consequences for the design
-
-Because CPUID must exit, every CPUID in the guest pays the exit cost, and a
-detector can measure it. The mitigations that remain are architectural rather
-than local:
-
-- **Minimise the number of exits the guest can cause per unit time.** Fewer
-  intercepts means a lower chance a timing loop samples one.
-- **Keep the handler minimal**, which is now done.
-- **Consider TSC offsetting** (`UseTscOffsetting`) to compensate measured
-  latency where a detector uses TSC. Not yet evaluated: it does not help a
-  counter-based check like TIMER, and it introduces its own fingerprints.
-- **Do not add intercepts without a measured detection to justify them.** Each
-  one is visible to a timing check.
-
-## The measured exit distribution
-
-`HYPERCALL_GET_STATS` now answers this directly. Boot 17:
+After the debug-control correction, the existing `tscprobe.exe` reported:
 
 ```
-total_exits=26166   CPUID=26049 (99.6%)   PREEMPT_TIMER=82
-CR_ACCESS=6   RDMSR=15   XSETBV=8   VMCALL=1
-per core: apic0 6500  apic2 6729  apic4 6583  apic6 6354
+cpuid_delta min=1544 p25=1548 med=1552
+nop_delta min=24 p25=28 med=28
+lfence_delta min=32 p25=36 med=36
+cpuid_x2000 min=3069332 med=3286637 per_cpuid=1643
 ```
 
-Essentially every exit the guest causes is CPUID. That is the same fact as the
-TIMER detection seen from the other side: CPUID is CPU-mandatory, it is the
-hypercall transport, and it is also what `HvCurrentApicId()` executes on every
-preemption-timer tick.
+These are TSC probe measurements, **not TIMER's software-counter ratio**.
+TSC correction was disabled (`enabled=0`, no per-core accumulated offsets).
 
-Removing that last one is tempting and wrong. Replacing the APIC-ID CPUID with a
-read of `IA32_X2APIC_APICID` costs no exit, but it stopped the machine dead on
-boot 15 — all four cores started and then produced no heartbeats at all, because
-x2APIC is not enabled here and an unreadable MSR faults in root mode. The wasted
-exit is cheaper than the whole machine. If it is revisited, it must be gated on an
-x2APIC-mode check first.
+The subsequent APIC-ID stack-header experiment was **reverted** on 2026-11-08.
+It reached virtualization on all processors but remained in firmware for over
+20 minutes with advancing heartbeats. Windows eventually became reachable;
+calling this a CPU wedge was not justified. Reverting the HOST_RSP/header and
+assembly handoff restored a 53.7-second boot. The delay's cause is not proven.
+A structure-size assertion alone is not a complete assembly ABI proof.
+
+The C-only EPT change now passes the dispatcher's existing root-mode APIC-ID
+result to `EptSyncOnExit`. It removes one redundant serializing CPUID without
+changing HOST_RSP or the assembly/C entry interface. Pre-dispatch RIP is also
+shared between trace consumers; the unused private exit counter is removed.
+Exit statistics use cache-line-separated histogram shards; the default logger
+omits its redundant global aggregate total (`HV_LOG_EXIT_TOTALS=1` restores it).
+Essential heartbeat, panic and interesting-exit tracing remain enabled.
+
+Intermittent firmware delay recurred without a stack header, so attributing it
+solely to the header is unsupported. Confirmed EFIAPI/SysV callback and root
+exception-argument mismatches were subsequently corrected. Repeated measured
+boots are needed to establish their relationship to the symptom.
+
+The old `tscprobe.cs` generated stubs do not preserve Win64's nonvolatile RBX
+around CPUID. Its numbers above are historical observations, not a trustworthy
+native baseline. Use `control/dtb/probes/exit_latency.c` plus `.S` for new
+comparisons. It preserves the Win64 ABI, verifies affinity/AUX endpoints, prints
+accepted/rejected counts and percentiles, and separately reports a cross-core
+software counter. Its ratios are descriptive, not the exact TIMER algorithm.
+On this Haswell system TIMER's reference is **eight consecutive LFENCEs**, not
+one; the native diagnostic includes both references without altering either.
+
+Do not replace APIC discovery with an ungated x2APIC MSR read: that register
+faults when x2APIC mode is not enabled.
+
+Further optimizations must preserve CPUID topology/per-core semantics, pending
+events, EPT invalidation, and guest register state. Do not cache arbitrary CPUID
+results globally or slow a reference instruction to manipulate a detector ratio.

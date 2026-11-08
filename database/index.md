@@ -10,6 +10,7 @@ Read this file first, pick the smallest match, then read only that.
 | platform | reference | Stand wiring, addresses, ports, credentials, wiring notes | `bench/platform.md` |
 | hypervisor-architecture | reference | Pulverized DXE layout: host prep, VMCS, exit dispatch, EPT | `hv/architecture.md` |
 | hvlog | reference | Debug log design: heartbeat, serial capture, hvlog reader, why silence is ambiguous | `hv/hvlog.md` |
+| hypervisor-overlay | reference | Software framebuffer in VMX root, Windows presentation, mouse/button input, ABI and verification limits | `hv/overlay.md` |
 | detection-status | status | Current VMAware verdicts and which vectors still fire (dated) | `hv/status.md` |
 | 2026-11-04-harness-refactor | experiment | Tooling baseline; why per-command latency was 8-35 s and how timeouts are now resolved | `experiments/2026-11-04-harness-refactor/record.md` |
 | false-wedge-from-silent-console | experience | A silent console froze the heartbeat and produced a false `wedged` verdict on a healthy guest | `experience/false-wedge-from-silent-console.md` |
@@ -29,8 +30,8 @@ Read this file first, pick the smallest match, then read only that.
 | thread-mismatch | reference | How THREAD_MISMATCH is computed (hardware_concurrency vs the CPU-model thread count) and what has to agree to pass it | `hv/thread-mismatch.md` |
 | suite-hang-status | status | Why the VMAware full summary hangs: the second pass ignores `--disable`; per-technique sweep results; TIMER/HYPERVISOR_HOOK are the only hangs | `hv/suite-hang-status.md` |
 | intel-sdm | reference | Intel SDM combined volumes 1-4 (PDF, 26 MB, not versioned; referenced for VMX/NMI/topology rules) | `specifications/intel-sdm-vol-1-2abcd-3abcd-4.pdf` |
-| debug-exception-delivery | reference | What is measured about #DB delivery: TF is accepted, hardware raises the trap, DR6 is the VMM's job, re-injection fails VM entry; why TRAP/SINGLE_STEP/DBVM/INTERRUPT_SHADOW fire | `hv/debug-exception-delivery.md` |
-| cpuid-exiting-floor | reference | CPUID exiting is CPU-mandatory (capability MSR must1=1), so TIMER's CPUID/LFENCE ratio of 6.00 (limit 2.75) is structural and TRAP can never see BS or B0 together; measurements and what was tried. The branding lever this analysis left open was subsequently implemented - see hyperv-branding | `hv/cpuid-exiting-floor.md` |
+| debug-exception-delivery | reference | DR7/DEBUGCTL preservation fixes TRAP; measured collision bits, corrected SDM interpretation, remaining pending-debug issues | `hv/debug-exception-delivery.md` |
+| cpuid-exiting-floor | reference | Mandatory guest CPUID exits versus removable root overhead; TIMER remains detected, TRAP was a debug-state bug | `hv/cpuid-exiting-floor.md` |
 | detection-vectors | reference | Inventory of what a detector can measure, what each requires from the hypervisor, current status, and the three interface conclusions (declarative policy, per-handler latency budget, structured hypercall stats) | `hv/detection-vectors.md` |
 | article-checks | reference | The secret.club detection article mapped check-by-check to the code that answers it, including the probes that used to PANIC the machine and the residuals that remain | `hv/article-checks.md` |
 | hyperv-branding | reference | How TRAP and TIMER were cleared by presenting a Hyper-V root partition: the measured gates, the three traps (root flag is in 0x40000003 not 0x40000001, the hypervisor bit must be set too, Hv#1 must be withheld or the loader stalls), and the 150-point risk | `hv/hyperv-branding.md` |
