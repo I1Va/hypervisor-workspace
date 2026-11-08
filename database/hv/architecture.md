@@ -42,6 +42,15 @@ MSR accesses execute natively; generic host MSR emulation would expose or change
 the host identity pointer. VPID remains enabled for translations, independently
 of CPU identity.
 
+The VMX entry stub calls `VmExitHandler` using System V: the guest-state pointer
+is in RDI. System V requires no caller shadow space; the current stub retains a
+balanced 32-byte reservation because its removal showed no latency benefit.
+HOST_RSP starts on a 16-byte boundary. The 15-register push frame (0x78 bytes) and XMM/alignment frame (0x68)
+total 0xe0 bytes, preserving that boundary before CALL; handler entry therefore
+has RSP modulo 16 equal to 8. XMM0–5 are saved because reachable root code uses
+volatile SIMD state. Changes to this layout must preserve the offsets in
+`VMX_GUEST_STATE` and the caller's stack alignment.
+
 Two rules make this file dangerous to change:
 
 1. **A handler that never returns wedges the CPU silently.** The guest stops,

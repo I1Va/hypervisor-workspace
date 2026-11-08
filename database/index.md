@@ -13,6 +13,7 @@ Read this file first, pick the smallest match, then read only that.
 | hypervisor-overlay | reference | Software framebuffer in VMX root, Windows presentation, mouse/button input, ABI and verification limits | `hv/overlay.md` |
 | detection-status | status | Current VMAware verdicts and which vectors still fire (dated) | `hv/status.md` |
 | 2026-11-08-owned-exit-counters | experiment | Separate owned histograms did not establish a latency gain; boot 28 TIMER fires:45, patch retained and production restored | `experiments/2026-11-08-owned-exit-counters/record.md` |
+| 2026-11-08-vmx-entry-call-space | experiment | Removing entry call reservation showed no gain; native ABI tests and entry-symbol guard coverage retained, boot 31 restored | `experiments/2026-11-08-vmx-entry-call-space/record.md` |
 | 2026-11-04-harness-refactor | experiment | Tooling baseline; why per-command latency was 8-35 s and how timeouts are now resolved | `experiments/2026-11-04-harness-refactor/record.md` |
 | false-wedge-from-silent-console | experience | A silent console froze the heartbeat and produced a false `wedged` verdict on a healthy guest | `experience/false-wedge-from-silent-console.md` |
 | stale-boot-server | experience | A stale HTTP server held the boot port, served 404, and the machine sat in firmware | `experience/stale-boot-server.md` |

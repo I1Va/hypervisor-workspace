@@ -11,6 +11,16 @@ vmaware: v2.8.2-56-gc8092c6
 **Snapshot, not truth.** Each section is dated and superseded by a newer one
 above it. Compare only against records with the same `commit` and `vmaware`.
 
+## 2026-11-08 - entry call-space removal rejected; ABI guards retained
+
+Committed candidate `3c981ee` removed two stack adjustments around the System V
+exit-handler call. Boot 30 measured 777 ticks twice versus the prior 774-tick
+baseline; TIMER stayed fires:45, TRAP/EIP_OVERFLOW 0. No speedup was established.
+Runtime layout was restored in `d6fd841`, with the native ABI test and expanded
+linked entry-symbol coverage retained. Boot 31 is ready on the byte-identical
+production EFI. Full evidence is in
+`../experiments/2026-11-08-vmx-entry-call-space/record.md`.
+
 ## 2026-11-08 - owned histogram rejected after boot 28 measurement
 
 The separate dense-owner histogram candidate measured CPUID medians 786 and
