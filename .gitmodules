@@ -4,3 +4,12 @@
 [submodule "database/materials/VMAware"]
 	path = database/materials/VMAware
 	url = https://github.com/NotRequiem/VMAware/
+[submodule "tools/hvoverlay"]
+	path = tools/hvoverlay
+	url = ssh://user@10.0.1.33:2121/haze/usermode-gfx.git
+[submodule "tools/usermode-cs2"]
+	path = tools/usermode-cs2
+	url = ssh://user@10.0.1.33:2121/haze/usermode-cs2.git
+[submodule "hypervisor/infra-netboot"]
+	path = hypervisor/infra-netboot
+	url = ssh://user@10.0.1.33:2121/haze/infra-netboot.git

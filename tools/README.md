@@ -1,4 +1,16 @@
-# Detection probes
+# Detection probes and user-mode components
+
+## User-mode repositories
+
+- `hvoverlay/` is the `usermode-gfx` submodule: visible renderer bridge and client.
+- `usermode-cs2/` is the CS2 user-mode submodule, containing `cs2mem/` and
+  `cs2overlay/`. The legacy reader history is preserved there.
+
+Initialize these through the parent workspace's submodules. Build instructions
+and verification limits live in each component's README. Their relocation adds
+no game-data or detection-evasion capabilities.
+
+## Detection probes
 
 Small C++ probes that report the *quantity* a detection measures, rather than the
 boolean VMAware prints. They exist because "TRAP fires" does not say why, and a
