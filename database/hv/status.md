@@ -11,6 +11,35 @@ vmaware: v2.8.2-56-gc8092c6
 **Snapshot, not truth.** Each section is dated and superseded by a newer one
 above it. Compare only against records with the same `commit` and `vmaware`.
 
+## 2026-11-08 - host FS CPU identity; boot 27
+
+Boot_id 27 loaded uncommitted image SHA-256
+`10053ecf17a984485438cf40d2d31c521212920a60fc3bd12584c751e7258527`
+by graceful software restart. HOST_FS_BASE points at the owning context's immutable
+initial APIC ID; the exit-only identity helper now uses a single DWORD `fs:0`
+load instead of checked VPID VMREAD and context lookup. Setup checks context
+ownership, allocation bounds within the low-512-GiB host mapping, FS selector/base
+writes, bitmap-address installation, effective MSR-bitmap enablement and native
+FS_BASE read/write pass-through. Guest FS capture, VPID translation controls and
+entry-stack ABI are preserved. Native host-identity and assembly tests pass.
+
+Two 2000-sample runs measured CPUID median **774 TSC ticks** with no rejects,
+versus 786 twice on boot 26. The observed reduction is about 1.5%. The separate
+TIMER wrapper measured 697/96 = 7.26042 twice; exception ratios about 0.74.
+Installed VMAware `v2.8.2-56-gc8092c6`: **TIMER fires:45; TRAP/EIP_OVERFLOW
+clean (0)**. The breakpoint-collision probe still delivered one exception at
+offset 14 with CONTEXT.Dr6=`0xffff4ff1`. Four-CPU clock-coherence and 1024 migration
+samples completed without backwards time or CPU/AUX mismatches.
+
+The new guest FS probe (`control/dtb/probes/guest_fs.c` and `.S`, executable
+SHA-256 `62f565245ae18b152a424322906f94f4f1a22df327a4419c83c8587b914d01fc`)
+completed 1000 FS-change/CPUID/FS-restore round trips per CPU on all four CPUs,
+on both baseline boot 26 and candidate boot 27, with zero observed or restored
+base mismatches. FS is restored entirely in assembly before returning to C.
+This covers user-mode FSGSBASE on this Windows configuration; it is not a proof of
+all guest FS uses or future linked-library compatibility. Root FS is now reserved
+for the identity contract and must remain free of TLS or unrelated base writes.
+
 ## 2026-11-08 - redundant entry-event clear removed; boot 26
 
 Boot_id 26 loaded uncommitted image SHA-256

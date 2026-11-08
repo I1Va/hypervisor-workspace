@@ -114,9 +114,9 @@ switch for other exits. `VmExitHandler` and `HandleCpuid` use GCC O2 function
 optimization while the module remains size-optimized; this lets LTO inline
 retirement into the measured CPUID path. A reversal boot A/B showed a repeatable
 ~1.4% median reduction, but TIMER still fires. The exact image measurements are
-in `status.md`. Its shared prefix still synchronizes EPT, clears stale
-entry events, records statistics and tracks repeated exits; pending-debug handling
-runs once after either branch. Livelock records occupy separate 64-byte cache
+in `status.md`. Its shared prefix still synchronizes EPT, records statistics and
+tracks repeated exits; hardware clears the entry-event valid bit on real exits.
+Pending-debug handling runs once after either branch. Livelock records occupy separate 64-byte cache
 lines and invalid APIC IDs do not alias CPU 0. Retirement omits the CS-rights read
 only when the calculated next RIP fits in 32 bits, where truncation cannot change
 it. These changes have native semantic tests; current measurements are in

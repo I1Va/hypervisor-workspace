@@ -32,7 +32,15 @@ write; clearing or zeroing VMCS backing memory does not initialize its fields.
 ## Exit dispatch
 
 `Vmx/VmxExitHandlers.c` is the hot path. Every VM exit lands in `VmExitHandler`,
-which dispatches on the basic exit reason.
+which dispatches on the basic exit reason. After VM exit loads host state,
+`HvCurrentVmcsApicId` reads a DWORD at host `fs:0`: setup points HOST_FS_BASE at
+that CPU context's immutable initial APIC ID. This helper must not be called
+before the first exit, when physical FS still belongs to firmware. Root FS is
+reserved for this identity and must not acquire TLS or unrelated base writes.
+Guest FS is separately saved/restored by VMX. Setup checks that guest FS_BASE
+MSR accesses execute natively; generic host MSR emulation would expose or change
+the host identity pointer. VPID remains enabled for translations, independently
+of CPU identity.
 
 Two rules make this file dangerous to change:
 
@@ -87,6 +95,14 @@ The fallback handlers distinguish RDTSC from RDTSCP, preserve unaffected
 registers, return RDTSCP's low 32-bit TSC_AUX in ECX, and enforce CR4.TSD using
 guest SS.DPL. `Tests/run_tsc_clock_tests.py` exercises these production functions
 with VMCS/MSR stubs; it does not establish Windows runtime correctness.
+
+The dispatcher relies on two documented hardware save effects to avoid redundant
+VMCS writes. Real VM exits clear the injected-event valid bit (SDM 30.2); setup
+initializes it explicitly before first launch. CPUID also saves pending-debug
+exceptions clear when original MOV-SS blocking was absent (30.3.4). Retirement
+returns that original shadow so the debug tail can omit only a computed zero
+write under that condition. Nonzero debug state and other exit reasons retain
+their existing handling.
 
 VM exits still consume real time. In particular CPUID exits are mandatory;
 a VMAware TIMER latency finding is not by itself proof of TSC corruption.
